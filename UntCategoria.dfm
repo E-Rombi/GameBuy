@@ -1,18 +1,18 @@
 inherited FrmCategoria: TFrmCategoria
   Caption = 'Cadastro de Categoria'
-  ClientHeight = 224
+  ClientHeight = 246
   ClientWidth = 908
   ExplicitWidth = 924
-  ExplicitHeight = 263
+  ExplicitHeight = 285
   PixelsPerInch = 96
   TextHeight = 13
   inherited ToolBarPadrao: TToolBar
     Width = 908
+    ExplicitWidth = 908
     inherited Separador2: TToolButton
       Left = 326
       Wrap = False
       ExplicitLeft = 326
-      ExplicitHeight = 44
     end
     inherited btn_Inserir: TToolButton
       Left = 334
@@ -76,19 +76,21 @@ inherited FrmCategoria: TFrmCategoria
     end
   end
   inherited StatusBar1: TStatusBar
-    Top = 205
+    Top = 227
     Width = 908
-    ExplicitTop = 156
+    ExplicitTop = 205
+    ExplicitWidth = 908
   end
   inherited PanelEntrada: TPanel
     Width = 908
+    ExplicitWidth = 908
   end
   inherited PnlFicha: TPanel
     Width = 908
-    Height = 126
-    ExplicitLeft = 8
-    ExplicitTop = 76
-    ExplicitHeight = 164
+    Height = 148
+    ExplicitTop = 81
+    ExplicitWidth = 908
+    ExplicitHeight = 194
     object Label2: TLabel [0]
       Left = 16
       Top = 63
@@ -124,15 +126,17 @@ inherited FrmCategoria: TFrmCategoria
       Height = 21
       DataField = 'NOME'
       DataSource = DataSource
+      MaxLength = 20
       TabOrder = 0
     end
     object DBEdit2: TDBEdit
       Left = 84
       Top = 60
       Width = 429
-      Height = 38
+      Height = 53
       DataField = 'DESCRICAO'
       DataSource = DataSource
+      MaxLength = 60
       TabOrder = 2
     end
     object DBEd_ID: TDBEdit
