@@ -1,14 +1,9 @@
-inherited FrmPadrao1: TFrmPadrao1
+inherited FrmUsuario: TFrmUsuario
   Caption = 'Cadastro de Usu'#225'rio'
   ClientHeight = 245
   ExplicitHeight = 284
   PixelsPerInch = 96
   TextHeight = 13
-  inherited ToolBarPadrao: TToolBar
-    inherited Separador2: TToolButton
-      ExplicitHeight = 52
-    end
-  end
   inherited StatusBar1: TStatusBar
     Top = 226
     ExplicitTop = 226
@@ -16,40 +11,43 @@ inherited FrmPadrao1: TFrmPadrao1
   inherited PnlFicha: TPanel
     Height = 147
     ExplicitHeight = 147
-    object Label2: TLabel
+    object Label2: TLabel [0]
       Left = 56
       Top = 29
       Width = 27
       Height = 13
       Caption = 'Nome'
     end
-    object Label3: TLabel
+    object Label3: TLabel [1]
       Left = 55
       Top = 61
       Width = 25
       Height = 13
       Caption = 'Login'
     end
-    object Label4: TLabel
+    object Label4: TLabel [2]
       Left = 349
       Top = 61
       Width = 30
       Height = 13
       Caption = 'Senha'
     end
-    object Label5: TLabel
+    object Label5: TLabel [3]
       Left = 56
       Top = 98
       Width = 24
       Height = 13
       Caption = 'Perfil'
     end
-    object SpeedButton1: TSpeedButton
+    object SpeedButton1: TSpeedButton [4]
       Left = 249
       Top = 96
       Width = 23
       Height = 22
       OnClick = SpeedButton1Click
+    end
+    inherited GroupBox1: TGroupBox
+      TabOrder = 4
     end
     object DBEdit1: TDBEdit
       Left = 99

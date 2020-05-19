@@ -21,6 +21,11 @@ type
     FDTabelaDATA_CADASTRO: TSQLTimeStampField;
     FDTabelaDATA_ALTERACAO: TSQLTimeStampField;
     FDTabelaFK_USUARIO_ALT: TIntegerField;
+    FDTabelaNOME: TStringField;
+    Label3: TLabel;
+    DBEdit2: TDBEdit;
+    ID: TLabel;
+    DBEd_ID: TDBEdit;
     procedure FormActivate(Sender: TObject);
   private
     { Private declarations }

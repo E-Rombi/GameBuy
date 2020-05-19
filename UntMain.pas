@@ -22,13 +22,15 @@ type
     MainMenu1: TMainMenu;
     Cadastros1: TMenuItem;
     Cad_Perfil: TMenuItem;
-    Usuario1: TMenuItem;
+    Cad_Usuario: TMenuItem;
     Panel1: TPanel;
     PopupMenu1: TPopupMenu;
     Fechar1: TMenuItem;
     Cad_Cliente: TMenuItem;
     Estoque1: TMenuItem;
     Cad_Produto: TMenuItem;
+    Cad_Desenv_Edit: TMenuItem;
+    Cad_Categoria: TMenuItem;
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -52,7 +54,8 @@ implementation
 
 {$R *.dfm}
 
-uses UntPerfil, UntCadastro, UntDM, UntLogin, UntProduto;
+uses UntPerfil, UntCadastro, UntDM, UntLogin, UntProduto, UntDesenv_Edit,
+  UntCategoria, UntUsuario;
 
 procedure TFrmMain.ApplicationEvents1Hint(Sender: TObject);
 begin
@@ -145,6 +148,10 @@ var
     if Form = 'FrmPerfil'  then  vForm := TFrmPerfil.Create(vTab);
     if Form = 'FrmCliente' then  vForm := TFrmCadastro.Create(vTab);
     if Form = 'FrmProduto' then  vForm := TFrmProduto.Create(vTab);
+    if Form = 'FrmDesenv_Edit' then  vForm := TFrmDesenv_Edit.Create(vTab);
+    if Form = 'FrmCategoria' then vform := TFrmCategoria.Create(vTab);
+    if Form = 'FrmUsuario' then vform := TFrmUsuario.Create(vTab);
+
 
 
 
@@ -172,6 +179,18 @@ begin
   if Sender = Cad_Produto then
     if not(vForms.ContainsKey(TWinControl(Sender).Name)) then
       CriarTab(TWinControl(Sender).Name, 'FrmProduto');
+
+  if Sender = Cad_Categoria then
+    if not(vForms.ContainsKey(TWinControl(Sender).Name)) then
+      CriarTab(TWinControl(Sender).Name, 'FrmCategoria');
+
+  if Sender = Cad_Desenv_Edit then
+    if not(vForms.ContainsKey(TWinControl(Sender).Name)) then
+      CriarTab(TWinControl(Sender).Name, 'FrmDesenv_Edit');
+
+  if Sender = Cad_Usuario then
+    if not(vForms.ContainsKey(TWinControl(Sender).Name)) then
+      CriarTab(TWinControl(Sender).Name, 'FrmUsuario');
 
 
 end;

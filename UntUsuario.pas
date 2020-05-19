@@ -14,7 +14,7 @@ uses
   Vcl.DBCtrls, Vcl.Mask, Vcl.Buttons;
 
 type
-  TFrmPadrao1 = class(TFrmPadrao)
+  TFrmUsuario = class(TFrmPadrao)
     FDTabelaID: TIntegerField;
     FDTabelaNOME: TStringField;
     FDTabelaLOGIN: TStringField;
@@ -45,7 +45,7 @@ type
   end;
 
 var
-  FrmPadrao1: TFrmPadrao1;
+  FrmUsuario: TFrmUsuario;
 
 implementation
 
@@ -53,7 +53,7 @@ implementation
 
 uses UntDM, UntMain, UntPerfil;
 
-procedure TFrmPadrao1.FormActivate(Sender: TObject);
+procedure TFrmUsuario.FormActivate(Sender: TObject);
 begin
   FDtabela.TableName := 'Usuario';
   modoEdicao := frmMain.FQry_Login.FieldByName('USUARIO_I').AsString +
@@ -72,7 +72,7 @@ begin
 
 end;
 
-procedure TFrmPadrao1.SpeedButton1Click(Sender: TObject);
+procedure TFrmUsuario.SpeedButton1Click(Sender: TObject);
 begin
   inherited;
   frmperfil.ShowModal;
