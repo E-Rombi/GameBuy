@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Vcl.Mask, Vcl.DBCtrls, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
   System.ImageList, Vcl.ImgList, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls,
-  Vcl.ToolWin;
+  Vcl.ToolWin, Vcl.ExtDlgs;
 
 type
   TFrmProduto = class(TFrmPadrao)
@@ -18,7 +18,6 @@ type
     Label4: TLabel;
     DBEdit1: TDBEdit;
     DBEdit2: TDBEdit;
-    DBEdit3: TDBEdit;
     FDTabelaID: TIntegerField;
     FDTabelaTITULO: TStringField;
     FDTabelaDESCRICAO: TStringField;
@@ -33,7 +32,17 @@ type
     DBLookupComboBox1: TDBLookupComboBox;
     FDQryCategoria: TFDQuery;
     DSCategoria: TDataSource;
+    DBImage1: TDBImage;
+    OpenPictureDialog1: TOpenPictureDialog;
+    Button1: TButton;
+    DBMemo1: TDBMemo;
+    Label6: TLabel;
+    DBEdit3: TDBEdit;
+    Label7: TLabel;
+    DBCmb_Status: TDBComboBox;
+    FDTabelaFOTO: TBlobField;
     procedure FormActivate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -49,6 +58,16 @@ implementation
 
 uses UntLogin, UntMain, UntDM;
 
+procedure TFrmProduto.Button1Click(Sender: TObject);
+begin
+  inherited;
+  if OpenPictureDialog1.Execute then
+    if FileExists(OpenPictureDialog1.FileName) then
+      DBImage1.Picture.LoadFromFile(OpenPictureDialog1.FileName)
+    else
+      raise Exception.Create('Arquivo Inexistente !');
+end;
+
 procedure TFrmProduto.FormActivate(Sender: TObject);
 begin
   FDTabela.TableName := 'PRODUTO';
@@ -60,6 +79,13 @@ begin
   inherited;
 
   FdTabela.Open();
+
+  FDQryCategoria.Close;
+  FDQryCategoria.Open();
+
+  FQuery.Close;
+  FQuery.Open();
+
   Executar := habilitaBotoes;
 end;
 

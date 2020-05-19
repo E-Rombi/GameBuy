@@ -9,7 +9,7 @@ uses
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.ExtCtrls, Vcl.StdCtrls,
-  Vcl.DBCtrls, Vcl.Buttons, Vcl.Menus;
+  Vcl.DBCtrls, Vcl.Buttons, Vcl.Menus, Vcl.Mask;
 
 type
   TExecutar = (navegacao, sentencaSQL, exibePanels,
@@ -44,6 +44,15 @@ type
     Label1: TLabel;
     ValorCampo: TEdit;
     PnlFicha: TPanel;
+    GroupBox1: TGroupBox;
+    Label8: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    DBEd_DataCadastro: TDBEdit;
+    DBEd_DataAlteracao: TDBEdit;
+    DBEd_UsuarioAlt: TDBEdit;
+    DSUsuarioAlt: TDataSource;
+    FQuery: TFDQuery;
     procedure btn_PrimeiroClick(Sender: TObject);
     procedure btn_AnteriorClick(Sender: TObject);
     procedure btn_ProximoClick(Sender: TObject);
@@ -56,6 +65,9 @@ type
     procedure btn_SairClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure FDTabelaBeforePost(DataSet: TDataSet);
+    procedure DataSourceDataChange(Sender: TObject; Field: TField);
+    procedure btn_PesquisarClick(Sender: TObject);
   private
     { Private declarations }
     FExecutar: TExecutar;
@@ -81,7 +93,7 @@ implementation
 
 {$R *.dfm}
 
-uses UntDM;
+uses UntDM, UntMain;
 
 { TFrmPadrao1 }
 
@@ -116,7 +128,7 @@ begin
   ValorCampo.Enabled := False;
   PnlFicha.Enabled := True;
 
-  FDTabela.FieldByName('DATA_ALTERACAO').AsDateTime := Date;
+  FDTabela.FieldByName('DATA_ALTERACAO').AsDateTime := Now;
 
   // Botões e barra de status
   Executar := desabilitaBotoes;
@@ -176,6 +188,17 @@ begin
   operacaoIncluir := 0;
 end;
 
+procedure TFrmPadrao.btn_PesquisarClick(Sender: TObject);
+begin
+  if not(trim(ValorCampo.Text) = '') then
+  begin
+    FDTabela.Filter := 'ID = ' + ValorCampo.Text;
+    FDTabela.Filtered := True;
+  end
+  else
+    FDTabela.Filtered := False;
+end;
+
 procedure TFrmPadrao.btn_PrimeiroClick(Sender: TObject);
 begin
   FDTabela.First;
@@ -204,6 +227,7 @@ end;
 
 procedure TFrmPadrao.btn_SalvarClick(Sender: TObject);
 begin
+  FDTabela.FieldByName('FK_USUARIO_ALT').AsInteger := FrmMain.FQry_Login.FieldByName('ID').AsInteger;
   FDTabela.Post;
 
   mensagem := 'O registro foi incluído ou alterado com sucesso.';
@@ -224,9 +248,23 @@ begin
   Executar := exibePanels;
 end;
 
+procedure TFrmPadrao.DataSourceDataChange(Sender: TObject; Field: TField);
+begin
+  FQuery.Close;
+  FQuery.ParamByName('ID').AsInteger := FDTabela.FieldByName('FK_USUARIO_ALT').AsInteger;
+  FQuery.Open();
+end;
+
+procedure TFrmPadrao.FDTabelaBeforePost(DataSet: TDataSet);
+begin
+  FDTabela.FieldByName('FK_USUARIO_ALT').AsInteger := FrmMain.FQry_Login.FieldByName('ID').AsInteger;
+  FDTabela.FieldByName('DATA_ALTERACAO').AsDateTime := Now;
+end;
+
 procedure TFrmPadrao.FormActivate(Sender: TObject);
 begin
   Executar := exibeBotoes;
+
 end;
 
 procedure TFrmPadrao.FormDestroy(Sender: TObject);

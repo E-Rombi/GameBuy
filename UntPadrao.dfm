@@ -41,6 +41,7 @@ object FrmPadrao: TFrmPadrao
       Hint = 'Pesquisar Registro'
       Caption = 'Pesquisar'
       ImageIndex = 0
+      OnClick = btn_PesquisarClick
     end
     object btn_Ordenar: TToolButton
       Left = 53
@@ -230,6 +231,65 @@ object FrmPadrao: TFrmPadrao
     Height = 226
     Align = alClient
     TabOrder = 3
+    object GroupBox1: TGroupBox
+      Left = 490
+      Top = 17
+      Width = 218
+      Height = 105
+      Caption = 'Infos Registro'
+      TabOrder = 0
+      object Label8: TLabel
+        Left = 8
+        Top = 27
+        Width = 70
+        Height = 13
+        Caption = 'Data Cadastro'
+      end
+      object Label9: TLabel
+        Left = 8
+        Top = 51
+        Width = 72
+        Height = 13
+        Caption = 'Data Altera'#231#227'o'
+      end
+      object Label10: TLabel
+        Left = 9
+        Top = 75
+        Width = 49
+        Height = 13
+        Caption = #218'ltima Alt.'
+      end
+      object DBEd_DataCadastro: TDBEdit
+        Left = 92
+        Top = 24
+        Width = 123
+        Height = 21
+        DataField = 'DATA_CADASTRO'
+        DataSource = DataSource
+        Enabled = False
+        TabOrder = 0
+      end
+      object DBEd_DataAlteracao: TDBEdit
+        Left = 92
+        Top = 48
+        Width = 123
+        Height = 21
+        DataField = 'DATA_ALTERACAO'
+        DataSource = DataSource
+        Enabled = False
+        TabOrder = 1
+      end
+      object DBEd_UsuarioAlt: TDBEdit
+        Left = 92
+        Top = 72
+        Width = 123
+        Height = 21
+        DataField = 'NOME'
+        DataSource = DSUsuarioAlt
+        Enabled = False
+        TabOrder = 2
+      end
+    end
   end
   object ImageList3: TImageList
     Height = 24
@@ -3835,13 +3895,36 @@ object FrmPadrao: TFrmPadrao
       000000000000}
   end
   object FDTabela: TFDTable
+    BeforePost = FDTabelaBeforePost
     Connection = DM.FDConnection1
     Left = 192
     Top = 216
   end
   object DataSource: TDataSource
     DataSet = FDTabela
+    OnDataChange = DataSourceDataChange
     Left = 256
     Top = 216
+  end
+  object DSUsuarioAlt: TDataSource
+    DataSet = FQuery
+    Left = 408
+    Top = 200
+  end
+  object FQuery: TFDQuery
+    Connection = DM.FDConnection1
+    SQL.Strings = (
+      'SELECT'
+      ' ID, NOME'
+      'FROM USUARIO'
+      'WHERE ID = :ID')
+    Left = 344
+    Top = 200
+    ParamData = <
+      item
+        Name = 'ID'
+        DataType = ftInteger
+        ParamType = ptInput
+      end>
   end
 end
