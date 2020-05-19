@@ -3,7 +3,7 @@ object FrmLogin: TFrmLogin
   Top = 0
   BorderIcons = []
   BorderStyle = bsSingle
-  Caption = 'FrmLogin'
+  Caption = 'Login'
   ClientHeight = 225
   ClientWidth = 392
   Color = clBtnFace

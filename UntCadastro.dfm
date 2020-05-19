@@ -3,20 +3,17 @@ inherited FrmCadastro: TFrmCadastro
   ClientHeight = 575
   ClientWidth = 908
   OnCreate = FormCreate
-  ExplicitLeft = -10
-  ExplicitTop = -77
   ExplicitWidth = 924
   ExplicitHeight = 614
   PixelsPerInch = 96
   TextHeight = 13
   inherited ToolBarPadrao: TToolBar
     Width = 908
-    ExplicitWidth = 745
+    ExplicitWidth = 908
     inherited Separador2: TToolButton
       Left = 326
       Wrap = False
       ExplicitLeft = 326
-      ExplicitHeight = 44
     end
     inherited btn_Inserir: TToolButton
       Left = 334
@@ -82,12 +79,12 @@ inherited FrmCadastro: TFrmCadastro
   inherited StatusBar1: TStatusBar
     Top = 556
     Width = 908
-    ExplicitTop = 533
+    ExplicitTop = 556
     ExplicitWidth = 908
   end
   inherited PanelEntrada: TPanel
     Width = 908
-    ExplicitWidth = 745
+    ExplicitWidth = 908
     inherited Label1: TLabel
       Left = 12
       ExplicitLeft = 12
@@ -305,10 +302,6 @@ inherited FrmCadastro: TFrmCadastro
     Height = 323
     Align = alClient
     TabOrder = 4
-    ExplicitLeft = 456
-    ExplicitTop = 328
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object PgCtrl_Endereco: TPageControl
       Left = 1
       Top = 1
@@ -317,12 +310,8 @@ inherited FrmCadastro: TFrmCadastro
       ActivePage = TbSht_EndFaturamento
       Align = alClient
       TabOrder = 0
-      ExplicitHeight = 261
       object TbSht_EndFaturamento: TTabSheet
         Caption = 'End. Faturamento'
-        ExplicitLeft = -1
-        ExplicitTop = 23
-        ExplicitHeight = 233
         object Panel2: TPanel
           Left = 0
           Top = 0
@@ -393,7 +382,7 @@ inherited FrmCadastro: TFrmCadastro
             Height = 21
             DataField = 'NUMERO'
             DataSource = DSDetalhe_1
-            TabOrder = 0
+            TabOrder = 5
           end
           object DBCmb_Estado: TDBComboBox
             Left = 79
@@ -431,7 +420,7 @@ inherited FrmCadastro: TFrmCadastro
               'SP'
               'SE'
               'TO')
-            TabOrder = 1
+            TabOrder = 8
           end
           object DBEd_Cidade: TDBEdit
             Left = 400
@@ -440,7 +429,7 @@ inherited FrmCadastro: TFrmCadastro
             Height = 21
             DataField = 'CIDADE'
             DataSource = DSDetalhe_1
-            TabOrder = 2
+            TabOrder = 7
           end
           object GroupBox2: TGroupBox
             Left = 680
@@ -448,7 +437,7 @@ inherited FrmCadastro: TFrmCadastro
             Width = 218
             Height = 105
             Caption = 'Infos Registro'
-            TabOrder = 3
+            TabOrder = 13
             object Label19: TLabel
               Left = 8
               Top = 27
@@ -508,7 +497,7 @@ inherited FrmCadastro: TFrmCadastro
             Height = 21
             DataField = 'CEP'
             DataSource = DSDetalhe_1
-            TabOrder = 4
+            TabOrder = 3
           end
           object DBEd_Fone: TDBEdit
             Left = 527
@@ -517,7 +506,7 @@ inherited FrmCadastro: TFrmCadastro
             Height = 21
             DataField = 'FONE'
             DataSource = DSDetalhe_1
-            TabOrder = 5
+            TabOrder = 10
           end
           object DBEd_Pais: TDBEdit
             Left = 207
@@ -526,7 +515,7 @@ inherited FrmCadastro: TFrmCadastro
             Height = 21
             DataField = 'PAIS'
             DataSource = DSDetalhe_1
-            TabOrder = 6
+            TabOrder = 9
           end
           object DBEd_Logradouro: TDBEdit
             Left = 79
@@ -535,7 +524,7 @@ inherited FrmCadastro: TFrmCadastro
             Height = 21
             DataField = 'LOGRADOURO'
             DataSource = DSDetalhe_1
-            TabOrder = 7
+            TabOrder = 4
           end
           object DBEd_Bairro: TDBEdit
             Left = 79
@@ -544,7 +533,7 @@ inherited FrmCadastro: TFrmCadastro
             Height = 21
             DataField = 'BAIRRO'
             DataSource = DSDetalhe_1
-            TabOrder = 8
+            TabOrder = 6
           end
           object Btn_NovoEndereco: TButton
             Left = 11
@@ -552,7 +541,7 @@ inherited FrmCadastro: TFrmCadastro
             Width = 78
             Height = 25
             Caption = 'Novo'
-            TabOrder = 9
+            TabOrder = 0
             OnClick = Btn_NovoEnderecoClick
           end
           object Btn_EditarEndereco: TButton
@@ -561,7 +550,7 @@ inherited FrmCadastro: TFrmCadastro
             Width = 78
             Height = 25
             Caption = 'Editar'
-            TabOrder = 10
+            TabOrder = 1
             OnClick = Btn_EditarEnderecoClick
           end
           object Btn_ExcluirEndereco: TButton
@@ -570,7 +559,7 @@ inherited FrmCadastro: TFrmCadastro
             Width = 78
             Height = 25
             Caption = 'Excluir'
-            TabOrder = 11
+            TabOrder = 2
             OnClick = Btn_ExcluirEnderecoClick
           end
           object Btn_GravarEndereco: TButton
@@ -579,7 +568,7 @@ inherited FrmCadastro: TFrmCadastro
             Width = 78
             Height = 25
             Caption = 'Gravar'
-            TabOrder = 12
+            TabOrder = 11
             OnClick = Btn_GravarEnderecoClick
           end
           object Btn_CancelarEndereco: TButton
@@ -588,7 +577,7 @@ inherited FrmCadastro: TFrmCadastro
             Width = 78
             Height = 25
             Caption = 'Cancelar'
-            TabOrder = 13
+            TabOrder = 12
             OnClick = Btn_CancelarEnderecoClick
           end
         end
@@ -721,6 +710,7 @@ inherited FrmCadastro: TFrmCadastro
     end
   end
   inherited DataSource: TDataSource
+    OnDataChange = DataSourceDataChange
     Left = 136
     Top = 424
   end

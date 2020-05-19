@@ -120,6 +120,7 @@ type
     procedure DSDetalhe_1DataChange(Sender: TObject; Field: TField);
     procedure FDTable_Detalhe_1BeforePost(DataSet: TDataSet);
     procedure FDTable_Detalhe_1NewRecord(DataSet: TDataSet);
+    procedure DataSourceDataChange(Sender: TObject; Field: TField);
   private
     { Private declarations }
   public
@@ -169,7 +170,8 @@ end;
 procedure TFrmCadastro.btn_ExcluirClick(Sender: TObject);
 begin
   inherited;
-  FDTable_Detalhe_1.Delete;
+  if not(FDTable_Detalhe_1.IsEmpty) then
+    FDTable_Detalhe_1.Delete;
 end;
 
 procedure TFrmCadastro.Btn_ExcluirEnderecoClick(Sender: TObject);
@@ -213,15 +215,13 @@ end;
 procedure TFrmCadastro.Btn_NovoEnderecoClick(Sender: TObject);
 begin
   inherited;
+  FDTabela.Post;
+  FDTabela.Edit;
   FDTable_Detalhe_1.Insert;
   HabilitaEndereco(True);
 end;
 
 procedure TFrmCadastro.btn_SairClick(Sender: TObject);
-var
-  vTab: TTabSheet;
-  vPc: TPageControl;
-  vMain: TForm;
 begin
   if not(FDTabela.State in [dsInsert, dsEdit]) then
     inherited;
@@ -231,6 +231,14 @@ procedure TFrmCadastro.btn_SalvarClick(Sender: TObject);
 begin
   inherited;
   HabilitaForm(False);
+end;
+
+procedure TFrmCadastro.DataSourceDataChange(Sender: TObject; Field: TField);
+begin
+  inherited;
+  FQuery.Close;
+  FQuery.ParamByName('ID').AsInteger := FDTabelaFK_USUARIO_ALT.AsInteger;
+  FQuery.Open();
 end;
 
 procedure TFrmCadastro.DBCmb_TipoPessoaExit(Sender: TObject);
@@ -297,10 +305,7 @@ begin
                 FrmMain.FQry_Login.FieldByName('CADASTRO_E').AsString;
   Executar := exibePanels;
   inherited;
-  FQuery.Close;
   FDTabela.Open();
-  FQuery.ParamByName('ID').AsInteger := FDTabelaFK_USUARIO_ALT.AsInteger;
-  FQuery.Open();
   Executar := habilitaBotoes;
 
   FDTable_Detalhe_1.Close;
