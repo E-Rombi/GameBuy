@@ -90,6 +90,13 @@ object FrmMain: TFrmMain
     Top = 64
     object Cadastros1: TMenuItem
       Caption = 'Cadastros'
+      object Estoque1: TMenuItem
+        Caption = 'Estoque'
+        object Cad_Produto: TMenuItem
+          Caption = 'Produto'
+          OnClick = ShowForm
+        end
+      end
       object Cad_Perfil: TMenuItem
         Caption = 'Perfil'
         OnClick = ShowForm

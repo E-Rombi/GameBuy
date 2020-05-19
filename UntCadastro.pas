@@ -38,17 +38,8 @@ type
     DBEd_Cnpj_Cpf: TDBEdit;
     Label6: TLabel;
     DBCmb_Status: TDBComboBox;
-    GroupBox1: TGroupBox;
-    Label8: TLabel;
-    DBEd_DataCadastro: TDBEdit;
-    Label9: TLabel;
-    DBEd_DataAlteracao: TDBEdit;
-    Label10: TLabel;
-    DBEd_UsuarioAlt: TDBEdit;
-    FQuery: TFDQuery;
     FDTabelaTIPO_PESSOA: TStringField;
     FDTabelaSTATUS: TStringField;
-    DSUsuarioAlt: TDataSource;
     Panel1: TPanel;
     PgCtrl_Endereco: TPageControl;
     TbSht_EndFaturamento: TTabSheet;
@@ -103,7 +94,6 @@ type
     procedure DBCmb_TipoPessoaExit(Sender: TObject);
     procedure btn_SalvarClick(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
-    procedure FDTabelaBeforePost(DataSet: TDataSet);
     procedure FDTabelaNewRecord(DataSet: TDataSet);
     procedure HabilitaForm(pEnabled: Boolean);
     procedure HabilitaEndereco(pEnabled: Boolean);
@@ -118,9 +108,10 @@ type
     procedure Btn_ExcluirEnderecoClick(Sender: TObject);
     procedure Btn_CancelarEnderecoClick(Sender: TObject);
     procedure DSDetalhe_1DataChange(Sender: TObject; Field: TField);
-    procedure FDTable_Detalhe_1BeforePost(DataSet: TDataSet);
     procedure FDTable_Detalhe_1NewRecord(DataSet: TDataSet);
-    procedure DataSourceDataChange(Sender: TObject; Field: TField);
+    procedure DBEd_NumeroKeyPress(Sender: TObject; var Key: Char);
+    procedure FDTable_Detalhe_1BeforePost(DataSet: TDataSet);
+    procedure FDTable_Detalhe_1AfterEdit(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -233,14 +224,6 @@ begin
   HabilitaForm(False);
 end;
 
-procedure TFrmCadastro.DataSourceDataChange(Sender: TObject; Field: TField);
-begin
-  inherited;
-  FQuery.Close;
-  FQuery.ParamByName('ID').AsInteger := FDTabelaFK_USUARIO_ALT.AsInteger;
-  FQuery.Open();
-end;
-
 procedure TFrmCadastro.DBCmb_TipoPessoaExit(Sender: TObject);
 begin
   inherited;
@@ -259,19 +242,22 @@ begin
     end;
 end;
 
+procedure TFrmCadastro.DBEd_NumeroKeyPress(Sender: TObject; var Key: Char);
+begin
+  inherited;
+  if not(Key in ['0'..'9']) and (Key <> #8) then //#8 = Backspace
+    Key := #0;
+end;
+
 procedure TFrmCadastro.DSDetalhe_1DataChange(Sender: TObject; Field: TField);
 begin
   inherited;
-  FDQuery1.Close;
-  FDQuery1.ParamByName('ID').AsInteger := FDTable_Detalhe_1FK_USUARIO_ALT.AsInteger;
-  FDQuery1.Open();
-end;
-
-procedure TFrmCadastro.FDTabelaBeforePost(DataSet: TDataSet);
-begin
-  inherited;
-  FDTabelaFK_USUARIO_ALT.AsInteger := FrmMain.FQry_Login.FieldByName('ID').AsInteger;
-  FDTabelaDATA_ALTERACAO.AsDateTime := Now;
+  if not(FDTable_Detalhe_1.State in [dsInsert, dsEdit]) then
+  begin
+    FDQuery1.Close;
+    FDQuery1.ParamByName('ID').AsInteger := FDTable_Detalhe_1FK_USUARIO_ALT.AsInteger;
+    FDQuery1.Open();
+  end;
 end;
 
 procedure TFrmCadastro.FDTabelaNewRecord(DataSet: TDataSet);
@@ -282,16 +268,23 @@ begin
   FDTabelaSTATUS.AsString      := 'Ativo';
 end;
 
+procedure TFrmCadastro.FDTable_Detalhe_1AfterEdit(DataSet: TDataSet);
+begin
+  inherited;
+  FDTable_Detalhe_1FK_USUARIO_ALT.AsInteger := FrmMain.FQry_Login.FieldByName('ID').AsInteger;
+end;
+
 procedure TFrmCadastro.FDTable_Detalhe_1BeforePost(DataSet: TDataSet);
 begin
   inherited;
   FDTable_Detalhe_1FK_USUARIO_ALT.AsInteger := FrmMain.FQry_Login.FieldByName('ID').AsInteger;
-  FDTable_Detalhe_1DATA_ALTERACAO.AsDateTime := now;
+  FDTable_Detalhe_1DATA_ALTERACAO.AsDateTime := Now;
 end;
 
 procedure TFrmCadastro.FDTable_Detalhe_1NewRecord(DataSet: TDataSet);
 begin
   inherited;
+  FDTable_Detalhe_1FK_USUARIO_ALT.AsInteger := FrmMain.FQry_Login.FieldByName('ID').AsInteger;
   FDTable_Detalhe_1DATA_CADASTRO.AsDateTime := now;
 end;
 

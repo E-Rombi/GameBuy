@@ -27,6 +27,8 @@ type
     PopupMenu1: TPopupMenu;
     Fechar1: TMenuItem;
     Cad_Cliente: TMenuItem;
+    Estoque1: TMenuItem;
+    Cad_Produto: TMenuItem;
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -50,7 +52,7 @@ implementation
 
 {$R *.dfm}
 
-uses UntPerfil, UntCadastro, UntDM, UntLogin;
+uses UntPerfil, UntCadastro, UntDM, UntLogin, UntProduto;
 
 procedure TFrmMain.ApplicationEvents1Hint(Sender: TObject);
 begin
@@ -140,10 +142,11 @@ var
     vTab.Name := TWinControl(Sender).Name;
     vTab.Parent := PgCtrl_Menu;
 
-    if Form = 'FrmPerfil' then
-      vForm := TFrmPerfil.Create(vTab);
-    if Form = 'FrmCliente' then
-      vForm := TFrmCadastro.Create(vTab);
+    if Form = 'FrmPerfil'  then  vForm := TFrmPerfil.Create(vTab);
+    if Form = 'FrmCliente' then  vForm := TFrmCadastro.Create(vTab);
+    if Form = 'FrmProduto' then  vForm := TFrmProduto.Create(vTab);
+
+
 
     vForms.Add(Menu, Form);
     vForm.Align := alClient;
@@ -164,7 +167,11 @@ begin
 
   if Sender = Cad_Cliente then
     if not(vForms.ContainsKey(TWinControl(Sender).Name)) then
-    CriarTab(TWinControl(Sender).Name, 'FrmCliente');
+      CriarTab(TWinControl(Sender).Name, 'FrmCliente');
+
+  if Sender = Cad_Produto then
+    if not(vForms.ContainsKey(TWinControl(Sender).Name)) then
+      CriarTab(TWinControl(Sender).Name, 'FrmProduto');
 
 
 end;
