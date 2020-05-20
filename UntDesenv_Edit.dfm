@@ -11,18 +11,20 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
   end
   inherited StatusBar1: TStatusBar
     Top = 261
+    ExplicitTop = 261
   end
   inherited PnlFicha: TPanel
     Height = 182
-    ExplicitLeft = 8
-    ExplicitTop = 76
     ExplicitHeight = 182
-    object Label2: TLabel
+    object Label2: TLabel [0]
       Left = 53
       Top = 43
       Width = 31
       Height = 13
       Caption = 'Nome:'
+    end
+    inherited GroupBox1: TGroupBox
+      TabOrder = 3
     end
     object DBEdit1: TDBEdit
       Left = 106

@@ -56,6 +56,8 @@ begin
 
   FdTabela.Open();
   Executar := habilitaBotoes;
+  FQuery.Close;
+  FQuery.Open
 
 end;
 

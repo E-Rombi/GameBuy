@@ -3,7 +3,6 @@ inherited FrmCadastro: TFrmCadastro
   ClientHeight = 575
   ClientWidth = 908
   OnCreate = FormCreate
-  ExplicitTop = -77
   ExplicitWidth = 924
   ExplicitHeight = 614
   PixelsPerInch = 96
@@ -15,7 +14,6 @@ inherited FrmCadastro: TFrmCadastro
       Left = 326
       Wrap = False
       ExplicitLeft = 326
-      ExplicitHeight = 44
     end
     inherited btn_Inserir: TToolButton
       Left = 334

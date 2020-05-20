@@ -78,7 +78,7 @@ inherited FrmCategoria: TFrmCategoria
   inherited StatusBar1: TStatusBar
     Top = 227
     Width = 908
-    ExplicitTop = 205
+    ExplicitTop = 227
     ExplicitWidth = 908
   end
   inherited PanelEntrada: TPanel
@@ -88,9 +88,8 @@ inherited FrmCategoria: TFrmCategoria
   inherited PnlFicha: TPanel
     Width = 908
     Height = 148
-    ExplicitTop = 81
     ExplicitWidth = 908
-    ExplicitHeight = 194
+    ExplicitHeight = 148
     object Label2: TLabel [0]
       Left = 16
       Top = 63
@@ -126,17 +125,15 @@ inherited FrmCategoria: TFrmCategoria
       Height = 21
       DataField = 'NOME'
       DataSource = DataSource
-      MaxLength = 20
       TabOrder = 0
     end
     object DBEdit2: TDBEdit
       Left = 84
       Top = 60
       Width = 429
-      Height = 53
+      Height = 21
       DataField = 'DESCRICAO'
       DataSource = DataSource
-      MaxLength = 60
       TabOrder = 2
     end
     object DBEd_ID: TDBEdit
