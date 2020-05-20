@@ -4,25 +4,22 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
   ExplicitHeight = 319
   PixelsPerInch = 96
   TextHeight = 13
-  inherited ToolBarPadrao: TToolBar
-    inherited Separador2: TToolButton
-      ExplicitHeight = 52
-    end
-  end
   inherited StatusBar1: TStatusBar
     Top = 261
+    ExplicitTop = 261
   end
   inherited PnlFicha: TPanel
     Height = 182
-    ExplicitLeft = 8
-    ExplicitTop = 76
     ExplicitHeight = 182
-    object Label2: TLabel
+    object Label2: TLabel [0]
       Left = 53
       Top = 43
       Width = 31
       Height = 13
       Caption = 'Nome:'
+    end
+    inherited GroupBox1: TGroupBox
+      TabOrder = 3
     end
     object DBEdit1: TDBEdit
       Left = 106
@@ -70,6 +67,47 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
     UpdateOptions.UpdateTableName = 'DESENV_EDIT'
     TableName = 'DESENV_EDIT'
     Left = 544
+    object FDTabelaID: TIntegerField
+      FieldName = 'ID'
+      Origin = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object FDTabelaNOME: TStringField
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      Size = 200
+    end
+    object FDTabelaCHK_DESENVOLVEDORA: TStringField
+      FieldName = 'CHK_DESENVOLVEDORA'
+      Origin = 'CHK_DESENVOLVEDORA'
+      FixedChar = True
+      Size = 1
+    end
+    object FDTabelaCHK_EDITORA: TStringField
+      FieldName = 'CHK_EDITORA'
+      Origin = 'CHK_EDITORA'
+      FixedChar = True
+      Size = 1
+    end
+    object FDTabelaSTATUS: TStringField
+      FieldName = 'STATUS'
+      Origin = 'STATUS'
+      FixedChar = True
+      Size = 1
+    end
+    object FDTabelaDATA_CADASTRO: TSQLTimeStampField
+      FieldName = 'DATA_CADASTRO'
+      Origin = 'DATA_CADASTRO'
+    end
+    object FDTabelaDATA_ALTERACAO: TSQLTimeStampField
+      FieldName = 'DATA_ALTERACAO'
+      Origin = 'DATA_ALTERACAO'
+    end
+    object FDTabelaFK_USUARIO_ALT: TIntegerField
+      FieldName = 'FK_USUARIO_ALT'
+      Origin = 'FK_USUARIO_ALT'
+    end
   end
   inherited DataSource: TDataSource
     Left = 608

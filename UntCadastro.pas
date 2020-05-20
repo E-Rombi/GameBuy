@@ -112,6 +112,7 @@ type
     procedure DBEd_NumeroKeyPress(Sender: TObject; var Key: Char);
     procedure FDTable_Detalhe_1BeforePost(DataSet: TDataSet);
     procedure FDTable_Detalhe_1AfterEdit(DataSet: TDataSet);
+    procedure FDTabelaBeforePost(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -260,6 +261,21 @@ begin
   end;
 end;
 
+procedure TFrmCadastro.FDTabelaBeforePost(DataSet: TDataSet);
+begin
+  inherited;
+
+  if FDTabelaRAZAO_SOCIAL.AsString = '' then
+    raise Exception.Create('Por favor, insira a Razão Social.');
+
+  if FDTabelaFANTASIA.AsString = '' then
+    raise Exception.Create('Por favor, insira o nome Fantasia.');
+
+  if (FDTabelaCNPJ_CPF.AsString = '  .   .   /    -  ') or (FDTabelaCNPJ_CPF.AsString = '') then
+    raise Exception.Create('Por favor, insira o CNPJ/CPF');
+  
+end;
+
 procedure TFrmCadastro.FDTabelaNewRecord(DataSet: TDataSet);
 begin
   inherited;
@@ -277,6 +293,14 @@ end;
 procedure TFrmCadastro.FDTable_Detalhe_1BeforePost(DataSet: TDataSet);
 begin
   inherited;
+
+  if FDTable_Detalhe_1CEP.AsString = '' then
+    raise Exception.Create('Por favor, insira o CEP');
+
+  if FDTable_Detalhe_1LOGRADOURO.AsString = '' then
+    raise Exception.Create('Por favor, insira o Logradouro');
+
+
   FDTable_Detalhe_1FK_USUARIO_ALT.AsInteger := FrmMain.FQry_Login.FieldByName('ID').AsInteger;
   FDTable_Detalhe_1DATA_ALTERACAO.AsDateTime := Now;
 end;

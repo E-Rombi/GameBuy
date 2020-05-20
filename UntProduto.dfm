@@ -2,94 +2,95 @@ inherited FrmProduto: TFrmProduto
   Caption = 'Cadastro de Produto'
   ClientHeight = 508
   ClientWidth = 945
-  ExplicitTop = -145
   ExplicitWidth = 961
   ExplicitHeight = 547
   PixelsPerInch = 96
   TextHeight = 13
   inherited ToolBarPadrao: TToolBar
     Width = 945
+    ExplicitWidth = 945
     inherited Separador2: TToolButton
-      Left = 326
+      Left = 273
       Wrap = False
-      ExplicitLeft = 326
+      ExplicitLeft = 273
       ExplicitHeight = 44
     end
     inherited btn_Inserir: TToolButton
+      Left = 281
+      Top = 0
+      ExplicitLeft = 281
+      ExplicitTop = 0
+    end
+    inherited btn_Editar: TToolButton
       Left = 334
       Top = 0
       ExplicitLeft = 334
       ExplicitTop = 0
     end
-    inherited btn_Editar: TToolButton
+    inherited btn_Excluir: TToolButton
       Left = 387
       Top = 0
       ExplicitLeft = 387
       ExplicitTop = 0
     end
-    inherited btn_Excluir: TToolButton
+    inherited Separador3: TToolButton
       Left = 440
       Top = 0
       ExplicitLeft = 440
       ExplicitTop = 0
     end
-    inherited Separador3: TToolButton
-      Left = 493
+    inherited btn_Salvar: TToolButton
+      Left = 448
       Top = 0
-      ExplicitLeft = 493
+      ExplicitLeft = 448
       ExplicitTop = 0
     end
-    inherited btn_Salvar: TToolButton
+    inherited btn_Cancelar: TToolButton
       Left = 501
       Top = 0
       ExplicitLeft = 501
       ExplicitTop = 0
     end
-    inherited btn_Cancelar: TToolButton
+    inherited Separador4: TToolButton
       Left = 554
       Top = 0
       ExplicitLeft = 554
       ExplicitTop = 0
     end
-    inherited Separador4: TToolButton
-      Left = 607
+    inherited btn_Imprimir: TToolButton
+      Left = 562
       Top = 0
-      ExplicitLeft = 607
+      ExplicitLeft = 562
       ExplicitTop = 0
     end
-    inherited btn_Imprimir: TToolButton
+    inherited Separador5: TToolButton
       Left = 615
       Top = 0
       ExplicitLeft = 615
       ExplicitTop = 0
     end
-    inherited Separador5: TToolButton
-      Left = 668
-      Top = 0
-      ExplicitLeft = 668
-      ExplicitTop = 0
-    end
     inherited btn_Sair: TToolButton
-      Left = 676
+      Left = 623
       Top = 0
-      ExplicitLeft = 676
+      ExplicitLeft = 623
       ExplicitTop = 0
     end
   end
   inherited StatusBar1: TStatusBar
     Top = 489
     Width = 945
-    ExplicitTop = 382
+    ExplicitTop = 489
+    ExplicitWidth = 945
   end
   inherited PanelEntrada: TPanel
     Width = 945
+    ExplicitWidth = 945
   end
   inherited PnlFicha: TPanel
     Width = 945
     Height = 410
-    ExplicitTop = 81
     ExplicitWidth = 945
-    ExplicitHeight = 303
+    ExplicitHeight = 410
     object Label2: TLabel [0]
       Left = 21
       Top = 16

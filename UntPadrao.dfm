@@ -43,15 +43,8 @@ object FrmPadrao: TFrmPadrao
       ImageIndex = 0
       OnClick = btn_PesquisarClick
     end
-    object btn_Ordenar: TToolButton
-      Left = 53
-      Top = 0
-      Hint = 'Ordenar Registro'
-      Caption = 'Ordenar'
-      ImageIndex = 1
-    end
     object Separador1: TToolButton
-      Left = 106
+      Left = 53
       Top = 0
       Width = 8
       Caption = 'Separador1'
@@ -59,7 +52,7 @@ object FrmPadrao: TFrmPadrao
       Style = tbsSeparator
     end
     object btn_Primeiro: TToolButton
-      Left = 114
+      Left = 61
       Top = 0
       Hint = 'Primeiro Registro'
       Caption = 'Primeiro'
@@ -67,7 +60,7 @@ object FrmPadrao: TFrmPadrao
       OnClick = btn_PrimeiroClick
     end
     object btn_Anterior: TToolButton
-      Left = 167
+      Left = 114
       Top = 0
       Hint = 'Registro Anterior'
       Caption = 'Anterior'
@@ -75,7 +68,7 @@ object FrmPadrao: TFrmPadrao
       OnClick = btn_AnteriorClick
     end
     object btn_Proximo: TToolButton
-      Left = 220
+      Left = 167
       Top = 0
       Hint = 'Pr'#243'ximo Registro'
       Caption = 'Pr'#243'ximo'
@@ -83,7 +76,7 @@ object FrmPadrao: TFrmPadrao
       OnClick = btn_ProximoClick
     end
     object btn_Ultimo: TToolButton
-      Left = 273
+      Left = 220
       Top = 0
       Hint = #218'ltimo Registro'
       Caption = #218'ltimo'

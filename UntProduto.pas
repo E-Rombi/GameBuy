@@ -63,7 +63,10 @@ begin
   inherited;
   if OpenPictureDialog1.Execute then
     if FileExists(OpenPictureDialog1.FileName) then
-      DBImage1.Picture.LoadFromFile(OpenPictureDialog1.FileName)
+    begin
+      FDTabelaFOTO.Clear;
+      DBImage1.Picture.LoadFromFile(OpenPictureDialog1.FileName);
+    end
     else
       raise Exception.Create('Arquivo Inexistente !');
 end;
