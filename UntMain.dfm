@@ -101,12 +101,18 @@ object FrmMain: TFrmMain
         Caption = 'Perfil'
         OnClick = ShowForm
       end
-      object Usuario1: TMenuItem
+      object Cad_Usuario: TMenuItem
         Caption = 'Usuario'
       end
       object Cad_Cliente: TMenuItem
         Caption = 'Cliente'
         OnClick = ShowForm
+      end
+      object Cad_Desenv_Edit: TMenuItem
+        Caption = 'Dev. / Edt.'
+      end
+      object Cad_Categoria: TMenuItem
+        Caption = 'Categoria'
       end
     end
   end
