@@ -17,6 +17,14 @@ type
     DBEdit1: TDBEdit;
     DBCheckBox1: TDBCheckBox;
     DBCheckBox2: TDBCheckBox;
+    FDTabelaID: TIntegerField;
+    FDTabelaNOME: TStringField;
+    FDTabelaCHK_DESENVOLVEDORA: TStringField;
+    FDTabelaCHK_EDITORA: TStringField;
+    FDTabelaSTATUS: TStringField;
+    FDTabelaDATA_CADASTRO: TSQLTimeStampField;
+    FDTabelaDATA_ALTERACAO: TSQLTimeStampField;
+    FDTabelaFK_USUARIO_ALT: TIntegerField;
     procedure FormActivate(Sender: TObject);
   private
     { Private declarations }

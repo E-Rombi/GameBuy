@@ -96,6 +96,14 @@ object FrmMain: TFrmMain
           Caption = 'Produto'
           OnClick = ShowForm
         end
+        object Cad_Categoria: TMenuItem
+          Caption = 'Categoria'
+          OnClick = ShowForm
+        end
+        object Cad_Desenv_Edit: TMenuItem
+          Caption = 'Dev. / Edt.'
+          OnClick = ShowForm
+        end
       end
       object Cad_Perfil: TMenuItem
         Caption = 'Perfil'
@@ -103,16 +111,18 @@ object FrmMain: TFrmMain
       end
       object Cad_Usuario: TMenuItem
         Caption = 'Usuario'
+        OnClick = ShowForm
       end
       object Cad_Cliente: TMenuItem
         Caption = 'Cliente'
         OnClick = ShowForm
       end
-      object Cad_Desenv_Edit: TMenuItem
-        Caption = 'Dev. / Edt.'
-      end
-      object Cad_Categoria: TMenuItem
-        Caption = 'Categoria'
+    end
+    object Movimentao1: TMenuItem
+      Caption = 'Movimenta'#231#227'o'
+      object Mov_Venda: TMenuItem
+        Caption = 'Venda'
+        OnClick = ShowForm
       end
     end
   end

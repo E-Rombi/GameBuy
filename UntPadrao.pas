@@ -20,7 +20,6 @@ type
     ImageList1: TImageList;
     ToolBarPadrao: TToolBar;
     btn_Pesquisar: TToolButton;
-    btn_Ordenar: TToolButton;
     Separador1: TToolButton;
     btn_Primeiro: TToolButton;
     btn_Anterior: TToolButton;
@@ -177,7 +176,9 @@ begin
   PnlFicha.Enabled := True;
 
   // Inclusão de registro
-  FDTabela.FieldByName('STATUS').AsString := 'S';
+  if (FDTabela.TableName <> 'PEDIDO') and (FDTabela.TableName <> 'PEDIDO_ITEM') then
+    FDTabela.FieldByName('STATUS').AsString := 'S';
+
   FDTabela.FieldByName('DATA_CADASTRO').AsDateTime := now;
 
   // Botões e barra de stataus
@@ -264,7 +265,6 @@ end;
 procedure TFrmPadrao.FormActivate(Sender: TObject);
 begin
   Executar := exibeBotoes;
-
 end;
 
 procedure TFrmPadrao.FormDestroy(Sender: TObject);
@@ -338,7 +338,6 @@ begin
     desabilitaBotoes:
     begin
       btn_Pesquisar.Enabled := False;
-      btn_Ordenar.Enabled := False;
       btn_Primeiro.Enabled := False;
       btn_Anterior.Enabled := False;
       btn_Proximo.Enabled := False;
@@ -357,12 +356,10 @@ begin
       if FDTabela.RecordCount > 0 then
       begin
         btn_Pesquisar.Enabled := True;
-        btn_Ordenar.Enabled := True;
       end
       else
       begin
         btn_Pesquisar.Enabled := False;
-        btn_Ordenar.Enabled := False;
       end;
       btn_Inserir.Enabled := True;
 
