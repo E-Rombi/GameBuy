@@ -8,6 +8,7 @@ inherited FrmPerfil: TFrmPerfil
   TextHeight = 13
   inherited ToolBarPadrao: TToolBar
     Width = 839
+    ExplicitWidth = 839
     inherited Separador2: TToolButton
       Left = 326
       Wrap = False
@@ -77,14 +78,20 @@ inherited FrmPerfil: TFrmPerfil
   inherited StatusBar1: TStatusBar
     Top = 526
     Width = 839
+    ExplicitTop = 526
+    ExplicitWidth = 839
   end
   inherited PanelEntrada: TPanel
     Width = 839
+    ExplicitWidth = 839
   end
   inherited PnlFicha: TPanel
     Top = 201
     Width = 839
     Height = 325
+    ExplicitTop = 201
+    ExplicitWidth = 839
+    ExplicitHeight = 325
     object Label2: TLabel [0]
       Left = 16
       Top = 11
@@ -142,15 +149,8 @@ inherited FrmPerfil: TFrmPerfil
       ActivePage = TabSheet4
       Align = alClient
       TabOrder = 4
-      ExplicitLeft = 514
-      ExplicitWidth = 829
-      ExplicitHeight = 282
       object TabSheet1: TTabSheet
         Caption = 'Cadastro'
-        ExplicitLeft = 0
-        ExplicitTop = 23
-        ExplicitWidth = 821
-        ExplicitHeight = 254
         object Label5: TLabel
           Left = 11
           Top = 40
@@ -320,8 +320,6 @@ inherited FrmPerfil: TFrmPerfil
       object TabSheet2: TTabSheet
         Caption = 'Vendas'
         ImageIndex = 1
-        ExplicitWidth = 821
-        ExplicitHeight = 254
         object Vendas: TLabel
           Left = 11
           Top = 40
@@ -483,10 +481,6 @@ inherited FrmPerfil: TFrmPerfil
       object TabSheet3: TTabSheet
         Caption = 'Relat'#243'rios'
         ImageIndex = 2
-        ExplicitLeft = 7
-        ExplicitTop = 23
-        ExplicitWidth = 821
-        ExplicitHeight = 254
         object Label14: TLabel
           Left = 11
           Top = 140
@@ -632,10 +626,6 @@ inherited FrmPerfil: TFrmPerfil
       object TabSheet4: TTabSheet
         Caption = 'Perfis e Usu'#225'rios'
         ImageIndex = 3
-        ExplicitLeft = 7
-        ExplicitTop = 23
-        ExplicitWidth = 821
-        ExplicitHeight = 254
         object Label18: TLabel
           Left = 11
           Top = 90
@@ -756,7 +746,6 @@ inherited FrmPerfil: TFrmPerfil
     Height = 122
     Align = alTop
     TabOrder = 4
-    ExplicitWidth = 831
     object Label20: TLabel
       Left = 8
       Top = 57
