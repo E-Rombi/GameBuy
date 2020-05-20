@@ -128,15 +128,6 @@ inherited FrmCategoria: TFrmCategoria
       MaxLength = 80
       TabOrder = 0
     end
-    object DBEdit2: TDBEdit
-      Left = 84
-      Top = 60
-      Width = 429
-      Height = 21
-      DataField = 'DESCRICAO'
-      DataSource = DataSource
-      TabOrder = 2
-    end
     object DBEd_ID: TDBEdit
       Left = 84
       Top = 8
@@ -147,6 +138,15 @@ inherited FrmCategoria: TFrmCategoria
       DataSource = DataSource
       Enabled = False
       ReadOnly = True
+      TabOrder = 2
+    end
+    object DBMemo1: TDBMemo
+      Left = 84
+      Top = 60
+      Width = 429
+      Height = 89
+      DataField = 'DESCRICAO'
+      DataSource = DataSource
       TabOrder = 3
     end
   end

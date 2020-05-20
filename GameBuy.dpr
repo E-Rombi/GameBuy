@@ -11,7 +11,8 @@ uses
   UntLogin in 'UntLogin.pas' {FrmLogin},
   UntCategoria in 'UntCategoria.pas' {FrmCategoria},
   UntProduto in 'UntProduto.pas' {FrmProduto},
-  UntDesenv_Edit in 'UntDesenv_Edit.pas' {FrmDesenv_Edit};
+  UntDesenv_Edit in 'UntDesenv_Edit.pas' {FrmDesenv_Edit},
+  UntVenda in 'UntVenda.pas' {FrmVenda};
 
 {$R *.res}
 

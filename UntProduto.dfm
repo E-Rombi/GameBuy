@@ -13,7 +13,6 @@ inherited FrmProduto: TFrmProduto
       Left = 273
       Wrap = False
       ExplicitLeft = 273
-      ExplicitHeight = 44
     end
     inherited btn_Inserir: TToolButton
       Left = 281
@@ -159,7 +158,7 @@ inherited FrmProduto: TFrmProduto
       DataField = 'FK_CATEGORIA'
       DataSource = DataSource
       KeyField = 'ID'
-      ListField = 'DESCRICAO'
+      ListField = 'NOME'
       ListSource = DSCategoria
       TabOrder = 2
     end
@@ -304,7 +303,7 @@ inherited FrmProduto: TFrmProduto
   object FDQryCategoria: TFDQuery [9]
     Connection = DM.FDConnection1
     SQL.Strings = (
-      'select ID, DESCRICAO'
+      'select ID, DESCRICAO, NOME'
       'from CATEGORIA'
       'order by DESCRICAO')
     Left = 48

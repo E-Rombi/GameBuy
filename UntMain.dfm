@@ -118,6 +118,13 @@ object FrmMain: TFrmMain
         OnClick = ShowForm
       end
     end
+    object Movimentao1: TMenuItem
+      Caption = 'Movimenta'#231#227'o'
+      object Mov_Venda: TMenuItem
+        Caption = 'Venda'
+        OnClick = ShowForm
+      end
+    end
   end
   object PopupMenu1: TPopupMenu
     Left = 572

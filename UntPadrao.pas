@@ -176,7 +176,9 @@ begin
   PnlFicha.Enabled := True;
 
   // Inclusão de registro
-  FDTabela.FieldByName('STATUS').AsString := 'S';
+  if (FDTabela.TableName <> 'PEDIDO') and (FDTabela.TableName <> 'PEDIDO_ITEM') then
+    FDTabela.FieldByName('STATUS').AsString := 'S';
+
   FDTabela.FieldByName('DATA_CADASTRO').AsDateTime := now;
 
   // Botões e barra de stataus
@@ -263,7 +265,6 @@ end;
 procedure TFrmPadrao.FormActivate(Sender: TObject);
 begin
   Executar := exibeBotoes;
-
 end;
 
 procedure TFrmPadrao.FormDestroy(Sender: TObject);

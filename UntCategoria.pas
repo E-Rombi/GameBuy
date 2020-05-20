@@ -23,9 +23,9 @@ type
     FDTabelaFK_USUARIO_ALT: TIntegerField;
     FDTabelaNOME: TStringField;
     Label3: TLabel;
-    DBEdit2: TDBEdit;
     ID: TLabel;
     DBEd_ID: TDBEdit;
+    DBMemo1: TDBMemo;
     procedure FormActivate(Sender: TObject);
   private
     { Private declarations }

@@ -31,6 +31,8 @@ type
     Cad_Produto: TMenuItem;
     Cad_Desenv_Edit: TMenuItem;
     Cad_Categoria: TMenuItem;
+    Movimentao1: TMenuItem;
+    Mov_Venda: TMenuItem;
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -55,7 +57,7 @@ implementation
 {$R *.dfm}
 
 uses UntPerfil, UntCadastro, UntDM, UntLogin, UntProduto, UntDesenv_Edit,
-  UntCategoria, UntUsuario;
+  UntCategoria, UntUsuario, UntVenda;
 
 procedure TFrmMain.ApplicationEvents1Hint(Sender: TObject);
 begin
@@ -145,12 +147,14 @@ var
     vTab.Name := TWinControl(Sender).Name;
     vTab.Parent := PgCtrl_Menu;
 
-    if Form = 'FrmPerfil'  then  vForm := TFrmPerfil.Create(vTab);
-    if Form = 'FrmCliente' then  vForm := TFrmCadastro.Create(vTab);
-    if Form = 'FrmProduto' then  vForm := TFrmProduto.Create(vTab);
+    if Form = 'FrmPerfil'      then  vForm := TFrmPerfil.Create(vTab);
+    if Form = 'FrmCliente'     then  vForm := TFrmCadastro.Create(vTab);
+    if Form = 'FrmProduto'     then  vForm := TFrmProduto.Create(vTab);
     if Form = 'FrmDesenv_Edit' then  vForm := TFrmDesenv_Edit.Create(vTab);
-    if Form = 'FrmCategoria' then vform := TFrmCategoria.Create(vTab);
-    if Form = 'FrmUsuario' then vform := TFrmUsuario.Create(vTab);
+    if Form = 'FrmCategoria'   then  vform := TFrmCategoria.Create(vTab);
+    if Form = 'FrmUsuario'     then  vform := TFrmUsuario.Create(vTab);
+    if Form = 'FrmVenda'       then  vForm := TFrmVenda.Create(vTab);
+
 
 
 
@@ -191,6 +195,10 @@ begin
   if Sender = Cad_Usuario then
     if not(vForms.ContainsKey(TWinControl(Sender).Name)) then
       CriarTab(TWinControl(Sender).Name, 'FrmUsuario');
+
+  if Sender = Mov_Venda then
+    if not(vForms.ContainsKey(TWinControl(Sender).Name)) then
+      CriarTab(TWinControl(Sender).Name, 'FrmVenda');
 
 
 end;
