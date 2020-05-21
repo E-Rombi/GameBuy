@@ -115,7 +115,7 @@ begin
 
   ValorCampo.Enabled := True;
   ValorCampo.Clear;
-  PnlFicha.Enabled := True;
+  PnlFicha.Enabled := False;
 
 end;
 
@@ -239,7 +239,7 @@ begin
   // Habilita a exibição de objetos
   ValorCampo.Enabled := True;
   ValorCampo.Clear;
-  PnlFicha.Enabled := True;
+  PnlFicha.Enabled := False;
 end;
 
 procedure TFrmPadrao.btn_UltimoClick(Sender: TObject);

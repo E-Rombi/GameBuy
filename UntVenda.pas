@@ -137,10 +137,8 @@ begin
   inherited;
   if DBChk_Entregar.Checked then
   begin
-    FQry_Endereco.Close;
     FQry_Endereco.Filter := 'FK_CADASTRO = ' + FDTabelaFK_CADASTRO.AsString;
     FQry_Endereco.Filtered := True;
-    FQry_Endereco.Open();
   end
   else
     FDTabelaFK_ENDERECO.AsVariant := null;
@@ -152,12 +150,17 @@ begin
                 FrmMain.FQry_Login.FieldByName('PEDIDO_A').AsString +
                 FrmMain.FQry_Login.FieldByName('PEDIDO_E').AsString;
   Executar := exibePanels;
-
   inherited;
   FDTabela.Open();
+  Executar := habilitaBotoes;
 
   FQry_Cliente.Close;
   FQry_Cliente.Open();
+
+  FQry_Endereco.Close;
+  FQry_Endereco.Filter := 'FK_CADASTRO = ' + FDTabelaFK_CADASTRO.AsString;
+  FQry_Endereco.Filtered := True;
+  FQry_Endereco.Open();
 end;
 
 procedure TFrmVenda.HabilitaGrid;
@@ -166,6 +169,8 @@ begin
   begin
     DBGrd_Endereco.Visible := True;
     GroupBox1.Left := 943;
+    FQry_Endereco.Filter := 'FK_CADASTRO = ' + FDTabelaFK_CADASTRO.AsString;
+    FQry_Endereco.Filtered := True;
   end
   else
   begin

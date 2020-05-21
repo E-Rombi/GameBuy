@@ -36,6 +36,8 @@ type
     DsPerfil: TDataSource;
     SpeedButton1: TSpeedButton;
     FDQryUsuarioEditor: TFDQuery;
+    Label6: TLabel;
+    DBEdit4: TDBEdit;
     procedure FormActivate(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
   private
