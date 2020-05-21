@@ -40,6 +40,7 @@ type
     DBEdit4: TDBEdit;
     procedure FormActivate(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
+    procedure FDTabelaBeforePost(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -54,6 +55,16 @@ implementation
 {$R *.dfm}
 
 uses UntDM, UntMain, UntPerfil;
+
+procedure TFrmUsuario.FDTabelaBeforePost(DataSet: TDataSet);
+begin
+  inherited;
+  if FDTabelaLOGIN.AsString = '' then
+    raise Exception.Create('Por favor, insira um login (nome de usuário).');
+
+  if FDTabelaSenha.AsString = '' then
+    raise Exception.Create('Por favor, insira uma senha.');
+end;
 
 procedure TFrmUsuario.FormActivate(Sender: TObject);
 begin

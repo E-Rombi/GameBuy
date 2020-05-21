@@ -25,7 +25,11 @@ type
     FDTabelaDATA_CADASTRO: TSQLTimeStampField;
     FDTabelaDATA_ALTERACAO: TSQLTimeStampField;
     FDTabelaFK_USUARIO_ALT: TIntegerField;
+    Label3: TLabel;
+    Label4: TLabel;
+    DBEdit2: TDBEdit;
     procedure FormActivate(Sender: TObject);
+    procedure FDTabelaBeforePost(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -40,6 +44,13 @@ implementation
 {$R *.dfm}
 
 uses UntMain;
+
+procedure TFrmDesenv_Edit.FDTabelaBeforePost(DataSet: TDataSet);
+begin
+  inherited;
+  if FDTabelaNOME.AsString = '' then
+    raise Exception.Create('Por favor, insira um nome.');
+end;
 
 procedure TFrmDesenv_Edit.FormActivate(Sender: TObject);
 begin

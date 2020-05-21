@@ -27,6 +27,7 @@ type
     DBEd_ID: TDBEdit;
     DBMemo1: TDBMemo;
     procedure FormActivate(Sender: TObject);
+    procedure FDTabelaBeforePost(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -41,6 +42,14 @@ implementation
 {$R *.dfm}
 
 uses UntMain;
+
+procedure TFrmCategoria.FDTabelaBeforePost(DataSet: TDataSet);
+begin
+  inherited;
+  if FDTabelaNOME.AsString = '' then
+    raise Exception.Create('Por favor, insira o nome da categoria.');
+
+end;
 
 procedure TFrmCategoria.FormActivate(Sender: TObject);
 begin

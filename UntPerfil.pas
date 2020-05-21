@@ -123,6 +123,7 @@ type
     DBEdit6: TDBEdit;
     DBEdit7: TDBEdit;
     procedure FormActivate(Sender: TObject);
+    procedure FDTabelaBeforePost(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -137,6 +138,13 @@ implementation
 {$R *.dfm}
 
 uses UntCadastro, UntMain;
+
+procedure TFrmPerfil.FDTabelaBeforePost(DataSet: TDataSet);
+begin
+  inherited;
+  if FDTabelaDESCRICAO.AsString = '' then
+    raise Exception.Create('Por favor, insira uma descrição do perfil.');
+end;
 
 procedure TFrmPerfil.FormActivate(Sender: TObject);
 begin

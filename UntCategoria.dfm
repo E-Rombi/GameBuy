@@ -1,9 +1,9 @@
 inherited FrmCategoria: TFrmCategoria
   Caption = 'Cadastro de Categoria'
-  ClientHeight = 246
+  ClientHeight = 256
   ClientWidth = 908
   ExplicitWidth = 924
-  ExplicitHeight = 285
+  ExplicitHeight = 295
   PixelsPerInch = 96
   TextHeight = 13
   inherited ToolBarPadrao: TToolBar
@@ -76,7 +76,7 @@ inherited FrmCategoria: TFrmCategoria
     end
   end
   inherited StatusBar1: TStatusBar
-    Top = 227
+    Top = 237
     Width = 908
     ExplicitTop = 227
     ExplicitWidth = 908
@@ -87,7 +87,7 @@ inherited FrmCategoria: TFrmCategoria
   end
   inherited PnlFicha: TPanel
     Width = 908
-    Height = 148
+    Height = 158
     ExplicitWidth = 908
     ExplicitHeight = 148
     object Label2: TLabel [0]
@@ -114,19 +114,19 @@ inherited FrmCategoria: TFrmCategoria
     inherited GroupBox1: TGroupBox
       Left = 554
       Top = 8
-      TabOrder = 1
+      TabOrder = 3
       ExplicitLeft = 554
       ExplicitTop = 8
     end
     object DBEdit1: TDBEdit
       Left = 84
-      Top = 33
-      Width = 429
-      Height = 21
+      Top = 35
+      Width = 286
+      Height = 20
       DataField = 'NOME'
       DataSource = DataSource
-      MaxLength = 80
-      TabOrder = 0
+      MaxLength = 40
+      TabOrder = 1
     end
     object DBEd_ID: TDBEdit
       Left = 84
@@ -138,36 +138,37 @@ inherited FrmCategoria: TFrmCategoria
       DataSource = DataSource
       Enabled = False
       ReadOnly = True
-      TabOrder = 2
+      TabOrder = 0
     end
     object DBMemo1: TDBMemo
       Left = 84
-      Top = 60
+      Top = 63
       Width = 429
-      Height = 89
+      Height = 20
       DataField = 'DESCRICAO'
       DataSource = DataSource
-      TabOrder = 3
+      MaxLength = 60
+      TabOrder = 2
     end
   end
   inherited ImageList3: TImageList
-    Left = 472
-    Top = 128
+    Left = 480
+    Top = 192
   end
   inherited ImageList2: TImageList
     Left = 432
-    Top = 136
+    Top = 192
   end
   inherited ImageList1: TImageList
-    Left = 400
-    Top = 128
+    Left = 376
+    Top = 184
   end
   inherited FDTabela: TFDTable
     IndexFieldNames = 'ID'
     UpdateOptions.UpdateTableName = 'CATEGORIA'
     TableName = 'CATEGORIA'
-    Left = 480
-    Top = 96
+    Left = 808
+    Top = 136
     object FDTabelaID: TIntegerField
       FieldName = 'ID'
       Origin = 'ID'
@@ -203,8 +204,8 @@ inherited FrmCategoria: TFrmCategoria
     end
   end
   inherited DataSource: TDataSource
-    Left = 512
-    Top = 96
+    Left = 544
+    Top = 184
   end
   inherited DSUsuarioAlt: TDataSource
     Left = 288
