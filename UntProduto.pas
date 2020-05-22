@@ -33,14 +33,14 @@ type
     FDQryCategoria: TFDQuery;
     DSCategoria: TDataSource;
     DBImage1: TDBImage;
-    OpenPictureDialog1: TOpenPictureDialog;
     Button1: TButton;
     DBMemo1: TDBMemo;
     Label6: TLabel;
     DBEdit3: TDBEdit;
     Label7: TLabel;
     DBCmb_Status: TDBComboBox;
-    FDTabelaFOTO: TBlobField;
+    FDTabelaFOTO: TMemoField;
+    OpenPictureDialog1: TOpenPictureDialog;
     procedure FormActivate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
   private
@@ -56,16 +56,22 @@ implementation
 
 {$R *.dfm}
 
-uses UntLogin, UntMain, UntDM;
+uses UntLogin, UntMain, UntDM, Jpeg, Clipbrd;
 
 procedure TFrmProduto.Button1Click(Sender: TObject);
+var
+  jpg: TJPegImage;
+  Stm: TStream;
 begin
   inherited;
   if OpenPictureDialog1.Execute then
     if FileExists(OpenPictureDialog1.FileName) then
     begin
-      FDTabelaFOTO.Clear;
-      DBImage1.Picture.LoadFromFile(OpenPictureDialog1.FileName);
+      jpg := TJpegImage.Create;
+      jpg.LoadFromFile(OpenPictureDialog1.FileName);
+      clipboard.Assign(jpg);
+      DBImage1.PasteFromClipboard;
+      jpg.Free;
     end
     else
       raise Exception.Create('Arquivo Inexistente !');

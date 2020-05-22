@@ -1,9 +1,11 @@
 inherited FrmVenda: TFrmVenda
   Caption = 'Movimenta'#231#227'o de Vendas'
-  ClientHeight = 514
+  ClientHeight = 586
   ClientWidth = 1284
+  OnShow = FormShow
+  ExplicitTop = -88
   ExplicitWidth = 1300
-  ExplicitHeight = 553
+  ExplicitHeight = 625
   PixelsPerInch = 96
   TextHeight = 13
   inherited ToolBarPadrao: TToolBar
@@ -76,9 +78,9 @@ inherited FrmVenda: TFrmVenda
     end
   end
   inherited StatusBar1: TStatusBar
-    Top = 495
+    Top = 567
     Width = 1284
-    ExplicitTop = 495
+    ExplicitTop = 567
     ExplicitWidth = 1284
   end
   inherited PanelEntrada: TPanel
@@ -87,24 +89,11 @@ inherited FrmVenda: TFrmVenda
   end
   inherited PnlFicha: TPanel
     Width = 1284
-    Height = 154
+    Height = 267
     Align = alTop
+    AutoSize = True
     ExplicitWidth = 1284
-    ExplicitHeight = 154
-    object Label2: TLabel [0]
-      Left = 16
-      Top = 9
-      Width = 11
-      Height = 13
-      Caption = 'ID'
-    end
-    object Label3: TLabel [1]
-      Left = 16
-      Top = 37
-      Width = 33
-      Height = 13
-      Caption = 'Cliente'
-    end
+    ExplicitHeight = 267
     inherited GroupBox1: TGroupBox
       Left = 943
       Top = 6
@@ -119,99 +108,346 @@ inherited FrmVenda: TFrmVenda
         ExplicitLeft = 9
       end
     end
-    object DBEdit1: TDBEdit
-      Left = 61
-      Top = 6
-      Width = 53
-      Height = 21
+    object Panel2: TPanel
+      Left = 1
+      Top = 166
+      Width = 1282
+      Height = 100
+      Align = alTop
+      BevelOuter = bvNone
       TabOrder = 1
+      object GroupBox2: TGroupBox
+        Left = 7
+        Top = 2
+        Width = 768
+        Height = 96
+        Caption = ' Produto '
+        TabOrder = 0
+        object Label4: TLabel
+          Left = 81
+          Top = 23
+          Width = 33
+          Height = 13
+          Caption = 'Codigo'
+        end
+        object Label5: TLabel
+          Left = 472
+          Top = 21
+          Width = 64
+          Height = 13
+          Caption = 'Valor Unit'#225'rio'
+        end
+        object Label6: TLabel
+          Left = 568
+          Top = 21
+          Width = 56
+          Height = 13
+          Caption = 'Quantidade'
+        end
+        object Label7: TLabel
+          Left = 679
+          Top = 21
+          Width = 65
+          Height = 13
+          Caption = 'Total Produto'
+        end
+        object Label11: TLabel
+          Left = 556
+          Top = 44
+          Width = 6
+          Height = 13
+          Caption = 'x'
+        end
+        object Label12: TLabel
+          Left = 658
+          Top = 44
+          Width = 8
+          Height = 13
+          Caption = '='
+        end
+        object DBEd_Codigo: TDBEdit
+          Left = 80
+          Top = 40
+          Width = 57
+          Height = 21
+          DataField = 'FK_PRODUTO'
+          DataSource = DSItens
+          TabOrder = 0
+        end
+        object DBLkpCmb_Produto: TDBLookupComboBox
+          Left = 139
+          Top = 40
+          Width = 310
+          Height = 21
+          DataField = 'FK_PRODUTO'
+          DataSource = DSItens
+          KeyField = 'ID'
+          ListField = 'TITULO'
+          ListSource = DSProduto
+          TabOrder = 1
+        end
+        object DBEd_ValorUnit: TDBEdit
+          Left = 472
+          Top = 40
+          Width = 77
+          Height = 21
+          DataField = 'VALOR_UNITARIO'
+          DataSource = DSItens
+          TabOrder = 2
+        end
+        object DBEd_Quantidade: TDBEdit
+          Left = 568
+          Top = 40
+          Width = 77
+          Height = 21
+          DataField = 'QUANTIDADE'
+          DataSource = DSItens
+          TabOrder = 3
+          OnExit = DBEd_QuantidadeExit
+        end
+        object DBEd_TotalProduto: TDBEdit
+          Left = 679
+          Top = 40
+          Width = 77
+          Height = 21
+          Color = clMoneyGreen
+          DataField = 'VALOR_TOTAL'
+          DataSource = DSItens
+          ReadOnly = True
+          TabOrder = 4
+        end
+        object Btn_GravarItem: TButton
+          Left = 544
+          Top = 68
+          Width = 105
+          Height = 25
+          Caption = 'Gravar'
+          TabOrder = 5
+          OnClick = Btn_GravarItemClick
+        end
+        object Btn_CancelarItem: TButton
+          Left = 651
+          Top = 68
+          Width = 105
+          Height = 25
+          Caption = 'Cancelar'
+          TabOrder = 6
+          OnClick = Btn_CancelarItemClick
+        end
+        object Btn_NovoItem: TButton
+          Left = 5
+          Top = 17
+          Width = 69
+          Height = 34
+          Caption = 'Novo'
+          TabOrder = 7
+          OnClick = Btn_NovoItemClick
+        end
+        object Btn_EditarItem: TButton
+          Left = 5
+          Top = 52
+          Width = 69
+          Height = 21
+          Caption = 'Editar'
+          TabOrder = 8
+          OnClick = Btn_EditarItemClick
+        end
+        object Btn_ExcluirItem: TButton
+          Left = 5
+          Top = 74
+          Width = 69
+          Height = 21
+          Caption = 'Excluir'
+          TabOrder = 9
+          OnClick = Btn_ExcluirItemClick
+        end
+      end
     end
-    object DBLookupComboBox1: TDBLookupComboBox
-      Left = 61
-      Top = 34
-      Width = 300
-      Height = 21
-      DataField = 'FK_CADASTRO'
-      DataSource = DataSource
-      KeyField = 'ID'
-      ListField = 'FANTASIA'
-      ListSource = DSCliente
+    object Pnl_Endereco: TPanel
+      Left = 1
+      Top = 58
+      Width = 1282
+      Height = 108
+      Align = alTop
+      BevelOuter = bvNone
       TabOrder = 2
+      object DBGrd_Endereco: TDBGrid
+        Left = 7
+        Top = 5
+        Width = 609
+        Height = 99
+        DataSource = DSEndereco
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+        ReadOnly = True
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        OnCellClick = DBGrd_EnderecoCellClick
+        OnDrawColumnCell = DBGrd_EnderecoDrawColumnCell
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'ID'
+            Width = 30
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'CEP'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'LOGRADOURO'
+            Width = 150
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'NUMERO'
+            Title.Caption = 'NRO'
+            Width = 30
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'BAIRRO'
+            Width = 100
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'CIDADE'
+            Width = 150
+            Visible = True
+          end>
+      end
     end
-    object DBChk_Entregar: TDBCheckBox
-      Left = 303
-      Top = 6
-      Width = 58
-      Height = 17
-      Caption = 'Entregar'
-      DataField = 'CHK_ENTREGAR'
-      DataSource = DataSource
+    object Panel4: TPanel
+      Left = 1
+      Top = 1
+      Width = 1282
+      Height = 57
+      Align = alTop
+      BevelOuter = bvNone
       TabOrder = 3
-      ValueChecked = 'S'
-      ValueUnchecked = 'N'
-      OnClick = DBChk_EntregarClick
+      ExplicitLeft = 0
+      ExplicitTop = 2
+      object Label3: TLabel
+        Left = 7
+        Top = 37
+        Width = 33
+        Height = 13
+        Caption = 'Cliente'
+      end
+      object Label2: TLabel
+        Left = 7
+        Top = 9
+        Width = 11
+        Height = 13
+        Caption = 'ID'
+      end
+      object DBLookupComboBox1: TDBLookupComboBox
+        Left = 51
+        Top = 34
+        Width = 300
+        Height = 21
+        DataField = 'FK_CADASTRO'
+        DataSource = DataSource
+        KeyField = 'ID'
+        ListField = 'FANTASIA'
+        ListSource = DSCliente
+        TabOrder = 0
+      end
+      object DBEdit1: TDBEdit
+        Left = 51
+        Top = 6
+        Width = 53
+        Height = 21
+        TabOrder = 1
+      end
+      object DBChk_Entregar: TDBCheckBox
+        Left = 360
+        Top = 36
+        Width = 58
+        Height = 17
+        Caption = 'Entregar'
+        DataField = 'CHK_ENTREGAR'
+        DataSource = DataSource
+        TabOrder = 2
+        ValueChecked = 'S'
+        ValueUnchecked = 'N'
+        OnClick = DBChk_EntregarClick
+      end
     end
-    object DBGrd_Endereco: TDBGrid
-      Left = 380
-      Top = 6
-      Width = 549
-      Height = 137
-      DataSource = DSEndereco
+  end
+  object Pnl_Grid: TPanel [4]
+    Left = 0
+    Top = 346
+    Width = 1284
+    Height = 221
+    Align = alClient
+    TabOrder = 4
+    object DBGrid1: TDBGrid
+      Left = 1
+      Top = 1
+      Width = 953
+      Height = 219
+      Align = alClient
+      DataSource = DSItens
       ReadOnly = True
-      TabOrder = 4
+      TabOrder = 0
       TitleFont.Charset = DEFAULT_CHARSET
       TitleFont.Color = clWindowText
       TitleFont.Height = -11
       TitleFont.Name = 'Tahoma'
       TitleFont.Style = []
-      OnCellClick = DBGrd_EnderecoCellClick
-      OnDrawColumnCell = DBGrd_EnderecoDrawColumnCell
       Columns = <
         item
           Expanded = False
-          FieldName = 'ID'
-          Width = 30
+          FieldName = 'FK_PRODUTO'
+          Title.Caption = 'CODIGO'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'CEP'
+          FieldName = 'LKP_PRODUTO'
+          Title.Caption = 'DESCRICAO'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'LOGRADOURO'
-          Width = 150
+          FieldName = 'VALOR_UNITARIO'
+          Title.Caption = 'VALOR UNIT'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'NUMERO'
-          Title.Caption = 'NRO'
-          Width = 30
+          FieldName = 'QUANTIDADE'
           Visible = True
         end
         item
           Expanded = False
-          FieldName = 'BAIRRO'
-          Width = 100
-          Visible = True
-        end
-        item
-          Expanded = False
-          FieldName = 'CIDADE'
-          Width = 150
+          FieldName = 'VALOR_TOTAL'
+          Title.Caption = 'TOTAL'
           Visible = True
         end>
     end
-  end
-  object Panel1: TPanel [4]
-    Left = 0
-    Top = 233
-    Width = 1284
-    Height = 262
-    Align = alClient
-    TabOrder = 4
+    object DBImage1: TDBImage
+      Left = 954
+      Top = 1
+      Width = 329
+      Height = 219
+      Align = alRight
+      DataField = 'FOTO'
+      DataSource = DSProduto
+      Stretch = True
+      TabOrder = 1
+      ExplicitLeft = 769
+    end
   end
   inherited ImageList3: TImageList
     Left = 304
@@ -318,5 +554,77 @@ inherited FrmVenda: TFrmVenda
     DataSet = FQry_Endereco
     Left = 720
     Top = 345
+  end
+  object FDItens: TFDTable
+    OnNewRecord = FDItensNewRecord
+    IndexFieldNames = 'FK_PEDIDO'
+    MasterSource = DataSource
+    MasterFields = 'ID'
+    DetailFields = 'FK_PEDIDO'
+    Connection = DM.FDConnection1
+    UpdateOptions.AssignedValues = [uvGeneratorName]
+    UpdateOptions.GeneratorName = 'GEN_PEDIDO_ITEM'
+    UpdateOptions.UpdateTableName = 'PEDIDO_ITEM'
+    UpdateOptions.AutoIncFields = 'ID'
+    TableName = 'PEDIDO_ITEM'
+    Left = 640
+    Top = 426
+    object FDItensID: TFDAutoIncField
+      FieldName = 'ID'
+      Origin = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      IdentityInsert = True
+    end
+    object FDItensFK_PEDIDO: TIntegerField
+      FieldName = 'FK_PEDIDO'
+      Origin = 'FK_PEDIDO'
+    end
+    object FDItensFK_PRODUTO: TIntegerField
+      FieldName = 'FK_PRODUTO'
+      Origin = 'FK_PRODUTO'
+      OnChange = FDItensFK_PRODUTOChange
+    end
+    object FDItensVALOR_UNITARIO: TFloatField
+      FieldName = 'VALOR_UNITARIO'
+      Origin = 'VALOR_UNITARIO'
+    end
+    object FDItensQUANTIDADE: TFloatField
+      FieldName = 'QUANTIDADE'
+      Origin = 'QUANTIDADE'
+    end
+    object FDItensVALOR_TOTAL: TFloatField
+      FieldName = 'VALOR_TOTAL'
+      Origin = 'VALOR_TOTAL'
+    end
+    object FDItensLKP_PRODUTO: TStringField
+      FieldKind = fkLookup
+      FieldName = 'LKP_PRODUTO'
+      LookupDataSet = FQry_Produto
+      LookupKeyFields = 'ID'
+      LookupResultField = 'TITULO'
+      KeyFields = 'FK_PRODUTO'
+      Size = 80
+      Lookup = True
+    end
+  end
+  object DSItens: TDataSource
+    DataSet = FDItens
+    Left = 696
+    Top = 426
+  end
+  object FQry_Produto: TFDQuery
+    Connection = DM.FDConnection1
+    SQL.Strings = (
+      'SELECT '
+      '*'
+      'FROM PRODUTO '
+      '')
+    Left = 840
+    Top = 266
+  end
+  object DSProduto: TDataSource
+    DataSet = FQry_Produto
+    Left = 769
+    Top = 269
   end
 end

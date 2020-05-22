@@ -2,6 +2,7 @@ inherited FrmProduto: TFrmProduto
   Caption = 'Cadastro de Produto'
   ClientHeight = 508
   ClientWidth = 945
+  ExplicitTop = -10
   ExplicitWidth = 961
   ExplicitHeight = 547
   PixelsPerInch = 96
@@ -169,6 +170,7 @@ inherited FrmProduto: TFrmProduto
       Height = 281
       DataField = 'FOTO'
       DataSource = DataSource
+      Stretch = True
       TabOrder = 3
     end
     object Button1: TButton [10]
@@ -291,9 +293,10 @@ inherited FrmProduto: TFrmProduto
       FieldName = 'FK_USUARIO_ALT'
       Origin = 'FK_USUARIO_ALT'
     end
-    object FDTabelaFOTO: TBlobField
+    object FDTabelaFOTO: TMemoField
       FieldName = 'FOTO'
       Origin = 'FOTO'
+      BlobType = ftMemo
     end
   end
   inherited DataSource: TDataSource
@@ -314,8 +317,9 @@ inherited FrmProduto: TFrmProduto
     Left = 120
     Top = 423
   end
-  object OpenPictureDialog1: TOpenPictureDialog [11]
-    Left = 424
-    Top = 431
+  object OpenPictureDialog1: TOpenPictureDialog
+    OptionsEx = [ofExNoPlacesBar]
+    Left = 472
+    Top = 351
   end
 end
