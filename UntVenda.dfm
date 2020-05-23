@@ -3,7 +3,6 @@ inherited FrmVenda: TFrmVenda
   ClientHeight = 586
   ClientWidth = 1284
   OnShow = FormShow
-  ExplicitTop = -88
   ExplicitWidth = 1300
   ExplicitHeight = 625
   PixelsPerInch = 96
@@ -11,71 +10,6 @@ inherited FrmVenda: TFrmVenda
   inherited ToolBarPadrao: TToolBar
     Width = 1284
     ExplicitWidth = 1284
-    inherited Separador2: TToolButton
-      Left = 273
-      Wrap = False
-      ExplicitLeft = 273
-    end
-    inherited btn_Inserir: TToolButton
-      Left = 281
-      Top = 0
-      ExplicitLeft = 281
-      ExplicitTop = 0
-    end
-    inherited btn_Editar: TToolButton
-      Left = 334
-      Top = 0
-      ExplicitLeft = 334
-      ExplicitTop = 0
-    end
-    inherited btn_Excluir: TToolButton
-      Left = 387
-      Top = 0
-      ExplicitLeft = 387
-      ExplicitTop = 0
-    end
-    inherited Separador3: TToolButton
-      Left = 440
-      Top = 0
-      ExplicitLeft = 440
-      ExplicitTop = 0
-    end
-    inherited btn_Salvar: TToolButton
-      Left = 448
-      Top = 0
-      ExplicitLeft = 448
-      ExplicitTop = 0
-    end
-    inherited btn_Cancelar: TToolButton
-      Left = 501
-      Top = 0
-      ExplicitLeft = 501
-      ExplicitTop = 0
-    end
-    inherited Separador4: TToolButton
-      Left = 554
-      Top = 0
-      ExplicitLeft = 554
-      ExplicitTop = 0
-    end
-    inherited btn_Imprimir: TToolButton
-      Left = 562
-      Top = 0
-      ExplicitLeft = 562
-      ExplicitTop = 0
-    end
-    inherited Separador5: TToolButton
-      Left = 615
-      Top = 0
-      ExplicitLeft = 615
-      ExplicitTop = 0
-    end
-    inherited btn_Sair: TToolButton
-      Left = 623
-      Top = 0
-      ExplicitLeft = 623
-      ExplicitTop = 0
-    end
   end
   inherited StatusBar1: TStatusBar
     Top = 567
@@ -85,6 +19,7 @@ inherited FrmVenda: TFrmVenda
   end
   inherited PanelEntrada: TPanel
     Width = 1284
+    ExplicitTop = 60
     ExplicitWidth = 1284
   end
   inherited PnlFicha: TPanel
@@ -92,6 +27,7 @@ inherited FrmVenda: TFrmVenda
     Height = 267
     Align = alTop
     AutoSize = True
+    ExplicitTop = 90
     ExplicitWidth = 1284
     ExplicitHeight = 267
     inherited GroupBox1: TGroupBox
@@ -334,8 +270,6 @@ inherited FrmVenda: TFrmVenda
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 3
-      ExplicitLeft = 0
-      ExplicitTop = 2
       object Label3: TLabel
         Left = 7
         Top = 37
@@ -386,16 +320,16 @@ inherited FrmVenda: TFrmVenda
   end
   object Pnl_Grid: TPanel [4]
     Left = 0
-    Top = 346
+    Top = 357
     Width = 1284
-    Height = 221
+    Height = 210
     Align = alClient
     TabOrder = 4
     object DBGrid1: TDBGrid
       Left = 1
       Top = 1
       Width = 953
-      Height = 219
+      Height = 208
       Align = alClient
       DataSource = DSItens
       ReadOnly = True
@@ -440,26 +374,13 @@ inherited FrmVenda: TFrmVenda
       Left = 954
       Top = 1
       Width = 329
-      Height = 219
+      Height = 208
       Align = alRight
       DataField = 'FOTO'
       DataSource = DSProduto
       Stretch = True
       TabOrder = 1
-      ExplicitLeft = 769
     end
-  end
-  inherited ImageList3: TImageList
-    Left = 304
-    Top = 440
-  end
-  inherited ImageList2: TImageList
-    Left = 216
-    Top = 440
-  end
-  inherited ImageList1: TImageList
-    Left = 128
-    Top = 440
   end
   inherited FDTabela: TFDTable
     IndexFieldNames = 'ID'
@@ -525,6 +446,18 @@ inherited FrmVenda: TFrmVenda
   end
   inherited FQuery: TFDQuery
     Top = 432
+  end
+  inherited ImageList1: TImageList
+    Left = 128
+    Top = 440
+  end
+  inherited ImageList2: TImageList
+    Left = 216
+    Top = 440
+  end
+  inherited ImageList3: TImageList
+    Left = 304
+    Top = 440
   end
   object FQry_Cliente: TFDQuery
     Connection = DM.FDConnection1

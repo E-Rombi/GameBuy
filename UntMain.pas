@@ -10,7 +10,7 @@ uses
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.ExtCtrls, Vcl.AppEvnts,
   Vcl.ActnCtrls, Vcl.ToolWin, Vcl.ActnMan, Vcl.ActnMenus,
   Vcl.PlatformDefaultStyleActnCtrls, System.Actions, Vcl.ActnList, Vcl.ComCtrls,
-  Vcl.Menus, Generics.Collections;
+  Vcl.Menus, Generics.Collections, System.ImageList, Vcl.ImgList;
 
 type
   TFrmMain = class(TForm)
@@ -33,6 +33,7 @@ type
     Cad_Categoria: TMenuItem;
     Movimentao1: TMenuItem;
     Mov_Venda: TMenuItem;
+    ImageList1: TImageList;
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
