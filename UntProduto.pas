@@ -17,7 +17,7 @@ type
     Label3: TLabel;
     Label4: TLabel;
     DBEdit1: TDBEdit;
-    DBEdit2: TDBEdit;
+    DBEd_Preco: TDBEdit;
     FDTabelaID: TIntegerField;
     FDTabelaTITULO: TStringField;
     FDTabelaDESCRICAO: TStringField;
@@ -43,6 +43,8 @@ type
     OpenPictureDialog1: TOpenPictureDialog;
     procedure FormActivate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure FDTabelaNewRecord(DataSet: TDataSet);
+    procedure FDTabelaBeforePost(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -75,6 +77,32 @@ begin
     end
     else
       raise Exception.Create('Arquivo Inexistente !');
+end;
+
+procedure TFrmProduto.FDTabelaBeforePost(DataSet: TDataSet);
+begin
+  inherited;
+  if (FDTabelaTITULO.AsString = '') or (VarIsNull(FDTabelaTITULO.AsVariant)) then
+    raise Exception.Create('Por favor, insira o Título.');
+
+  if (FDTabelaDESCRICAO.AsString = '') or (VarIsNull(FDTabelaDESCRICAO.AsVariant)) then
+    raise Exception.Create('Por favor, insira a Descrição.');
+
+  if (FDTabelaPRECO.Value = 0) or (VarIsNull(FDTabelaPRECO.AsVariant)) then
+    raise Exception.Create('Por favor, insira o Preço.');
+
+  if (FDTabelaDATA_LANCAMENTO.AsString = '  /  /    ') or (VarIsNull(FDTabelaDATA_LANCAMENTO.AsVariant)) then
+    raise Exception.Create('Por favor, insira a Data de Lançamento.');
+
+  if (FDTabelaSTATUS.AsString = '') or (VarIsNull(FDTabelaSTATUS.AsVariant)) then
+    raise Exception.Create('Por favor, insira o Status.');
+end;
+
+procedure TFrmProduto.FDTabelaNewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  FDTabelaPRECO.Value := 0;
+  FDTabelaSTATUS.AsString := 'Ativo';
 end;
 
 procedure TFrmProduto.FormActivate(Sender: TObject);

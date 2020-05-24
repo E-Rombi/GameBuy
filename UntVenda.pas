@@ -94,6 +94,7 @@ type
     procedure DBEd_QuantidadeExit(Sender: TObject);
     procedure Btn_GravarItemClick(Sender: TObject);
     procedure Btn_CancelarItemClick(Sender: TObject);
+    procedure FDItensBeforePost(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -282,6 +283,12 @@ begin
       (Sender as TDBGrid).Canvas.Brush.Color := clWhite;
 
     DBGrd_Endereco.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+end;
+
+procedure TFrmVenda.FDItensBeforePost(DataSet: TDataSet);
+begin
+  inherited;
+  FDItensVALOR_TOTAL.Value := (FDItensVALOR_UNITARIO.Value * FDItensQUANTIDADE.Value);
 end;
 
 procedure TFrmVenda.FDItensFK_PRODUTOChange(Sender: TField);

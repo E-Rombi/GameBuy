@@ -8,84 +8,23 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
   TextHeight = 13
   inherited ToolBarPadrao: TToolBar
     Width = 818
-    inherited Separador2: TToolButton
-      Left = 273
-      Wrap = False
-      ExplicitLeft = 273
-    end
-    inherited btn_Inserir: TToolButton
-      Left = 281
-      Top = 0
-      ExplicitLeft = 281
-      ExplicitTop = 0
-    end
-    inherited btn_Editar: TToolButton
-      Left = 334
-      Top = 0
-      ExplicitLeft = 334
-      ExplicitTop = 0
-    end
-    inherited btn_Excluir: TToolButton
-      Left = 387
-      Top = 0
-      ExplicitLeft = 387
-      ExplicitTop = 0
-    end
-    inherited Separador3: TToolButton
-      Left = 440
-      Top = 0
-      ExplicitLeft = 440
-      ExplicitTop = 0
-    end
-    inherited btn_Salvar: TToolButton
-      Left = 448
-      Top = 0
-      ExplicitLeft = 448
-      ExplicitTop = 0
-    end
-    inherited btn_Cancelar: TToolButton
-      Left = 501
-      Top = 0
-      ExplicitLeft = 501
-      ExplicitTop = 0
-    end
-    inherited Separador4: TToolButton
-      Left = 554
-      Top = 0
-      ExplicitLeft = 554
-      ExplicitTop = 0
-    end
-    inherited btn_Imprimir: TToolButton
-      Left = 562
-      Top = 0
-      ExplicitLeft = 562
-      ExplicitTop = 0
-    end
-    inherited Separador5: TToolButton
-      Left = 615
-      Top = 0
-      ExplicitLeft = 615
-      ExplicitTop = 0
-    end
-    inherited btn_Sair: TToolButton
-      Left = 623
-      Top = 0
-      ExplicitLeft = 623
-      ExplicitTop = 0
-    end
+    ExplicitWidth = 818
   end
   inherited StatusBar1: TStatusBar
     Top = 261
     Width = 818
     ExplicitTop = 261
+    ExplicitWidth = 818
   end
   inherited PanelEntrada: TPanel
     Width = 818
+    ExplicitWidth = 818
   end
   inherited PnlFicha: TPanel
     Width = 818
-    Height = 182
-    ExplicitHeight = 182
+    Height = 171
+    ExplicitWidth = 818
+    ExplicitHeight = 171
     object Label2: TLabel [0]
       Left = 11
       Top = 38
@@ -116,10 +55,9 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
       Left = 84
       Top = 38
       Width = 381
-      Height = 37
+      Height = 21
       DataField = 'NOME'
       DataSource = DataSource
-      MaxLength = 200
       TabOrder = 1
     end
     object DBCheckBox1: TDBCheckBox
@@ -154,20 +92,12 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
       TabOrder = 0
     end
   end
-  inherited ImageList3: TImageList
-    Left = 680
-  end
-  inherited ImageList2: TImageList
-    Left = 600
-    Top = 64
-  end
-  inherited ImageList1: TImageList
-    Left = 504
-    Top = 48
-  end
   inherited FDTabela: TFDTable
     IndexFieldNames = 'ID'
+    UpdateOptions.AssignedValues = [uvGeneratorName]
+    UpdateOptions.GeneratorName = 'GEN_DESENV_EDIT'
     UpdateOptions.UpdateTableName = 'DESENV_EDIT'
+    UpdateOptions.AutoIncFields = 'ID'
     TableName = 'DESENV_EDIT'
     Left = 544
     object FDTabelaID: TIntegerField
@@ -214,5 +144,16 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
   end
   inherited DataSource: TDataSource
     Left = 608
+  end
+  inherited ImageList1: TImageList
+    Left = 504
+    Top = 48
+  end
+  inherited ImageList2: TImageList
+    Left = 600
+    Top = 64
+  end
+  inherited ImageList3: TImageList
+    Left = 680
   end
 end

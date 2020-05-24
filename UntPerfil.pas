@@ -27,11 +27,8 @@ type
     Label6: TLabel;
     Label7: TLabel;
     Label11: TLabel;
-    Vendas: TLabel;
+    Pedido: TLabel;
     Label12: TLabel;
-    Label13: TLabel;
-    Label14: TLabel;
-    Label15: TLabel;
     Cliente: TLabel;
     Label18: TLabel;
     Label19: TLabel;
@@ -49,28 +46,16 @@ type
     DBCheckBox12: TDBCheckBox;
     DBCheckBox13: TDBCheckBox;
     DBCheckBox14: TDBCheckBox;
-    DBCheckBox15: TDBCheckBox;
     DBCheckBox16: TDBCheckBox;
     DBCheckBox17: TDBCheckBox;
-    DBCheckBox18: TDBCheckBox;
     DBCheckBox19: TDBCheckBox;
     DBCheckBox20: TDBCheckBox;
-    DBCheckBox21: TDBCheckBox;
     DBCheckBox22: TDBCheckBox;
     DBCheckBox23: TDBCheckBox;
-    DBCheckBox24: TDBCheckBox;
     DBCheckBox25: TDBCheckBox;
-    DBCheckBox26: TDBCheckBox;
-    DBCheckBox27: TDBCheckBox;
     DBCheckBox28: TDBCheckBox;
-    DBCheckBox29: TDBCheckBox;
-    DBCheckBox30: TDBCheckBox;
     DBCheckBox31: TDBCheckBox;
-    DBCheckBox32: TDBCheckBox;
-    DBCheckBox33: TDBCheckBox;
     DBCheckBox34: TDBCheckBox;
-    DBCheckBox35: TDBCheckBox;
-    DBCheckBox36: TDBCheckBox;
     DBCheckBox37: TDBCheckBox;
     DBCheckBox38: TDBCheckBox;
     DBCheckBox40: TDBCheckBox;
@@ -79,6 +64,16 @@ type
     DBCheckBox44: TDBCheckBox;
     DBCheckBox46: TDBCheckBox;
     DBCheckBox47: TDBCheckBox;
+    Panel1: TPanel;
+    Label20: TLabel;
+    GroupBox2: TGroupBox;
+    Label4: TLabel;
+    Label16: TLabel;
+    Label17: TLabel;
+    DBEdit4: TDBEdit;
+    DBEdit5: TDBEdit;
+    DBEdit6: TDBEdit;
+    DBEdit7: TDBEdit;
     FDTabelaID: TIntegerField;
     FDTabelaDESCRICAO: TStringField;
     FDTabelaCADASTRO_I: TStringField;
@@ -112,16 +107,7 @@ type
     FDTabelaUSUARIO: TStringField;
     FDTabelaPERFIL: TStringField;
     FDTabelaSTATUS: TStringField;
-    Panel1: TPanel;
-    Label20: TLabel;
-    GroupBox2: TGroupBox;
-    Label4: TLabel;
-    Label16: TLabel;
-    Label17: TLabel;
-    DBEdit4: TDBEdit;
-    DBEdit5: TDBEdit;
-    DBEdit6: TDBEdit;
-    DBEdit7: TDBEdit;
+    FDTabelaFK_USUARIO_ALT: TIntegerField;
     procedure FormActivate(Sender: TObject);
     procedure FDTabelaBeforePost(DataSet: TDataSet);
   private
@@ -148,17 +134,16 @@ end;
 
 procedure TFrmPerfil.FormActivate(Sender: TObject);
 begin
-  FDtabela.TableName := 'Usuario';
-  modoEdicao := frmMain.FQry_Login.FieldByName('USUARIO_I').AsString +
-                frmMain.FQry_Login.FieldByName('USUARIO_A').AsString +
-                frmMain.FQry_Login.FieldByName('USUARIO_E').AsString;
-
+   modoEdicao := FrmMain.FQry_Login.FieldByName('PEDIDO_I').AsString +
+                FrmMain.FQry_Login.FieldByName('PEDIDO_A').AsString +
+                FrmMain.FQry_Login.FieldByName('PEDIDO_E').AsString;
   Executar := exibePanels;
-
   inherited;
-
   FDTabela.Open();
   Executar := habilitaBotoes;
+  FQuery.Close;
+  FQuery.Open();
+
 end;
 
 end.

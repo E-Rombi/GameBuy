@@ -2,7 +2,7 @@ inherited FrmProduto: TFrmProduto
   Caption = 'Cadastro de Produto'
   ClientHeight = 508
   ClientWidth = 945
-  ExplicitTop = -10
+  ExplicitTop = -145
   ExplicitWidth = 961
   ExplicitHeight = 547
   PixelsPerInch = 96
@@ -10,71 +10,6 @@ inherited FrmProduto: TFrmProduto
   inherited ToolBarPadrao: TToolBar
     Width = 945
     ExplicitWidth = 945
-    inherited Separador2: TToolButton
-      Left = 273
-      Wrap = False
-      ExplicitLeft = 273
-    end
-    inherited btn_Inserir: TToolButton
-      Left = 281
-      Top = 0
-      ExplicitLeft = 281
-      ExplicitTop = 0
-    end
-    inherited btn_Editar: TToolButton
-      Left = 334
-      Top = 0
-      ExplicitLeft = 334
-      ExplicitTop = 0
-    end
-    inherited btn_Excluir: TToolButton
-      Left = 387
-      Top = 0
-      ExplicitLeft = 387
-      ExplicitTop = 0
-    end
-    inherited Separador3: TToolButton
-      Left = 440
-      Top = 0
-      ExplicitLeft = 440
-      ExplicitTop = 0
-    end
-    inherited btn_Salvar: TToolButton
-      Left = 448
-      Top = 0
-      ExplicitLeft = 448
-      ExplicitTop = 0
-    end
-    inherited btn_Cancelar: TToolButton
-      Left = 501
-      Top = 0
-      ExplicitLeft = 501
-      ExplicitTop = 0
-    end
-    inherited Separador4: TToolButton
-      Left = 554
-      Top = 0
-      ExplicitLeft = 554
-      ExplicitTop = 0
-    end
-    inherited btn_Imprimir: TToolButton
-      Left = 562
-      Top = 0
-      ExplicitLeft = 562
-      ExplicitTop = 0
-    end
-    inherited Separador5: TToolButton
-      Left = 615
-      Top = 0
-      ExplicitLeft = 615
-      ExplicitTop = 0
-    end
-    inherited btn_Sair: TToolButton
-      Left = 623
-      Top = 0
-      ExplicitLeft = 623
-      ExplicitTop = 0
-    end
   end
   inherited StatusBar1: TStatusBar
     Top = 489
@@ -88,9 +23,9 @@ inherited FrmProduto: TFrmProduto
   end
   inherited PnlFicha: TPanel
     Width = 945
-    Height = 410
+    Height = 399
     ExplicitWidth = 945
-    ExplicitHeight = 410
+    ExplicitHeight = 399
     object Label2: TLabel [0]
       Left = 21
       Top = 16
@@ -142,7 +77,7 @@ inherited FrmProduto: TFrmProduto
       DataSource = DataSource
       TabOrder = 0
     end
-    object DBEdit2: TDBEdit [7]
+    object DBEd_Preco: TDBEdit [7]
       Left = 75
       Top = 211
       Width = 90
@@ -221,19 +156,8 @@ inherited FrmProduto: TFrmProduto
       ExplicitTop = 309
     end
   end
-  inherited ImageList3: TImageList
-    Left = 248
-    Top = 340
-  end
-  inherited ImageList2: TImageList
-    Left = 208
-    Top = 416
-  end
-  inherited ImageList1: TImageList
-    Left = 176
-    Top = 352
-  end
   inherited FDTabela: TFDTable
+    OnNewRecord = FDTabelaNewRecord
     IndexFieldNames = 'ID'
     UpdateOptions.AssignedValues = [uvGeneratorName]
     UpdateOptions.GeneratorName = 'GEN_PRODUTO'
@@ -266,6 +190,7 @@ inherited FrmProduto: TFrmProduto
     object FDTabelaDATA_LANCAMENTO: TSQLTimeStampField
       FieldName = 'DATA_LANCAMENTO'
       Origin = 'DATA_LANCAMENTO'
+      DisplayFormat = '!00/00/0000;1; '
       EditMask = '!00/00/0000;1; '
     end
     object FDTabelaSTATUS: TStringField
@@ -277,7 +202,8 @@ inherited FrmProduto: TFrmProduto
     object FDTabelaPRECO: TFloatField
       FieldName = 'PRECO'
       Origin = 'PRECO'
-      EditFormat = ',0.00'
+      DisplayFormat = '###,##0.00'
+      EditFormat = '###,##0.00'
     end
     object FDTabelaDATA_CADASTRO: TSQLTimeStampField
       FieldName = 'DATA_CADASTRO'
@@ -303,6 +229,10 @@ inherited FrmProduto: TFrmProduto
     Left = 288
     Top = 408
   end
+  inherited ImageList1: TImageList
+    Left = 176
+    Top = 352
+  end
   object FDQryCategoria: TFDQuery [9]
     Connection = DM.FDConnection1
     SQL.Strings = (
@@ -316,6 +246,14 @@ inherited FrmProduto: TFrmProduto
     DataSet = FDQryCategoria
     Left = 120
     Top = 423
+  end
+  inherited ImageList2: TImageList
+    Left = 208
+    Top = 416
+  end
+  inherited ImageList3: TImageList
+    Left = 248
+    Top = 340
   end
   object OpenPictureDialog1: TOpenPictureDialog
     OptionsEx = [ofExNoPlacesBar]

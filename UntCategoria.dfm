@@ -1,84 +1,19 @@
 inherited FrmCategoria: TFrmCategoria
   Caption = 'Cadastro de Categoria'
-  ClientHeight = 256
+  ClientHeight = 331
   ClientWidth = 908
   ExplicitWidth = 924
-  ExplicitHeight = 295
+  ExplicitHeight = 370
   PixelsPerInch = 96
   TextHeight = 13
   inherited ToolBarPadrao: TToolBar
     Width = 908
     ExplicitWidth = 908
-    inherited Separador2: TToolButton
-      Left = 273
-      Wrap = False
-      ExplicitLeft = 273
-    end
-    inherited btn_Inserir: TToolButton
-      Left = 281
-      Top = 0
-      ExplicitLeft = 281
-      ExplicitTop = 0
-    end
-    inherited btn_Editar: TToolButton
-      Left = 334
-      Top = 0
-      ExplicitLeft = 334
-      ExplicitTop = 0
-    end
-    inherited btn_Excluir: TToolButton
-      Left = 387
-      Top = 0
-      ExplicitLeft = 387
-      ExplicitTop = 0
-    end
-    inherited Separador3: TToolButton
-      Left = 440
-      Top = 0
-      ExplicitLeft = 440
-      ExplicitTop = 0
-    end
-    inherited btn_Salvar: TToolButton
-      Left = 448
-      Top = 0
-      ExplicitLeft = 448
-      ExplicitTop = 0
-    end
-    inherited btn_Cancelar: TToolButton
-      Left = 501
-      Top = 0
-      ExplicitLeft = 501
-      ExplicitTop = 0
-    end
-    inherited Separador4: TToolButton
-      Left = 554
-      Top = 0
-      ExplicitLeft = 554
-      ExplicitTop = 0
-    end
-    inherited btn_Imprimir: TToolButton
-      Left = 562
-      Top = 0
-      ExplicitLeft = 562
-      ExplicitTop = 0
-    end
-    inherited Separador5: TToolButton
-      Left = 615
-      Top = 0
-      ExplicitLeft = 615
-      ExplicitTop = 0
-    end
-    inherited btn_Sair: TToolButton
-      Left = 623
-      Top = 0
-      ExplicitLeft = 623
-      ExplicitTop = 0
-    end
   end
   inherited StatusBar1: TStatusBar
-    Top = 237
+    Top = 312
     Width = 908
-    ExplicitTop = 227
+    ExplicitTop = 237
     ExplicitWidth = 908
   end
   inherited PanelEntrada: TPanel
@@ -87,9 +22,9 @@ inherited FrmCategoria: TFrmCategoria
   end
   inherited PnlFicha: TPanel
     Width = 908
-    Height = 158
+    Height = 222
     ExplicitWidth = 908
-    ExplicitHeight = 148
+    ExplicitHeight = 147
     object Label2: TLabel [0]
       Left = 16
       Top = 63
@@ -122,7 +57,7 @@ inherited FrmCategoria: TFrmCategoria
       Left = 84
       Top = 35
       Width = 286
-      Height = 20
+      Height = 21
       DataField = 'NOME'
       DataSource = DataSource
       MaxLength = 40
@@ -144,24 +79,12 @@ inherited FrmCategoria: TFrmCategoria
       Left = 84
       Top = 63
       Width = 429
-      Height = 20
+      Height = 130
       DataField = 'DESCRICAO'
       DataSource = DataSource
       MaxLength = 60
       TabOrder = 2
     end
-  end
-  inherited ImageList3: TImageList
-    Left = 480
-    Top = 192
-  end
-  inherited ImageList2: TImageList
-    Left = 432
-    Top = 192
-  end
-  inherited ImageList1: TImageList
-    Left = 376
-    Top = 184
   end
   inherited FDTabela: TFDTable
     IndexFieldNames = 'ID'
@@ -214,5 +137,17 @@ inherited FrmCategoria: TFrmCategoria
   inherited FQuery: TFDQuery
     Left = 224
     Top = 56
+  end
+  inherited ImageList1: TImageList
+    Left = 376
+    Top = 184
+  end
+  inherited ImageList2: TImageList
+    Left = 432
+    Top = 192
+  end
+  inherited ImageList3: TImageList
+    Left = 480
+    Top = 192
   end
 end

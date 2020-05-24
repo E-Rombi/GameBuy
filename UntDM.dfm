@@ -8,7 +8,6 @@ object DM: TDM
       'User_Name=sysdba'
       'Password=masterkey'
       'DriverID=FB')
-    Connected = True
     LoginPrompt = False
     Transaction = FDTransaction1
     Left = 64
