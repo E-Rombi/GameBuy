@@ -10,71 +10,6 @@ inherited FrmCadastro: TFrmCadastro
   inherited ToolBarPadrao: TToolBar
     Width = 908
     ExplicitWidth = 908
-    inherited Separador2: TToolButton
-      Left = 326
-      Wrap = False
-      ExplicitLeft = 326
-    end
-    inherited btn_Inserir: TToolButton
-      Left = 334
-      Top = 0
-      ExplicitLeft = 334
-      ExplicitTop = 0
-    end
-    inherited btn_Editar: TToolButton
-      Left = 387
-      Top = 0
-      ExplicitLeft = 387
-      ExplicitTop = 0
-    end
-    inherited btn_Excluir: TToolButton
-      Left = 440
-      Top = 0
-      ExplicitLeft = 440
-      ExplicitTop = 0
-    end
-    inherited Separador3: TToolButton
-      Left = 493
-      Top = 0
-      ExplicitLeft = 493
-      ExplicitTop = 0
-    end
-    inherited btn_Salvar: TToolButton
-      Left = 501
-      Top = 0
-      ExplicitLeft = 501
-      ExplicitTop = 0
-    end
-    inherited btn_Cancelar: TToolButton
-      Left = 554
-      Top = 0
-      ExplicitLeft = 554
-      ExplicitTop = 0
-    end
-    inherited Separador4: TToolButton
-      Left = 607
-      Top = 0
-      ExplicitLeft = 607
-      ExplicitTop = 0
-    end
-    inherited btn_Imprimir: TToolButton
-      Left = 615
-      Top = 0
-      ExplicitLeft = 615
-      ExplicitTop = 0
-    end
-    inherited Separador5: TToolButton
-      Left = 668
-      Top = 0
-      ExplicitLeft = 668
-      ExplicitTop = 0
-    end
-    inherited btn_Sair: TToolButton
-      Left = 676
-      Top = 0
-      ExplicitLeft = 676
-      ExplicitTop = 0
-    end
   end
   inherited StatusBar1: TStatusBar
     Top = 556
@@ -241,7 +176,7 @@ inherited FrmCadastro: TFrmCadastro
         'Inativo')
       TabOrder = 1
     end
-    inherited GroupBox1: TGroupBox
+    inherited GrpBox_InfoReg: TGroupBox
       Left = 559
       Top = 35
       TabOrder = 8
@@ -251,16 +186,16 @@ inherited FrmCadastro: TFrmCadastro
   end
   object Panel1: TPanel [4]
     Left = 0
-    Top = 233
+    Top = 244
     Width = 908
-    Height = 323
+    Height = 312
     Align = alClient
     TabOrder = 4
     object PgCtrl_Endereco: TPageControl
       Left = 1
       Top = 1
       Width = 906
-      Height = 321
+      Height = 310
       ActivePage = TbSht_EndFaturamento
       Align = alClient
       TabOrder = 0
@@ -546,7 +481,7 @@ inherited FrmCadastro: TFrmCadastro
           Left = 0
           Top = 161
           Width = 898
-          Height = 132
+          Height = 121
           Align = alClient
           DataSource = DSDetalhe_1
           ReadOnly = True
@@ -594,18 +529,6 @@ inherited FrmCadastro: TFrmCadastro
         end
       end
     end
-  end
-  inherited ImageList3: TImageList
-    Left = 56
-    Top = 376
-  end
-  inherited ImageList2: TImageList
-    Left = 96
-    Top = 376
-  end
-  inherited ImageList1: TImageList
-    Left = 16
-    Top = 376
   end
   inherited FDTabela: TFDTable
     OnNewRecord = FDTabelaNewRecord
@@ -672,6 +595,10 @@ inherited FrmCadastro: TFrmCadastro
   inherited DataSource: TDataSource
     Left = 136
     Top = 424
+  end
+  inherited ImageList1: TImageList
+    Left = 16
+    Top = 376
   end
   object FDTable_Detalhe_1: TFDTable [10]
     AfterEdit = FDTable_Detalhe_1AfterEdit
@@ -777,5 +704,13 @@ inherited FrmCadastro: TFrmCadastro
     DataSet = FDQuery1
     Left = 576
     Top = 448
+  end
+  inherited ImageList2: TImageList
+    Left = 96
+    Top = 376
+  end
+  inherited ImageList3: TImageList
+    Left = 56
+    Top = 376
   end
 end

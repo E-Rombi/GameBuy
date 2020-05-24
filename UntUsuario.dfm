@@ -9,71 +9,6 @@ inherited FrmUsuario: TFrmUsuario
   inherited ToolBarPadrao: TToolBar
     Width = 880
     ExplicitWidth = 880
-    inherited Separador2: TToolButton
-      Left = 273
-      Wrap = False
-      ExplicitLeft = 273
-    end
-    inherited btn_Inserir: TToolButton
-      Left = 281
-      Top = 0
-      ExplicitLeft = 281
-      ExplicitTop = 0
-    end
-    inherited btn_Editar: TToolButton
-      Left = 334
-      Top = 0
-      ExplicitLeft = 334
-      ExplicitTop = 0
-    end
-    inherited btn_Excluir: TToolButton
-      Left = 387
-      Top = 0
-      ExplicitLeft = 387
-      ExplicitTop = 0
-    end
-    inherited Separador3: TToolButton
-      Left = 440
-      Top = 0
-      ExplicitLeft = 440
-      ExplicitTop = 0
-    end
-    inherited btn_Salvar: TToolButton
-      Left = 448
-      Top = 0
-      ExplicitLeft = 448
-      ExplicitTop = 0
-    end
-    inherited btn_Cancelar: TToolButton
-      Left = 501
-      Top = 0
-      ExplicitLeft = 501
-      ExplicitTop = 0
-    end
-    inherited Separador4: TToolButton
-      Left = 554
-      Top = 0
-      ExplicitLeft = 554
-      ExplicitTop = 0
-    end
-    inherited btn_Imprimir: TToolButton
-      Left = 562
-      Top = 0
-      ExplicitLeft = 562
-      ExplicitTop = 0
-    end
-    inherited Separador5: TToolButton
-      Left = 615
-      Top = 0
-      ExplicitLeft = 615
-      ExplicitTop = 0
-    end
-    inherited btn_Sair: TToolButton
-      Left = 623
-      Top = 0
-      ExplicitLeft = 623
-      ExplicitTop = 0
-    end
   end
   inherited StatusBar1: TStatusBar
     Top = 283
@@ -87,9 +22,9 @@ inherited FrmUsuario: TFrmUsuario
   end
   inherited PnlFicha: TPanel
     Width = 880
-    Height = 204
+    Height = 193
     ExplicitWidth = 880
-    ExplicitHeight = 204
+    ExplicitHeight = 193
     object Label2: TLabel [0]
       Left = 16
       Top = 38
@@ -132,7 +67,7 @@ inherited FrmUsuario: TFrmUsuario
       Height = 13
       Caption = 'ID'
     end
-    inherited GroupBox1: TGroupBox
+    inherited GrpBox_InfoReg: TGroupBox
       Left = 559
       Top = 35
       TabOrder = 4
@@ -190,10 +125,6 @@ inherited FrmUsuario: TFrmUsuario
       ReadOnly = True
       TabOrder = 5
     end
-  end
-  inherited ImageList3: TImageList
-    Left = 352
-    Top = 72
   end
   inherited FDTabela: TFDTable
     IndexFieldNames = 'ID'
@@ -256,6 +187,9 @@ inherited FrmUsuario: TFrmUsuario
   inherited FQuery: TFDQuery
     Left = 696
     Top = 224
+  end
+  inherited ImageList3: TImageList
+    Top = 72
   end
   object FDQryPerfil: TFDQuery
     Connection = DM.FDConnection1

@@ -48,7 +48,7 @@ inherited FrmPerfil: TFrmPerfil
       Height = 13
       Caption = 'Label11'
     end
-    inherited GroupBox1: TGroupBox
+    inherited GrpBox_InfoReg: TGroupBox
       Left = 559
       ExplicitLeft = 559
     end
@@ -255,6 +255,10 @@ inherited FrmPerfil: TFrmPerfil
       object TabSheet2: TTabSheet
         Caption = 'Vendas'
         ImageIndex = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Pedido: TLabel
           Left = 11
           Top = 40
@@ -369,6 +373,10 @@ inherited FrmPerfil: TFrmPerfil
       object TabSheet3: TTabSheet
         Caption = 'Relat'#243'rios'
         ImageIndex = 2
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Cliente: TLabel
           Left = 11
           Top = 40
@@ -420,6 +428,10 @@ inherited FrmPerfil: TFrmPerfil
       object TabSheet4: TTabSheet
         Caption = 'Perfis e Usu'#225'rios'
         ImageIndex = 3
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
+        ExplicitHeight = 0
         object Label18: TLabel
           Left = 11
           Top = 90

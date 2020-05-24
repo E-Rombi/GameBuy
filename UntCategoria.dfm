@@ -13,7 +13,7 @@ inherited FrmCategoria: TFrmCategoria
   inherited StatusBar1: TStatusBar
     Top = 312
     Width = 908
-    ExplicitTop = 237
+    ExplicitTop = 312
     ExplicitWidth = 908
   end
   inherited PanelEntrada: TPanel
@@ -24,7 +24,7 @@ inherited FrmCategoria: TFrmCategoria
     Width = 908
     Height = 222
     ExplicitWidth = 908
-    ExplicitHeight = 147
+    ExplicitHeight = 222
     object Label2: TLabel [0]
       Left = 16
       Top = 63
@@ -46,7 +46,7 @@ inherited FrmCategoria: TFrmCategoria
       Height = 13
       Caption = 'ID'
     end
-    inherited GroupBox1: TGroupBox
+    inherited GrpBox_InfoReg: TGroupBox
       Left = 554
       Top = 8
       TabOrder = 3

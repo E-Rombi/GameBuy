@@ -207,6 +207,8 @@ object FrmPadrao: TFrmPadrao
     Align = alTop
     BevelInner = bvRaised
     BevelOuter = bvNone
+    Color = clMenuHighlight
+    ParentBackground = False
     TabOrder = 2
     object Label1: TLabel
       Left = 8
@@ -229,6 +231,8 @@ object FrmPadrao: TFrmPadrao
     Width = 904
     Height = 215
     Align = alClient
+    Color = clWindow
+    ParentBackground = False
     TabOrder = 3
     object GrpBox_InfoReg: TGroupBox
       Left = 490

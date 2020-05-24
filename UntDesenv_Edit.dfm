@@ -46,7 +46,7 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
       Height = 13
       Caption = 'ID'
     end
-    inherited GroupBox1: TGroupBox
+    inherited GrpBox_InfoReg: TGroupBox
       Left = 559
       TabOrder = 4
       ExplicitLeft = 559

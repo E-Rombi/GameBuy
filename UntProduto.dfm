@@ -2,7 +2,6 @@ inherited FrmProduto: TFrmProduto
   Caption = 'Cadastro de Produto'
   ClientHeight = 508
   ClientWidth = 945
-  ExplicitTop = -145
   ExplicitWidth = 961
   ExplicitHeight = 547
   PixelsPerInch = 96
@@ -148,7 +147,7 @@ inherited FrmProduto: TFrmProduto
         'Inativo')
       TabOrder = 7
     end
-    inherited GroupBox1: TGroupBox
+    inherited GrpBox_InfoReg: TGroupBox
       Left = 620
       Top = 309
       TabOrder = 8
