@@ -23,7 +23,7 @@ type
     Label1: TLabel;
     ValorCampo: TEdit;
     PnlFicha: TPanel;
-    GroupBox1: TGroupBox;
+    GrpBox_InfoReg: TGroupBox;
     Label8: TLabel;
     Label9: TLabel;
     Label10: TLabel;

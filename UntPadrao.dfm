@@ -230,7 +230,7 @@ object FrmPadrao: TFrmPadrao
     Height = 215
     Align = alClient
     TabOrder = 3
-    object GroupBox1: TGroupBox
+    object GrpBox_InfoReg: TGroupBox
       Left = 490
       Top = 17
       Width = 218

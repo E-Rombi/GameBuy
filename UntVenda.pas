@@ -245,14 +245,12 @@ begin
   begin
     Pnl_Endereco.Visible   := True;
     DBGrd_Endereco.Visible := True;
-    GroupBox1.Left := 943;
   end
   else
   begin
     FDTabelaFK_ENDERECO.AsVariant := Null;
     Pnl_Endereco.Visible   := False;
     DBGrd_Endereco.Visible := False;
-    GroupBox1.Left := 385;
   end;
 
 end;
@@ -277,7 +275,7 @@ begin
     if (gdSelected in State) then
     begin
       (Sender as TDBGrid).Canvas.Font.Style := [fsBold];
-      (Sender as TDBGrid).Canvas.Brush.Color := $ff8533;
+      (Sender as TDBGrid).Canvas.Brush.Color := clMoneyGreen;
     end
     else
       (Sender as TDBGrid).Canvas.Brush.Color := clWhite;
@@ -362,7 +360,6 @@ begin
   begin
     Pnl_Endereco.Visible   := True;
     DBGrd_Endereco.Visible := True;
-    GroupBox1.Left := 943;
     FQry_Endereco.Filter := 'FK_CADASTRO = ' + FDTabelaFK_CADASTRO.AsString;
     FQry_Endereco.Filtered := True;
   end
@@ -370,7 +367,6 @@ begin
   begin
     Pnl_Endereco.Visible   := False;
     DBGrd_Endereco.Visible := False;
-    GroupBox1.Left := 385;
   end;
 end;
 

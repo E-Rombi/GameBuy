@@ -3,7 +3,6 @@ inherited FrmVenda: TFrmVenda
   ClientHeight = 586
   ClientWidth = 1284
   OnShow = FormShow
-  ExplicitTop = -142
   ExplicitWidth = 1300
   ExplicitHeight = 625
   PixelsPerInch = 96
@@ -24,16 +23,134 @@ inherited FrmVenda: TFrmVenda
   end
   inherited PnlFicha: TPanel
     Width = 1284
-    Height = 267
+    Height = 315
     Align = alTop
     AutoSize = True
     ExplicitWidth = 1284
-    ExplicitHeight = 267
-    inherited GroupBox1: TGroupBox
-      Left = 943
-      Top = 6
-      ExplicitLeft = 943
-      ExplicitTop = 6
+    ExplicitHeight = 315
+    object Pnl_Endereco: TPanel [0]
+      Left = 1
+      Top = 106
+      Width = 1282
+      Height = 108
+      Align = alTop
+      BevelOuter = bvNone
+      TabOrder = 2
+      object DBGrd_Endereco: TDBGrid
+        Left = 7
+        Top = 5
+        Width = 841
+        Height = 99
+        DataSource = DSEndereco
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+        ReadOnly = True
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -11
+        TitleFont.Name = 'Tahoma'
+        TitleFont.Style = []
+        OnCellClick = DBGrd_EnderecoCellClick
+        OnDrawColumnCell = DBGrd_EnderecoDrawColumnCell
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'ID'
+            Width = 30
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'CEP'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'LOGRADOURO'
+            Width = 275
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'NUMERO'
+            Title.Caption = 'NRO'
+            Width = 30
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'BAIRRO'
+            Width = 200
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'CIDADE'
+            Width = 200
+            Visible = True
+          end>
+      end
+    end
+    object Panel4: TPanel [1]
+      Left = 1
+      Top = 1
+      Width = 1282
+      Height = 105
+      Align = alTop
+      BevelOuter = bvNone
+      TabOrder = 3
+      object Label3: TLabel
+        Left = 7
+        Top = 37
+        Width = 33
+        Height = 13
+        Caption = 'Cliente'
+      end
+      object Label2: TLabel
+        Left = 7
+        Top = 9
+        Width = 11
+        Height = 13
+        Caption = 'ID'
+      end
+      object DBLookupComboBox1: TDBLookupComboBox
+        Left = 51
+        Top = 34
+        Width = 300
+        Height = 21
+        DataField = 'FK_CADASTRO'
+        DataSource = DataSource
+        KeyField = 'ID'
+        ListField = 'FANTASIA'
+        ListSource = DSCliente
+        TabOrder = 0
+      end
+      object DBEdit1: TDBEdit
+        Left = 51
+        Top = 6
+        Width = 53
+        Height = 21
+        TabOrder = 1
+      end
+      object DBChk_Entregar: TDBCheckBox
+        Left = 293
+        Top = 5
+        Width = 58
+        Height = 17
+        Caption = 'Entregar'
+        DataField = 'CHK_ENTREGAR'
+        DataSource = DataSource
+        TabOrder = 2
+        ValueChecked = 'S'
+        ValueUnchecked = 'N'
+        OnClick = DBChk_EntregarClick
+      end
+    end
+    inherited GrpBox_InfoReg: TGroupBox
+      Left = 631
+      Top = 1
+      ExplicitLeft = 631
+      ExplicitTop = 1
       inherited Label8: TLabel
         Left = 9
         ExplicitLeft = 9
@@ -45,7 +162,7 @@ inherited FrmVenda: TFrmVenda
     end
     object Panel2: TPanel
       Left = 1
-      Top = 166
+      Top = 214
       Width = 1282
       Height = 100
       Align = alTop
@@ -198,137 +315,19 @@ inherited FrmVenda: TFrmVenda
         end
       end
     end
-    object Pnl_Endereco: TPanel
-      Left = 1
-      Top = 58
-      Width = 1282
-      Height = 108
-      Align = alTop
-      BevelOuter = bvNone
-      TabOrder = 2
-      object DBGrd_Endereco: TDBGrid
-        Left = 7
-        Top = 5
-        Width = 609
-        Height = 99
-        DataSource = DSEndereco
-        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
-        ReadOnly = True
-        TabOrder = 0
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -11
-        TitleFont.Name = 'Tahoma'
-        TitleFont.Style = []
-        OnCellClick = DBGrd_EnderecoCellClick
-        OnDrawColumnCell = DBGrd_EnderecoDrawColumnCell
-        Columns = <
-          item
-            Expanded = False
-            FieldName = 'ID'
-            Width = 30
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'CEP'
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'LOGRADOURO'
-            Width = 150
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'NUMERO'
-            Title.Caption = 'NRO'
-            Width = 30
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'BAIRRO'
-            Width = 100
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'CIDADE'
-            Width = 150
-            Visible = True
-          end>
-      end
-    end
-    object Panel4: TPanel
-      Left = 1
-      Top = 1
-      Width = 1282
-      Height = 57
-      Align = alTop
-      BevelOuter = bvNone
-      TabOrder = 3
-      object Label3: TLabel
-        Left = 7
-        Top = 37
-        Width = 33
-        Height = 13
-        Caption = 'Cliente'
-      end
-      object Label2: TLabel
-        Left = 7
-        Top = 9
-        Width = 11
-        Height = 13
-        Caption = 'ID'
-      end
-      object DBLookupComboBox1: TDBLookupComboBox
-        Left = 51
-        Top = 34
-        Width = 300
-        Height = 21
-        DataField = 'FK_CADASTRO'
-        DataSource = DataSource
-        KeyField = 'ID'
-        ListField = 'FANTASIA'
-        ListSource = DSCliente
-        TabOrder = 0
-      end
-      object DBEdit1: TDBEdit
-        Left = 51
-        Top = 6
-        Width = 53
-        Height = 21
-        TabOrder = 1
-      end
-      object DBChk_Entregar: TDBCheckBox
-        Left = 360
-        Top = 36
-        Width = 58
-        Height = 17
-        Caption = 'Entregar'
-        DataField = 'CHK_ENTREGAR'
-        DataSource = DataSource
-        TabOrder = 2
-        ValueChecked = 'S'
-        ValueUnchecked = 'N'
-        OnClick = DBChk_EntregarClick
-      end
-    end
   end
   object Pnl_Grid: TPanel [4]
     Left = 0
-    Top = 357
+    Top = 405
     Width = 1284
-    Height = 210
+    Height = 162
     Align = alClient
     TabOrder = 4
     object DBGrid1: TDBGrid
       Left = 1
       Top = 1
       Width = 953
-      Height = 208
+      Height = 160
       Align = alClient
       DataSource = DSItens
       ReadOnly = True
@@ -373,7 +372,7 @@ inherited FrmVenda: TFrmVenda
       Left = 954
       Top = 1
       Width = 329
-      Height = 208
+      Height = 160
       Align = alRight
       DataField = 'FOTO'
       DataSource = DSProduto
