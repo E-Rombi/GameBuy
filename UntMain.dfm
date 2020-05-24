@@ -2,8 +2,8 @@ object FrmMain: TFrmMain
   Left = 0
   Top = 0
   Caption = 'Menu'
-  ClientHeight = 388
-  ClientWidth = 694
+  ClientHeight = 484
+  ClientWidth = 976
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -23,8 +23,8 @@ object FrmMain: TFrmMain
   TextHeight = 13
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 369
-    Width = 694
+    Top = 465
+    Width = 976
     Height = 19
     Panels = <
       item
@@ -47,23 +47,97 @@ object FrmMain: TFrmMain
         Alignment = taCenter
         Width = 50
       end>
+    ExplicitTop = 369
+    ExplicitWidth = 694
   end
   object PgCtrl_Menu: TPageControl
     Left = 0
     Top = 25
-    Width = 694
-    Height = 344
+    Width = 976
+    Height = 440
+    ActivePage = TbSht_Main
     Align = alClient
     PopupMenu = PopupMenu1
     TabOrder = 1
+    ExplicitWidth = 694
+    ExplicitHeight = 344
+    object TbSht_Main: TTabSheet
+      ExplicitWidth = 686
+      ExplicitHeight = 316
+      object Grafico_Vendas: TDBChart
+        Left = 3
+        Top = -35
+        Width = 686
+        Height = 349
+        Title.Text.Strings = (
+          'Total de Vendas dos Ultimos Dias')
+        TabOrder = 0
+        Visible = False
+        DefaultCanvas = 'TGDIPlusCanvas'
+        ColorPaletteIndex = 13
+        object Series1: TBarSeries
+          DataSource = FQry_Vendas
+          XLabelsSource = 'DATA'
+          BarStyle = bsRoundRectangle
+          XValues.Name = 'X'
+          XValues.Order = loAscending
+          XValues.ValueSource = 'DATA'
+          YValues.Name = 'Bar'
+          YValues.Order = loNone
+          YValues.ValueSource = 'SUM'
+        end
+      end
+      object Button1: TButton
+        Left = 3
+        Top = 312
+        Width = 686
+        Height = 38
+        Caption = 'Atualizar'
+        TabOrder = 1
+        OnClick = Button1Click
+      end
+      object Grafico_Vendas_Item: TDBChart
+        Left = 691
+        Top = -35
+        Width = 686
+        Height = 349
+        Title.Text.Strings = (
+          'Total de Vendas dos Ultimos Dias')
+        TabOrder = 2
+        Visible = False
+        DefaultCanvas = 'TGDIPlusCanvas'
+        ColorPaletteIndex = 13
+        object BarSeries1: TBarSeries
+          DataSource = FQry_Vendas_Por_Item
+          XLabelsSource = 'TITULO'
+          BarStyle = bsRoundRectangle
+          XValues.Name = 'X'
+          XValues.Order = loAscending
+          XValues.ValueSource = 'TOTAL'
+          YValues.Name = 'Bar'
+          YValues.Order = loNone
+          YValues.ValueSource = 'TOTAL'
+        end
+      end
+      object Button2: TButton
+        Left = 691
+        Top = 312
+        Width = 686
+        Height = 38
+        Caption = 'Atualizar'
+        TabOrder = 3
+        OnClick = Button2Click
+      end
+    end
   end
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 694
+    Width = 976
     Height = 25
     Align = alTop
     TabOrder = 2
+    ExplicitWidth = 694
   end
   object Timer1: TTimer
     OnTimer = Timer1Timer
@@ -418,5 +492,44 @@ object FrmMain: TFrmMain
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000}
+  end
+  object FQry_Vendas: TFDQuery
+    Connection = DM.FDConnection1
+    SQL.Strings = (
+      'select'
+      'cast(p.DATA_CADASTRO as date) DATA,'
+      'sum(p.TOTAL_PEDIDO)'
+      'from pedido p'
+      'WHERE '
+      
+        'cast(p.DATA_CADASTRO as date) between (current_date-5) and (curr' +
+        'ent_date)'
+      'GROUP BY 1')
+    Left = 584
+    Top = 256
+  end
+  object DSVendas: TDataSource
+    DataSet = FQry_Vendas
+    Left = 480
+    Top = 296
+  end
+  object FQry_Vendas_Por_Item: TFDQuery
+    Connection = DM.FDConnection1
+    SQL.Strings = (
+      'select'
+      '  p.TITULO,'
+      '  sum(pi.VALOR_TOTAL) TOTAL'
+      ''
+      'from pedido_item pi'
+      'inner join produto p on p.ID = pi.FK_PRODUTO'
+      'GROUP BY 1'
+      'ORDER BY 2 desc')
+    Left = 607
+    Top = 118
+  end
+  object DSVendas_Por_Item: TDataSource
+    DataSet = FQry_Vendas_Por_Item
+    Left = 567
+    Top = 70
   end
 end

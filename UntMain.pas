@@ -10,7 +10,9 @@ uses
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.ExtCtrls, Vcl.AppEvnts,
   Vcl.ActnCtrls, Vcl.ToolWin, Vcl.ActnMan, Vcl.ActnMenus,
   Vcl.PlatformDefaultStyleActnCtrls, System.Actions, Vcl.ActnList, Vcl.ComCtrls,
-  Vcl.Menus, Generics.Collections, System.ImageList, Vcl.ImgList;
+  Vcl.Menus, Generics.Collections, System.ImageList, Vcl.ImgList,
+  VclTee.TeeGDIPlus, VCLTee.TeEngine, VCLTee.TeeProcs, VCLTee.Chart,
+  VCLTee.DBChart, VCLTee.Series, Vcl.StdCtrls;
 
 type
   TFrmMain = class(TForm)
@@ -34,6 +36,17 @@ type
     Movimentao1: TMenuItem;
     Mov_Venda: TMenuItem;
     ImageList1: TImageList;
+    Grafico_Vendas: TDBChart;
+    FQry_Vendas: TFDQuery;
+    DSVendas: TDataSource;
+    Series1: TBarSeries;
+    TbSht_Main: TTabSheet;
+    Button1: TButton;
+    Grafico_Vendas_Item: TDBChart;
+    FQry_Vendas_Por_Item: TFDQuery;
+    DSVendas_Por_Item: TDataSource;
+    Button2: TButton;
+    BarSeries1: TBarSeries;
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
@@ -43,6 +56,8 @@ type
     procedure Fechar1Click(Sender: TObject);
     function  FormAtivado(Name: String): Boolean;
     procedure FormCreate(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
     vForms: TDictionary<String, String>;
@@ -65,20 +80,46 @@ begin
   StatusBar1.Panels[3].Text := '' + Application.Hint;
 end;
 
+procedure TFrmMain.Button1Click(Sender: TObject);
+begin
+  FQry_Vendas.Close;
+  FQry_Vendas.Open();
+end;
+
+procedure TFrmMain.Button2Click(Sender: TObject);
+begin
+  FQry_Vendas_Por_Item.Close;
+  FQry_Vendas_Por_Item.Open();
+end;
+
 procedure TFrmMain.Fechar1Click(Sender: TObject);
 var
   vTab: TTabSheet;
 begin
   vTab := PgCtrl_Menu.ActivePage;
-  vForms.Remove(vTab.Name);
-
-  TTabSheet(vTab).Destroy;
+  if not(vTab = TbSht_Main) then
+  begin
+    vForms.Remove(vTab.Name);
+    TTabSheet(vTab).Destroy;
+  end;
 end;
 
 procedure TFrmMain.FormActivate(Sender: TObject);
 begin
     StatusBar1.Panels[1].Text :=
     FormatDateTime('dddd", " dd " de " mmmm " de " yyyy', Now);
+
+    if FQry_Login.FieldByName('GRAFICO_VENDAS').AsString = 'S' then
+      Grafico_Vendas.Visible := True;
+
+    if FQry_Login.FieldByName('GRAFICO_VENDAS_ITEM').AsString = 'S' then
+      Grafico_Vendas_Item.Visible := True;
+
+    FQry_Vendas.Close;
+    FQry_Vendas.Open();
+    FQry_Vendas_Por_Item.Close;
+    FQry_Vendas_Por_Item.Open();
+
 end;
 
 function TFrmMain.FormAtivado(Name: String): Boolean;
