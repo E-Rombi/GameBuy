@@ -12,7 +12,8 @@ uses
   UntCategoria in 'UntCategoria.pas' {FrmCategoria},
   UntProduto in 'UntProduto.pas' {FrmProduto},
   UntDesenv_Edit in 'UntDesenv_Edit.pas' {FrmDesenv_Edit},
-  UntVenda in 'UntVenda.pas' {FrmVenda};
+  UntVenda in 'UntVenda.pas' {FrmVenda},
+  UntRelPadrao in 'UntRelPadrao.pas' {FrmRelPadrao};
 
 {$R *.res}
 
@@ -21,5 +22,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TFrmMain, FrmMain);
+  Application.CreateForm(TFrmRelPadrao, FrmRelPadrao);
   Application.Run;
 end.
