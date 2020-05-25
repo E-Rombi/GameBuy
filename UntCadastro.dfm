@@ -3,6 +3,7 @@ inherited FrmCadastro: TFrmCadastro
   ClientHeight = 575
   ClientWidth = 908
   OnCreate = FormCreate
+  ExplicitTop = -77
   ExplicitWidth = 924
   ExplicitHeight = 614
   PixelsPerInch = 96
@@ -664,6 +665,7 @@ inherited FrmCadastro: TFrmCadastro
     object FDTable_Detalhe_1FONE: TStringField
       FieldName = 'FONE'
       Origin = 'FONE'
+      EditMask = '(99) 9 9999-9999;0;_'
       Size = 30
     end
     object FDTable_Detalhe_1DATA_CADASTRO: TSQLTimeStampField

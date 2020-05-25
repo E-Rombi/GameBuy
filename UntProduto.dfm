@@ -189,7 +189,6 @@ inherited FrmProduto: TFrmProduto
     object FDTabelaDATA_LANCAMENTO: TSQLTimeStampField
       FieldName = 'DATA_LANCAMENTO'
       Origin = 'DATA_LANCAMENTO'
-      DisplayFormat = '!00/00/0000;1; '
       EditMask = '!00/00/0000;1; '
     end
     object FDTabelaSTATUS: TStringField
