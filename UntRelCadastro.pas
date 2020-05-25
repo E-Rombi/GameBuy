@@ -34,6 +34,7 @@ type
     procedure FormActivate(Sender: TObject);
     procedure Btn_GerarClick(Sender: TObject);
     procedure Btn_CancelarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -65,6 +66,12 @@ var
 
 begin
   inherited;
+  FDQuery1.Close;
+  FDQuery1.SQL.Clear;
+  FDQuery1.SQL.Add('SELECT'
+                  +#13+'CAD.*, CADEND.*'
+                  +#13+'FROM CADASTRO CAD'
+                  +#13+'LEFT JOIN CADASTRO_ENDERECO CADEND ON (CADEND.FK_CADASTRO = CAD.ID)');
   vWhere := '';
 
   if not (trim(Ed_ID.Text) = '') then
@@ -86,7 +93,7 @@ begin
         else
           vWhere := vWhere +#13+ 'CAD.TIPO_PESSOA = ' + Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex];
 
-    if not (EdMsk_CNPJ.Text = '  .   .   /    -  ') and not(EdMsk_CNPJ.Text = '   .   .   -  ') then
+    if not (EdMsk_CNPJ.Text = '  .   .   /    -  ') and not(EdMsk_CNPJ.Text = '') and not(EdMsk_CNPJ.Text = '   .   .   -  ') then
       if vWhere = '' then
         vWhere := 'WHERE CAD.CNPJ_CPF = ' + EdMsk_CNPJ.Text
       else
@@ -119,6 +126,7 @@ begin
     end;
 
     FDQuery1.SQL.Add(vWhere);
+
     FDQuery1.Open();
     frxReport1.ShowReport();
 
@@ -141,6 +149,16 @@ procedure TFrmRelCliente.FormActivate(Sender: TObject);
 begin
   inherited;
   Cmb_TipoPessoa.ItemIndex := 0;
+end;
+
+procedure TFrmRelCliente.FormShow(Sender: TObject);
+begin
+  inherited;
+  Cmb_Status.ItemIndex := 2;
+  Cmb_TipoPessoa.ItemIndex := 2;
+  Cmb_Estado.ItemIndex := 0;
+  Cmb_Ordem.ItemIndex := 0;
+
 end;
 
 end.
