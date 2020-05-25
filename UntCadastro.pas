@@ -91,7 +91,6 @@ type
     FDQuery1: TFDQuery;
     DataSource1: TDataSource;
     procedure FormActivate(Sender: TObject);
-    procedure DBCmb_TipoPessoaExit(Sender: TObject);
     procedure btn_SalvarClick(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
     procedure FDTabelaNewRecord(DataSet: TDataSet);
@@ -113,6 +112,7 @@ type
     procedure FDTable_Detalhe_1BeforePost(DataSet: TDataSet);
     procedure FDTable_Detalhe_1AfterEdit(DataSet: TDataSet);
     procedure FDTabelaBeforePost(DataSet: TDataSet);
+    procedure DBCmb_TipoPessoaChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -225,7 +225,7 @@ begin
   HabilitaForm(False);
 end;
 
-procedure TFrmCadastro.DBCmb_TipoPessoaExit(Sender: TObject);
+procedure TFrmCadastro.DBCmb_TipoPessoaChange(Sender: TObject);
 begin
   inherited;
   if FDTabelaTIPO_PESSOA.AsString = 'Física' then

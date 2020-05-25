@@ -147,7 +147,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="UntRelCadastro.pas">
-            <Form>FrmRelPadrao1</Form>
+            <Form>FrmRelCliente</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

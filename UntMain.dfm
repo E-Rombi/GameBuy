@@ -211,6 +211,13 @@ object FrmMain: TFrmMain
         OnClick = ShowForm
       end
     end
+    object Relatrios1: TMenuItem
+      Caption = 'Relat'#243'rios'
+      object Rel_Clientes: TMenuItem
+        Caption = 'Clientes'
+        OnClick = ShowForm
+      end
+    end
   end
   object PopupMenu1: TPopupMenu
     Left = 572

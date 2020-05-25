@@ -3,7 +3,6 @@ inherited FrmCadastro: TFrmCadastro
   ClientHeight = 575
   ClientWidth = 908
   OnCreate = FormCreate
-  ExplicitTop = -77
   ExplicitWidth = 924
   ExplicitHeight = 614
   PixelsPerInch = 96
@@ -142,7 +141,7 @@ inherited FrmCadastro: TFrmCadastro
         'F'#237'sica'
         'Jur'#237'dica')
       TabOrder = 2
-      OnExit = DBCmb_TipoPessoaExit
+      OnChange = DBCmb_TipoPessoaChange
     end
     object DBEd_Email: TDBEdit [13]
       Left = 84
