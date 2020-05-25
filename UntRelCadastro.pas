@@ -82,22 +82,22 @@ begin
 
   if Cmb_Status.ItemIndex <> 2 then
       if vWhere = '' then
-        vWhere := 'WHERE CAD.STATUS = ' + Cmb_Status.Items[Cmb_Status.ItemIndex]
+        vWhere := 'WHERE CAD.STATUS = ''' + Cmb_Status.Items[Cmb_Status.ItemIndex] + ''''
       else
-        vWhere := vWhere +#13+ 'CAD.STATUS = ' + Cmb_Status.Items[Cmb_Status.ItemIndex];
+        vWhere := vWhere +#13+ 'CAD.STATUS = ''' + Cmb_Status.Items[Cmb_Status.ItemIndex] + '''';
 
 
     if Cmb_TipoPessoa.ItemIndex <> 2 then
         if vWhere = '' then
-          vWhere := 'WHERE CAD.TIPO_PESSOA = ' + Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex]
+          vWhere := 'WHERE CAD.TIPO_PESSOA = ''' + Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex] + ''''
         else
-          vWhere := vWhere +#13+ 'CAD.TIPO_PESSOA = ' + Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex];
+          vWhere := vWhere +#13+ 'CAD.TIPO_PESSOA = ''' + Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex] + '''';
 
     if not (EdMsk_CNPJ.Text = '  .   .   /    -  ') and not(EdMsk_CNPJ.Text = '') and not(EdMsk_CNPJ.Text = '   .   .   -  ') then
       if vWhere = '' then
-        vWhere := 'WHERE CAD.CNPJ_CPF = ' + EdMsk_CNPJ.Text
+        vWhere := 'WHERE CAD.CNPJ_CPF = ''' + EdMsk_CNPJ.Text + ''''
       else
-        vWhere := vWhere +#13+ 'CAD.CNPJ_CPF = ' + EdMsk_CNPJ.Text;
+        vWhere := vWhere +#13+ 'CAD.CNPJ_CPF = ''' + EdMsk_CNPJ.Text + '''';
 
     if not (trim(Ed_Fantasia.Text) = '') then
       if vWhere = '' then
@@ -107,9 +107,9 @@ begin
 
     if Cmb_Estado.ItemIndex <> 0 then
       if vWhere = '' then
-        vWhere := 'WHERE CADEND.ESTADO = ' + Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex]
+        vWhere := 'WHERE CADEND.ESTADO = ''' + Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex] + ''''
       else
-        vWhere := vWhere +#13+ 'CAD.TIPO_PESSOA = ' + Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex];
+        vWhere := vWhere +#13+ 'CAD.TIPO_PESSOA = ''' + Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex] + '''';
 
     if not(trim(Ed_Cidade.Text) = '') then
       if vWhere = '' then
