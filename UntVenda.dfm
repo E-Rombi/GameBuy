@@ -3,6 +3,7 @@ inherited FrmVenda: TFrmVenda
   ClientHeight = 586
   ClientWidth = 1284
   OnShow = FormShow
+  ExplicitTop = -88
   ExplicitWidth = 1300
   ExplicitHeight = 625
   PixelsPerInch = 96
@@ -24,6 +25,7 @@ inherited FrmVenda: TFrmVenda
   inherited PnlFicha: TPanel
     Width = 1284
     Height = 315
+    Align = alTop
     AutoSize = True
     ExplicitWidth = 1284
     ExplicitHeight = 315
@@ -322,7 +324,7 @@ inherited FrmVenda: TFrmVenda
     Top = 405
     Width = 1284
     Height = 130
-    Align = alBottom
+    Align = alClient
     TabOrder = 4
     object DBGrid1: TDBGrid
       Left = 1
@@ -379,7 +381,6 @@ inherited FrmVenda: TFrmVenda
       DataSource = DSProduto
       Stretch = True
       TabOrder = 1
-      ExplicitHeight = 160
     end
   end
   object Pnl_Totais: TPanel [5]
@@ -389,10 +390,6 @@ inherited FrmVenda: TFrmVenda
     Height = 32
     Align = alBottom
     TabOrder = 5
-    ExplicitLeft = 316
-    ExplicitTop = 567
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object Label13: TLabel
       Left = 627
       Top = 9
@@ -403,7 +400,7 @@ inherited FrmVenda: TFrmVenda
     object Label14: TLabel
       Left = 452
       Top = 9
-      Width = 77
+      Width = 72
       Height = 13
       Caption = 'Total Desconto'
     end
