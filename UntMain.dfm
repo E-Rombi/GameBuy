@@ -3,7 +3,7 @@ object FrmMain: TFrmMain
   Top = 0
   Caption = 'Menu'
   ClientHeight = 484
-  ClientWidth = 976
+  ClientWidth = 1370
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -24,7 +24,7 @@ object FrmMain: TFrmMain
   object StatusBar1: TStatusBar
     Left = 0
     Top = 465
-    Width = 976
+    Width = 1370
     Height = 19
     Panels = <
       item
@@ -47,23 +47,17 @@ object FrmMain: TFrmMain
         Alignment = taCenter
         Width = 50
       end>
-    ExplicitTop = 369
-    ExplicitWidth = 694
   end
   object PgCtrl_Menu: TPageControl
     Left = 0
     Top = 25
-    Width = 976
+    Width = 1370
     Height = 440
     ActivePage = TbSht_Main
     Align = alClient
     PopupMenu = PopupMenu1
     TabOrder = 1
-    ExplicitWidth = 694
-    ExplicitHeight = 344
     object TbSht_Main: TTabSheet
-      ExplicitWidth = 686
-      ExplicitHeight = 316
       object Grafico_Vendas: TDBChart
         Left = 3
         Top = -35
@@ -71,6 +65,7 @@ object FrmMain: TFrmMain
         Height = 349
         Title.Text.Strings = (
           'Total de Vendas dos Ultimos Dias')
+        Color = clWindow
         TabOrder = 0
         Visible = False
         DefaultCanvas = 'TGDIPlusCanvas'
@@ -90,19 +85,21 @@ object FrmMain: TFrmMain
       object Button1: TButton
         Left = 3
         Top = 312
-        Width = 686
+        Width = 687
         Height = 38
         Caption = 'Atualizar'
         TabOrder = 1
+        Visible = False
         OnClick = Button1Click
       end
       object Grafico_Vendas_Item: TDBChart
-        Left = 691
+        Left = 690
         Top = -35
         Width = 686
         Height = 349
         Title.Text.Strings = (
           'Total de Vendas dos Ultimos Dias')
+        Color = clWindow
         TabOrder = 2
         Visible = False
         DefaultCanvas = 'TGDIPlusCanvas'
@@ -120,12 +117,13 @@ object FrmMain: TFrmMain
         end
       end
       object Button2: TButton
-        Left = 691
+        Left = 686
         Top = 312
         Width = 686
         Height = 38
         Caption = 'Atualizar'
         TabOrder = 3
+        Visible = False
         OnClick = Button2Click
       end
     end
@@ -133,11 +131,10 @@ object FrmMain: TFrmMain
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 976
+    Width = 1370
     Height = 25
     Align = alTop
     TabOrder = 2
-    ExplicitWidth = 694
   end
   object Timer1: TTimer
     OnTimer = Timer1Timer
@@ -168,35 +165,42 @@ object FrmMain: TFrmMain
       object Estoque1: TMenuItem
         Caption = 'Estoque'
         ImageIndex = 0
+        Visible = False
         object Cad_Produto: TMenuItem
           Caption = 'Produto'
           ImageIndex = 1
+          Visible = False
           OnClick = ShowForm
         end
         object Cad_Categoria: TMenuItem
           Caption = 'Categoria'
           ImageIndex = 2
+          Visible = False
           OnClick = ShowForm
         end
         object Cad_Desenv_Edit: TMenuItem
           Caption = 'Dev. / Edt.'
           ImageIndex = 3
+          Visible = False
           OnClick = ShowForm
         end
       end
       object Cad_Perfil: TMenuItem
         Caption = 'Perfil'
         ImageIndex = 4
+        Visible = False
         OnClick = ShowForm
       end
       object Cad_Usuario: TMenuItem
         Caption = 'Usuario'
         ImageIndex = 5
+        Visible = False
         OnClick = ShowForm
       end
       object Cad_Cliente: TMenuItem
         Caption = 'Cliente'
         ImageIndex = 6
+        Visible = False
         OnClick = ShowForm
       end
     end

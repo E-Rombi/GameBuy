@@ -24,7 +24,6 @@ inherited FrmVenda: TFrmVenda
   inherited PnlFicha: TPanel
     Width = 1284
     Height = 315
-    Align = alTop
     AutoSize = True
     ExplicitWidth = 1284
     ExplicitHeight = 315
@@ -130,6 +129,8 @@ inherited FrmVenda: TFrmVenda
         Top = 6
         Width = 53
         Height = 21
+        DataField = 'ID'
+        DataSource = DataSource
         TabOrder = 1
       end
       object DBChk_Entregar: TDBCheckBox
@@ -320,14 +321,14 @@ inherited FrmVenda: TFrmVenda
     Left = 0
     Top = 405
     Width = 1284
-    Height = 162
-    Align = alClient
+    Height = 130
+    Align = alBottom
     TabOrder = 4
     object DBGrid1: TDBGrid
       Left = 1
       Top = 1
       Width = 953
-      Height = 160
+      Height = 128
       Align = alClient
       DataSource = DSItens
       ReadOnly = True
@@ -372,15 +373,101 @@ inherited FrmVenda: TFrmVenda
       Left = 954
       Top = 1
       Width = 329
-      Height = 160
+      Height = 128
       Align = alRight
       DataField = 'FOTO'
       DataSource = DSProduto
       Stretch = True
       TabOrder = 1
+      ExplicitHeight = 160
+    end
+  end
+  object Pnl_Totais: TPanel [5]
+    Left = 0
+    Top = 535
+    Width = 1284
+    Height = 32
+    Align = alBottom
+    TabOrder = 5
+    ExplicitLeft = 316
+    ExplicitTop = 567
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+    object Label13: TLabel
+      Left = 627
+      Top = 9
+      Width = 59
+      Height = 13
+      Caption = 'Total Pedido'
+    end
+    object Label14: TLabel
+      Left = 452
+      Top = 9
+      Width = 77
+      Height = 13
+      Caption = 'Total Desconto'
+    end
+    object Label15: TLabel
+      Left = 283
+      Top = 9
+      Width = 65
+      Height = 13
+      Caption = 'Total Produto'
+    end
+    object DBEd_TotalPedido: TDBEdit
+      Left = 692
+      Top = 6
+      Width = 77
+      Height = 21
+      TabStop = False
+      Color = clMoneyGreen
+      DataField = 'TOTAL_PEDIDO'
+      DataSource = DataSource
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 0
+    end
+    object DBEd_TotalDesconto: TDBEdit
+      Left = 533
+      Top = 6
+      Width = 77
+      Height = 21
+      DataField = 'TOTAL_DESCONTO'
+      DataSource = DataSource
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+      OnExit = DBEd_TotalDescontoExit
+    end
+    object DBEd_TotalProdutos: TDBEdit
+      Left = 358
+      Top = 6
+      Width = 77
+      Height = 21
+      TabStop = False
+      DataField = 'TOTAL_PRODUTO'
+      DataSource = DataSource
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 2
     end
   end
   inherited FDTabela: TFDTable
+    OnNewRecord = FDTabelaNewRecord
     IndexFieldNames = 'ID'
     UpdateOptions.AssignedValues = [uvGeneratorName]
     UpdateOptions.GeneratorName = 'GEN_PEDIDO'
@@ -403,14 +490,20 @@ inherited FrmVenda: TFrmVenda
     object FDTabelaTOTAL_PRODUTO: TFloatField
       FieldName = 'TOTAL_PRODUTO'
       Origin = 'TOTAL_PRODUTO'
+      DisplayFormat = '###,##0.00'
+      EditFormat = '###,##0.00'
     end
     object FDTabelaTOTAL_DESCONTO: TFloatField
       FieldName = 'TOTAL_DESCONTO'
       Origin = 'TOTAL_DESCONTO'
+      DisplayFormat = '###,##0.00'
+      EditFormat = '###,##0.00'
     end
     object FDTabelaTOTAL_PEDIDO: TFloatField
       FieldName = 'TOTAL_PEDIDO'
       Origin = 'TOTAL_PEDIDO'
+      DisplayFormat = '###,##0.00'
+      EditFormat = '###,##0.00'
     end
     object FDTabelaDATA_ALTERACAO: TSQLTimeStampField
       FieldName = 'DATA_ALTERACAO'
@@ -488,6 +581,8 @@ inherited FrmVenda: TFrmVenda
   end
   object FDItens: TFDTable
     BeforePost = FDItensBeforePost
+    AfterPost = FDItensAfterPost
+    AfterDelete = FDItensAfterDelete
     OnNewRecord = FDItensNewRecord
     IndexFieldNames = 'FK_PEDIDO'
     MasterSource = DataSource

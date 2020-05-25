@@ -110,10 +110,42 @@ begin
     FormatDateTime('dddd", " dd " de " mmmm " de " yyyy', Now);
 
     if FQry_Login.FieldByName('GRAFICO_VENDAS').AsString = 'S' then
+    begin
       Grafico_Vendas.Visible := True;
+      Button1.Visible := True;
+    end;
 
     if FQry_Login.FieldByName('GRAFICO_VENDAS_ITEM').AsString = 'S' then
+    begin
       Grafico_Vendas_Item.Visible := True;
+      Button2.Visible := True;
+    end;
+
+    if FQry_Login.FieldByName('PRODUTO').AsString = 'S' then
+      Cad_Produto.Visible := True;
+
+    if FQry_Login.FieldByName('CATEGORIA').AsString = 'S' then
+      Cad_Categoria.Visible := True;
+
+    if FQry_Login.FieldByName('DESENV_EDIT').AsString = 'S' then
+      Cad_Desenv_Edit.Visible := True;
+
+    if FQry_Login.FieldByName('PERFIL').AsString = 'S' then
+      Cad_Perfil.Visible := True;
+
+    if FQry_Login.FieldByName('USUARIO').AsString = 'S' then
+      Cad_Usuario.Visible := True;
+
+    if FQry_Login.FieldByName('CADASTRO').AsString = 'S' then
+      Cad_Cliente.Visible := True;
+
+    if (FQry_Login.FieldByName('PRODUTO').AsString = 'S')
+      or (FQry_Login.FieldByName('CATEGORIA').AsString = 'S')
+      or (FQry_Login.FieldByName('DESENV_EDIT').AsString = 'S') then
+      Estoque1.Visible := True;
+      Cad_Produto.Visible := True;
+
+
 
     FQry_Vendas.Close;
     FQry_Vendas.Open();

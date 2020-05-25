@@ -115,7 +115,7 @@ inherited FrmUsuario: TFrmUsuario
       Top = 108
       Width = 145
       Height = 21
-      DataField = 'ID'
+      DataField = 'FK_PERFIL'
       DataSource = DataSource
       KeyField = 'ID'
       ListField = 'DESCRICAO'

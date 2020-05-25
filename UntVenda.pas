@@ -67,6 +67,13 @@ type
     Btn_EditarItem: TButton;
     Btn_ExcluirItem: TButton;
     FDItensLKP_PRODUTO: TStringField;
+    Pnl_Totais: TPanel;
+    DBEd_TotalPedido: TDBEdit;
+    Label13: TLabel;
+    Label14: TLabel;
+    DBEd_TotalDesconto: TDBEdit;
+    Label15: TLabel;
+    DBEd_TotalProdutos: TDBEdit;
     procedure DBChk_EntregarClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FDTabelaFK_CADASTROChange(Sender: TField);
@@ -95,6 +102,11 @@ type
     procedure Btn_GravarItemClick(Sender: TObject);
     procedure Btn_CancelarItemClick(Sender: TObject);
     procedure FDItensBeforePost(DataSet: TDataSet);
+    procedure FDItensAfterDelete(DataSet: TDataSet);
+    procedure FDItensAfterPost(DataSet: TDataSet);
+    procedure FDTabelaNewRecord(DataSet: TDataSet);
+    procedure FormDestroy(Sender: TObject);
+    procedure DBEd_TotalDescontoExit(Sender: TObject);
   private
     { Private declarations }
   public
@@ -133,6 +145,7 @@ procedure TFrmVenda.btn_EditarClick(Sender: TObject);
 begin
   inherited;
   HabilitaForm(True);
+  HabilitaItem(False);
 end;
 
 procedure TFrmVenda.Btn_EditarItemClick(Sender: TObject);
@@ -185,6 +198,7 @@ begin
   FDTabela.Post;
   FDTabela.Edit;
   HabilitaForm(True);
+  HabilitaItem(False);
 end;
 
 procedure TFrmVenda.Btn_NovoItemClick(Sender: TObject);
@@ -262,6 +276,12 @@ begin
       FDItensVALOR_TOTAL.Value := (FDItensVALOR_UNITARIO.Value * FDItensQUANTIDADE.Value);
 end;
 
+procedure TFrmVenda.DBEd_TotalDescontoExit(Sender: TObject);
+begin
+  inherited;
+  FDTabelaTOTAL_PEDIDO.AsExtended := FDTabelaTOTAL_PRODUTO.AsExtended - FDTabelaTOTAL_DESCONTO.AsExtended;
+end;
+
 procedure TFrmVenda.DBGrd_EnderecoCellClick(Column: TColumn);
 begin
   inherited;
@@ -281,6 +301,74 @@ begin
       (Sender as TDBGrid).Canvas.Brush.Color := clWhite;
 
     DBGrd_Endereco.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+end;
+
+procedure TFrmVenda.FDItensAfterDelete(DataSet: TDataSet);
+var
+  Bmk: TBookmark;
+  ValTot: Extended;
+begin
+  inherited;
+  with FDItens do
+  begin
+    Bmk := GetBookmark;
+    DisableControls;
+    try
+      ValTot := 0;
+      First;
+      while not eof do
+      begin
+        ValTot := ValTot + FDItensVALOR_TOTAL.AsExtended;
+        Next;
+      end;
+    finally
+      EnableControls;
+      if Bmk <> nil then
+      begin
+        GotoBookmark(Bmk);
+        FreeBookmark(Bmk);
+      end;
+    end;
+    if not (FDTabela.State in [dsInsert, dsEdit]) then
+      FDTabela.Edit;
+
+    FDTabelaTOTAL_PRODUTO.AsExtended := ValTot;
+    FDTabelaTOTAL_PEDIDO.AsExtended := ValTot - FDTabelaTOTAL_DESCONTO.AsExtended;
+  end;
+end;
+
+procedure TFrmVenda.FDItensAfterPost(DataSet: TDataSet);
+var
+  Bmk: TBookmark;
+  ValTot: Extended;
+begin
+  inherited;
+  with FDItens do
+  begin
+    Bmk := GetBookmark;
+    DisableControls;
+    try
+      ValTot := 0;
+      First;
+      while not eof do
+      begin
+        ValTot := ValTot + FDItensVALOR_TOTAL.AsExtended;
+        Next;
+      end;
+    finally
+      EnableControls;
+      if Bmk <> nil then
+      begin
+        GotoBookmark(Bmk);
+        FreeBookmark(Bmk);
+      end;
+    end;
+    if not (FDTabela.State in [dsInsert, dsEdit]) then
+      FDTabela.Edit;
+
+    FDTabelaTOTAL_PRODUTO.AsExtended := ValTot;
+    FDTabelaTOTAL_PEDIDO.AsExtended := ValTot - FDTabelaTOTAL_DESCONTO.AsExtended;
+  end;
 end;
 
 procedure TFrmVenda.FDItensBeforePost(DataSet: TDataSet);
@@ -315,6 +403,12 @@ begin
     FDTabelaFK_ENDERECO.AsVariant := null;
 end;
 
+procedure TFrmVenda.FDTabelaNewRecord(DataSet: TDataSet);
+begin
+  inherited;
+  FDTabelaTOTAL_DESCONTO.Value := 0;
+end;
+
 procedure TFrmVenda.FormActivate(Sender: TObject);
 begin
   modoEdicao := FrmMain.FQry_Login.FieldByName('PEDIDO_I').AsString +
@@ -331,7 +425,7 @@ begin
   FQry_Endereco.Close;
   FQry_Endereco.Open();
   FQry_Endereco.Filter := 'FK_CADASTRO = ' + FDTabelaFK_CADASTRO.AsString;
-  //FQry_Endereco.Filtered := True;
+  FQry_Endereco.Filtered := True;
 
   FQuery.Close;
   FQuery.Open();
@@ -341,6 +435,13 @@ begin
 
   FDItens.Close;
   FDItens.Open();
+  HabilitaGrid;
+end;
+
+procedure TFrmVenda.FormDestroy(Sender: TObject);
+begin
+  inherited;
+  FrmVenda := nil;
 end;
 
 procedure TFrmVenda.FormShow(Sender: TObject);
