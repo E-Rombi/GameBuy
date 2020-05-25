@@ -146,6 +146,10 @@
             <Form>FrmRelPadrao</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="UntRelCadastro.pas">
+            <Form>FrmRelPadrao1</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

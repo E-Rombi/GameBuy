@@ -13,7 +13,8 @@ uses
   UntProduto in 'UntProduto.pas' {FrmProduto},
   UntDesenv_Edit in 'UntDesenv_Edit.pas' {FrmDesenv_Edit},
   UntVenda in 'UntVenda.pas' {FrmVenda},
-  UntRelPadrao in 'UntRelPadrao.pas' {FrmRelPadrao};
+  UntRelPadrao in 'UntRelPadrao.pas' {FrmRelPadrao},
+  UntRelCadastro in 'UntRelCadastro.pas' {FrmRelPadrao1};
 
 {$R *.res}
 
@@ -23,5 +24,6 @@ begin
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TFrmMain, FrmMain);
   Application.CreateForm(TFrmRelPadrao, FrmRelPadrao);
+  Application.CreateForm(TFrmRelPadrao1, FrmRelPadrao1);
   Application.Run;
 end.
