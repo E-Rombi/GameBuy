@@ -38,11 +38,16 @@ type
     FDQryUsuarioEditor: TFDQuery;
     Label6: TLabel;
     DBEdit4: TDBEdit;
+    FDQueryValidarLogin: TFDQuery;
     procedure FormActivate(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure FDTabelaBeforePost(DataSet: TDataSet);
+    procedure btn_EditarClick(Sender: TObject);
+    procedure btn_SalvarClick(Sender: TObject);
+    procedure btn_CancelarClick(Sender: TObject);
   private
     { Private declarations }
+    var editando : bool;
   public
     { Public declarations }
   end;
@@ -56,19 +61,73 @@ implementation
 
 uses UntDM, UntMain, UntPerfil;
 
+procedure TFrmUsuario.btn_CancelarClick(Sender: TObject);
+begin
+  inherited;
+  editando := false;
+
+end;
+
+procedure TFrmUsuario.btn_EditarClick(Sender: TObject);
+begin
+  editando := true;
+  inherited;
+
+end;
+
+procedure TFrmUsuario.btn_SalvarClick(Sender: TObject);
+begin
+  inherited;
+  editando := false;
+
+end;
+
 procedure TFrmUsuario.FDTabelaBeforePost(DataSet: TDataSet);
 begin
   inherited;
   if FDTabelaLOGIN.AsString = '' then
-    raise Exception.Create('Por favor, insira um login (nome de usuário).');
+    begin
+      dbedit2.SetFocus;
+      raise Exception.Create('Por favor, insira um login (nome de usuário).');
+    end
+    else
+    begin
+      if (DBLookupComboBox1.text = '') then
+        begin
+          DBLookupComboBox1.SetFocus;
+          raise Exception.Create('Por favor, escolha um perfil.');
+        end;
+    end;
+
+
+
 
   if FDTabelaSenha.AsString = '' then
-    raise Exception.Create('Por favor, insira uma senha.');
+    begin
+      dbedit3.SetFocus;
+      raise Exception.Create('Por favor, insira uma senha.');
+    end;
+
+
+  FDQueryValidarLogin.Open('select * from USUARIO where LOGIN = ' + #39 + DBEdit2.Text
+  + #39);
+    if FDQueryValidarLogin.recordcount <> 0 then
+      begin
+        if(editando = false) then
+        begin
+          dbedit2.SetFocus;
+          raise Exception.Create('Um usuário com este Login já existe');
+        end;
+
+      end;
 end;
 
 procedure TFrmUsuario.FormActivate(Sender: TObject);
 begin
-  FDtabela.TableName := 'Usuario';
+  FDTabela.TableName := 'USUARIO';
+   FDTabela.UpdateOptions.GeneratorName := 'GEN_USUARIO';
+   FDTabela.UpdateOptions.AutoIncFields := 'ID';
+
   modoEdicao := frmMain.FQry_Login.FieldByName('USUARIO_I').AsString +
                 frmMain.FQry_Login.FieldByName('USUARIO_A').AsString +
                 frmMain.FQry_Login.FieldByName('USUARIO_E').AsString;
@@ -88,8 +147,6 @@ end;
 procedure TFrmUsuario.SpeedButton1Click(Sender: TObject);
 begin
   inherited;
-  frmperfil.ShowModal;
-
   fdqryperfil.Close;
   fdqryperfil.Open();
 end;

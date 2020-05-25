@@ -251,14 +251,28 @@ inherited FrmPerfil: TFrmPerfil
           ValueChecked = 'S'
           ValueUnchecked = 'N'
         end
+        object BitBtn1: TBitBtn
+          Left = 808
+          Top = 243
+          Width = 75
+          Height = 25
+          Caption = 'Marcar tudo'
+          TabOrder = 12
+          OnClick = BitBtn1Click
+        end
+        object BitBtn6: TBitBtn
+          Left = 696
+          Top = 243
+          Width = 93
+          Height = 25
+          Caption = 'Desmarcar tudo'
+          TabOrder = 13
+          OnClick = BitBtn6Click
+        end
       end
       object TabSheet2: TTabSheet
         Caption = 'Vendas'
         ImageIndex = 1
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object Pedido: TLabel
           Left = 11
           Top = 40
@@ -272,6 +286,20 @@ inherited FrmPerfil: TFrmPerfil
           Width = 38
           Height = 13
           Caption = 'Produto'
+        end
+        object Label13: TLabel
+          Left = 11
+          Top = 140
+          Width = 87
+          Height = 13
+          Caption = 'Gr'#225'fico de Vendas'
+        end
+        object Label14: TLabel
+          Left = 11
+          Top = 190
+          Width = 95
+          Height = 13
+          Caption = 'Gr'#225'fico de Produtos'
         end
         object DBCheckBox13: TDBCheckBox
           Left = 184
@@ -369,14 +397,52 @@ inherited FrmPerfil: TFrmPerfil
           ValueChecked = 'S'
           ValueUnchecked = 'N'
         end
+        object DBCheckBox15: TDBCheckBox
+          Left = 184
+          Top = 140
+          Width = 97
+          Height = 17
+          Caption = 'Habilitar Menu'
+          DataField = 'GRAFICO_VENDAS'
+          DataSource = DataSource
+          TabOrder = 8
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object DBCheckBox18: TDBCheckBox
+          Left = 184
+          Top = 190
+          Width = 97
+          Height = 17
+          Caption = 'Habilitar Menu'
+          DataField = 'GRAFICO_VENDAS_ITEM'
+          DataSource = DataSource
+          TabOrder = 9
+          ValueChecked = 'S'
+          ValueUnchecked = 'N'
+        end
+        object BitBtn2: TBitBtn
+          Left = 808
+          Top = 243
+          Width = 75
+          Height = 25
+          Caption = 'Marcar tudo'
+          TabOrder = 10
+          OnClick = BitBtn2Click
+        end
+        object BitBtn7: TBitBtn
+          Left = 696
+          Top = 243
+          Width = 93
+          Height = 25
+          Caption = 'Desmarcar tudo'
+          TabOrder = 11
+          OnClick = BitBtn7Click
+        end
       end
       object TabSheet3: TTabSheet
         Caption = 'Relat'#243'rios'
         ImageIndex = 2
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
         object Cliente: TLabel
           Left = 11
           Top = 40
@@ -424,14 +490,30 @@ inherited FrmPerfil: TFrmPerfil
           ValueChecked = 'S'
           ValueUnchecked = 'N'
         end
+        object BitBtn3: TBitBtn
+          Left = 808
+          Top = 243
+          Width = 75
+          Height = 25
+          Caption = 'Marcar tudo'
+          TabOrder = 4
+          OnClick = BitBtn3Click
+        end
+        object BitBtn8: TBitBtn
+          Left = 696
+          Top = 243
+          Width = 93
+          Height = 25
+          Caption = 'Desmarcar tudo'
+          TabOrder = 5
+          OnClick = BitBtn8Click
+        end
       end
       object TabSheet4: TTabSheet
         Caption = 'Perfis e Usu'#225'rios'
         ImageIndex = 3
         ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 0
+        ExplicitTop = 29
         object Label18: TLabel
           Left = 11
           Top = 90
@@ -532,7 +614,7 @@ inherited FrmPerfil: TFrmPerfil
         end
         object DBCheckBox47: TDBCheckBox
           Left = 656
-          Top = 89
+          Top = 91
           Width = 97
           Height = 17
           Caption = 'Exclus'#227'o'
@@ -541,6 +623,24 @@ inherited FrmPerfil: TFrmPerfil
           TabOrder = 7
           ValueChecked = 'S'
           ValueUnchecked = 'N'
+        end
+        object BitBtn4: TBitBtn
+          Left = 808
+          Top = 243
+          Width = 75
+          Height = 25
+          Caption = 'Marcar tudo'
+          TabOrder = 8
+          OnClick = BitBtn4Click
+        end
+        object BitBtn5: TBitBtn
+          Left = 696
+          Top = 243
+          Width = 93
+          Height = 25
+          Caption = 'Desmarcar tudo'
+          TabOrder = 9
+          OnClick = BitBtn5Click
         end
       end
     end
@@ -558,6 +658,13 @@ inherited FrmPerfil: TFrmPerfil
       Width = 46
       Height = 13
       Caption = 'Descri'#231#227'o'
+    end
+    object Label15: TLabel
+      Left = 8
+      Top = 16
+      Width = 11
+      Height = 13
+      Caption = 'ID'
     end
     object GroupBox2: TGroupBox
       Left = 540
@@ -626,6 +733,16 @@ inherited FrmPerfil: TFrmPerfil
       DataField = 'DESCRICAO'
       DataSource = DataSource
       TabOrder = 0
+    end
+    object DBEdit8: TDBEdit
+      Left = 72
+      Top = 13
+      Width = 83
+      Height = 21
+      DataField = 'ID'
+      DataSource = DataSource
+      ReadOnly = True
+      TabOrder = 2
     end
   end
   inherited FDTabela: TFDTable
@@ -829,6 +946,18 @@ inherited FrmPerfil: TFrmPerfil
     object FDTabelaFK_USUARIO_ALT: TIntegerField
       FieldName = 'FK_USUARIO_ALT'
       Origin = 'FK_USUARIO_ALT'
+    end
+    object FDTabelaGRAFICO_VENDAS: TStringField
+      FieldName = 'GRAFICO_VENDAS'
+      Origin = 'GRAFICO_VENDAS'
+      FixedChar = True
+      Size = 1
+    end
+    object FDTabelaGRAFICO_VENDAS_ITEM: TStringField
+      FieldName = 'GRAFICO_VENDAS_ITEM'
+      Origin = 'GRAFICO_VENDAS_ITEM'
+      FixedChar = True
+      Size = 1
     end
   end
   inherited DataSource: TDataSource
@@ -5097,5 +5226,10 @@ inherited FrmPerfil: TFrmPerfil
   inherited ImageList3: TImageList
     Left = 376
     Top = 128
+  end
+  object FDQryValidarDescricao: TFDQuery
+    Connection = DM.FDConnection1
+    Left = 64
+    Top = 170
   end
 end

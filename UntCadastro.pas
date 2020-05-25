@@ -266,13 +266,33 @@ begin
   inherited;
 
   if FDTabelaRAZAO_SOCIAL.AsString = '' then
+  begin
+    DBEd_RazaoSocial.SetFocus;
     raise Exception.Create('Por favor, insira a Razão Social.');
+  end
+  else
+  begin
+    if FDTabelaFANTASIA.AsString = '' then
+    begin
+      DBEd_FANTASIA.SetFocus;
+      raise Exception.Create('Por favor, insira o nome Fantasia.');
+    end
+    else
+    begin
+      if (FDTabelaCNPJ_CPF.AsString = '  .   .   /    -  ') or
+      (FDTabelaCNPJ_CPF.AsString = '') then
+      begin
+        DBEd_Cnpj_Cpf.SetFocus;
+        raise Exception.Create('Por favor, insira o CNPJ/CPF');
+      end;
+    end;
+  end;
 
-  if FDTabelaFANTASIA.AsString = '' then
-    raise Exception.Create('Por favor, insira o nome Fantasia.');
 
-  if (FDTabelaCNPJ_CPF.AsString = '  .   .   /    -  ') or (FDTabelaCNPJ_CPF.AsString = '') then
-    raise Exception.Create('Por favor, insira o CNPJ/CPF');
+
+
+
+
   
 end;
 

@@ -56,8 +56,9 @@ inherited FrmUsuario: TFrmUsuario
     object SpeedButton1: TSpeedButton [4]
       Left = 235
       Top = 108
-      Width = 23
+      Width = 68
       Height = 22
+      Caption = 'Atualizar'
       OnClick = SpeedButton1Click
     end
     object Label6: TLabel [5]
@@ -73,6 +74,12 @@ inherited FrmUsuario: TFrmUsuario
       TabOrder = 4
       ExplicitLeft = 559
       ExplicitTop = 35
+      inherited DBEd_DataAlteracao: TDBEdit
+        Left = 108
+        Top = 99
+        ExplicitLeft = 108
+        ExplicitTop = 99
+      end
     end
     object DBEdit1: TDBEdit
       Left = 84
@@ -88,7 +95,7 @@ inherited FrmUsuario: TFrmUsuario
       Top = 67
       Width = 174
       Height = 21
-      CharCase = ecLowerCase
+      CharCase = ecUpperCase
       DataField = 'LOGIN'
       DataSource = DataSource
       TabOrder = 1
@@ -218,5 +225,10 @@ inherited FrmUsuario: TFrmUsuario
         Name = 'ID'
         ParamType = ptInput
       end>
+  end
+  object FDQueryValidarLogin: TFDQuery
+    Connection = DM.FDConnection1
+    Left = 432
+    Top = 210
   end
 end

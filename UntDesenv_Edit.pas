@@ -30,6 +30,7 @@ type
     DBEdit2: TDBEdit;
     procedure FormActivate(Sender: TObject);
     procedure FDTabelaBeforePost(DataSet: TDataSet);
+    procedure btn_InserirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -45,16 +46,30 @@ implementation
 
 uses UntMain;
 
+procedure TFrmDesenv_Edit.btn_InserirClick(Sender: TObject);
+begin
+  inherited;
+  dbcheckbox1.Checked := false;
+  dbcheckbox2.Checked := false;
+end;
+
 procedure TFrmDesenv_Edit.FDTabelaBeforePost(DataSet: TDataSet);
 begin
   inherited;
   if FDTabelaNOME.AsString = '' then
+  begin
+    dbedit1.SetFocus;
     raise Exception.Create('Por favor, insira um nome.');
+  end;
+
 end;
 
 procedure TFrmDesenv_Edit.FormActivate(Sender: TObject);
 begin
   FDtabela.TableName := 'DESENV_EDIT';
+   FDTabela.UpdateOptions.GeneratorName := 'DESENV_EDIT';
+   FDTabela.UpdateOptions.AutoIncFields := 'ID';
+
   modoEdicao := frmMain.FQry_Login.FieldByName('USUARIO_I').AsString +
                 frmMain.FQry_Login.FieldByName('USUARIO_A').AsString +
                 frmMain.FQry_Login.FieldByName('USUARIO_E').AsString;

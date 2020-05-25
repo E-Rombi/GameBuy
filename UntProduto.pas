@@ -82,20 +82,56 @@ end;
 procedure TFrmProduto.FDTabelaBeforePost(DataSet: TDataSet);
 begin
   inherited;
-  if (FDTabelaTITULO.AsString = '') or (VarIsNull(FDTabelaTITULO.AsVariant)) then
+  if (FDTabelaTITULO.AsString = '') or (VarIsNull(FDTabelaTITULO.AsVariant))
+  then
+  begin
+    dbedit1.SetFocus;
     raise Exception.Create('Por favor, insira o Título.');
+  end
+  else
+  begin
+    if (FDTabelaDESCRICAO.AsString = '') or
+    (VarIsNull(FDTabelaDESCRICAO.AsVariant)) then
+    begin
+      DBMemo1.SetFocus;
+      raise Exception.Create('Por favor, insira a Descrição.');
+    end;
 
-  if (FDTabelaDESCRICAO.AsString = '') or (VarIsNull(FDTabelaDESCRICAO.AsVariant)) then
-    raise Exception.Create('Por favor, insira a Descrição.');
 
-  if (FDTabelaPRECO.Value = 0) or (VarIsNull(FDTabelaPRECO.AsVariant)) then
-    raise Exception.Create('Por favor, insira o Preço.');
+    if (FDTabelaPRECO.Value = 0) or (VarIsNull(FDTabelaPRECO.AsVariant)) then
+    begin
+      DBEd_Preco.SetFocus;
+      raise Exception.Create('Por favor, insira o Preço.');
+    end
+    else
+    begin
+      if (FDTabelaDATA_LANCAMENTO.AsString = '  /  /    ') or
+      (VarIsNull(FDTabelaDATA_LANCAMENTO.AsVariant)) then
+      begin
+        dbedit3.SetFocus;
+        raise Exception.Create('Por favor, insira a Data de Lançamento.');
+      end
+      else
+      begin
+        if (FDTabelaSTATUS.AsString = '') or
+        (VarIsNull(FDTabelaSTATUS.AsVariant)) then
+        begin
+          DBCmb_Status.SetFocus;
+          raise Exception.Create('Por favor, insira o Status.');
+        end;
 
-  if (FDTabelaDATA_LANCAMENTO.AsString = '  /  /    ') or (VarIsNull(FDTabelaDATA_LANCAMENTO.AsVariant)) then
-    raise Exception.Create('Por favor, insira a Data de Lançamento.');
+      end;
 
-  if (FDTabelaSTATUS.AsString = '') or (VarIsNull(FDTabelaSTATUS.AsVariant)) then
-    raise Exception.Create('Por favor, insira o Status.');
+    end;
+
+
+
+
+
+  end;
+
+
+
 end;
 
 procedure TFrmProduto.FDTabelaNewRecord(DataSet: TDataSet);

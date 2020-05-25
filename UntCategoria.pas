@@ -47,13 +47,28 @@ procedure TFrmCategoria.FDTabelaBeforePost(DataSet: TDataSet);
 begin
   inherited;
   if FDTabelaNOME.AsString = '' then
-    raise Exception.Create('Por favor, insira o nome da categoria.');
+  begin
+    dbedit1.setfocus;
+
+  end
+  else
+  begin
+    if FDTabelaDESCRICAO.AsString = '' then
+    begin
+      dbmemo1.SetFocus;
+      raise Exception.Create('Por favor, insira a descrição da categoria.');
+    end;
+
+  end;
+
 
 end;
 
 procedure TFrmCategoria.FormActivate(Sender: TObject);
 begin
   FDTabela.TableName := 'CATEGORIA';
+   FDTabela.UpdateOptions.GeneratorName := 'GEN_CATEGORIA';
+   FDTabela.UpdateOptions.AutoIncFields := 'ID';
   modoEdicao := FrmMain.FQry_Login.FieldByName('CATEGORIA_I').AsString +
                 FrmMain.FQry_Login.FieldByName('CATEGORIA_A').AsString +
                 FrmMain.FQry_Login.FieldByName('CATEGORIA_E').AsString;

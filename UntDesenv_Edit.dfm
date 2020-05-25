@@ -34,7 +34,7 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
     end
     object Label3: TLabel [1]
       Left = 11
-      Top = 100
+      Top = 67
       Width = 44
       Height = 13
       Caption = 'Defini'#231#227'o'
@@ -62,7 +62,7 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
     end
     object DBCheckBox1: TDBCheckBox
       Left = 84
-      Top = 100
+      Top = 67
       Width = 103
       Height = 17
       Caption = #201' desenvolvedora'
@@ -74,7 +74,7 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
     end
     object DBCheckBox2: TDBCheckBox
       Left = 208
-      Top = 100
+      Top = 67
       Width = 97
       Height = 17
       Caption = #201' editora'
