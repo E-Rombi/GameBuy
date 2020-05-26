@@ -132,6 +132,7 @@ inherited FrmVenda: TFrmVenda
         Height = 21
         DataField = 'ID'
         DataSource = DataSource
+        ReadOnly = True
         TabOrder = 1
       end
       object DBChk_Entregar: TDBCheckBox

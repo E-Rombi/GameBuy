@@ -2,7 +2,6 @@ inherited FrmProduto: TFrmProduto
   Caption = 'Cadastro de Produto'
   ClientHeight = 508
   ClientWidth = 945
-  ExplicitTop = -145
   ExplicitWidth = 961
   ExplicitHeight = 547
   PixelsPerInch = 96
@@ -156,6 +155,7 @@ inherited FrmProduto: TFrmProduto
       Height = 21
       DataField = 'ID'
       DataSource = DataSource
+      ReadOnly = True
       TabOrder = 8
     end
     object DBChk_Ativo: TDBCheckBox
@@ -271,6 +271,14 @@ inherited FrmProduto: TFrmProduto
     Top = 340
   end
   object OpenPictureDialog1: TOpenPictureDialog
+    Filter = 
+      'All (*.gif;*.png;*.jpg;*.jpeg;*.bmp;*.ico;*.emf;*.wmf;*.tif;*.ti' +
+      'ff)|*.gif;*.png;*.jpg;*.jpeg;*.bmp;*.ico;*.emf;*.wmf;*.tif;*.tif' +
+      'f|GIF Image (*.gif)|*.gif|Portable Network Graphics (*.png)|*.pn' +
+      'g|JPEG Image File (*.jpg)|*.jpg|JPEG Image File (*.jpeg)|*.jpeg|' +
+      'Bitmaps (*.bmp)|*.bmp|Icons (*.ico)|*.ico|Enhanced Metafiles (*.' +
+      'emf)|*.emf|Metafiles (*.wmf)|*.wmf|TIFF Images (*.tif)|*.tif|TIF' +
+      'F Images (*.tiff)|*.tiff'
     OptionsEx = [ofExNoPlacesBar]
     Left = 472
     Top = 351
