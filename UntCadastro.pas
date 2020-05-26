@@ -36,8 +36,6 @@ type
     Label5: TLabel;
     DBEd_Email: TDBEdit;
     DBEd_Cnpj_Cpf: TDBEdit;
-    Label6: TLabel;
-    DBCmb_Status: TDBComboBox;
     FDTabelaTIPO_PESSOA: TStringField;
     FDTabelaSTATUS: TStringField;
     Panel1: TPanel;
@@ -90,6 +88,7 @@ type
     DBGrid1: TDBGrid;
     FDQuery1: TFDQuery;
     DataSource1: TDataSource;
+    DBChk_Ativo: TDBCheckBox;
     procedure FormActivate(Sender: TObject);
     procedure btn_SalvarClick(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
@@ -380,7 +379,7 @@ end;
 
 procedure TFrmCadastro.HabilitaForm(pEnabled: Boolean);
 begin
-  DBCmb_Status.Enabled := pEnabled;
+  DBChk_Ativo.Enabled := pEnabled;
   DBCmb_TipoPessoa.Enabled := pEnabled;
   DBEd_Cnpj_Cpf.Enabled := pEnabled;
   DBEd_IeRg.Enabled := pEnabled;

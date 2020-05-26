@@ -38,9 +38,11 @@ type
     Label6: TLabel;
     DBEdit3: TDBEdit;
     Label7: TLabel;
-    DBCmb_Status: TDBComboBox;
     FDTabelaFOTO: TMemoField;
     OpenPictureDialog1: TOpenPictureDialog;
+    Label11: TLabel;
+    DBEdit2: TDBEdit;
+    DBChk_Ativo: TDBCheckBox;
     procedure FormActivate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure FDTabelaNewRecord(DataSet: TDataSet);
@@ -116,7 +118,7 @@ begin
         if (FDTabelaSTATUS.AsString = '') or
         (VarIsNull(FDTabelaSTATUS.AsVariant)) then
         begin
-          DBCmb_Status.SetFocus;
+          DBChk_Ativo.SetFocus;
           raise Exception.Create('Por favor, insira o Status.');
         end;
 
@@ -138,7 +140,7 @@ procedure TFrmProduto.FDTabelaNewRecord(DataSet: TDataSet);
 begin
   inherited;
   FDTabelaPRECO.Value := 0;
-  FDTabelaSTATUS.AsString := 'Ativo';
+  FDTabelaSTATUS.AsString := 'S';
 end;
 
 procedure TFrmProduto.FormActivate(Sender: TObject);

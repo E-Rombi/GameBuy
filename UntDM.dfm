@@ -4,7 +4,7 @@ object DM: TDM
   Width = 415
   object FDConnection1: TFDConnection
     Params.Strings = (
-      'Database=C:\Delphi\Ws\GameBuy\Banco\BANCO.FDB'
+      'Database=C:\Delphi\Ws\GameBuy - BKP\Banco\BANCO.FDB'
       'User_Name=sysdba'
       'Password=masterkey'
       'DriverID=FB')

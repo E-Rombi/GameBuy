@@ -80,14 +80,7 @@ inherited FrmCadastro: TFrmCadastro
       Height = 13
       Caption = 'E-mail'
     end
-    object Label6: TLabel [7]
-      Left = 413
-      Top = 11
-      Width = 25
-      Height = 13
-      Caption = 'Ativo'
-    end
-    object DBEd_ID: TDBEdit [8]
+    object DBEd_ID: TDBEdit [7]
       Left = 84
       Top = 8
       Width = 61
@@ -99,7 +92,7 @@ inherited FrmCadastro: TFrmCadastro
       ReadOnly = True
       TabOrder = 0
     end
-    object DBEd_RazaoSocial: TDBEdit [9]
+    object DBEd_RazaoSocial: TDBEdit [8]
       Left = 84
       Top = 62
       Width = 453
@@ -109,7 +102,7 @@ inherited FrmCadastro: TFrmCadastro
       DataSource = DataSource
       TabOrder = 5
     end
-    object DBEd_Fantasia: TDBEdit [10]
+    object DBEd_Fantasia: TDBEdit [9]
       Left = 84
       Top = 89
       Width = 453
@@ -119,7 +112,7 @@ inherited FrmCadastro: TFrmCadastro
       DataSource = DataSource
       TabOrder = 6
     end
-    object DBEd_IeRg: TDBEdit [11]
+    object DBEd_IeRg: TDBEdit [10]
       Left = 401
       Top = 35
       Width = 136
@@ -129,7 +122,7 @@ inherited FrmCadastro: TFrmCadastro
       DataSource = DataSource
       TabOrder = 4
     end
-    object DBCmb_TipoPessoa: TDBComboBox [12]
+    object DBCmb_TipoPessoa: TDBComboBox [11]
       Left = 84
       Top = 35
       Width = 101
@@ -143,7 +136,7 @@ inherited FrmCadastro: TFrmCadastro
       TabOrder = 2
       OnChange = DBCmb_TipoPessoaChange
     end
-    object DBEd_Email: TDBEdit [13]
+    object DBEd_Email: TDBEdit [12]
       Left = 84
       Top = 116
       Width = 453
@@ -153,7 +146,7 @@ inherited FrmCadastro: TFrmCadastro
       DataSource = DataSource
       TabOrder = 7
     end
-    object DBEd_Cnpj_Cpf: TDBEdit [14]
+    object DBEd_Cnpj_Cpf: TDBEdit [13]
       Left = 230
       Top = 35
       Width = 136
@@ -163,25 +156,24 @@ inherited FrmCadastro: TFrmCadastro
       DataSource = DataSource
       TabOrder = 3
     end
-    object DBCmb_Status: TDBComboBox [15]
-      Left = 450
-      Top = 8
-      Width = 81
-      Height = 21
-      Style = csDropDownList
-      DataField = 'STATUS'
-      DataSource = DataSource
-      Items.Strings = (
-        'Ativo'
-        'Inativo')
-      TabOrder = 1
-    end
     inherited GrpBox_InfoReg: TGroupBox
       Left = 559
       Top = 35
       TabOrder = 8
       ExplicitLeft = 559
       ExplicitTop = 35
+    end
+    object DBChk_Ativo: TDBCheckBox
+      Left = 493
+      Top = 10
+      Width = 43
+      Height = 17
+      Caption = 'Ativo'
+      DataField = 'STATUS'
+      DataSource = DataSource
+      TabOrder = 1
+      ValueChecked = 'S'
+      ValueUnchecked = 'N'
     end
   end
   object Panel1: TPanel [4]

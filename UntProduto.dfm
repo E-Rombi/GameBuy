@@ -27,35 +27,35 @@ inherited FrmProduto: TFrmProduto
     ExplicitHeight = 399
     object Label2: TLabel [0]
       Left = 21
-      Top = 16
+      Top = 40
       Width = 26
       Height = 13
       Caption = 'T'#237'tulo'
     end
     object Label3: TLabel [1]
       Left = 21
-      Top = 214
+      Top = 238
       Width = 27
       Height = 13
       Caption = 'Pre'#231'o'
     end
     object Label4: TLabel [2]
       Left = 21
-      Top = 42
+      Top = 66
       Width = 46
       Height = 13
       Caption = 'Descri'#231#227'o'
     end
     object Label5: TLabel [3]
       Left = 21
-      Top = 189
+      Top = 213
       Width = 47
       Height = 13
       Caption = 'Categoria'
     end
     object Label6: TLabel [4]
       Left = 173
-      Top = 214
+      Top = 238
       Width = 84
       Height = 13
       Caption = 'Data Lan'#231'amento'
@@ -67,27 +67,34 @@ inherited FrmProduto: TFrmProduto
       Height = 13
       Caption = 'Status'
     end
-    object DBEdit1: TDBEdit [6]
-      Left = 75
+    object Label11: TLabel [6]
+      Left = 21
       Top = 13
+      Width = 11
+      Height = 13
+      Caption = 'ID'
+    end
+    object DBEdit1: TDBEdit [7]
+      Left = 75
+      Top = 37
       Width = 511
       Height = 21
       DataField = 'TITULO'
       DataSource = DataSource
       TabOrder = 0
     end
-    object DBEd_Preco: TDBEdit [7]
+    object DBEd_Preco: TDBEdit [8]
       Left = 75
-      Top = 211
+      Top = 235
       Width = 90
       Height = 21
       DataField = 'PRECO'
       DataSource = DataSource
       TabOrder = 1
     end
-    object DBLookupComboBox1: TDBLookupComboBox [8]
+    object DBLookupComboBox1: TDBLookupComboBox [9]
       Left = 75
-      Top = 185
+      Top = 209
       Width = 511
       Height = 21
       DataField = 'FK_CATEGORIA'
@@ -97,7 +104,7 @@ inherited FrmProduto: TFrmProduto
       ListSource = DSCategoria
       TabOrder = 2
     end
-    object DBImage1: TDBImage [9]
+    object DBImage1: TDBImage [10]
       Left = 620
       Top = 13
       Width = 349
@@ -107,52 +114,60 @@ inherited FrmProduto: TFrmProduto
       Stretch = True
       TabOrder = 3
     end
-    object Button1: TButton [10]
+    object Button1: TButton [11]
       Left = 486
-      Top = 209
+      Top = 233
       Width = 100
       Height = 25
       Caption = 'Adicionar Imagem'
       TabOrder = 4
       OnClick = Button1Click
     end
-    object DBMemo1: TDBMemo [11]
+    object DBMemo1: TDBMemo [12]
       Left = 75
-      Top = 40
+      Top = 64
       Width = 511
       Height = 139
       DataField = 'DESCRICAO'
       DataSource = DataSource
       TabOrder = 5
     end
-    object DBEdit3: TDBEdit [12]
+    object DBEdit3: TDBEdit [13]
       Left = 263
-      Top = 211
+      Top = 235
       Width = 71
       Height = 21
       DataField = 'DATA_LANCAMENTO'
       DataSource = DataSource
       TabOrder = 6
     end
-    object DBCmb_Status: TDBComboBox [13]
-      Left = 389
-      Top = 212
-      Width = 76
-      Height = 21
-      Style = csDropDownList
-      DataField = 'STATUS'
-      DataSource = DataSource
-      Items.Strings = (
-        'Ativo'
-        'Inativo')
-      TabOrder = 7
-    end
     inherited GrpBox_InfoReg: TGroupBox
       Left = 620
       Top = 309
-      TabOrder = 8
+      TabOrder = 7
       ExplicitLeft = 620
       ExplicitTop = 309
+    end
+    object DBEdit2: TDBEdit
+      Left = 75
+      Top = 10
+      Width = 62
+      Height = 21
+      DataField = 'ID'
+      DataSource = DataSource
+      TabOrder = 8
+    end
+    object DBChk_Ativo: TDBCheckBox
+      Left = 543
+      Top = 12
+      Width = 43
+      Height = 17
+      Caption = 'Ativo'
+      DataField = 'STATUS'
+      DataSource = DataSource
+      TabOrder = 9
+      ValueChecked = 'S'
+      ValueUnchecked = 'N'
     end
   end
   inherited FDTabela: TFDTable
