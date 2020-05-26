@@ -2,6 +2,7 @@ inherited FrmProduto: TFrmProduto
   Caption = 'Cadastro de Produto'
   ClientHeight = 508
   ClientWidth = 945
+  ExplicitTop = -145
   ExplicitWidth = 961
   ExplicitHeight = 547
   PixelsPerInch = 96
@@ -251,6 +252,7 @@ inherited FrmProduto: TFrmProduto
     SQL.Strings = (
       'select ID, DESCRICAO, NOME'
       'from CATEGORIA'
+      'where status = '#39'S'#39
       'order by DESCRICAO')
     Left = 48
     Top = 431

@@ -3,7 +3,7 @@ inherited FrmVenda: TFrmVenda
   ClientHeight = 586
   ClientWidth = 1284
   OnShow = FormShow
-  ExplicitTop = -88
+  ExplicitTop = -169
   ExplicitWidth = 1300
   ExplicitHeight = 625
   PixelsPerInch = 96
@@ -553,6 +553,7 @@ inherited FrmVenda: TFrmVenda
       'SELECT'
       '  ID, FANTASIA'
       'FROM CADASTRO'
+      'WHERE STATUS = '#39'S'#39
       'ORDER BY FANTASIA')
     Left = 488
     Top = 431
