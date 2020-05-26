@@ -83,9 +83,9 @@ inherited FrmCadastro: TFrmCadastro
     object Label6: TLabel [7]
       Left = 413
       Top = 11
-      Width = 31
+      Width = 25
       Height = 13
-      Caption = 'Status'
+      Caption = 'Ativo'
     end
     object DBEd_ID: TDBEdit [8]
       Left = 84
