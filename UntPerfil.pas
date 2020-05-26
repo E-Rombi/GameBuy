@@ -125,6 +125,7 @@ type
     BitBtn6: TBitBtn;
     BitBtn7: TBitBtn;
     BitBtn8: TBitBtn;
+    DBCheckBox21: TDBCheckBox;
     procedure FormActivate(Sender: TObject);
     procedure FDTabelaBeforePost(DataSet: TDataSet);
     procedure btn_InserirClick(Sender: TObject);

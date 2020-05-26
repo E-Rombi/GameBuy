@@ -6708,4 +6708,8 @@ object FrmPadrao: TFrmPadrao
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000}
   end
+  object FQryAtivos: TFDQuery
+    Left = 576
+    Top = 242
+  end
 end

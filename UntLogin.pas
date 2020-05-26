@@ -19,7 +19,6 @@ type
     SpeedButton2: TSpeedButton;
     StatusBar1: TStatusBar;
     SpeedButton1: TBitBtn;
-    SpeedButton3: TSpeedButton;
     procedure SpeedButton2Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure ValorSenhaExit(Sender: TObject);
@@ -79,7 +78,60 @@ begin
   begin
     if (TFrmMain(Self.Owner).FQry_Login.RecordCount = 1) then
     begin
-      frmMain.StatusBar1.Panels[2].Text := 'Usuário: ' + TFrmMain(self.Owner).FQry_Login.FieldByName('NOME').AsString;
+
+      with frmMain do
+      begin
+        StatusBar1.Panels[2].Text := 'Usuário: ' + TFrmMain(self.Owner).FQry_Login.FieldByName('NOME').AsString;
+
+
+
+        StatusBar1.Panels[1].Text :=
+        FormatDateTime('dddd", " dd " de " mmmm " de " yyyy', Now);
+
+        if FQry_Login.FieldByName('GRAFICO_VENDAS').AsString = 'S' then
+        begin
+          Grafico_Vendas.Visible := True;
+          Button1.Visible := True;
+        end;
+
+        if FQry_Login.FieldByName('GRAFICO_VENDAS_ITEM').AsString = 'S' then
+        begin
+          Grafico_Vendas_Item.Visible := True;
+          Button2.Visible := True;
+        end;
+
+        if FQry_Login.FieldByName('PRODUTO').AsString = 'S' then
+          Cad_Produto.Visible := True;
+
+        if FQry_Login.FieldByName('CATEGORIA').AsString = 'S' then
+          Cad_Categoria.Visible := True;
+
+        if FQry_Login.FieldByName('DESENV_EDIT').AsString = 'S' then
+          Cad_Desenv_Edit.Visible := True;
+
+        if FQry_Login.FieldByName('PERFIL').AsString = 'S' then
+          Cad_Perfil.Visible := True;
+
+        if FQry_Login.FieldByName('USUARIO').AsString = 'S' then
+          Cad_Usuario.Visible := True;
+
+        if FQry_Login.FieldByName('CADASTRO').AsString = 'S' then
+          Cad_Cliente.Visible := True;
+
+        if (FQry_Login.FieldByName('PRODUTO').AsString = 'S')
+          or (FQry_Login.FieldByName('CATEGORIA').AsString = 'S')
+          or (FQry_Login.FieldByName('DESENV_EDIT').AsString = 'S') then
+          Estoque1.Visible := True;
+          Cad_Produto.Visible := True;
+
+
+
+        FQry_Vendas.Close;
+        FQry_Vendas.Open();
+        FQry_Vendas_Por_Item.Close;
+        FQry_Vendas_Por_Item.Open();
+
+      end;
 
       Self.Close;
     end

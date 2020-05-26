@@ -198,21 +198,22 @@ inherited FrmUsuario: TFrmUsuario
   inherited ImageList3: TImageList
     Top = 72
   end
-  object FDQryPerfil: TFDQuery
+  object FDQryPerfil: TFDQuery [11]
     Connection = DM.FDConnection1
     SQL.Strings = (
       'select ID, DESCRICAO '
       'from PERFIL '
+      'where status = '#39'S'#39
       'order by DESCRICAO')
     Left = 120
     Top = 215
   end
-  object DsPerfil: TDataSource
+  object DsPerfil: TDataSource [12]
     DataSet = FDQryPerfil
     Left = 168
     Top = 215
   end
-  object FDQryUsuarioEditor: TFDQuery
+  object FDQryUsuarioEditor: TFDQuery [13]
     Connection = DM.FDConnection1
     SQL.Strings = (
       'select ID'
@@ -226,7 +227,7 @@ inherited FrmUsuario: TFrmUsuario
         ParamType = ptInput
       end>
   end
-  object FDQueryValidarLogin: TFDQuery
+  object FDQueryValidarLogin: TFDQuery [14]
     Connection = DM.FDConnection1
     Left = 432
     Top = 210

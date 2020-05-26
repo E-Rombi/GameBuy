@@ -48,8 +48,10 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
     end
     inherited GrpBox_InfoReg: TGroupBox
       Left = 559
+      Top = 35
       TabOrder = 4
       ExplicitLeft = 559
+      ExplicitTop = 35
     end
     object DBEdit1: TDBEdit
       Left = 84
@@ -90,6 +92,16 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
       Width = 83
       Height = 21
       TabOrder = 0
+    end
+    object DBCheckBox21: TDBCheckBox
+      Left = 559
+      Top = 10
+      Width = 97
+      Height = 17
+      Caption = 'Registro Ativo'
+      DataField = 'STATUS'
+      DataSource = DataSource
+      TabOrder = 5
     end
   end
   inherited FDTabela: TFDTable

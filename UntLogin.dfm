@@ -94,14 +94,6 @@ object FrmLogin: TFrmLogin
     Caption = 'Cancelar'
     OnClick = SpeedButton2Click
   end
-  object SpeedButton3: TSpeedButton
-    Left = 240
-    Top = 177
-    Width = 65
-    Height = 22
-    Caption = 'Ok'
-    OnClick = SpeedButton1Click
-  end
   object Panel1: TPanel
     Left = 6
     Top = 82
@@ -171,7 +163,7 @@ object FrmLogin: TFrmLogin
       end>
   end
   object SpeedButton1: TBitBtn
-    Left = 230
+    Left = 227
     Top = 175
     Width = 75
     Height = 25

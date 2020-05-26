@@ -74,6 +74,7 @@ type
     DBEd_TotalDesconto: TDBEdit;
     Label15: TLabel;
     DBEd_TotalProdutos: TDBEdit;
+    DBCheckBox1: TDBCheckBox;
     procedure DBChk_EntregarClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FDTabelaFK_CADASTROChange(Sender: TField);

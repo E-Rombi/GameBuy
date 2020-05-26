@@ -3,7 +3,6 @@ inherited FrmVenda: TFrmVenda
   ClientHeight = 586
   ClientWidth = 1284
   OnShow = FormShow
-  ExplicitTop = -169
   ExplicitWidth = 1300
   ExplicitHeight = 625
   PixelsPerInch = 96
@@ -136,8 +135,8 @@ inherited FrmVenda: TFrmVenda
         TabOrder = 1
       end
       object DBChk_Entregar: TDBCheckBox
-        Left = 293
-        Top = 5
+        Left = 7
+        Top = 74
         Width = 58
         Height = 17
         Caption = 'Entregar'
@@ -147,6 +146,16 @@ inherited FrmVenda: TFrmVenda
         ValueChecked = 'S'
         ValueUnchecked = 'N'
         OnClick = DBChk_EntregarClick
+      end
+      object DBCheckBox1: TDBCheckBox
+        Left = 512
+        Top = 8
+        Width = 97
+        Height = 17
+        Caption = 'Registro Ativo'
+        DataField = 'STATUS'
+        DataSource = DataSource
+        TabOrder = 3
       end
     end
     inherited GrpBox_InfoReg: TGroupBox
@@ -646,9 +655,9 @@ inherited FrmVenda: TFrmVenda
   object FQry_Produto: TFDQuery
     Connection = DM.FDConnection1
     SQL.Strings = (
-      'SELECT '
-      '*'
-      'FROM PRODUTO '
+      'SELECT *'
+      'FROM PRODUTO'
+      'where status = '#39'S'#39' '
       '')
     Left = 840
     Top = 266

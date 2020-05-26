@@ -53,6 +53,7 @@ type
     Separador5: TToolButton;
     btn_Sair: TToolButton;
     ImageList3: TImageList;
+    FQryAtivos: TFDQuery;
     procedure btn_PrimeiroClick(Sender: TObject);
     procedure btn_AnteriorClick(Sender: TObject);
     procedure btn_ProximoClick(Sender: TObject);

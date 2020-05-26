@@ -26,6 +26,7 @@ type
     ID: TLabel;
     DBEd_ID: TDBEdit;
     DBMemo1: TDBMemo;
+    DBCheckBox21: TDBCheckBox;
     procedure FormActivate(Sender: TObject);
     procedure FDTabelaBeforePost(DataSet: TDataSet);
   private

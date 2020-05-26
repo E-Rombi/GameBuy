@@ -28,6 +28,7 @@ type
     Label3: TLabel;
     Label4: TLabel;
     DBEdit2: TDBEdit;
+    DBCheckBox21: TDBCheckBox;
     procedure FormActivate(Sender: TObject);
     procedure FDTabelaBeforePost(DataSet: TDataSet);
     procedure btn_InserirClick(Sender: TObject);

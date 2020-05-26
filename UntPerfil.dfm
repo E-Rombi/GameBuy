@@ -21,12 +21,12 @@ inherited FrmPerfil: TFrmPerfil
     ExplicitWidth = 938
   end
   inherited PnlFicha: TPanel
-    Top = 212
+    Top = 262
     Width = 938
-    Height = 314
-    ExplicitTop = 212
+    Height = 264
+    ExplicitTop = 262
     ExplicitWidth = 938
-    ExplicitHeight = 314
+    ExplicitHeight = 264
     object Label2: TLabel [0]
       Left = 16
       Top = 11
@@ -80,7 +80,7 @@ inherited FrmPerfil: TFrmPerfil
       Left = 1
       Top = 1
       Width = 936
-      Height = 312
+      Height = 262
       ActivePage = TabSheet1
       Align = alClient
       TabOrder = 4
@@ -512,8 +512,6 @@ inherited FrmPerfil: TFrmPerfil
       object TabSheet4: TTabSheet
         Caption = 'Perfis e Usu'#225'rios'
         ImageIndex = 3
-        ExplicitLeft = 0
-        ExplicitTop = 29
         object Label18: TLabel
           Left = 11
           Top = 90
@@ -649,9 +647,11 @@ inherited FrmPerfil: TFrmPerfil
     Left = 0
     Top = 90
     Width = 938
-    Height = 122
+    Height = 172
     Align = alTop
     TabOrder = 4
+    ExplicitLeft = 8
+    ExplicitTop = 92
     object Label20: TLabel
       Left = 8
       Top = 57
@@ -661,14 +661,14 @@ inherited FrmPerfil: TFrmPerfil
     end
     object Label15: TLabel
       Left = 8
-      Top = 16
+      Top = 11
       Width = 11
       Height = 13
       Caption = 'ID'
     end
     object GroupBox2: TGroupBox
       Left = 540
-      Top = 6
+      Top = 35
       Width = 218
       Height = 105
       Caption = 'Infos Registro'
@@ -736,13 +736,23 @@ inherited FrmPerfil: TFrmPerfil
     end
     object DBEdit8: TDBEdit
       Left = 72
-      Top = 13
+      Top = 11
       Width = 83
       Height = 21
       DataField = 'ID'
       DataSource = DataSource
       ReadOnly = True
       TabOrder = 2
+    end
+    object DBCheckBox21: TDBCheckBox
+      Left = 542
+      Top = 10
+      Width = 97
+      Height = 17
+      Caption = 'Registro Ativo'
+      DataField = 'STATUS'
+      DataSource = DataSource
+      TabOrder = 3
     end
   end
   inherited FDTabela: TFDTable
