@@ -3,8 +3,6 @@ inherited FrmCadastro: TFrmCadastro
   ClientHeight = 575
   ClientWidth = 908
   OnCreate = FormCreate
-  ExplicitLeft = -66
-  ExplicitTop = -5
   ExplicitWidth = 924
   ExplicitHeight = 614
   PixelsPerInch = 96
@@ -34,7 +32,6 @@ inherited FrmCadastro: TFrmCadastro
     Width = 908
     Height = 154
     Align = alTop
-    ExplicitTop = 90
     ExplicitWidth = 908
     ExplicitHeight = 154
     object Label2: TLabel [0]
@@ -59,34 +56,27 @@ inherited FrmCadastro: TFrmCadastro
       Caption = 'Fantasia'
     end
     object Lbl_CnpjCpf: TLabel [3]
-      Left = 195
+      Left = 16
       Top = 38
       Width = 25
       Height = 13
       Caption = 'CNPJ'
     end
     object Lbl_IeRg: TLabel [4]
-      Left = 379
+      Left = 227
       Top = 38
       Width = 10
       Height = 13
       Caption = 'IE'
     end
-    object Label7: TLabel [5]
-      Left = 16
-      Top = 38
-      Width = 57
-      Height = 13
-      Caption = 'Tipo Pessoa'
-    end
-    object Label5: TLabel [6]
+    object Label5: TLabel [5]
       Left = 16
       Top = 119
       Width = 28
       Height = 13
       Caption = 'E-mail'
     end
-    object DBEd_ID: TDBEdit [7]
+    object DBEd_ID: TDBEdit [6]
       Left = 84
       Top = 8
       Width = 61
@@ -98,7 +88,7 @@ inherited FrmCadastro: TFrmCadastro
       ReadOnly = True
       TabOrder = 0
     end
-    object DBEd_RazaoSocial: TDBEdit [8]
+    object DBEd_RazaoSocial: TDBEdit [7]
       Left = 84
       Top = 62
       Width = 453
@@ -106,9 +96,9 @@ inherited FrmCadastro: TFrmCadastro
       CharCase = ecUpperCase
       DataField = 'RAZAO_SOCIAL'
       DataSource = DataSource
-      TabOrder = 5
+      TabOrder = 4
     end
-    object DBEd_Fantasia: TDBEdit [9]
+    object DBEd_Fantasia: TDBEdit [8]
       Left = 84
       Top = 89
       Width = 453
@@ -116,33 +106,19 @@ inherited FrmCadastro: TFrmCadastro
       CharCase = ecUpperCase
       DataField = 'FANTASIA'
       DataSource = DataSource
-      TabOrder = 6
+      TabOrder = 5
     end
-    object DBEd_IeRg: TDBEdit [10]
-      Left = 401
+    object DBEd_IeRg: TDBEdit [9]
+      Left = 249
       Top = 35
       Width = 136
       Height = 21
       CharCase = ecUpperCase
       DataField = 'IE_RG'
       DataSource = DataSource
-      TabOrder = 4
+      TabOrder = 3
     end
-    object DBCmb_TipoPessoa: TDBComboBox [11]
-      Left = 84
-      Top = 35
-      Width = 101
-      Height = 21
-      Style = csDropDownList
-      DataField = 'TIPO_PESSOA'
-      DataSource = DataSource
-      Items.Strings = (
-        'F'#237'sica'
-        'Jur'#237'dica')
-      TabOrder = 2
-      OnChange = DBCmb_TipoPessoaChange
-    end
-    object DBEd_Email: TDBEdit [12]
+    object DBEd_Email: TDBEdit [10]
       Left = 84
       Top = 116
       Width = 453
@@ -150,28 +126,28 @@ inherited FrmCadastro: TFrmCadastro
       CharCase = ecUpperCase
       DataField = 'EMAIL'
       DataSource = DataSource
-      TabOrder = 7
+      TabOrder = 6
     end
-    object DBEd_Cnpj_Cpf: TDBEdit [13]
-      Left = 230
+    object DBEd_Cnpj_Cpf: TDBEdit [11]
+      Left = 84
       Top = 35
       Width = 136
       Height = 21
       CharCase = ecUpperCase
       DataField = 'CNPJ_CPF'
       DataSource = DataSource
-      TabOrder = 3
+      TabOrder = 2
     end
     inherited GrpBox_InfoReg: TGroupBox
       Left = 559
       Top = 35
-      TabOrder = 8
+      TabOrder = 7
       ExplicitLeft = 559
       ExplicitTop = 35
     end
     object DBChk_Ativo: TDBCheckBox
-      Left = 493
-      Top = 10
+      Left = 176
+      Top = 6
       Width = 43
       Height = 17
       Caption = 'Ativo'
@@ -180,6 +156,22 @@ inherited FrmCadastro: TFrmCadastro
       TabOrder = 1
       ValueChecked = 'S'
       ValueUnchecked = 'N'
+    end
+    object DBRadioGroup1: TDBRadioGroup
+      Left = 391
+      Top = 3
+      Width = 146
+      Height = 53
+      Caption = 'Tipo Pessoa'
+      DataField = 'TIPO_PESSOA'
+      DataSource = DataSource
+      Items.Strings = (
+        'Fisica'
+        'Juridica')
+      TabOrder = 8
+      Values.Strings = (
+        'F'#237'sica'
+        'Jur'#237'dica')
     end
   end
   object Panel1: TPanel [4]
@@ -711,6 +703,22 @@ inherited FrmCadastro: TFrmCadastro
   inherited ImageList3: TImageList
     Left = 56
     Top = 376
+  end
+  inherited PopupMenu1: TPopupMenu
+    Left = 296
+    Top = 266
+    object Fantasia1: TMenuItem
+      Caption = 'Fantasia'
+      OnClick = Fantasia1Click
+    end
+    object DataCadastro1: TMenuItem
+      Caption = 'Data Alteracao'
+      OnClick = DataCadastro1Click
+    end
+    object ipoPessoa1: TMenuItem
+      Caption = 'Tipo Pessoa'
+      OnClick = ipoPessoa1Click
+    end
   end
   object frxReport1: TfrxReport
     Version = '6.2.1'

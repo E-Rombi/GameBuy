@@ -9,8 +9,6 @@ inherited FrmRelCliente: TFrmRelCliente
   inherited Panel1: TPanel
     Width = 681
     Caption = 'Relat'#243'rio de Clientes'
-    ExplicitLeft = 0
-    ExplicitTop = 0
     ExplicitWidth = 681
   end
   inherited Panel2: TPanel
@@ -19,7 +17,6 @@ inherited FrmRelCliente: TFrmRelCliente
   end
   inherited Pnl_Ficha: TPanel
     Width = 681
-    ExplicitTop = 71
     ExplicitWidth = 681
     inherited Btn_Gerar: TSpeedButton
       Left = 139
@@ -31,7 +28,6 @@ inherited FrmRelCliente: TFrmRelCliente
     inherited Btn_Cancelar: TSpeedButton
       Left = 19
       Top = 192
-      OnClick = Btn_CancelarClick
       ExplicitLeft = 19
       ExplicitTop = 192
     end

@@ -27,9 +27,6 @@ object FrmRelPadrao: TFrmRelPadrao
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    ExplicitLeft = 160
-    ExplicitTop = 48
-    ExplicitWidth = 185
   end
   object Panel2: TPanel
     Left = 0
@@ -50,7 +47,6 @@ object FrmRelPadrao: TFrmRelPadrao
     Color = clWindow
     ParentBackground = False
     TabOrder = 2
-    ExplicitTop = 77
     object Btn_Gerar: TSpeedButton
       Left = 456
       Top = 208
@@ -64,6 +60,7 @@ object FrmRelPadrao: TFrmRelPadrao
       Width = 105
       Height = 33
       Caption = 'Cancelar'
+      OnClick = Btn_CancelarClick
     end
   end
   object FDQuery1: TFDQuery

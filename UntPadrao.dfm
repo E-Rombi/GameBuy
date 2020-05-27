@@ -57,6 +57,8 @@ object FrmPadrao: TFrmPadrao
       Hint = 'Ordenar registros'
       Caption = 'Ordenar'
       ImageIndex = 1
+      PopupMenu = PopupMenu1
+      OnClick = btn_OrdenarClick
     end
     object btn_Primeiro: TToolButton
       Left = 114
@@ -234,7 +236,6 @@ object FrmPadrao: TFrmPadrao
     Color = clWindow
     ParentBackground = False
     TabOrder = 3
-    ExplicitTop = 87
     object GrpBox_InfoReg: TGroupBox
       Left = 490
       Top = 17
@@ -6712,5 +6713,13 @@ object FrmPadrao: TFrmPadrao
   object FQryAtivos: TFDQuery
     Left = 672
     Top = 226
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 72
+    Top = 154
+    object ID1: TMenuItem
+      Caption = 'ID'
+      OnClick = ID1Click
+    end
   end
 end

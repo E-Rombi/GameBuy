@@ -32,7 +32,6 @@ type
     procedure Cmb_ClienteChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Btn_GerarClick(Sender: TObject);
-    procedure Btn_CancelarClick(Sender: TObject);
   private
     { Private declarations }
     FCliente : Variant;
@@ -48,18 +47,6 @@ implementation
 {$R *.dfm}
 
 uses UntDM;
-
-procedure TFrmRelVenda.Btn_CancelarClick(Sender: TObject);
-var
-  vControl  : TPageControl;
-  vPop      : TPopupMenu;
-  vMenuItem : TMenuItem;
-begin
-  vControl := TPageControl(TTabSheet(Self.Parent).Parent);
-  vPop := vControl.PopupMenu;
-  vMenuItem :=  vPop.Items[0];
-  vMenuItem.Click;
-end;
 
 procedure TFrmRelVenda.Btn_GerarClick(Sender: TObject);
 var

@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, System.ImageList,
   Vcl.ImgList, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.ToolWin,
-  Vcl.DBCtrls, Vcl.Mask, Vcl.Grids, Vcl.DBGrids, frxClass, frxDBSet;
+  Vcl.DBCtrls, Vcl.Mask, Vcl.Grids, Vcl.DBGrids, frxClass, frxDBSet, Vcl.Menus;
 
 type
   TFrmCadastro = class(TFrmPadrao)
@@ -31,8 +31,6 @@ type
     Lbl_CnpjCpf: TLabel;
     Lbl_IeRg: TLabel;
     DBEd_IeRg: TDBEdit;
-    Label7: TLabel;
-    DBCmb_TipoPessoa: TDBComboBox;
     Label5: TLabel;
     DBEd_Email: TDBEdit;
     DBEd_Cnpj_Cpf: TDBEdit;
@@ -92,6 +90,10 @@ type
     frxReport1: TfrxReport;
     frxDBDataset1: TfrxDBDataset;
     FDQuery2: TFDQuery;
+    Fantasia1: TMenuItem;
+    DataCadastro1: TMenuItem;
+    ipoPessoa1: TMenuItem;
+    DBRadioGroup1: TDBRadioGroup;
     procedure FormActivate(Sender: TObject);
     procedure btn_SalvarClick(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
@@ -116,6 +118,10 @@ type
     procedure FDTabelaBeforePost(DataSet: TDataSet);
     procedure DBCmb_TipoPessoaChange(Sender: TObject);
     procedure btn_ImprimirClick(Sender: TObject);
+    procedure Fantasia1Click(Sender: TObject);
+    procedure DataCadastro1Click(Sender: TObject);
+    procedure ipoPessoa1Click(Sender: TObject);
+    procedure RadioGroup1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -245,6 +251,12 @@ begin
   HabilitaForm(False);
 end;
 
+procedure TFrmCadastro.DataCadastro1Click(Sender: TObject);
+begin
+  inherited;
+  FDTabela.IndexFieldNames := 'DATA_ALTERACAO';
+end;
+
 procedure TFrmCadastro.DBCmb_TipoPessoaChange(Sender: TObject);
 begin
   inherited;
@@ -279,6 +291,12 @@ begin
     FDQuery1.ParamByName('ID').AsInteger := FDTable_Detalhe_1FK_USUARIO_ALT.AsInteger;
     FDQuery1.Open();
   end;
+end;
+
+procedure TFrmCadastro.Fantasia1Click(Sender: TObject);
+begin
+  inherited;
+  FDTabela.IndexFieldNames := 'Fantasia';
 end;
 
 procedure TFrmCadastro.FDTabelaBeforePost(DataSet: TDataSet);
@@ -401,7 +419,7 @@ end;
 procedure TFrmCadastro.HabilitaForm(pEnabled: Boolean);
 begin
   DBChk_Ativo.Enabled := pEnabled;
-  DBCmb_TipoPessoa.Enabled := pEnabled;
+  DBRadioGroup1.Enabled := pEnabled;
   DBEd_Cnpj_Cpf.Enabled := pEnabled;
   DBEd_IeRg.Enabled := pEnabled;
   DBEd_RazaoSocial.Enabled := pEnabled;
@@ -418,6 +436,31 @@ begin
   end
   else
     HabilitaEndereco(False);
+
+end;
+
+procedure TFrmCadastro.ipoPessoa1Click(Sender: TObject);
+begin
+  inherited;
+  FDTabela.IndexFieldNames := 'TIPO_PESSOA';
+end;
+
+procedure TFrmCadastro.RadioGroup1Click(Sender: TObject);
+begin
+  inherited;
+  if FDTabelaTIPO_PESSOA.AsString = 'Física' then
+  begin
+    Lbl_CnpjCpf.Caption := 'CPF';
+    Lbl_IeRg.Caption    := 'RG';
+    FDTabelaCNPJ_CPF.EditMask := '!000.000.000-00;1; ';
+  end
+  else
+    if FDTabelaTIPO_PESSOA.AsString = 'Jurídica' then
+    begin
+      Lbl_CnpjCpf.Caption := 'CNPJ';
+      Lbl_IeRg.Caption    := 'IE';
+      FDTabelaCNPJ_CPF.EditMask := '!00.000.000/0000-00;1; ';
+    end;
 
 end;
 

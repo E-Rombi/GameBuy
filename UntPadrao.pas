@@ -54,6 +54,8 @@ type
     btn_Sair: TToolButton;
     ImageList3: TImageList;
     FQryAtivos: TFDQuery;
+    PopupMenu1: TPopupMenu;
+    ID1: TMenuItem;
     procedure btn_PrimeiroClick(Sender: TObject);
     procedure btn_AnteriorClick(Sender: TObject);
     procedure btn_ProximoClick(Sender: TObject);
@@ -69,6 +71,8 @@ type
     procedure FDTabelaBeforePost(DataSet: TDataSet);
     procedure DataSourceDataChange(Sender: TObject; Field: TField);
     procedure btn_PesquisarClick(Sender: TObject);
+    procedure ID1Click(Sender: TObject);
+    procedure btn_OrdenarClick(Sender: TObject);
   private
     { Private declarations }
     FExecutar: TExecutar;
@@ -191,6 +195,14 @@ begin
   operacaoIncluir := 0;
 end;
 
+procedure TFrmPadrao.btn_OrdenarClick(Sender: TObject);
+begin
+  FDTabela.First;
+  Executar := navegacao;
+  Executar := exibePanels;
+  PopupMenu1.Popup(100,100);
+end;
+
 procedure TFrmPadrao.btn_PesquisarClick(Sender: TObject);
 begin
   if not(trim(ValorCampo.Text) = '') then
@@ -272,6 +284,11 @@ end;
 procedure TFrmPadrao.FormDestroy(Sender: TObject);
 begin
   FrmPadrao := nil;
+end;
+
+procedure TFrmPadrao.ID1Click(Sender: TObject);
+begin
+  FDTabela.IndexFieldNames := 'ID';
 end;
 
 procedure TFrmPadrao.SetExecutar(const value: TExecutar);

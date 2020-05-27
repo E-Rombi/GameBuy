@@ -33,7 +33,6 @@ type
     procedure Cmb_TipoPessoaChange(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure Btn_GerarClick(Sender: TObject);
-    procedure Btn_CancelarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }
@@ -47,18 +46,6 @@ var
 implementation
 
 {$R *.dfm}
-
-procedure TFrmRelCliente.Btn_CancelarClick(Sender: TObject);
-var
-  vControl  : TPageControl;
-  vPop      : TPopupMenu;
-  vMenuItem : TMenuItem;
-begin
-  vControl := TPageControl(TTabSheet(Self.Parent).Parent);
-  vPop := vControl.PopupMenu;
-  vMenuItem :=  vPop.Items[0];
-  vMenuItem.Click;
-end;
 
 procedure TFrmRelCliente.Btn_GerarClick(Sender: TObject);
 var

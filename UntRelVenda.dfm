@@ -11,8 +11,6 @@ inherited FrmRelVenda: TFrmRelVenda
   inherited Panel1: TPanel
     Width = 652
     Caption = 'Relat'#243'rio de Vendas'
-    ExplicitLeft = 0
-    ExplicitTop = 0
     ExplicitWidth = 652
   end
   inherited Panel2: TPanel
@@ -22,7 +20,6 @@ inherited FrmRelVenda: TFrmRelVenda
   inherited Pnl_Ficha: TPanel
     Width = 652
     Height = 294
-    ExplicitTop = 71
     ExplicitWidth = 652
     ExplicitHeight = 294
     inherited Btn_Gerar: TSpeedButton
@@ -35,7 +32,6 @@ inherited FrmRelVenda: TFrmRelVenda
     inherited Btn_Cancelar: TSpeedButton
       Left = 16
       Top = 168
-      OnClick = Btn_CancelarClick
       ExplicitLeft = 16
       ExplicitTop = 168
     end
