@@ -216,6 +216,10 @@ object FrmMain: TFrmMain
         Caption = 'Clientes'
         OnClick = ShowForm
       end
+      object Rel_Vendas: TMenuItem
+        Caption = 'Vendas'
+        OnClick = ShowForm
+      end
     end
   end
   object PopupMenu1: TPopupMenu

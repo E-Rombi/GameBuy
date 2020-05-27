@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, System.ImageList,
   Vcl.ImgList, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.ToolWin,
-  Vcl.DBCtrls, Vcl.Mask, Vcl.Grids, Vcl.DBGrids;
+  Vcl.DBCtrls, Vcl.Mask, Vcl.Grids, Vcl.DBGrids, frxClass, frxDBSet;
 
 type
   TFrmCadastro = class(TFrmPadrao)
@@ -89,6 +89,9 @@ type
     FDQuery1: TFDQuery;
     DataSource1: TDataSource;
     DBChk_Ativo: TDBCheckBox;
+    frxReport1: TfrxReport;
+    frxDBDataset1: TfrxDBDataset;
+    FDQuery2: TFDQuery;
     procedure FormActivate(Sender: TObject);
     procedure btn_SalvarClick(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
@@ -112,6 +115,7 @@ type
     procedure FDTable_Detalhe_1AfterEdit(DataSet: TDataSet);
     procedure FDTabelaBeforePost(DataSet: TDataSet);
     procedure DBCmb_TipoPessoaChange(Sender: TObject);
+    procedure btn_ImprimirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -194,6 +198,23 @@ begin
   inherited;
   FDTable_Detalhe_1.Post;
   HabilitaEndereco(False);
+end;
+
+procedure TFrmCadastro.btn_ImprimirClick(Sender: TObject);
+begin
+  inherited;
+  if not(FDTabela.IsEmpty) then
+  begin
+    FDQuery2.Close;
+    FDQuery2.SQL.Clear;
+    FDQuery2.SQL.Add('SELECT'
+                    +#13+'CAD.*, CADEND.*'
+                    +#13+'FROM CADASTRO CAD'
+                    +#13+'LEFT JOIN CADASTRO_ENDERECO CADEND ON (CADEND.FK_CADASTRO = CAD.ID)');
+    FDQuery2.SQL.Add('WHERE CAD.ID = ' + IntToStr(FDTabelaID.AsInteger));
+    FDQuery2.Open();
+    frxReport1.ShowReport();
+  end;
 end;
 
 procedure TFrmCadastro.btn_InserirClick(Sender: TObject);

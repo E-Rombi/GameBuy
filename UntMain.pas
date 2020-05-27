@@ -49,6 +49,7 @@ type
     BarSeries1: TBarSeries;
     Relatrios1: TMenuItem;
     Rel_Clientes: TMenuItem;
+    Rel_Vendas: TMenuItem;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure Timer1Timer(Sender: TObject);
@@ -74,7 +75,7 @@ implementation
 {$R *.dfm}
 
 uses UntPerfil, UntCadastro, UntDM, UntLogin, UntProduto, UntDesenv_Edit,
-  UntCategoria, UntUsuario, UntVenda, UntRelCadastro;
+  UntCategoria, UntUsuario, UntVenda, UntRelCadastro, UntRelVenda;
 
 procedure TFrmMain.ApplicationEvents1Hint(Sender: TObject);
 begin
@@ -180,6 +181,8 @@ var
     if Form = 'FrmUsuario'     then  vform := TFrmUsuario.Create(vTab);
     if Form = 'FrmVenda'       then  vForm := TFrmVenda.Create(vTab);
     if Form = 'FrmRelCliente'  then  vForm := TFrmRelCliente.Create(vTab);
+    if Form = 'FrmRelVenda'    then  vForm := TFrmRelVenda.Create(vTab);
+
 
     vForms.Add(Menu, Form);
     vForm.Align := alClient;
@@ -226,6 +229,9 @@ begin
     if not(vForms.ContainsKey(TWinControl(Sender).Name)) then
       CriarTab(TWinControl(Sender).Name, 'FrmRelCliente');
 
+  if Sender = Rel_Vendas then
+    if not(vForms.ContainsKey(TWinControl(Sender).Name)) then
+      CriarTab(TWinControl(Sender).Name, 'FrmRelVenda');
 
 
 end;

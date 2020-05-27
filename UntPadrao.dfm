@@ -234,6 +234,7 @@ object FrmPadrao: TFrmPadrao
     Color = clWindow
     ParentBackground = False
     TabOrder = 3
+    ExplicitTop = 87
     object GrpBox_InfoReg: TGroupBox
       Left = 490
       Top = 17
@@ -6709,7 +6710,7 @@ object FrmPadrao: TFrmPadrao
       000000000000}
   end
   object FQryAtivos: TFDQuery
-    Left = 576
-    Top = 242
+    Left = 672
+    Top = 226
   end
 end

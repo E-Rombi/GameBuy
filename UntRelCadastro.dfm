@@ -22,14 +22,18 @@ inherited FrmRelCliente: TFrmRelCliente
     ExplicitTop = 71
     ExplicitWidth = 681
     inherited Btn_Gerar: TSpeedButton
-      Left = 352
+      Left = 139
+      Top = 192
       OnClick = Btn_GerarClick
-      ExplicitLeft = 352
+      ExplicitLeft = 139
+      ExplicitTop = 192
     end
     inherited Btn_Cancelar: TSpeedButton
-      Left = 232
+      Left = 19
+      Top = 192
       OnClick = Btn_CancelarClick
-      ExplicitLeft = 232
+      ExplicitLeft = 19
+      ExplicitTop = 192
     end
     object Label1: TLabel
       Left = 19

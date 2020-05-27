@@ -69,9 +69,10 @@ begin
   FDQuery1.Close;
   FDQuery1.SQL.Clear;
   FDQuery1.SQL.Add('SELECT'
-                  +#13+'CAD.*, CADEND.*'
+                  +#13+'CAD.*, CADEND.*, PROD.*'
                   +#13+'FROM CADASTRO CAD'
-                  +#13+'LEFT JOIN CADASTRO_ENDERECO CADEND ON (CADEND.FK_CADASTRO = CAD.ID)');
+                  +#13+'LEFT JOIN CADASTRO_ENDERECO CADEND ON (CADEND.FK_CADASTRO = CAD.ID)'
+                  +#13+'LEFT JOIN PRODUTO PROD ON (PEDIT.FK_PRODUTO = PROD.ID');
   vWhere := '';
 
   if not (trim(Ed_ID.Text) = '') then

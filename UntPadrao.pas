@@ -9,7 +9,7 @@ uses
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.ExtCtrls, Vcl.StdCtrls,
-  Vcl.DBCtrls, Vcl.Buttons, Vcl.Menus, Vcl.Mask;
+  Vcl.DBCtrls, Vcl.Buttons, Vcl.Menus, Vcl.Mask, frxClass, frxDBSet;
 
 type
   TExecutar = (navegacao, sentencaSQL, exibePanels,

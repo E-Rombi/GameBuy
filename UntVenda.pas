@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   FireDAC.Comp.Client, Data.DB, FireDAC.Comp.DataSet, System.ImageList,
   Vcl.ImgList, Vcl.Mask, Vcl.DBCtrls, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls,
-  Vcl.ToolWin, Vcl.Grids, Vcl.DBGrids;
+  Vcl.ToolWin, Vcl.Grids, Vcl.DBGrids, frxClass, frxDBSet;
 
 type
   TFrmVenda = class(TFrmPadrao)
@@ -74,7 +74,11 @@ type
     DBEd_TotalDesconto: TDBEdit;
     Label15: TLabel;
     DBEd_TotalProdutos: TDBEdit;
-    DBCheckBox1: TDBCheckBox;
+    FDQuery1: TFDQuery;
+    frxDBDataset1: TfrxDBDataset;
+    FDQuery2: TFDQuery;
+    frxReport1: TfrxReport;
+    frxDBDataset2: TfrxDBDataset;
     procedure DBChk_EntregarClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FDTabelaFK_CADASTROChange(Sender: TField);
@@ -108,6 +112,7 @@ type
     procedure FDTabelaNewRecord(DataSet: TDataSet);
     procedure FormDestroy(Sender: TObject);
     procedure DBEd_TotalDescontoExit(Sender: TObject);
+    procedure btn_ImprimirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -191,6 +196,26 @@ begin
   inherited;
   FDItens.Post;
   HabilitaItem(False);
+end;
+
+procedure TFrmVenda.btn_ImprimirClick(Sender: TObject);
+begin
+  inherited;
+  if not(FDTabela.IsEmpty) then
+  begin
+    FDQuery1.Close;
+    FDQuery1.SQL.Clear;
+    FDQuery1.SQL.Add('SELECT'
+                  +#13+'Ped.*, CAD.*,'
+                  +#13+'ENDE.CEP||'' ''||ENDE.LOGRADOURO||'', ''||ENDE.NUMERO||'' - ''||ENDE.BAIRRO||'', ''||ENDE.CIDADE ENDERECO'
+                  +#13+'FROM PEDIDO Ped'
+                  +#13+'LEFT JOIN CADASTRO CAD ON (CAD.ID = Ped.FK_CADASTRO)'
+                  +#13+'LEFT JOIN CADASTRO_ENDERECO ENDE ON (ENDE.ID = PED.FK_ENDERECO)');
+
+    FDQuery1.SQL.Add('WHERE Ped.ID = ' + IntToStr(FDTabelaID.AsInteger));
+    FDQuery1.Open();
+    frxReport1.ShowReport();
+  end;
 end;
 
 procedure TFrmVenda.btn_InserirClick(Sender: TObject);
