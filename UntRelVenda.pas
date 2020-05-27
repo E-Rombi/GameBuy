@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   frxClass, frxDBSet, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  Vcl.Buttons, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls;
+  Vcl.Buttons, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.Menus, Vcl.ComCtrls;
 
 type
   TFrmRelVenda = class(TFrmRelPadrao)
@@ -32,6 +32,7 @@ type
     procedure Cmb_ClienteChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Btn_GerarClick(Sender: TObject);
+    procedure Btn_CancelarClick(Sender: TObject);
   private
     { Private declarations }
     FCliente : Variant;
@@ -47,6 +48,18 @@ implementation
 {$R *.dfm}
 
 uses UntDM;
+
+procedure TFrmRelVenda.Btn_CancelarClick(Sender: TObject);
+var
+  vControl  : TPageControl;
+  vPop      : TPopupMenu;
+  vMenuItem : TMenuItem;
+begin
+  vControl := TPageControl(TTabSheet(Self.Parent).Parent);
+  vPop := vControl.PopupMenu;
+  vMenuItem :=  vPop.Items[0];
+  vMenuItem.Click;
+end;
 
 procedure TFrmRelVenda.Btn_GerarClick(Sender: TObject);
 var
@@ -67,31 +80,31 @@ begin
     if vWhere = '' then
       vWhere := 'WHERE Ped.ID = ' + Ed_ID.Text
     else
-      vWhere := vWhere +#13+ 'Ped.ID = ' + Ed_ID.Text;
+      vWhere := vWhere +#13+ ' AND Ped.ID = ' + Ed_ID.Text;
 
   if Cmb_Entrega.ItemIndex <> 0 then
     if vWhere = '' then
-      vWhere := 'WHERE Ped.CHK_ENTREGA = ''' + copy(Cmb_Entrega.Items[Cmb_Entrega.ItemIndex],0,1) + ''''
+      vWhere := 'WHERE Ped.CHK_ENTREGAR = ''' + copy(Cmb_Entrega.Items[Cmb_Entrega.ItemIndex],0,1) + ''''
     else
-      vWhere := vWhere +#13+ 'Ped.CHK_ENTREGA = ' + copy(Cmb_Entrega.Items[Cmb_Entrega.ItemIndex],0,1) + '''';
+      vWhere := vWhere +#13+ ' AND Ped.CHK_ENTREGAR = ''' + copy(Cmb_Entrega.Items[Cmb_Entrega.ItemIndex],0,1) + '''';
 
   if (Ed_DataDe.Text <> '  /  /    ') and (Ed_DataAte.Text <> '  /  /    ') then
     if vWhere = '' then
       vWhere := 'WHERE Ped.DATA_CADASTRO between ''' + StringReplace(Ed_DataDe.Text, '/', '.', [rfReplaceAll]) + ''' and ''' + StringReplace(Ed_DataAte.Text, '/', '.', [rfReplaceAll]) + ''''
     else
-      vWhere := vWhere +#13+ 'Ped.DATA_CADASTRO between ''' + StringReplace(Ed_DataDe.Text, '/', '.', [rfReplaceAll]) + ''' and ''' + StringReplace(Ed_DataAte.Text, '/', '.', [rfReplaceAll]) + '''';
+      vWhere := vWhere +#13+ ' AND Ped.DATA_CADASTRO between ''' + StringReplace(Ed_DataDe.Text, '/', '.', [rfReplaceAll]) + ''' and ''' + StringReplace(Ed_DataAte.Text, '/', '.', [rfReplaceAll]) + '''';
 
   if Cmb_Cliente.ItemIndex <> 0 then
     if vWhere = '' then
-      vWhere := 'WHERE Ped. = ''' + Cmb_Cliente.Items[Cmb_Cliente.ItemIndex] + ''''
+      vWhere := 'WHERE CAD.FANTASIA = ''' + Cmb_Cliente.Items[Cmb_Cliente.ItemIndex] + ''''
     else
-      vWhere := vWhere +#13+ 'CAD.FANTASIA = ''' + Cmb_Cliente.Items[Cmb_Cliente.ItemIndex] + '''';
+      vWhere := vWhere +#13+ ' AND CAD.FANTASIA = ''' + Cmb_Cliente.Items[Cmb_Cliente.ItemIndex] + '''';
 
    case Cmb_Ordem.itemIndex of
    0: vWhere := vWhere + #13 + 'ORDER BY PED.ID';
    1: vWhere := vWhere + #13 + 'ORDER BY CAD.FANTASIA';
    2: vWhere := vWhere + #13 + 'ORDER BY PED.DATA_CADASTRO';
-   3: vWhere := vWhere + #13 + 'ORDER BY PED.DATA CADASTRO DESC';
+   3: vWhere := vWhere + #13 + 'ORDER BY PED.DATA_CADASTRO DESC';
    end;
 
    FDQuery1.SQL.Add(vWhere);
