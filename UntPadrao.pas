@@ -151,7 +151,11 @@ begin
 
   if confExcl = IDYES then
   begin
-    FDTabela.Delete;
+    try
+      FDTabela.Delete;
+    except
+      raise Exception.Create('Não foi possível excluir o registro.');
+    end;
 
     mensagem := 'O registro foi excluído com sucesso.';
     Application.MessageBox(PChar(mensagem), 'Informação',

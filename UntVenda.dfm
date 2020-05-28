@@ -29,7 +29,6 @@ inherited FrmVenda: TFrmVenda
     Height = 315
     Align = alTop
     AutoSize = True
-    ExplicitTop = 90
     ExplicitWidth = 1284
     ExplicitHeight = 315
     object Pnl_Endereco: TPanel [0]
@@ -550,6 +549,20 @@ inherited FrmVenda: TFrmVenda
   inherited ImageList3: TImageList
     Left = 304
     Top = 440
+  end
+  inherited PopupMenu1: TPopupMenu
+    object Cliente1: TMenuItem
+      Caption = 'Cliente'
+      OnClick = Cliente1Click
+    end
+    object DataAlteracao1: TMenuItem
+      Caption = 'Data Alteracao'
+      OnClick = DataAlteracao1Click
+    end
+    object Entregar1: TMenuItem
+      Caption = 'Entregar'
+      OnClick = Entregar1Click
+    end
   end
   object FQry_Cliente: TFDQuery
     Connection = DM.FDConnection1

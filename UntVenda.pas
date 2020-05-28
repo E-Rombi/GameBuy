@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   FireDAC.Comp.Client, Data.DB, FireDAC.Comp.DataSet, System.ImageList,
   Vcl.ImgList, Vcl.Mask, Vcl.DBCtrls, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls,
-  Vcl.ToolWin, Vcl.Grids, Vcl.DBGrids, frxClass, frxDBSet;
+  Vcl.ToolWin, Vcl.Grids, Vcl.DBGrids, frxClass, frxDBSet, Vcl.Menus;
 
 type
   TFrmVenda = class(TFrmPadrao)
@@ -79,6 +79,9 @@ type
     FDQuery2: TFDQuery;
     frxReport1: TfrxReport;
     frxDBDataset2: TfrxDBDataset;
+    Cliente1: TMenuItem;
+    DataAlteracao1: TMenuItem;
+    Entregar1: TMenuItem;
     procedure DBChk_EntregarClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FDTabelaFK_CADASTROChange(Sender: TField);
@@ -113,6 +116,10 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure DBEd_TotalDescontoExit(Sender: TObject);
     procedure btn_ImprimirClick(Sender: TObject);
+    procedure Cliente1Click(Sender: TObject);
+    procedure DataAlteracao1Click(Sender: TObject);
+    procedure Entregar1Click(Sender: TObject);
+    procedure FDTabelaBeforePost(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -275,6 +282,18 @@ begin
   HabilitaGrid;
 end;
 
+procedure TFrmVenda.Cliente1Click(Sender: TObject);
+begin
+  inherited;
+  FDTabela.IndexFieldNames := 'FK_CADASTRO';
+end;
+
+procedure TFrmVenda.DataAlteracao1Click(Sender: TObject);
+begin
+  inherited;
+  FDTabela.IndexFieldNames := 'DATA_ALTERACAO';
+end;
+
 procedure TFrmVenda.DBChk_EntregarClick(Sender: TObject);
 begin
   inherited;
@@ -327,6 +346,12 @@ begin
       (Sender as TDBGrid).Canvas.Brush.Color := clWhite;
 
     DBGrd_Endereco.DefaultDrawColumnCell(Rect, DataCol, Column, State);
+end;
+
+procedure TFrmVenda.Entregar1Click(Sender: TObject);
+begin
+  inherited;
+ FDTabela.IndexFieldNames := 'CHK_ENTREGAR';
 end;
 
 procedure TFrmVenda.FDItensAfterDelete(DataSet: TDataSet);
@@ -415,6 +440,13 @@ begin
   FDItensFK_PEDIDO.AsInteger := FDTabelaID.AsInteger;
   FDItensQUANTIDADE.Value := 1;
 
+end;
+
+procedure TFrmVenda.FDTabelaBeforePost(DataSet: TDataSet);
+begin
+  inherited;
+  if (FDTabelaFK_CADASTRO.AsInteger = 0) or (VarIsNull(FDTabelaFK_CADASTRO.AsVariant)) then
+    raise Exception.Create('Por favor, indique um cliente.');
 end;
 
 procedure TFrmVenda.FDTabelaFK_CADASTROChange(Sender: TField);

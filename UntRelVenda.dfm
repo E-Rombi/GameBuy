@@ -82,9 +82,8 @@ inherited FrmRelVenda: TFrmRelVenda
       Top = 13
       Width = 65
       Height = 21
-      EditLabel.Width = 29
+      EditLabel.Width = 3
       EditLabel.Height = 13
-      EditLabel.Caption = 'Ed_ID'
       LabelPosition = lpLeft
       TabOrder = 0
     end
