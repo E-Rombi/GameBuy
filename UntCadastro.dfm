@@ -574,6 +574,7 @@ inherited FrmCadastro: TFrmCadastro
     object FDTabelaTIPO_PESSOA: TStringField
       FieldName = 'TIPO_PESSOA'
       Origin = 'TIPO_PESSOA'
+      OnChange = FDTabelaTIPO_PESSOAChange
       Size = 30
     end
     object FDTabelaSTATUS: TStringField

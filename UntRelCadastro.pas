@@ -56,10 +56,9 @@ begin
   FDQuery1.Close;
   FDQuery1.SQL.Clear;
   FDQuery1.SQL.Add('SELECT'
-                  +#13+'CAD.*, CADEND.*, PROD.*'
+                  +#13+'CAD.*, CADEND.*'
                   +#13+'FROM CADASTRO CAD'
-                  +#13+'LEFT JOIN CADASTRO_ENDERECO CADEND ON (CADEND.FK_CADASTRO = CAD.ID)'
-                  +#13+'LEFT JOIN PRODUTO PROD ON (PEDIT.FK_PRODUTO = PROD.ID');
+                  +#13+'LEFT JOIN CADASTRO_ENDERECO CADEND ON (CADEND.FK_CADASTRO = CAD.ID)');
   vWhere := '';
 
   if not (trim(Ed_ID.Text) = '') then
@@ -70,9 +69,9 @@ begin
 
   if Cmb_Status.ItemIndex <> 2 then
       if vWhere = '' then
-        vWhere := 'WHERE CAD.STATUS = ''' + Cmb_Status.Items[Cmb_Status.ItemIndex] + ''''
+        vWhere := 'WHERE CAD.STATUS = ''' + copy(Cmb_Status.Items[Cmb_Status.ItemIndex],0,1) + ''''
       else
-        vWhere := vWhere +#13+ 'CAD.STATUS = ''' + Cmb_Status.Items[Cmb_Status.ItemIndex] + '''';
+        vWhere := vWhere +#13+ 'CAD.STATUS = ''' + copy(Cmb_Status.Items[Cmb_Status.ItemIndex],0,1) + '''';
 
 
     if Cmb_TipoPessoa.ItemIndex <> 2 then
@@ -95,9 +94,9 @@ begin
 
     if Cmb_Estado.ItemIndex <> 0 then
       if vWhere = '' then
-        vWhere := 'WHERE CADEND.ESTADO = ''' + Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex] + ''''
+        vWhere := 'WHERE CADEND.ESTADO = ''' + copy(Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex],0,1) + ''''
       else
-        vWhere := vWhere +#13+ 'CAD.TIPO_PESSOA = ''' + Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex] + '''';
+        vWhere := vWhere +#13+ 'CAD.TIPO_PESSOA = ''' + copy(Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex],0,1) + '''';
 
     if not(trim(Ed_Cidade.Text) = '') then
       if vWhere = '' then

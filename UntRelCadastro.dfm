@@ -69,9 +69,9 @@ inherited FrmRelCliente: TFrmRelCliente
     object Label6: TLabel
       Left = 279
       Top = 17
-      Width = 31
+      Width = 25
       Height = 13
-      Caption = 'Status'
+      Caption = 'Ativo'
     end
     object Label16: TLabel
       Left = 19
@@ -137,8 +137,8 @@ inherited FrmRelCliente: TFrmRelCliente
       Style = csDropDownList
       TabOrder = 4
       Items.Strings = (
-        'Ativo'
-        'Inativo'
+        'Sim'
+        'N'#227'o'
         'Todos')
     end
     object Ed_Cidade: TEdit

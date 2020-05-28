@@ -122,6 +122,7 @@ type
     procedure DataCadastro1Click(Sender: TObject);
     procedure ipoPessoa1Click(Sender: TObject);
     procedure RadioGroup1Click(Sender: TObject);
+    procedure FDTabelaTIPO_PESSOAChange(Sender: TField);
   private
     { Private declarations }
   public
@@ -339,7 +340,25 @@ begin
   inherited;
   FDTabelaDATA_CADASTRO.AsDateTime := now;
   FDTabelaTIPO_PESSOA.AsString := 'Jurídica';
-  FDTabelaSTATUS.AsString      := 'Ativo';
+  FDTabelaSTATUS.AsString      := 'S';
+end;
+
+procedure TFrmCadastro.FDTabelaTIPO_PESSOAChange(Sender: TField);
+begin
+  inherited;
+  if FDTabelaTIPO_PESSOA.AsString = 'Física' then
+  begin
+    Lbl_CnpjCpf.Caption := 'CPF';
+    Lbl_IeRg.Caption    := 'RG';
+    FDTabelaCNPJ_CPF.EditMask := '!000.000.000-00;1; ';
+  end
+  else
+    if FDTabelaTIPO_PESSOA.AsString = 'Jurídica' then
+    begin
+      Lbl_CnpjCpf.Caption := 'CNPJ';
+      Lbl_IeRg.Caption    := 'IE';
+      FDTabelaCNPJ_CPF.EditMask := '!00.000.000/0000-00;1; ';
+    end;
 end;
 
 procedure TFrmCadastro.FDTable_Detalhe_1AfterEdit(DataSet: TDataSet);

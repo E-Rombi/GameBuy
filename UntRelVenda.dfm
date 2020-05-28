@@ -77,16 +77,6 @@ inherited FrmRelVenda: TFrmRelVenda
       Height = 13
       Caption = 'Entrega'
     end
-    object Ed_ID: TLabeledEdit
-      Left = 64
-      Top = 13
-      Width = 65
-      Height = 21
-      EditLabel.Width = 3
-      EditLabel.Height = 13
-      LabelPosition = lpLeft
-      TabOrder = 0
-    end
     object Ed_DataDe: TMaskEdit
       Left = 64
       Top = 48
@@ -94,7 +84,7 @@ inherited FrmRelVenda: TFrmRelVenda
       Height = 21
       EditMask = '!99/99/9999;1; '
       MaxLength = 10
-      TabOrder = 1
+      TabOrder = 0
       Text = '  /  /    '
     end
     object Ed_DataAte: TMaskEdit
@@ -104,7 +94,7 @@ inherited FrmRelVenda: TFrmRelVenda
       Height = 21
       EditMask = '!99/99/9999;1; '
       MaxLength = 10
-      TabOrder = 2
+      TabOrder = 1
       Text = '  /  /    '
     end
     object Cmb_Cliente: TComboBox
@@ -113,7 +103,7 @@ inherited FrmRelVenda: TFrmRelVenda
       Width = 265
       Height = 21
       Style = csDropDownList
-      TabOrder = 3
+      TabOrder = 2
       OnChange = Cmb_ClienteChange
     end
     object Cmb_Ordem: TComboBox
@@ -122,7 +112,7 @@ inherited FrmRelVenda: TFrmRelVenda
       Width = 87
       Height = 21
       Style = csDropDownList
-      TabOrder = 4
+      TabOrder = 3
       Items.Strings = (
         'ID'
         'Cliente'
@@ -135,11 +125,18 @@ inherited FrmRelVenda: TFrmRelVenda
       Width = 87
       Height = 21
       Style = csDropDownList
-      TabOrder = 5
+      TabOrder = 4
       Items.Strings = (
         'Todos'
         'Sim'
         'N'#227'o')
+    end
+    object Ed_ID: TEdit
+      Left = 64
+      Top = 13
+      Width = 65
+      Height = 21
+      TabOrder = 5
     end
   end
   inherited FDQuery1: TFDQuery

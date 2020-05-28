@@ -12,7 +12,6 @@ uses
 
 type
   TFrmRelVenda = class(TFrmRelPadrao)
-    Ed_ID: TLabeledEdit;
     Ed_DataDe: TMaskEdit;
     Label1: TLabel;
     Label2: TLabel;
@@ -28,6 +27,7 @@ type
     Label6: TLabel;
     FDQuery2: TFDQuery;
     frxDBDataset2: TfrxDBDataset;
+    Ed_ID: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure Cmb_ClienteChange(Sender: TObject);
     procedure FormShow(Sender: TObject);

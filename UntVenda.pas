@@ -119,7 +119,6 @@ type
     procedure Cliente1Click(Sender: TObject);
     procedure DataAlteracao1Click(Sender: TObject);
     procedure Entregar1Click(Sender: TObject);
-    procedure FDTabelaBeforePost(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -272,6 +271,9 @@ begin
 
   if (FDItensVALOR_TOTAL.IsNull) or (FDItensVALOR_TOTAL.Value = 0) then
     raise Exception.Create('O total do item não pode ser igual a 0.');
+
+  if (FDTabelaFK_CADASTRO.AsInteger = 0) or (VarIsNull(FDTabelaFK_CADASTRO.AsVariant)) then
+    raise Exception.Create('Por favor, indique um cliente.');
   inherited;
   HabilitaForm(False);
 end;
@@ -442,13 +444,6 @@ begin
 
 end;
 
-procedure TFrmVenda.FDTabelaBeforePost(DataSet: TDataSet);
-begin
-  inherited;
-  if (FDTabelaFK_CADASTRO.AsInteger = 0) or (VarIsNull(FDTabelaFK_CADASTRO.AsVariant)) then
-    raise Exception.Create('Por favor, indique um cliente.');
-end;
-
 procedure TFrmVenda.FDTabelaFK_CADASTROChange(Sender: TField);
 begin
   inherited;
@@ -465,6 +460,7 @@ procedure TFrmVenda.FDTabelaNewRecord(DataSet: TDataSet);
 begin
   inherited;
   FDTabelaTOTAL_DESCONTO.Value := 0;
+  FDTabelaCHK_ENTREGAR.AsString := 'N';
 end;
 
 procedure TFrmVenda.FormActivate(Sender: TObject);
@@ -510,7 +506,8 @@ end;
 
 procedure TFrmVenda.HabilitaForm(pEnabled: Boolean);
 begin
-  Pnl_Grid.Enabled := pEnabled;
+  Pnl_Grid.Enabled   := pEnabled;
+  Pnl_Totais.Enabled := pEnabled;
 end;
 
 procedure TFrmVenda.HabilitaGrid;
