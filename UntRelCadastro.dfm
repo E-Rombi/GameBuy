@@ -18,81 +18,83 @@ inherited FrmRelCliente: TFrmRelCliente
   inherited Pnl_Ficha: TPanel
     Width = 681
     ExplicitWidth = 681
-    inherited Btn_Gerar: TSpeedButton
-      Left = 139
-      Top = 192
-      OnClick = Btn_GerarClick
-      ExplicitLeft = 139
-      ExplicitTop = 192
-    end
-    inherited Btn_Cancelar: TSpeedButton
-      Left = 19
-      Top = 192
-      ExplicitLeft = 19
-      ExplicitTop = 192
-    end
-    object Label1: TLabel
+    object Label1: TLabel [0]
       Left = 19
       Top = 17
       Width = 11
       Height = 13
       Caption = 'ID'
     end
-    object Label2: TLabel
+    object Label2: TLabel [1]
       Left = 19
       Top = 79
       Width = 41
       Height = 13
       Caption = 'Fantasia'
     end
-    object Label3: TLabel
+    object Label3: TLabel [2]
       Left = 464
       Top = 79
       Width = 55
       Height = 13
       Caption = '(Contendo)'
     end
-    object Label4: TLabel
+    object Label4: TLabel [3]
       Left = 279
       Top = 49
       Width = 48
       Height = 13
       Caption = 'CNPJ/CPF'
     end
-    object Label5: TLabel
+    object Label5: TLabel [4]
       Left = 19
       Top = 49
       Width = 34
       Height = 13
       Caption = 'Pessoa'
     end
-    object Label6: TLabel
+    object Label6: TLabel [5]
       Left = 279
       Top = 17
       Width = 25
       Height = 13
       Caption = 'Ativo'
     end
-    object Label16: TLabel
+    object Label16: TLabel [6]
       Left = 19
       Top = 108
       Width = 33
       Height = 13
       Caption = 'Estado'
     end
-    object Label7: TLabel
+    object Label7: TLabel [7]
       Left = 163
       Top = 108
       Width = 33
       Height = 13
       Caption = 'Cidade'
     end
-    object Label8: TLabel
+    object Label8: TLabel [8]
       Left = 19
       Top = 138
       Width = 32
       Height = 13
       Caption = 'Ordem'
+    end
+    inherited Button1: TButton
+      Left = 531
+      Top = 192
+      TabOrder = 8
+      OnClick = Button1Click
+      ExplicitLeft = 531
+      ExplicitTop = 192
+    end
+    inherited Button2: TButton
+      Left = 19
+      Top = 192
+      TabOrder = 9
+      ExplicitLeft = 19
+      ExplicitTop = 192
     end
     object Ed_ID: TEdit
       Left = 73

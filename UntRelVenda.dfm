@@ -1,83 +1,70 @@
 inherited FrmRelVenda: TFrmRelVenda
   Caption = 'Relat'#243'rio de Vendas'
   ClientHeight = 365
-  ClientWidth = 652
+  ClientWidth = 676
   OnCreate = FormCreate
   OnShow = FormShow
-  ExplicitWidth = 668
+  ExplicitWidth = 692
   ExplicitHeight = 404
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
-    Width = 652
+    Width = 676
     Caption = 'Relat'#243'rio de Vendas'
     ExplicitWidth = 652
   end
   inherited Panel2: TPanel
-    Width = 652
+    Width = 676
     ExplicitWidth = 652
   end
   inherited Pnl_Ficha: TPanel
-    Width = 652
+    Width = 676
     Height = 294
     ExplicitWidth = 652
     ExplicitHeight = 294
-    inherited Btn_Gerar: TSpeedButton
-      Left = 136
-      Top = 168
-      OnClick = Btn_GerarClick
-      ExplicitLeft = 136
-      ExplicitTop = 168
-    end
-    inherited Btn_Cancelar: TSpeedButton
-      Left = 16
-      Top = 168
-      ExplicitLeft = 16
-      ExplicitTop = 168
-    end
-    object Label1: TLabel
+    object Label1: TLabel [0]
       Left = 16
       Top = 16
       Width = 11
       Height = 13
       Caption = 'ID'
     end
-    object Label2: TLabel
+    object Label2: TLabel [1]
       Left = 16
       Top = 51
       Width = 36
       Height = 13
       Caption = 'Per'#237'odo'
     end
-    object Label3: TLabel
+    object Label3: TLabel [2]
       Left = 135
       Top = 51
       Width = 16
       Height = 13
       Caption = 'at'#233
     end
-    object Label4: TLabel
+    object Label4: TLabel [3]
       Left = 16
       Top = 84
       Width = 33
       Height = 13
       Caption = 'Cliente'
     end
-    object Label5: TLabel
+    object Label5: TLabel [4]
       Left = 16
       Top = 117
       Width = 32
       Height = 13
       Caption = 'Ordem'
     end
-    object Label6: TLabel
+    object Label6: TLabel [5]
       Left = 194
       Top = 16
       Width = 38
       Height = 13
       Caption = 'Entrega'
     end
-    object Ed_DataDe: TMaskEdit
+    object Ed_DataDe: TMaskEdit [6]
       Left = 64
       Top = 48
       Width = 65
@@ -87,7 +74,7 @@ inherited FrmRelVenda: TFrmRelVenda
       TabOrder = 0
       Text = '  /  /    '
     end
-    object Ed_DataAte: TMaskEdit
+    object Ed_DataAte: TMaskEdit [7]
       Left = 163
       Top = 48
       Width = 65
@@ -97,7 +84,7 @@ inherited FrmRelVenda: TFrmRelVenda
       TabOrder = 1
       Text = '  /  /    '
     end
-    object Cmb_Cliente: TComboBox
+    object Cmb_Cliente: TComboBox [8]
       Left = 64
       Top = 81
       Width = 265
@@ -106,7 +93,7 @@ inherited FrmRelVenda: TFrmRelVenda
       TabOrder = 2
       OnChange = Cmb_ClienteChange
     end
-    object Cmb_Ordem: TComboBox
+    object Cmb_Ordem: TComboBox [9]
       Left = 64
       Top = 114
       Width = 87
@@ -119,7 +106,7 @@ inherited FrmRelVenda: TFrmRelVenda
         'Periodo Crescente'
         'Periodo Decrescente')
     end
-    object Cmb_Entrega: TComboBox
+    object Cmb_Entrega: TComboBox [10]
       Left = 242
       Top = 13
       Width = 87
@@ -131,12 +118,27 @@ inherited FrmRelVenda: TFrmRelVenda
         'Sim'
         'N'#227'o')
     end
-    object Ed_ID: TEdit
+    object Ed_ID: TEdit [11]
       Left = 64
       Top = 13
       Width = 65
       Height = 21
       TabOrder = 5
+    end
+    inherited Button1: TButton
+      Left = 531
+      Top = 192
+      TabOrder = 6
+      OnClick = Button1Click
+      ExplicitLeft = 531
+      ExplicitTop = 192
+    end
+    inherited Button2: TButton
+      Left = 19
+      Top = 192
+      TabOrder = 7
+      ExplicitLeft = 19
+      ExplicitTop = 192
     end
   end
   inherited FDQuery1: TFDQuery
@@ -667,7 +669,7 @@ inherited FrmRelVenda: TFrmRelVenda
       end
     end
   end
-  object FQry_Cliente: TFDQuery
+  object FQry_Cliente: TFDQuery [6]
     Connection = DM.FDConnection1
     SQL.Strings = (
       'SELECT'
@@ -677,12 +679,12 @@ inherited FrmRelVenda: TFrmRelVenda
     Left = 496
     Top = 127
   end
-  object DSCliente: TDataSource
+  object DSCliente: TDataSource [7]
     DataSet = FQry_Cliente
     Left = 424
     Top = 119
   end
-  object FDQuery2: TFDQuery
+  object FDQuery2: TFDQuery [8]
     Connection = DM.FDConnection1
     SQL.Strings = (
       'select '
@@ -692,7 +694,7 @@ inherited FrmRelVenda: TFrmRelVenda
     Left = 408
     Top = 231
   end
-  object frxDBDataset2: TfrxDBDataset
+  object frxDBDataset2: TfrxDBDataset [9]
     UserName = 'frxDBDataset2'
     CloseDataSource = False
     FieldAliases.Strings = (

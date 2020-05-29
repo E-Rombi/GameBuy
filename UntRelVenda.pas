@@ -8,7 +8,8 @@ uses
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   frxClass, frxDBSet, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  Vcl.Buttons, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.Menus, Vcl.ComCtrls;
+  Vcl.Buttons, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.Menus, Vcl.ComCtrls,
+  System.ImageList, Vcl.ImgList;
 
 type
   TFrmRelVenda = class(TFrmRelPadrao)
@@ -32,6 +33,7 @@ type
     procedure Cmb_ClienteChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure Btn_GerarClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
     FCliente : Variant;
@@ -100,6 +102,57 @@ begin
 
 end;
 
+procedure TFrmRelVenda.Button1Click(Sender: TObject);
+var
+  vWhere : String;
+begin
+  inherited;
+  vWhere := '';
+  FDQuery1.Close;
+  FDQuery1.SQL.Clear;
+  FDQuery1.SQL.Add('SELECT'
+                  +#13+'Ped.*, CAD.*,'
+                  +#13+'ENDE.CEP||'' ''||ENDE.LOGRADOURO||'', ''||ENDE.NUMERO||'' - ''||ENDE.BAIRRO||'', ''||ENDE.CIDADE ENDERECO'
+                  +#13+'FROM PEDIDO Ped'
+                  +#13+'LEFT JOIN CADASTRO CAD ON (CAD.ID = Ped.FK_CADASTRO)'
+                  +#13+'LEFT JOIN CADASTRO_ENDERECO ENDE ON (ENDE.ID = PED.FK_ENDERECO)');
+
+  if not (trim(Ed_ID.Text) = '') then
+    if vWhere = '' then
+      vWhere := 'WHERE Ped.ID = ' + Ed_ID.Text
+    else
+      vWhere := vWhere +#13+ ' AND Ped.ID = ' + Ed_ID.Text;
+
+  if Cmb_Entrega.ItemIndex <> 0 then
+    if vWhere = '' then
+      vWhere := 'WHERE Ped.CHK_ENTREGAR = ''' + copy(Cmb_Entrega.Items[Cmb_Entrega.ItemIndex],0,1) + ''''
+    else
+      vWhere := vWhere +#13+ ' AND Ped.CHK_ENTREGAR = ''' + copy(Cmb_Entrega.Items[Cmb_Entrega.ItemIndex],0,1) + '''';
+
+  if (Ed_DataDe.Text <> '  /  /    ') and (Ed_DataAte.Text <> '  /  /    ') then
+    if vWhere = '' then
+      vWhere := 'WHERE Ped.DATA_CADASTRO between ''' + StringReplace(Ed_DataDe.Text, '/', '.', [rfReplaceAll]) + ''' and ''' + StringReplace(Ed_DataAte.Text, '/', '.', [rfReplaceAll]) + ''''
+    else
+      vWhere := vWhere +#13+ ' AND Ped.DATA_CADASTRO between ''' + StringReplace(Ed_DataDe.Text, '/', '.', [rfReplaceAll]) + ''' and ''' + StringReplace(Ed_DataAte.Text, '/', '.', [rfReplaceAll]) + '''';
+
+  if Cmb_Cliente.ItemIndex <> 0 then
+    if vWhere = '' then
+      vWhere := 'WHERE CAD.FANTASIA = ''' + Cmb_Cliente.Items[Cmb_Cliente.ItemIndex] + ''''
+    else
+      vWhere := vWhere +#13+ ' AND CAD.FANTASIA = ''' + Cmb_Cliente.Items[Cmb_Cliente.ItemIndex] + '''';
+
+   case Cmb_Ordem.itemIndex of
+   0: vWhere := vWhere + #13 + 'ORDER BY PED.ID';
+   1: vWhere := vWhere + #13 + 'ORDER BY CAD.FANTASIA';
+   2: vWhere := vWhere + #13 + 'ORDER BY PED.DATA_CADASTRO';
+   3: vWhere := vWhere + #13 + 'ORDER BY PED.DATA_CADASTRO DESC';
+   end;
+
+   FDQuery1.SQL.Add(vWhere);
+   FDQuery1.Open();
+   frxReport1.ShowReport();
+
+end;
 procedure TFrmRelVenda.Cmb_ClienteChange(Sender: TObject);
 begin
   inherited;
