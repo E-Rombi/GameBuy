@@ -50,6 +50,8 @@ type
     Relatrios1: TMenuItem;
     Rel_Clientes: TMenuItem;
     Rel_Vendas: TMenuItem;
+    Atribuies1: TMenuItem;
+    teste1: TMenuItem;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure Timer1Timer(Sender: TObject);
@@ -182,6 +184,8 @@ var
     if Form = 'FrmVenda'       then  vForm := TFrmVenda.Create(vTab);
     if Form = 'FrmRelCliente'  then  vForm := TFrmRelCliente.Create(vTab);
     if Form = 'FrmRelVenda'    then  vForm := TFrmRelVenda.Create(vTab);
+    if Form = 'FrmCreditos' then vForm := TFrmCreditos.Create(vtab);
+
 
 
     vForms.Add(Menu, Form);

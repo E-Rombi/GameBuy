@@ -15,7 +15,8 @@ uses
   UntVenda in 'UntVenda.pas' {FrmVenda},
   UntRelPadrao in 'UntRelPadrao.pas' {FrmRelPadrao},
   UntRelCadastro in 'UntRelCadastro.pas' {FrmRelCliente},
-  UntRelVenda in 'UntRelVenda.pas' {FrmRelVenda};
+  UntRelVenda in 'UntRelVenda.pas' {FrmRelVenda},
+  UntCreditos in 'UntCreditos.pas' {FrmCreditos};
 
 {$R *.res}
 
@@ -25,5 +26,6 @@ begin
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TFrmMain, FrmMain);
   Application.CreateForm(TFrmRelVenda, FrmRelVenda);
+  Application.CreateForm(TFrmCreditos, FrmCreditos);
   Application.Run;
 end.
