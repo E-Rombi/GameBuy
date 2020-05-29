@@ -650,8 +650,6 @@ inherited FrmPerfil: TFrmPerfil
     Height = 172
     Align = alTop
     TabOrder = 4
-    ExplicitLeft = 8
-    ExplicitTop = 92
     object Label20: TLabel
       Left = 8
       Top = 57

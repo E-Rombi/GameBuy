@@ -11,7 +11,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, System.ImageList,
   Vcl.ImgList, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.ToolWin,
-  Vcl.DBCtrls, Vcl.Mask, Vcl.Buttons;
+  Vcl.DBCtrls, Vcl.Mask, Vcl.Buttons, Vcl.Menus;
 
 type
   TFrmUsuario = class(TFrmPadrao)
@@ -34,7 +34,6 @@ type
     DBLookupComboBox1: TDBLookupComboBox;
     FDQryPerfil: TFDQuery;
     DsPerfil: TDataSource;
-    SpeedButton1: TSpeedButton;
     FDQryUsuarioEditor: TFDQuery;
     Label6: TLabel;
     DBEdit4: TDBEdit;
@@ -92,21 +91,25 @@ begin
     end
     else
     begin
-      if (DBLookupComboBox1.text = '') then
+      if FDTabelaSenha.AsString = '' then
+      begin
+        dbedit3.SetFocus;
+        raise Exception.Create('Por favor, insira uma senha.');
+      end
+      else
+      begin
+        if (DBLookupComboBox1.text = '') then
         begin
           DBLookupComboBox1.SetFocus;
           raise Exception.Create('Por favor, escolha um perfil.');
         end;
+      end;
     end;
 
 
 
 
-  if FDTabelaSenha.AsString = '' then
-    begin
-      dbedit3.SetFocus;
-      raise Exception.Create('Por favor, insira uma senha.');
-    end;
+
 
 
   FDQueryValidarLogin.Open('select * from USUARIO where LOGIN = ' + #39 + DBEdit2.Text

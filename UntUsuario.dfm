@@ -53,15 +53,7 @@ inherited FrmUsuario: TFrmUsuario
       Height = 13
       Caption = 'Perfil'
     end
-    object SpeedButton1: TSpeedButton [4]
-      Left = 235
-      Top = 108
-      Width = 68
-      Height = 22
-      Caption = 'Atualizar'
-      OnClick = SpeedButton1Click
-    end
-    object Label6: TLabel [5]
+    object Label6: TLabel [4]
       Left = 16
       Top = 11
       Width = 11

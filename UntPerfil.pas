@@ -9,7 +9,7 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, System.ImageList,
   Vcl.ImgList, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, Vcl.ToolWin,
-  Vcl.DBCtrls, Vcl.Mask, Vcl.Buttons;
+  Vcl.DBCtrls, Vcl.Mask, Vcl.Buttons, Vcl.Menus;
 
 type
   TFrmPerfil = class(TFrmPadrao)
@@ -304,6 +304,8 @@ end;
 procedure TFrmPerfil.btn_InserirClick(Sender: TObject);
 begin
   inherited;
+  TabSheet1.SetFocus;
+
   DBcheckbox1.Checked := false;
   DBcheckbox2.Checked := false;
   DBcheckbox3.Checked := false;
@@ -335,6 +337,11 @@ begin
   DBcheckbox40.Checked := false;
   DBcheckbox41.Checked := false;
   DBcheckbox43.Checked := false;
+  DBcheckbox44.Checked := false;
+  DBcheckbox46.Checked := false;
+  DBcheckbox47.Checked := false;
+
+  DBCheckBox21.Checked := true;
 
   bitbtn5.Enabled := false;
   bitbtn6.Enabled := false;
