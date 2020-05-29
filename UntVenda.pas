@@ -3,7 +3,8 @@ unit UntVenda;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UntPadrao, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
@@ -213,10 +214,12 @@ begin
     FDQuery1.SQL.Clear;
     FDQuery1.SQL.Add('SELECT'
                   +#13+'Ped.*, CAD.*,'
-                  +#13+'ENDE.CEP||'' ''||ENDE.LOGRADOURO||'', ''||ENDE.NUMERO||'' - ''||ENDE.BAIRRO||'', ''||ENDE.CIDADE ENDERECO'
+                  +#13+'ENDE.CEP||'' ''||ENDE.LOGRADOURO||'', ''||ENDE.NUMERO' +
+                  '||'' - ''||ENDE.BAIRRO||'', ''||ENDE.CIDADE ENDERECO'
                   +#13+'FROM PEDIDO Ped'
                   +#13+'LEFT JOIN CADASTRO CAD ON (CAD.ID = Ped.FK_CADASTRO)'
-                  +#13+'LEFT JOIN CADASTRO_ENDERECO ENDE ON (ENDE.ID = PED.FK_ENDERECO)');
+                  +#13+'LEFT JOIN CADASTRO_ENDERECO ENDE ON ' +
+                                                '(ENDE.ID = PED.FK_ENDERECO)');
 
     FDQuery1.SQL.Add('WHERE Ped.ID = ' + IntToStr(FDTabelaID.AsInteger));
     FDQuery1.Open();
@@ -272,7 +275,8 @@ begin
   if (FDItensVALOR_TOTAL.IsNull) or (FDItensVALOR_TOTAL.Value = 0) then
     raise Exception.Create('O total do item não pode ser igual a 0.');
 
-  if (FDTabelaFK_CADASTRO.AsInteger = 0) or (VarIsNull(FDTabelaFK_CADASTRO.AsVariant)) then
+  if (FDTabelaFK_CADASTRO.AsInteger = 0) or
+                                (VarIsNull(FDTabelaFK_CADASTRO.AsVariant)) then
     raise Exception.Create('Por favor, indique um cliente.');
   inherited;
   HabilitaForm(False);
@@ -420,14 +424,16 @@ begin
       FDTabela.Edit;
 
     FDTabelaTOTAL_PRODUTO.AsExtended := ValTot;
-    FDTabelaTOTAL_PEDIDO.AsExtended := ValTot - FDTabelaTOTAL_DESCONTO.AsExtended;
+    FDTabelaTOTAL_PEDIDO.AsExtended := ValTot -
+                                              FDTabelaTOTAL_DESCONTO.AsExtended;
   end;
 end;
 
 procedure TFrmVenda.FDItensBeforePost(DataSet: TDataSet);
 begin
   inherited;
-  FDItensVALOR_TOTAL.Value := (FDItensVALOR_UNITARIO.Value * FDItensQUANTIDADE.Value);
+  FDItensVALOR_TOTAL.Value := (FDItensVALOR_UNITARIO.Value *
+                                                      FDItensQUANTIDADE.Value);
 end;
 
 procedure TFrmVenda.FDItensFK_PRODUTOChange(Sender: TField);

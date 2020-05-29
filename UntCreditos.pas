@@ -25,6 +25,8 @@ type
     Label14: TLabel;
     Label15: TLabel;
     Label16: TLabel;
+    Label17: TLabel;
+    Label18: TLabel;
     procedure SpeedButton1Click(Sender: TObject);
   private
     { Private declarations }

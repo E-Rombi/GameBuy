@@ -3,7 +3,8 @@ unit UntMain;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt, Data.DB,
@@ -12,11 +13,10 @@ uses
   Vcl.PlatformDefaultStyleActnCtrls, System.Actions, Vcl.ActnList, Vcl.ComCtrls,
   Vcl.Menus, Generics.Collections, System.ImageList, Vcl.ImgList,
   VclTee.TeeGDIPlus, VCLTee.TeEngine, VCLTee.TeeProcs, VCLTee.Chart,
-  VCLTee.DBChart, VCLTee.Series, Vcl.StdCtrls;
+  VCLTee.DBChart, VCLTee.Series, Vcl.StdCtrls, Vcl.Buttons;
 
 type
   TFrmMain = class(TForm)
-    Timer1: TTimer;
     FQry_Login: TFDQuery;
     StatusBar1: TStatusBar;
     PgCtrl_Menu: TPageControl;
@@ -51,7 +51,12 @@ type
     Rel_Clientes: TMenuItem;
     Rel_Vendas: TMenuItem;
     Atribuies1: TMenuItem;
-    teste1: TMenuItem;
+    atribuicoes: TMenuItem;
+    Categoria1: TMenuItem;
+    Rel_Produto: TMenuItem;
+    Rel_Categoria: TMenuItem;
+    Rel_Desenv_Edit: TMenuItem;
+    ImageList2: TImageList;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure Timer1Timer(Sender: TObject);
@@ -62,6 +67,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
   private
     { Private declarations }
     vForms: TDictionary<String, String>;
@@ -77,7 +83,8 @@ implementation
 {$R *.dfm}
 
 uses UntPerfil, UntCadastro, UntDM, UntLogin, UntProduto, UntDesenv_Edit,
-  UntCategoria, UntUsuario, UntVenda, UntRelCadastro, UntRelVenda;
+  UntCategoria, UntUsuario, UntVenda, UntRelCadastro, UntRelVenda,
+  UntRelDesenv_Edit, UntRelCategoria, UntCreditos;
 
 procedure TFrmMain.ApplicationEvents1Hint(Sender: TObject);
 begin
@@ -184,7 +191,10 @@ var
     if Form = 'FrmVenda'       then  vForm := TFrmVenda.Create(vTab);
     if Form = 'FrmRelCliente'  then  vForm := TFrmRelCliente.Create(vTab);
     if Form = 'FrmRelVenda'    then  vForm := TFrmRelVenda.Create(vTab);
-    if Form = 'FrmCreditos' then vForm := TFrmCreditos.Create(vtab);
+    if Form = 'FrmRelCategoria' then  vForm := TFrmCategoria.Create(vTab);
+    if Form = 'FrmCreditos'      then  vForm := TFrmCreditos.Create(vTab);
+    if Form = 'FrmRelDesenv_Edit' then
+                                      vForm := TFrmRelDesenv_Edit.Create(vTab);
 
 
 
@@ -237,7 +247,24 @@ begin
     if not(vForms.ContainsKey(TWinControl(Sender).Name)) then
       CriarTab(TWinControl(Sender).Name, 'FrmRelVenda');
 
+  if Sender = Rel_Categoria then
+    if not(vForms.ContainsKey(TWinControl(Sender).Name)) then
+      CriarTab(TWinControl(Sender).Name, 'FrmRelCategoria');
 
+  if Sender = Rel_Desenv_Edit then
+    if not(vForms.ContainsKey(TWinControl(Sender).Name)) then
+      CriarTab(TWinControl(Sender).Name, 'FrmRelDesenv_Edit');
+
+    if Sender = atribuicoes then
+    if not(vForms.ContainsKey(TWinControl(Sender).Name)) then
+      CriarTab(TWinControl(Sender).Name, 'FrmCreditos');
+
+
+end;
+
+procedure TFrmMain.SpeedButton1Click(Sender: TObject);
+begin
+  FrmRelDesenv_Edit.ShowModal;
 end;
 
 procedure TFrmMain.Timer1Timer(Sender: TObject);

@@ -3,7 +3,8 @@ unit UntCadastro;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UntPadrao, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
@@ -217,7 +218,8 @@ begin
     FDQuery2.SQL.Add('SELECT'
                     +#13+'CAD.*, CADEND.*'
                     +#13+'FROM CADASTRO CAD'
-                    +#13+'LEFT JOIN CADASTRO_ENDERECO CADEND ON (CADEND.FK_CADASTRO = CAD.ID)');
+                    +#13+'LEFT JOIN CADASTRO_ENDERECO CADEND ON ' +
+                                              '(CADEND.FK_CADASTRO = CAD.ID)');
     FDQuery2.SQL.Add('WHERE CAD.ID = ' + IntToStr(FDTabelaID.AsInteger));
     FDQuery2.Open();
     frxReport1.ShowReport();
@@ -289,7 +291,8 @@ begin
   if not(FDTable_Detalhe_1.State in [dsInsert, dsEdit]) then
   begin
     FDQuery1.Close;
-    FDQuery1.ParamByName('ID').AsInteger := FDTable_Detalhe_1FK_USUARIO_ALT.AsInteger;
+    FDQuery1.ParamByName('ID').AsInteger :=
+                                      FDTable_Detalhe_1FK_USUARIO_ALT.AsInteger;
     FDQuery1.Open();
   end;
 end;
@@ -364,7 +367,8 @@ end;
 procedure TFrmCadastro.FDTable_Detalhe_1AfterEdit(DataSet: TDataSet);
 begin
   inherited;
-  FDTable_Detalhe_1FK_USUARIO_ALT.AsInteger := FrmMain.FQry_Login.FieldByName('ID').AsInteger;
+  FDTable_Detalhe_1FK_USUARIO_ALT.AsInteger :=
+                                FrmMain.FQry_Login.FieldByName('ID').AsInteger;
 end;
 
 procedure TFrmCadastro.FDTable_Detalhe_1BeforePost(DataSet: TDataSet);
@@ -378,14 +382,16 @@ begin
     raise Exception.Create('Por favor, insira o Logradouro');
 
 
-  FDTable_Detalhe_1FK_USUARIO_ALT.AsInteger := FrmMain.FQry_Login.FieldByName('ID').AsInteger;
+  FDTable_Detalhe_1FK_USUARIO_ALT.AsInteger :=
+                                FrmMain.FQry_Login.FieldByName('ID').AsInteger;
   FDTable_Detalhe_1DATA_ALTERACAO.AsDateTime := Now;
 end;
 
 procedure TFrmCadastro.FDTable_Detalhe_1NewRecord(DataSet: TDataSet);
 begin
   inherited;
-  FDTable_Detalhe_1FK_USUARIO_ALT.AsInteger := FrmMain.FQry_Login.FieldByName('ID').AsInteger;
+  FDTable_Detalhe_1FK_USUARIO_ALT.AsInteger :=
+                                FrmMain.FQry_Login.FieldByName('ID').AsInteger;
   FDTable_Detalhe_1DATA_CADASTRO.AsDateTime := now;
 end;
 

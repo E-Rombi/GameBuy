@@ -27,9 +27,9 @@ object FrmCreditos: TFrmCreditos
   object Label1: TLabel
     Left = 8
     Top = 24
-    Width = 153
+    Width = 158
     Height = 14
-    Caption = #205'cone loja de videogame:'
+    Caption = #205'cone Loja de Videogame:'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
@@ -42,7 +42,7 @@ object FrmCreditos: TFrmCreditos
     Top = 25
     Width = 59
     Height = 13
-    Caption = 'Payungkead'
+    Caption = 'payungkead'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -53,9 +53,9 @@ object FrmCreditos: TFrmCreditos
   object Label3: TLabel
     Left = 8
     Top = 56
-    Width = 82
+    Width = 84
     Height = 14
-    Caption = #205'cone cliente:'
+    Caption = #205'cone Cliente:'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
@@ -66,9 +66,9 @@ object FrmCreditos: TFrmCreditos
   object Label4: TLabel
     Left = 184
     Top = 57
-    Width = 85
+    Width = 81
     Height = 13
-    Caption = 'Vitaly Gorbatchev'
+    Caption = 'Vitaly Gorbachev'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -78,7 +78,7 @@ object FrmCreditos: TFrmCreditos
   end
   object Label5: TLabel
     Left = 8
-    Top = 216
+    Top = 248
     Width = 88
     Height = 14
     Caption = 'Outros '#237'cones:'
@@ -91,10 +91,10 @@ object FrmCreditos: TFrmCreditos
   end
   object Label6: TLabel
     Left = 184
-    Top = 217
+    Top = 248
     Width = 35
     Height = 13
-    Caption = 'FreePik'
+    Caption = 'Freepik'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -105,9 +105,9 @@ object FrmCreditos: TFrmCreditos
   object Label7: TLabel
     Left = 8
     Top = 88
-    Width = 105
+    Width = 107
     Height = 14
-    Caption = #205'cone categorias:'
+    Caption = #205'cone Categorias:'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
@@ -118,9 +118,9 @@ object FrmCreditos: TFrmCreditos
   object Label8: TLabel
     Left = 184
     Top = 89
-    Width = 38
+    Width = 36
     Height = 13
-    Caption = 'SkyClick'
+    Caption = 'Skyclick'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -131,9 +131,9 @@ object FrmCreditos: TFrmCreditos
   object Label9: TLabel
     Left = 8
     Top = 120
-    Width = 90
+    Width = 91
     Height = 14
-    Caption = #205'cone ordenar:'
+    Caption = #205'cone Ordenar:'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
@@ -144,9 +144,9 @@ object FrmCreditos: TFrmCreditos
   object Label10: TLabel
     Left = 184
     Top = 121
-    Width = 57
+    Width = 55
     Height = 13
-    Caption = 'SmashIcons'
+    Caption = 'Smashicons'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -157,9 +157,9 @@ object FrmCreditos: TFrmCreditos
   object Label11: TLabel
     Left = 8
     Top = 152
-    Width = 68
+    Width = 72
     Height = 14
-    Caption = #205'cone lupa:'
+    Caption = #205'cone Lupa:'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
@@ -183,9 +183,9 @@ object FrmCreditos: TFrmCreditos
   object Label13: TLabel
     Left = 8
     Top = 184
-    Width = 80
+    Width = 65
     Height = 14
-    Caption = #205'cone lupa:'
+    Caption = #205'cone Sair:'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -12
@@ -196,9 +196,9 @@ object FrmCreditos: TFrmCreditos
   object Label14: TLabel
     Left = 184
     Top = 185
-    Width = 34
+    Width = 33
     Height = 13
-    Caption = 'Surang'
+    Caption = 'surang'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -11
@@ -207,8 +207,8 @@ object FrmCreditos: TFrmCreditos
     ParentFont = False
   end
   object Label15: TLabel
-    Left = 30
-    Top = 280
+    Left = 38
+    Top = 288
     Width = 192
     Height = 14
     Caption = 'Todos estes autores podem ser'
@@ -220,8 +220,8 @@ object FrmCreditos: TFrmCreditos
     ParentFont = False
   end
   object Label16: TLabel
-    Left = 8
-    Top = 300
+    Left = 16
+    Top = 308
     Width = 251
     Height = 14
     Caption = 'encontrados no site "www.flaticon.com"'
@@ -230,6 +230,32 @@ object FrmCreditos: TFrmCreditos
     Font.Height = -12
     Font.Name = 'Tahoma'
     Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label17: TLabel
+    Left = 8
+    Top = 216
+    Width = 99
+    Height = 14
+    Caption = #205'cone Refrescar:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object Label18: TLabel
+    Left = 183
+    Top = 216
+    Width = 60
+    Height = 13
+    Caption = 'Pixel perfect'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
     ParentFont = False
   end
 end

@@ -5,7 +5,8 @@ unit UntUsuario;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UntPadrao, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
@@ -112,8 +113,8 @@ begin
 
 
 
-  FDQueryValidarLogin.Open('select * from USUARIO where LOGIN = ' + #39 + DBEdit2.Text
-  + #39);
+  FDQueryValidarLogin.Open('select * from USUARIO where LOGIN = ' + #39 +
+                                                            DBEdit2.Text + #39);
     if FDQueryValidarLogin.recordcount <> 0 then
       begin
         if(editando = false) then

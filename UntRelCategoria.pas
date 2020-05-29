@@ -3,13 +3,14 @@ unit UntRelCategoria;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UntRelPadrao, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   frxClass, frxDBSet, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
   Vcl.Buttons, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.ComCtrls,
-  Vcl.Menus;
+  Vcl.Menus, System.ImageList, Vcl.ImgList;
 
 type
   TFrmRelCategoria = class(TFrmRelPadrao)
@@ -24,6 +25,7 @@ type
     Cmb_Ordem: TComboBox;
     procedure Btn_CancelarClick(Sender: TObject);
     procedure Btn_GerarClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -55,6 +57,46 @@ var
   cSQL, vWhere: String;
 
 begin
+  FDQuery1.Close;
+  FDQuery1.SQL.Clear;
+  FDQuery1.SQL.Add('SELECT'
+                  +#13+'C.*'
+                  +#13+'FROM CATEGORIA C');
+  vWhere := '';
+
+  if not (trim(Ed_ID.Text) = '') then
+    if vWhere = '' then
+      vWhere := 'WHERE C.ID = ' + Ed_ID.Text
+    else
+      vWhere := vWhere + ' AND C.ID = ' + Ed_ID.Text;
+
+  if Cmb_Status.ItemIndex <> 2 then
+      if vWhere = '' then
+        vWhere := 'WHERE C.STATUS = ''' + Cmb_Status.Items[Cmb_Status.ItemIndex] + ''''
+      else
+        vWhere := vWhere + ' AND C.STATUS = ''' + Cmb_Status.Items[Cmb_Status.ItemIndex] + '''';
+
+
+    case Cmb_Ordem.ItemIndex of
+      0: vWhere := vWhere +#13+' ORDER BY C.ID';
+      1: vWhere := vWhere +#13+' ORDER BY C.NOME';
+      2: vWhere := vWhere +#13+' ORDER BY C.DATA_CADASTRO';
+      3: vWhere := vWhere +#13+' ORDER BY C.DATA_ALTERACAO';
+    end;
+
+    FDQuery1.SQL.Add(vWhere);
+
+    FDQuery1.Open();
+    frxReport1.ShowReport();
+
+end;
+
+procedure TFrmRelCategoria.Button1Click(Sender: TObject);
+var
+  cSQL, vWhere: String;
+
+begin
+  inherited;
   FDQuery1.Close;
   FDQuery1.SQL.Clear;
   FDQuery1.SQL.Add('SELECT'

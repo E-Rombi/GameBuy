@@ -3,12 +3,14 @@ unit UntRelVenda;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants,
+  System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, UntRelPadrao, FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS,
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   frxClass, frxDBSet, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  Vcl.Buttons, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.Menus, Vcl.ComCtrls,
+  Vcl.Buttons, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Mask, Vcl.DBCtrls, Vcl.Menus,
+  Vcl.ComCtrls,
   System.ImageList, Vcl.ImgList;
 
 type
@@ -60,10 +62,13 @@ begin
   FDQuery1.SQL.Clear;
   FDQuery1.SQL.Add('SELECT'
                   +#13+'Ped.*, CAD.*,'
-                  +#13+'ENDE.CEP||'' ''||ENDE.LOGRADOURO||'', ''||ENDE.NUMERO||'' - ''||ENDE.BAIRRO||'', ''||ENDE.CIDADE ENDERECO'
+                  +#13+
+  'ENDE.CEP||'' ''||ENDE.LOGRADOURO||'', ''||ENDE.NUMERO||'' - ''||ENDE.BAIRRO'
+  + '||'', ''||ENDE.CIDADE ENDERECO'
                   +#13+'FROM PEDIDO Ped'
                   +#13+'LEFT JOIN CADASTRO CAD ON (CAD.ID = Ped.FK_CADASTRO)'
-                  +#13+'LEFT JOIN CADASTRO_ENDERECO ENDE ON (ENDE.ID = PED.FK_ENDERECO)');
+                  +#13+'LEFT JOIN CADASTRO_ENDERECO ENDE ON' +
+                  '(ENDE.ID = PED.FK_ENDERECO)');
 
   if not (trim(Ed_ID.Text) = '') then
     if vWhere = '' then
@@ -73,21 +78,29 @@ begin
 
   if Cmb_Entrega.ItemIndex <> 0 then
     if vWhere = '' then
-      vWhere := 'WHERE Ped.CHK_ENTREGAR = ''' + copy(Cmb_Entrega.Items[Cmb_Entrega.ItemIndex],0,1) + ''''
+      vWhere := 'WHERE Ped.CHK_ENTREGAR = ''' +
+                      copy(Cmb_Entrega.Items[Cmb_Entrega.ItemIndex],0,1) + ''''
     else
-      vWhere := vWhere +#13+ ' AND Ped.CHK_ENTREGAR = ''' + copy(Cmb_Entrega.Items[Cmb_Entrega.ItemIndex],0,1) + '''';
+      vWhere := vWhere +#13+ ' AND Ped.CHK_ENTREGAR = ''' +
+                      copy(Cmb_Entrega.Items[Cmb_Entrega.ItemIndex],0,1) + '''';
 
   if (Ed_DataDe.Text <> '  /  /    ') and (Ed_DataAte.Text <> '  /  /    ') then
     if vWhere = '' then
-      vWhere := 'WHERE Ped.DATA_CADASTRO between ''' + StringReplace(Ed_DataDe.Text, '/', '.', [rfReplaceAll]) + ''' and ''' + StringReplace(Ed_DataAte.Text, '/', '.', [rfReplaceAll]) + ''''
+      vWhere := 'WHERE Ped.DATA_CADASTRO between ''' +
+      StringReplace(Ed_DataDe.Text, '/', '.', [rfReplaceAll]) + ''' and '''
+              + StringReplace(Ed_DataAte.Text, '/', '.', [rfReplaceAll]) + ''''
     else
-      vWhere := vWhere +#13+ ' AND Ped.DATA_CADASTRO between ''' + StringReplace(Ed_DataDe.Text, '/', '.', [rfReplaceAll]) + ''' and ''' + StringReplace(Ed_DataAte.Text, '/', '.', [rfReplaceAll]) + '''';
+      vWhere := vWhere +#13+ ' AND Ped.DATA_CADASTRO between ''' +
+      StringReplace(Ed_DataDe.Text, '/', '.', [rfReplaceAll]) + ''' and ''' +
+      StringReplace(Ed_DataAte.Text, '/', '.', [rfReplaceAll]) + '''';
 
   if Cmb_Cliente.ItemIndex <> 0 then
     if vWhere = '' then
-      vWhere := 'WHERE CAD.FANTASIA = ''' + Cmb_Cliente.Items[Cmb_Cliente.ItemIndex] + ''''
+      vWhere := 'WHERE CAD.FANTASIA = ''' +
+                                Cmb_Cliente.Items[Cmb_Cliente.ItemIndex] + ''''
     else
-      vWhere := vWhere +#13+ ' AND CAD.FANTASIA = ''' + Cmb_Cliente.Items[Cmb_Cliente.ItemIndex] + '''';
+      vWhere := vWhere +#13+ ' AND CAD.FANTASIA = ''' +
+                                Cmb_Cliente.Items[Cmb_Cliente.ItemIndex] + '''';
 
    case Cmb_Ordem.itemIndex of
    0: vWhere := vWhere + #13 + 'ORDER BY PED.ID';
@@ -112,10 +125,12 @@ begin
   FDQuery1.SQL.Clear;
   FDQuery1.SQL.Add('SELECT'
                   +#13+'Ped.*, CAD.*,'
-                  +#13+'ENDE.CEP||'' ''||ENDE.LOGRADOURO||'', ''||ENDE.NUMERO||'' - ''||ENDE.BAIRRO||'', ''||ENDE.CIDADE ENDERECO'
+                  +#13+'ENDE.CEP||'' ''||ENDE.LOGRADOURO||'', ''||ENDE.NUMERO' +
+                  '||'' - ''||ENDE.BAIRRO||'', ''||ENDE.CIDADE ENDERECO'
                   +#13+'FROM PEDIDO Ped'
                   +#13+'LEFT JOIN CADASTRO CAD ON (CAD.ID = Ped.FK_CADASTRO)'
-                  +#13+'LEFT JOIN CADASTRO_ENDERECO ENDE ON (ENDE.ID = PED.FK_ENDERECO)');
+                  +#13+'LEFT JOIN CADASTRO_ENDERECO ENDE ON ' +
+                  '(ENDE.ID = PED.FK_ENDERECO)');
 
   if not (trim(Ed_ID.Text) = '') then
     if vWhere = '' then
@@ -125,21 +140,29 @@ begin
 
   if Cmb_Entrega.ItemIndex <> 0 then
     if vWhere = '' then
-      vWhere := 'WHERE Ped.CHK_ENTREGAR = ''' + copy(Cmb_Entrega.Items[Cmb_Entrega.ItemIndex],0,1) + ''''
+      vWhere := 'WHERE Ped.CHK_ENTREGAR = ''' +
+                      copy(Cmb_Entrega.Items[Cmb_Entrega.ItemIndex],0,1) + ''''
     else
-      vWhere := vWhere +#13+ ' AND Ped.CHK_ENTREGAR = ''' + copy(Cmb_Entrega.Items[Cmb_Entrega.ItemIndex],0,1) + '''';
+      vWhere := vWhere +#13+ ' AND Ped.CHK_ENTREGAR = ''' +
+                      copy(Cmb_Entrega.Items[Cmb_Entrega.ItemIndex],0,1) + '''';
 
   if (Ed_DataDe.Text <> '  /  /    ') and (Ed_DataAte.Text <> '  /  /    ') then
     if vWhere = '' then
-      vWhere := 'WHERE Ped.DATA_CADASTRO between ''' + StringReplace(Ed_DataDe.Text, '/', '.', [rfReplaceAll]) + ''' and ''' + StringReplace(Ed_DataAte.Text, '/', '.', [rfReplaceAll]) + ''''
+      vWhere := 'WHERE Ped.DATA_CADASTRO between ''' +
+      StringReplace(Ed_DataDe.Text, '/', '.', [rfReplaceAll]) + ''' and ''' +
+                StringReplace(Ed_DataAte.Text, '/', '.', [rfReplaceAll]) + ''''
     else
-      vWhere := vWhere +#13+ ' AND Ped.DATA_CADASTRO between ''' + StringReplace(Ed_DataDe.Text, '/', '.', [rfReplaceAll]) + ''' and ''' + StringReplace(Ed_DataAte.Text, '/', '.', [rfReplaceAll]) + '''';
+      vWhere := vWhere +#13+ ' AND Ped.DATA_CADASTRO between ''' +
+      StringReplace(Ed_DataDe.Text, '/', '.', [rfReplaceAll]) + ''' and ''' +
+                StringReplace(Ed_DataAte.Text, '/', '.', [rfReplaceAll]) + '''';
 
   if Cmb_Cliente.ItemIndex <> 0 then
     if vWhere = '' then
-      vWhere := 'WHERE CAD.FANTASIA = ''' + Cmb_Cliente.Items[Cmb_Cliente.ItemIndex] + ''''
+      vWhere := 'WHERE CAD.FANTASIA = ''' +
+                                Cmb_Cliente.Items[Cmb_Cliente.ItemIndex] + ''''
     else
-      vWhere := vWhere +#13+ ' AND CAD.FANTASIA = ''' + Cmb_Cliente.Items[Cmb_Cliente.ItemIndex] + '''';
+      vWhere := vWhere +#13+ ' AND CAD.FANTASIA = ''' +
+                                Cmb_Cliente.Items[Cmb_Cliente.ItemIndex] + '''';
 
    case Cmb_Ordem.itemIndex of
    0: vWhere := vWhere + #13 + 'ORDER BY PED.ID';

@@ -16,7 +16,9 @@ uses
   UntRelPadrao in 'UntRelPadrao.pas' {FrmRelPadrao},
   UntRelCadastro in 'UntRelCadastro.pas' {FrmRelCliente},
   UntRelVenda in 'UntRelVenda.pas' {FrmRelVenda},
-  UntCreditos in 'UntCreditos.pas' {FrmCreditos};
+  UntCreditos in 'UntCreditos.pas' {FrmCreditos},
+  UntRelDesenv_Edit in 'UntRelDesenv_Edit.pas' {FrmRelDesenv_Edit},
+  UntRelCategoria in 'UntRelCategoria.pas' {FrmRelCategoria};
 
 {$R *.res}
 
@@ -25,7 +27,5 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TFrmMain, FrmMain);
-  Application.CreateForm(TFrmRelVenda, FrmRelVenda);
-  Application.CreateForm(TFrmCreditos, FrmCreditos);
   Application.Run;
 end.

@@ -59,7 +59,8 @@ begin
   FDQuery1.SQL.Add('SELECT'
                   +#13+'CAD.*, CADEND.*'
                   +#13+'FROM CADASTRO CAD'
-                  +#13+'LEFT JOIN CADASTRO_ENDERECO CADEND ON (CADEND.FK_CADASTRO = CAD.ID)');
+                  +#13+'LEFT JOIN CADASTRO_ENDERECO CADEND ON '+
+                                              '(CADEND.FK_CADASTRO = CAD.ID)');
   vWhere := '';
 
   if not (trim(Ed_ID.Text) = '') then
@@ -70,18 +71,23 @@ begin
 
   if Cmb_Status.ItemIndex <> 2 then
       if vWhere = '' then
-        vWhere := 'WHERE CAD.STATUS = ''' + copy(Cmb_Status.Items[Cmb_Status.ItemIndex],0,1) + ''''
+        vWhere := 'WHERE CAD.STATUS = ''' +
+                        copy(Cmb_Status.Items[Cmb_Status.ItemIndex],0,1) + ''''
       else
-        vWhere := vWhere +#13+ 'CAD.STATUS = ''' + copy(Cmb_Status.Items[Cmb_Status.ItemIndex],0,1) + '''';
+        vWhere := vWhere +#13+ 'CAD.STATUS = ''' +
+                        copy(Cmb_Status.Items[Cmb_Status.ItemIndex],0,1) + '''';
 
 
     if Cmb_TipoPessoa.ItemIndex <> 2 then
         if vWhere = '' then
-          vWhere := 'WHERE CAD.TIPO_PESSOA = ''' + Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex] + ''''
+          vWhere := 'WHERE CAD.TIPO_PESSOA = ''' +
+                          Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex] + ''''
         else
-          vWhere := vWhere +#13+ 'CAD.TIPO_PESSOA = ''' + Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex] + '''';
+          vWhere := vWhere +#13+ 'CAD.TIPO_PESSOA = ''' +
+                          Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex] + '''';
 
-    if not (EdMsk_CNPJ.Text = '  .   .   /    -  ') and not(EdMsk_CNPJ.Text = '') and not(EdMsk_CNPJ.Text = '   .   .   -  ') then
+    if not (EdMsk_CNPJ.Text = '  .   .   /    -  ') and not
+        (EdMsk_CNPJ.Text = '') and not(EdMsk_CNPJ.Text = '   .   .   -  ') then
       if vWhere = '' then
         vWhere := 'WHERE CAD.CNPJ_CPF = ''' + EdMsk_CNPJ.Text + ''''
       else
@@ -91,19 +97,23 @@ begin
       if vWhere = '' then
         vWhere := 'WHERE CAD.FANTASIA LIKE ''%' + Ed_Fantasia.Text + '%'''
       else
-        vWhere := vWhere +#13+ 'CAD.FANTASIA LIKE ''%' + Ed_Fantasia.Text + '%''';
+        vWhere := vWhere +#13+ 'CAD.FANTASIA LIKE ''%' + Ed_Fantasia.Text
+                                                                        + '%''';
 
     if Cmb_Estado.ItemIndex <> 0 then
       if vWhere = '' then
-        vWhere := 'WHERE CADEND.ESTADO = ''' + copy(Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex],0,1) + ''''
+        vWhere := 'WHERE CADEND.ESTADO = ''' +
+                copy(Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex],0,1) + ''''
       else
-        vWhere := vWhere +#13+ 'CAD.TIPO_PESSOA = ''' + copy(Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex],0,1) + '''';
+        vWhere := vWhere +#13+ 'CAD.TIPO_PESSOA = ''' +
+                copy(Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex],0,1) + '''';
 
     if not(trim(Ed_Cidade.Text) = '') then
       if vWhere = '' then
         vWhere := 'WHERE CADEND.CIDADE LIKE ''%' + Ed_Cidade.Text + '%'''
       else
-        vWhere := vWhere +#13+ 'CADEND.CIDADE LIKE ''%' + Ed_Cidade.Text + '%''';
+        vWhere := vWhere +#13+ 'CADEND.CIDADE LIKE ''%' + Ed_Cidade.Text +
+                                                                          '%''';
 
 
     case Cmb_Ordem.ItemIndex of
@@ -130,7 +140,8 @@ begin
   FDQuery1.SQL.Add('SELECT'
                   +#13+'CAD.*, CADEND.*'
                   +#13+'FROM CADASTRO CAD'
-                  +#13+'LEFT JOIN CADASTRO_ENDERECO CADEND ON (CADEND.FK_CADASTRO = CAD.ID)');
+                  +#13+'LEFT JOIN CADASTRO_ENDERECO CADEND ON '
+                  +'(CADEND.FK_CADASTRO = CAD.ID)');
   vWhere := '';
 
   if not (trim(Ed_ID.Text) = '') then
@@ -141,18 +152,23 @@ begin
 
   if Cmb_Status.ItemIndex <> 2 then
       if vWhere = '' then
-        vWhere := 'WHERE CAD.STATUS = ''' + copy(Cmb_Status.Items[Cmb_Status.ItemIndex],0,1) + ''''
+        vWhere := 'WHERE CAD.STATUS = ''' +
+                        copy(Cmb_Status.Items[Cmb_Status.ItemIndex],0,1) + ''''
       else
-        vWhere := vWhere +#13+ 'CAD.STATUS = ''' + copy(Cmb_Status.Items[Cmb_Status.ItemIndex],0,1) + '''';
+        vWhere := vWhere +#13+ 'CAD.STATUS = ''' +
+                        copy(Cmb_Status.Items[Cmb_Status.ItemIndex],0,1) + '''';
 
 
     if Cmb_TipoPessoa.ItemIndex <> 2 then
         if vWhere = '' then
-          vWhere := 'WHERE CAD.TIPO_PESSOA = ''' + Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex] + ''''
+          vWhere := 'WHERE CAD.TIPO_PESSOA = ''' +
+                          Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex] + ''''
         else
-          vWhere := vWhere +#13+ 'CAD.TIPO_PESSOA = ''' + Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex] + '''';
+          vWhere := vWhere +#13+ 'CAD.TIPO_PESSOA = ''' +
+                          Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex] + '''';
 
-    if not (EdMsk_CNPJ.Text = '  .   .   /    -  ') and not(EdMsk_CNPJ.Text = '') and not(EdMsk_CNPJ.Text = '   .   .   -  ') then
+    if not (EdMsk_CNPJ.Text = '  .   .   /    -  ') and not
+        (EdMsk_CNPJ.Text = '') and not(EdMsk_CNPJ.Text = '   .   .   -  ') then
       if vWhere = '' then
         vWhere := 'WHERE CAD.CNPJ_CPF = ''' + EdMsk_CNPJ.Text + ''''
       else
@@ -166,15 +182,18 @@ begin
 
     if Cmb_Estado.ItemIndex <> 0 then
       if vWhere = '' then
-        vWhere := 'WHERE CADEND.ESTADO = ''' + copy(Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex],0,1) + ''''
+        vWhere := 'WHERE CADEND.ESTADO = ''' +
+                copy(Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex],0,1) + ''''
       else
-        vWhere := vWhere +#13+ 'CAD.TIPO_PESSOA = ''' + copy(Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex],0,1) + '''';
+        vWhere := vWhere +#13+ 'CAD.TIPO_PESSOA = ''' +
+                copy(Cmb_TipoPessoa.Items[Cmb_TipoPessoa.ItemIndex],0,1) + '''';
 
     if not(trim(Ed_Cidade.Text) = '') then
       if vWhere = '' then
         vWhere := 'WHERE CADEND.CIDADE LIKE ''%' + Ed_Cidade.Text + '%'''
       else
-        vWhere := vWhere +#13+ 'CADEND.CIDADE LIKE ''%' + Ed_Cidade.Text + '%''';
+        vWhere := vWhere +#13+ 'CADEND.CIDADE LIKE ''%' +
+                                                        Ed_Cidade.Text + '%''';
 
 
     case Cmb_Ordem.ItemIndex of

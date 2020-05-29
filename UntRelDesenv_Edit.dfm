@@ -1,56 +1,75 @@
 inherited FrmRelDesenv_Edit: TFrmRelDesenv_Edit
   Caption = 'Relat'#243'rio de Desenvolvedoras E Editoras'
+  ClientHeight = 331
+  ClientWidth = 671
+  ExplicitWidth = 687
+  ExplicitHeight = 370
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
+    Width = 671
     Caption = 'Relat'#243'rio de Desenvolvedoras e Editoras'
     Font.Height = -27
+    ExplicitWidth = 671
+  end
+  inherited Panel2: TPanel
+    Width = 671
+    ExplicitWidth = 671
   end
   inherited Pnl_Ficha: TPanel
-    inherited Btn_Gerar: TSpeedButton
-      Left = 130
-      OnClick = Btn_GerarClick
-      ExplicitLeft = 130
-    end
-    inherited Btn_Cancelar: TSpeedButton
-      Left = 19
-      OnClick = Btn_CancelarClick
-      ExplicitLeft = 19
-    end
-    object Label1: TLabel
+    Width = 671
+    Height = 260
+    ExplicitWidth = 671
+    ExplicitHeight = 260
+    object Label1: TLabel [0]
       Left = 19
       Top = 17
       Width = 11
       Height = 13
       Caption = 'ID'
     end
-    object Label6: TLabel
+    object Label6: TLabel [1]
       Left = 279
       Top = 17
       Width = 31
       Height = 13
       Caption = 'Status'
     end
-    object Label5: TLabel
+    object Label5: TLabel [2]
       Left = 19
       Top = 49
       Width = 20
       Height = 13
       Caption = 'Tipo'
     end
-    object Label2: TLabel
+    object Label2: TLabel [3]
       Left = 19
       Top = 79
       Width = 31
       Height = 13
       Caption = 'Nome:'
     end
-    object Label8: TLabel
+    object Label8: TLabel [4]
       Left = 19
       Top = 108
       Width = 32
       Height = 13
       Caption = 'Ordem'
+    end
+    inherited Button1: TButton
+      Left = 531
+      Top = 192
+      TabOrder = 5
+      OnClick = Button1Click
+      ExplicitLeft = 531
+      ExplicitTop = 192
+    end
+    inherited Button2: TButton
+      Left = 19
+      Top = 192
+      TabOrder = 6
+      ExplicitLeft = 19
+      ExplicitTop = 192
     end
     object Ed_ID: TEdit
       Left = 73
@@ -105,6 +124,8 @@ inherited FrmRelDesenv_Edit: TFrmRelDesenv_Edit
     end
   end
   inherited frxReport1: TfrxReport
+    DataSet = frxDBDataset1
+    DataSetName = 'frxDBDataset1'
     Datasets = <
       item
         DataSet = frxDBDataset1
