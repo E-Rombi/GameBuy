@@ -59,9 +59,7 @@ var
 begin
   FDQuery1.Close;
   FDQuery1.SQL.Clear;
-  FDQuery1.SQL.Add('SELECT'
-                  +#13+'C.*'
-                  +#13+'FROM CATEGORIA C');
+  FDQuery1.SQL.Add('SELECT * FROM CATEGORIA');
   vWhere := '';
 
   if not (trim(Ed_ID.Text) = '') then
@@ -72,9 +70,11 @@ begin
 
   if Cmb_Status.ItemIndex <> 2 then
       if vWhere = '' then
-        vWhere := 'WHERE C.STATUS = ''' + Cmb_Status.Items[Cmb_Status.ItemIndex] + ''''
+        vWhere := 'WHERE C.STATUS = ''' + Cmb_Status.Items[Cmb_Status.ItemIndex]
+                                                                          + ''''
       else
-        vWhere := vWhere + ' AND C.STATUS = ''' + Cmb_Status.Items[Cmb_Status.ItemIndex] + '''';
+        vWhere := vWhere + ' AND C.STATUS = ''' +
+                                  Cmb_Status.Items[Cmb_Status.ItemIndex] + '''';
 
 
     case Cmb_Ordem.ItemIndex of
@@ -112,9 +112,11 @@ begin
 
   if Cmb_Status.ItemIndex <> 2 then
       if vWhere = '' then
-        vWhere := 'WHERE C.STATUS = ''' + Cmb_Status.Items[Cmb_Status.ItemIndex] + ''''
+        vWhere := 'WHERE C.STATUS = ''' + Cmb_Status.Items[Cmb_Status.ItemIndex]
+                                                                          + ''''
       else
-        vWhere := vWhere + ' AND C.STATUS = ''' + Cmb_Status.Items[Cmb_Status.ItemIndex] + '''';
+        vWhere := vWhere + ' AND C.STATUS = ''' +
+                                  Cmb_Status.Items[Cmb_Status.ItemIndex] + '''';
 
 
     case Cmb_Ordem.ItemIndex of

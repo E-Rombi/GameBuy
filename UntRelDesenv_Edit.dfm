@@ -51,17 +51,24 @@ inherited FrmRelDesenv_Edit: TFrmRelDesenv_Edit
     end
     object Label8: TLabel [4]
       Left = 19
-      Top = 108
+      Top = 140
       Width = 32
       Height = 13
       Caption = 'Ordem'
     end
+    object Label3: TLabel [5]
+      Left = 19
+      Top = 113
+      Width = 63
+      Height = 13
+      Caption = 'Cadastro de:'
+    end
     inherited Button1: TButton
-      Left = 531
+      Left = 163
       Top = 192
       TabOrder = 5
       OnClick = Button1Click
-      ExplicitLeft = 531
+      ExplicitLeft = 163
       ExplicitTop = 192
     end
     inherited Button2: TButton
@@ -113,7 +120,7 @@ inherited FrmRelDesenv_Edit: TFrmRelDesenv_Edit
     end
     object Cmb_Ordem: TComboBox
       Left = 73
-      Top = 108
+      Top = 137
       Width = 121
       Height = 21
       Style = csDropDownList
@@ -122,10 +129,28 @@ inherited FrmRelDesenv_Edit: TFrmRelDesenv_Edit
         'ID'
         'Nome')
     end
+    object MaskEdit1: TMaskEdit
+      Left = 88
+      Top = 110
+      Width = 121
+      Height = 21
+      TabOrder = 7
+      Text = 'MaskEdit1'
+    end
+  end
+  inherited FDQuery1: TFDQuery
+    Left = 536
+    Top = 151
+  end
+  inherited frxDBDataset1: TfrxDBDataset
+    Left = 536
+    Top = 191
   end
   inherited frxReport1: TfrxReport
     DataSet = frxDBDataset1
     DataSetName = 'frxDBDataset1'
+    Left = 528
+    Top = 103
     Datasets = <
       item
         DataSet = frxDBDataset1

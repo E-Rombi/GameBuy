@@ -31,6 +31,8 @@ type
     FDQuery2: TFDQuery;
     frxDBDataset2: TfrxDBDataset;
     Ed_ID: TEdit;
+    Label7: TLabel;
+    Cmb_Status: TComboBox;
     procedure FormCreate(Sender: TObject);
     procedure Cmb_ClienteChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -155,6 +157,14 @@ begin
       vWhere := vWhere +#13+ ' AND Ped.DATA_CADASTRO between ''' +
       StringReplace(Ed_DataDe.Text, '/', '.', [rfReplaceAll]) + ''' and ''' +
                 StringReplace(Ed_DataAte.Text, '/', '.', [rfReplaceAll]) + '''';
+
+  if Cmb_Status.ItemIndex <> 2 then
+      if vWhere = '' then
+        vWhere := 'WHERE C.STATUS = ''' + Cmb_Status.Items[Cmb_Status.ItemIndex]
+                                                                          + ''''
+      else
+        vWhere := vWhere + ' AND C.STATUS = ''' +
+                                  Cmb_Status.Items[Cmb_Status.ItemIndex] + '''';
 
   if Cmb_Cliente.ItemIndex <> 0 then
     if vWhere = '' then

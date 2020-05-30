@@ -82,11 +82,11 @@ inherited FrmRelCliente: TFrmRelCliente
       Caption = 'Ordem'
     end
     inherited Button1: TButton
-      Left = 531
+      Left = 163
       Top = 192
       TabOrder = 8
       OnClick = Button1Click
-      ExplicitLeft = 531
+      ExplicitLeft = 163
       ExplicitTop = 192
     end
     inherited Button2: TButton

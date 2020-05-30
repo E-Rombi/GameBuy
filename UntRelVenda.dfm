@@ -11,16 +11,16 @@ inherited FrmRelVenda: TFrmRelVenda
   inherited Panel1: TPanel
     Width = 676
     Caption = 'Relat'#243'rio de Vendas'
-    ExplicitWidth = 652
+    ExplicitWidth = 676
   end
   inherited Panel2: TPanel
     Width = 676
-    ExplicitWidth = 652
+    ExplicitWidth = 676
   end
   inherited Pnl_Ficha: TPanel
     Width = 676
     Height = 294
-    ExplicitWidth = 652
+    ExplicitWidth = 676
     ExplicitHeight = 294
     object Label1: TLabel [0]
       Left = 16
@@ -52,7 +52,7 @@ inherited FrmRelVenda: TFrmRelVenda
     end
     object Label5: TLabel [4]
       Left = 16
-      Top = 117
+      Top = 150
       Width = 32
       Height = 13
       Caption = 'Ordem'
@@ -64,7 +64,14 @@ inherited FrmRelVenda: TFrmRelVenda
       Height = 13
       Caption = 'Entrega'
     end
-    object Ed_DataDe: TMaskEdit [6]
+    object Label7: TLabel [6]
+      Left = 15
+      Top = 117
+      Width = 31
+      Height = 13
+      Caption = 'Status'
+    end
+    object Ed_DataDe: TMaskEdit [7]
       Left = 64
       Top = 48
       Width = 65
@@ -74,7 +81,7 @@ inherited FrmRelVenda: TFrmRelVenda
       TabOrder = 0
       Text = '  /  /    '
     end
-    object Ed_DataAte: TMaskEdit [7]
+    object Ed_DataAte: TMaskEdit [8]
       Left = 163
       Top = 48
       Width = 65
@@ -84,7 +91,7 @@ inherited FrmRelVenda: TFrmRelVenda
       TabOrder = 1
       Text = '  /  /    '
     end
-    object Cmb_Cliente: TComboBox [8]
+    object Cmb_Cliente: TComboBox [9]
       Left = 64
       Top = 81
       Width = 265
@@ -93,9 +100,9 @@ inherited FrmRelVenda: TFrmRelVenda
       TabOrder = 2
       OnChange = Cmb_ClienteChange
     end
-    object Cmb_Ordem: TComboBox [9]
+    object Cmb_Ordem: TComboBox [10]
       Left = 64
-      Top = 114
+      Top = 147
       Width = 87
       Height = 21
       Style = csDropDownList
@@ -106,7 +113,7 @@ inherited FrmRelVenda: TFrmRelVenda
         'Periodo Crescente'
         'Periodo Decrescente')
     end
-    object Cmb_Entrega: TComboBox [10]
+    object Cmb_Entrega: TComboBox [11]
       Left = 242
       Top = 13
       Width = 87
@@ -118,7 +125,7 @@ inherited FrmRelVenda: TFrmRelVenda
         'Sim'
         'N'#227'o')
     end
-    object Ed_ID: TEdit [11]
+    object Ed_ID: TEdit [12]
       Left = 64
       Top = 13
       Width = 65
@@ -126,11 +133,11 @@ inherited FrmRelVenda: TFrmRelVenda
       TabOrder = 5
     end
     inherited Button1: TButton
-      Left = 531
+      Left = 163
       Top = 192
       TabOrder = 6
       OnClick = Button1Click
-      ExplicitLeft = 531
+      ExplicitLeft = 163
       ExplicitTop = 192
     end
     inherited Button2: TButton
@@ -139,6 +146,18 @@ inherited FrmRelVenda: TFrmRelVenda
       TabOrder = 7
       ExplicitLeft = 19
       ExplicitTop = 192
+    end
+    object Cmb_Status: TComboBox
+      Left = 64
+      Top = 114
+      Width = 121
+      Height = 21
+      Style = csDropDownList
+      TabOrder = 8
+      Items.Strings = (
+        'Ativo'
+        'Inativo'
+        'Todos')
     end
   end
   inherited FDQuery1: TFDQuery
@@ -265,7 +284,7 @@ inherited FrmRelVenda: TFrmRelVenda
           IndexTag = 1
           AllowVectorExport = True
           Left = 192.756030000000000000
-          Top = 35.015770000000010000
+          Top = 35.015770000000000000
           Width = 514.016080000000000000
           Height = 18.897650000000000000
           DataSet = frxDBDataset1
@@ -368,7 +387,7 @@ inherited FrmRelVenda: TFrmRelVenda
           IndexTag = 1
           AllowVectorExport = True
           Left = 166.299320000000000000
-          Top = 11.338590000000010000
+          Top = 11.338590000000000000
           Width = 340.157700000000000000
           Height = 18.897650000000000000
           DataSet = frxDBDataset1
@@ -709,5 +728,8 @@ inherited FrmRelVenda: TFrmRelVenda
     BCDToCurrency = False
     Left = 536
     Top = 191
+  end
+  inherited ImageList1: TImageList
+    Left = 424
   end
 end

@@ -18,7 +18,9 @@ uses
   UntRelVenda in 'UntRelVenda.pas' {FrmRelVenda},
   UntCreditos in 'UntCreditos.pas' {FrmCreditos},
   UntRelDesenv_Edit in 'UntRelDesenv_Edit.pas' {FrmRelDesenv_Edit},
-  UntRelCategoria in 'UntRelCategoria.pas' {FrmRelCategoria};
+  UntRelCategoria in 'UntRelCategoria.pas' {FrmRelCategoria},
+  UntRelUsuario in 'UntRelUsuario.pas' {FrmRelUsuario},
+  UntRelPerfil in 'UntRelPerfil.pas' {FrmRelPerfil};
 
 {$R *.res}
 
@@ -27,5 +29,7 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TDM, DM);
   Application.CreateForm(TFrmMain, FrmMain);
+  Application.CreateForm(TFrmRelUsuario, FrmRelUsuario);
+  Application.CreateForm(TFrmRelPerfil, FrmRelPerfil);
   Application.Run;
 end.

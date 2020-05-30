@@ -24,6 +24,8 @@ type
     Ed_Nome: TEdit;
     Label8: TLabel;
     Cmb_Ordem: TComboBox;
+    MaskEdit1: TMaskEdit;
+    Label3: TLabel;
     procedure Btn_CancelarClick(Sender: TObject);
     procedure Btn_GerarClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);

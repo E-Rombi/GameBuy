@@ -166,6 +166,14 @@
             <Form>FrmRelCategoria</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="UntRelUsuario.pas">
+            <Form>FrmRelUsuario</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="UntRelPerfil.pas">
+            <Form>FrmRelPerfil</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

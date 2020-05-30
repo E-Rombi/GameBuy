@@ -56,11 +56,11 @@ inherited FrmRelCategoria: TFrmRelCategoria
       Caption = 'Ordem'
     end
     inherited Button1: TButton
-      Left = 531
+      Left = 163
       Top = 176
       TabOrder = 4
       OnClick = Button1Click
-      ExplicitLeft = 531
+      ExplicitLeft = 163
       ExplicitTop = 176
     end
     inherited Button2: TButton
@@ -121,5 +121,97 @@ inherited FrmRelCategoria: TFrmRelCategoria
       end>
     Variables = <>
     Style = <>
+    inherited Page1: TfrxReportPage
+      inherited MasterData1: TfrxMasterData
+        Top = 328.819110000000000000
+        DataSet = frxDBDataset1
+        DataSetName = 'frxDBDataset1'
+      end
+      inherited PageFooter1: TfrxPageFooter
+        Top = 411.968770000000000000
+      end
+      object GroupHeader1: TfrxGroupHeader
+        FillType = ftBrush
+        Frame.Typ = []
+        Height = 117.165430000000000000
+        Top = 188.976500000000000000
+        Width = 718.110700000000000000
+        Condition = 'frxDBDataset1."ID"'
+        object Shape2: TfrxShapeView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 3.779530000000000000
+          Width = 710.551640000000000000
+          Height = 83.149660000000000000
+          Fill.BackColor = cl3DLight
+          Frame.Typ = []
+          Shape = skRoundRectangle
+        end
+        object Memo7: TfrxMemoView
+          AllowVectorExport = True
+          Left = 11.338590000000000000
+          Top = 7.559060000000000000
+          Width = 18.897650000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'ID')
+          ParentFont = False
+        end
+        object Memo8: TfrxMemoView
+          AllowVectorExport = True
+          Left = 11.338590000000000000
+          Top = 30.236240000000000000
+          Width = 18.897650000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'ID')
+          ParentFont = False
+        end
+        object Memo9: TfrxMemoView
+          AllowVectorExport = True
+          Left = 11.338590000000000000
+          Top = 56.692950000000000000
+          Width = 18.897650000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'ID')
+          ParentFont = False
+        end
+        object Memo10: TfrxMemoView
+          AllowVectorExport = True
+          Left = 11.338590000000000000
+          Top = 90.708720000000000000
+          Width = 18.897650000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'ID')
+          ParentFont = False
+        end
+      end
+    end
   end
 end
