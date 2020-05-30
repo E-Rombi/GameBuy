@@ -182,19 +182,18 @@ var
     vTab.Name := TWinControl(Sender).Name;
     vTab.Parent := PgCtrl_Menu;
 
-    if Form = 'FrmPerfil'      then  vForm := TFrmPerfil.Create(vTab);
-    if Form = 'FrmCliente'     then  vForm := TFrmCadastro.Create(vTab);
-    if Form = 'FrmProduto'     then  vForm := TFrmProduto.Create(vTab);
-    if Form = 'FrmDesenv_Edit' then  vForm := TFrmDesenv_Edit.Create(vTab);
-    if Form = 'FrmCategoria'   then  vform := TFrmCategoria.Create(vTab);
-    if Form = 'FrmUsuario'     then  vform := TFrmUsuario.Create(vTab);
-    if Form = 'FrmVenda'       then  vForm := TFrmVenda.Create(vTab);
-    if Form = 'FrmRelCliente'  then  vForm := TFrmRelCliente.Create(vTab);
-    if Form = 'FrmRelVenda'    then  vForm := TFrmRelVenda.Create(vTab);
-    if Form = 'FrmRelCategoria' then  vForm := TFrmCategoria.Create(vTab);
-    if Form = 'FrmCreditos'      then  vForm := TFrmCreditos.Create(vTab);
-    if Form = 'FrmRelDesenv_Edit' then
-                                      vForm := TFrmRelDesenv_Edit.Create(vTab);
+    if Form = 'FrmPerfil'         then  vForm := TFrmPerfil.Create(vTab);
+    if Form = 'FrmCliente'        then  vForm := TFrmCadastro.Create(vTab);
+    if Form = 'FrmProduto'        then  vForm := TFrmProduto.Create(vTab);
+    if Form = 'FrmDesenv_Edit'    then  vForm := TFrmDesenv_Edit.Create(vTab);
+    if Form = 'FrmCategoria'      then  vform := TFrmCategoria.Create(vTab);
+    if Form = 'FrmUsuario'        then  vform := TFrmUsuario.Create(vTab);
+    if Form = 'FrmVenda'          then  vForm := TFrmVenda.Create(vTab);
+    if Form = 'FrmRelCliente'     then  vForm := TFrmRelCliente.Create(vTab);
+    if Form = 'FrmRelVenda'       then  vForm := TFrmRelVenda.Create(vTab);
+    if Form = 'FrmRelCategoria'   then  vForm := TFrmRelCategoria.Create(vTab);
+    if Form = 'FrmCreditos'       then  vForm := TFrmCreditos.Create(vTab);
+    if Form = 'FrmRelDesenv_Edit' then  vForm := TFrmRelDesenv_Edit.Create(vTab);
 
 
 

@@ -57,8 +57,6 @@ object FrmMain: TFrmMain
     PopupMenu = PopupMenu1
     TabOrder = 1
     object TbSht_Main: TTabSheet
-      ExplicitLeft = 8
-      ExplicitTop = 22
       object Grafico_Vendas: TDBChart
         Left = 3
         Top = -35
@@ -233,16 +231,19 @@ object FrmMain: TFrmMain
           Caption = 'Produto'
           SubMenuImages = ImageList1
           ImageIndex = 1
+          OnClick = ShowForm
         end
         object Rel_Categoria: TMenuItem
           Caption = 'Categoria'
           SubMenuImages = ImageList1
           ImageIndex = 2
+          OnClick = ShowForm
         end
         object Rel_Desenv_Edit: TMenuItem
           Caption = 'Dev. / Edit.'
           SubMenuImages = ImageList1
           ImageIndex = 3
+          OnClick = ShowForm
         end
       end
       object Rel_Clientes: TMenuItem
