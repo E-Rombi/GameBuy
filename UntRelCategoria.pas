@@ -59,7 +59,7 @@ var
 begin
   FDQuery1.Close;
   FDQuery1.SQL.Clear;
-  FDQuery1.SQL.Add('SELECT * FROM CATEGORIA');
+  FDQuery1.SQL.Add('SELECT * FROM CATEGORIA C');
   vWhere := '';
 
   if not (trim(Ed_ID.Text) = '') then
@@ -99,32 +99,38 @@ begin
   inherited;
   FDQuery1.Close;
   FDQuery1.SQL.Clear;
-  FDQuery1.SQL.Add('SELECT'
-                  +#13+'C.*'
-                  +#13+'FROM CATEGORIA C');
+  FDQuery1.SQL.Add('SELECT * FROM CATEGORIA C');
   vWhere := '';
 
   if not (trim(Ed_ID.Text) = '') then
     if vWhere = '' then
-      vWhere := 'WHERE C.ID = ' + Ed_ID.Text
+      vWhere := ' WHERE C.ID = ' + Ed_ID.Text
     else
       vWhere := vWhere + ' AND C.ID = ' + Ed_ID.Text;
 
-  if Cmb_Status.ItemIndex <> 2 then
+  if Cmb_Status.ItemIndex = 0 then
       if vWhere = '' then
-        vWhere := 'WHERE C.STATUS = ''' + Cmb_Status.Items[Cmb_Status.ItemIndex]
-                                                                          + ''''
+        vWhere := ' WHERE C.STATUS = ''S'' '
       else
-        vWhere := vWhere + ' AND C.STATUS = ''' +
-                                  Cmb_Status.Items[Cmb_Status.ItemIndex] + '''';
+        vWhere := vWhere + ' AND C.STATUS = ''S'' '
+    else
+    begin
+      if Cmb_Status.ItemIndex = 1 then
+        if vWhere = '' then
+          vWhere := ' WHERE C.STATUS = ''N'' '
+        else
+          vWhere := vWhere + ' AND C.STATUS = ''N'' ';
+    end;
+
 
 
     case Cmb_Ordem.ItemIndex of
-      0: vWhere := vWhere +#13+' ORDER BY C.ID';
-      1: vWhere := vWhere +#13+' ORDER BY C.NOME';
-      2: vWhere := vWhere +#13+' ORDER BY C.DATA_CADASTRO';
-      3: vWhere := vWhere +#13+' ORDER BY C.DATA_ALTERACAO';
+      0: vWhere := vWhere + ' ORDER BY C.ID';
+      1: vWhere := vWhere + ' ORDER BY C.NOME';
+      2: vWhere := vWhere + ' ORDER BY C.DATA_CADASTRO';
+      3: vWhere := vWhere + ' ORDER BY C.DATA_ALTERACAO';
     end;
+
 
     FDQuery1.SQL.Add(vWhere);
 

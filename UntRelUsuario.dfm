@@ -96,8 +96,8 @@ inherited FrmRelUsuario: TFrmRelUsuario
       Style = csDropDownList
       TabOrder = 4
       Items.Strings = (
-        'Ativo'
-        'Inativo'
+        'Sim'
+        'N'#227'o'
         'Todos')
     end
     object Cmb_Ordem: TComboBox
@@ -145,6 +145,10 @@ inherited FrmRelUsuario: TFrmRelUsuario
     end
   end
   inherited FDQuery1: TFDQuery
+    SQL.Strings = (
+      'SELECT U.ID, U.NOME, U.LOGIN, U.DATA_CADASTRO, U.DATA_ALTERACAO,'
+      'U.STATUS'
+      'FROM USUARIO U')
     Left = 504
     Top = 263
   end
@@ -153,8 +157,6 @@ inherited FrmRelUsuario: TFrmRelUsuario
     Top = 231
   end
   inherited frxReport1: TfrxReport
-    DataSet = frxDBDataset1
-    DataSetName = 'frxDBDataset1'
     Left = 544
     Top = 223
     Datasets = <
@@ -166,20 +168,210 @@ inherited FrmRelUsuario: TFrmRelUsuario
     Style = <>
     inherited Page1: TfrxReportPage
       inherited MasterData1: TfrxMasterData
-        Top = 234.330860000000000000
+        Top = 294.803340000000000000
         DataSet = frxDBDataset1
         DataSetName = 'frxDBDataset1'
       end
       inherited PageFooter1: TfrxPageFooter
-        Top = 317.480520000000000000
+        Top = 377.953000000000000000
       end
       object GroupHeader1: TfrxGroupHeader
         FillType = ftBrush
         Frame.Typ = []
-        Height = 22.677180000000000000
+        Height = 83.149660000000000000
         Top = 188.976500000000000000
         Width = 718.110700000000000000
         Condition = 'frxDBDataset1."ID"'
+        object Shape2: TfrxShapeView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 3.779530000000000000
+          Width = 710.551640000000000000
+          Height = 56.692950000000000000
+          Fill.BackColor = cl3DLight
+          Frame.Typ = []
+          Shape = skRoundRectangle
+        end
+        object Memo7: TfrxMemoView
+          AllowVectorExport = True
+          Left = 11.338590000000000000
+          Top = 7.559060000000000000
+          Width = 18.897650000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'ID')
+          ParentFont = False
+        end
+        object frxDBDataset1ID: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 34.015770000000000000
+          Top = 7.559060000000000000
+          Width = 56.692950000000000000
+          Height = 18.897650000000000000
+          DataField = 'ID'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."ID"]')
+        end
+        object Memo8: TfrxMemoView
+          AllowVectorExport = True
+          Left = 94.488250000000000000
+          Top = 7.559060000000000000
+          Width = 45.354360000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Nome')
+          ParentFont = False
+        end
+        object frxDBDataset1NOME: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 143.622140000000000000
+          Top = 7.559060000000000000
+          Width = 359.055350000000000000
+          Height = 18.897650000000000000
+          DataField = 'NOME'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."NOME"]')
+        end
+        object frxDBDataset1LOGIN: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 143.622140000000000000
+          Top = 34.015770000000000000
+          Width = 359.055350000000000000
+          Height = 18.897650000000000000
+          DataField = 'LOGIN'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."LOGIN"]')
+        end
+        object frxDBDataset1DATA_CADASTRO: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 627.401980000000000000
+          Top = 7.559060000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          DataField = 'DATA_CADASTRO'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."DATA_CADASTRO"]')
+        end
+        object Memo9: TfrxMemoView
+          AllowVectorExport = True
+          Left = 506.457020000000000000
+          Top = 7.559060000000000000
+          Width = 117.165430000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Data de Catastro')
+          ParentFont = False
+        end
+        object Memo10: TfrxMemoView
+          AllowVectorExport = True
+          Left = 506.457020000000000000
+          Top = 34.015770000000000000
+          Width = 117.165430000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Data de Altera'#231#227'o')
+          ParentFont = False
+        end
+        object frxDBDataset1DATA_ALTERACAO: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 627.401980000000000000
+          Top = 34.015770000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          DataField = 'DATA_ALTERACAO'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."DATA_ALTERACAO"]')
+        end
+        object Memo11: TfrxMemoView
+          AllowVectorExport = True
+          Left = 94.488250000000000000
+          Top = 34.015770000000000000
+          Width = 45.354360000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Login')
+          ParentFont = False
+        end
+        object frxDBDataset1STATUS: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 64.252010000000000000
+          Top = 34.015770000000000000
+          Width = 26.456710000000000000
+          Height = 18.897650000000000000
+          DataField = 'STATUS'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."STATUS"]')
+        end
+        object Memo12: TfrxMemoView
+          AllowVectorExport = True
+          Left = 11.338590000000000000
+          Top = 34.015770000000000000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Ativo')
+          ParentFont = False
+        end
       end
     end
   end

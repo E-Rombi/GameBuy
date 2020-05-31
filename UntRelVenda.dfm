@@ -358,7 +358,7 @@ inherited FrmRelVenda: TFrmRelVenda
           IndexTag = 1
           AllowVectorExport = True
           Left = 34.015770000000000000
-          Top = 11.338590000000010000
+          Top = 11.338590000000000000
           Width = 49.133890000000000000
           Height = 18.897650000000000000
           DataSet = frxDBDataset1

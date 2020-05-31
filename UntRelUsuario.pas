@@ -52,38 +52,44 @@ begin
   FDQuery1.SQL.Clear;
   FDQuery1.SQL.Add('SELECT U.NOME, U.LOGIN, U.DATA_CADASTRO, U.DATA_ALTERACAO' +
   ', U.FK_PERFIL,U.FK_USUARIO,U.STATUS,U.ID ' +
-  'FROM USUARIO U ' );
+  'FROM USUARIO U' );
 
   if not (trim(Ed_ID.Text) = '') then
     if vWhere = '' then
-      vWhere := 'WHERE Ped.ID = ' + Ed_ID.Text
+      vWhere := ' WHERE Ped.ID = ' + Ed_ID.Text
     else
       vWhere := vWhere +#13+ ' AND Ped.ID = ' + Ed_ID.Text;
 
   if (Ed_DataDe.Text <> '  /  /    ') and (Ed_DataAte.Text <> '  /  /    ') then
     if vWhere = '' then
-      vWhere := 'WHERE Ped.DATA_CADASTRO between ''' +
+      vWhere := ' WHERE Ped.DATA_CADASTRO between ''' +
       StringReplace(Ed_DataDe.Text, '/', '.', [rfReplaceAll]) + ''' and ''' +
                 StringReplace(Ed_DataAte.Text, '/', '.', [rfReplaceAll]) + ''''
     else
-      vWhere := vWhere +#13+ ' AND Ped.DATA_CADASTRO between ''' +
+      vWhere := vWhere + ' AND Ped.DATA_CADASTRO between ''' +
       StringReplace(Ed_DataDe.Text, '/', '.', [rfReplaceAll]) + ''' and ''' +
                 StringReplace(Ed_DataAte.Text, '/', '.', [rfReplaceAll]) + '''';
 
-    if Cmb_Status.ItemIndex <> 2 then
+    if Cmb_Status.ItemIndex = 0 then
       if vWhere = '' then
-        vWhere := 'WHERE C.STATUS = ''' + Cmb_Status.Items[Cmb_Status.ItemIndex]
-        + ''''
+        vWhere := ' WHERE D.STATUS = ''S'' '
       else
-        vWhere := vWhere + ' AND C.STATUS = ''' +
-                                  Cmb_Status.Items[Cmb_Status.ItemIndex] + '''';
+        vWhere := vWhere + ' AND D.STATUS = ''S'' '
+    else
+    begin
+      if Cmb_Status.ItemIndex = 1 then
+        if vWhere = '' then
+          vWhere := ' WHERE D.STATUS = ''N'' '
+        else
+          vWhere := vWhere + ' AND D.STATUS = ''N'' ';
+    end;
 
    case Cmb_Ordem.itemIndex of
-   0: vWhere := vWhere + #13 + 'ORDER BY U.ID';
-   1: vWhere := vWhere + #13 + 'ORDER BY U.NOME';
-   2: vWhere := vWhere + #13 + 'ORDER BY U.LOGIN';
-   3: vWhere := vWhere + #13 + 'ORDER BY U.DATA_CADASTRO';
-   4 : vWhere := vWhere + #13 + 'ORDER BY U.FK_PERFIL'
+   0: vWhere := vWhere + ' ORDER BY U.ID';
+   1: vWhere := vWhere + ' ORDER BY U.NOME';
+   2: vWhere := vWhere + ' ORDER BY U.LOGIN';
+   3: vWhere := vWhere + ' ORDER BY U.DATA_CADASTRO';
+   4 : vWhere := vWhere + ' ORDER BY U.FK_PERFIL'
    end;
 
    FDQuery1.SQL.Add(vWhere);
