@@ -18,9 +18,8 @@ inherited FrmRelCategoria: TFrmRelCategoria
   inherited Pnl_Ficha: TPanel
     Width = 671
     Height = 285
-    ExplicitTop = 77
     ExplicitWidth = 671
-    ExplicitHeight = 404
+    ExplicitHeight = 285
     object Label1: TLabel [0]
       Left = 19
       Top = 17
