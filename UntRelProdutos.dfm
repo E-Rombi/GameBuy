@@ -151,9 +151,9 @@ inherited FrmRelProduto: TFrmRelProduto
     object Ed_PrecoDe: TMaskEdit
       Left = 89
       Top = 159
-      Width = 85
+      Width = 77
       Height = 21
-      EditMask = 'R$ 999999;0;_'
+      EditMask = 'R$ 999999;0; '
       MaxLength = 9
       TabOrder = 7
       Text = ''
@@ -161,9 +161,9 @@ inherited FrmRelProduto: TFrmRelProduto
     object ED_PrecoAte: TMaskEdit
       Left = 209
       Top = 159
-      Width = 85
+      Width = 81
       Height = 21
-      EditMask = 'R$ 999999;0;_'
+      EditMask = 'R$ 999999;0; '
       MaxLength = 9
       TabOrder = 8
       Text = ''

@@ -58,8 +58,7 @@ begin
   vWhere := '';
   FDQuery1.Close;
   FDQuery1.SQL.Clear;
-  FDQuery1.SQL.Add('SELECT P.DESCRICAO, P.LOGIN, P.DATA_CADASTRO, ' +
-  'P.DATA_ALTERACAO, P.FK_PERFIL,P.STATUS,P.ID FROM PRODUTO P' );
+  FDQuery1.SQL.Add('SELECT * FROM PRODUTO P ' );
 
   if not (trim(Ed_ID.Text) = '') then
     if vWhere = '' then
@@ -95,8 +94,8 @@ begin
                                                                           '%''';
    if (ED_PrecoDe.Text <> '') and (ED_PrecoAte.Text <> '') then
     if vWhere = '' then
-      vWhere := 'WHERE P.PRECO between '' ' + ED_PrecoDe.Text +
-      ' AND '' ' + ED_PrecoAte.Text + ''' '
+      vWhere := 'WHERE P.PRECO between ' + ED_PrecoDe.Text +
+      ' AND ' + ED_PrecoAte.Text + ' '
     else
       vWhere := vWhere +#13+ ' AND P.PRECO between ''' +
       ED_PrecoDe.Text + ''' AND ''' +ED_PrecoAte.Text + '''';

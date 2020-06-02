@@ -7,10 +7,6 @@ inherited FrmRelUsuario: TFrmRelUsuario
   inherited Panel1: TPanel
     Caption = 'Relat'#243'rio de  Usu'#225'rios'
   end
-  inherited Panel2: TPanel
-    ExplicitLeft = -8
-    ExplicitTop = 68
-  end
   inherited Pnl_Ficha: TPanel
     Height = 304
     ExplicitHeight = 304
