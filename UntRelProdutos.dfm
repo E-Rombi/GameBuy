@@ -6,11 +6,9 @@ inherited FrmRelProduto: TFrmRelProduto
   TextHeight = 13
   inherited Panel1: TPanel
     Caption = 'Relat'#243'rio de Produtos'
-    ExplicitTop = -6
   end
   inherited Pnl_Ficha: TPanel
     Height = 331
-    ExplicitLeft = 8
     ExplicitHeight = 331
     object Label1: TLabel [0]
       Left = 19
@@ -55,7 +53,7 @@ inherited FrmRelProduto: TFrmRelProduto
     end
     object Label4: TLabel [6]
       Left = 18
-      Top = 130
+      Top = 128
       Width = 47
       Height = 13
       Caption = 'Categoria'
@@ -145,8 +143,9 @@ inherited FrmRelProduto: TFrmRelProduto
       Top = 73
       Width = 384
       Height = 36
-      Lines.Strings = (
-        'M_Descricao')
+      CharCase = ecUpperCase
+      Ctl3D = True
+      ParentCtl3D = False
       TabOrder = 6
     end
     object Ed_PrecoDe: TMaskEdit
@@ -169,43 +168,15 @@ inherited FrmRelProduto: TFrmRelProduto
       TabOrder = 8
       Text = ''
     end
-    object Cmb_Cat: TComboBox
-      Left = 90
-      Top = 127
-      Width = 263
-      Height = 21
-      Style = csDropDownList
-      TabOrder = 9
-      Items.Strings = (
-        'Todos'
-        'AC'
-        'AL'
-        'AP'
-        'AM'
-        'BA'
-        'CE'
-        'DF'
-        'ES'
-        'GO'
-        'MA'
-        'MT'
-        'MS'
-        'MG'
-        'PA'
-        'PB'
-        'PR'
-        'PE'
-        'PI'
-        'RJ'
-        'RN'
-        'RS'
-        'RO'
-        'RR'
-        'SC'
-        'SP'
-        'SE'
-        'TO')
-    end
+  end
+  object Cmb_Cat: TDBLookupComboBox [3]
+    Left = 89
+    Top = 196
+    Width = 145
+    Height = 21
+    DataField = 'NOME'
+    DataSource = DataSource1
+    TabOrder = 3
   end
   inherited FDQuery1: TFDQuery
     SQL.Strings = (
@@ -235,5 +206,17 @@ inherited FrmRelProduto: TFrmRelProduto
   inherited ImageList2: TImageList
     Left = 440
     Top = 159
+  end
+  object FDQryCat: TFDQuery
+    Connection = DM.FDConnection1
+    SQL.Strings = (
+      'select C.NOME from CATEGORIA C')
+    Left = 264
+    Top = 255
+  end
+  object DataSource1: TDataSource
+    DataSet = FDQryCat
+    Left = 336
+    Top = 263
   end
 end

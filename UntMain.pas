@@ -84,7 +84,7 @@ implementation
 
 uses UntPerfil, UntCadastro, UntDM, UntLogin, UntProduto, UntDesenv_Edit,
   UntCategoria, UntUsuario, UntVenda, UntRelCadastro, UntRelVenda,
-  UntRelDesenv_Edit, UntRelCategoria, UntCreditos;
+  UntRelDesenv_Edit, UntRelCategoria, UntCreditos, UntRelProdutos;
 
 procedure TFrmMain.ApplicationEvents1Hint(Sender: TObject);
 begin
@@ -193,7 +193,9 @@ var
     if Form = 'FrmRelVenda'       then  vForm := TFrmRelVenda.Create(vTab);
     if Form = 'FrmRelCategoria'   then  vForm := TFrmRelCategoria.Create(vTab);
     if Form = 'FrmCreditos'       then  vForm := TFrmCreditos.Create(vTab);
-    if Form = 'FrmRelDesenv_Edit' then  vForm := TFrmRelDesenv_Edit.Create(vTab);
+    if Form = 'FrmRelDesenv_Edit' then  vForm :=
+                                                TFrmRelDesenv_Edit.Create(vTab);
+    if Form = 'FrmRelProduto' then  vForm := TFrmRelProduto.Create(vTab);
 
 
 
@@ -253,6 +255,10 @@ begin
   if Sender = Rel_Desenv_Edit then
     if not(vForms.ContainsKey(TWinControl(Sender).Name)) then
       CriarTab(TWinControl(Sender).Name, 'FrmRelDesenv_Edit');
+
+  if Sender = Rel_Produto then
+    if not(vForms.ContainsKey(TWinControl(Sender).Name)) then
+      CriarTab(TWinControl(Sender).Name, 'FrmRelProduto');
 
     if Sender = atribuicoes then
     if not(vForms.ContainsKey(TWinControl(Sender).Name)) then

@@ -31,9 +31,10 @@ type
     Label11: TLabel;
     Ed_PrecoDe: TMaskEdit;
     ED_PrecoAte: TMaskEdit;
-    Cmb_Cat: TComboBox;
+    Cmb_Cat: TDBLookupComboBox;
+    FDQryCat: TFDQuery;
+    DataSource1: TDataSource;
     procedure Button1Click(Sender: TObject);
-    procedure CheckBox1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -82,15 +83,15 @@ begin
 
     if not (trim(Ed_Nome.Text) = '') then
       if vWhere = '' then
-        vWhere := 'WHERE P.TITULO LIKE ''%' + Ed_Nome.Text + '%'''
+        vWhere := ' WHERE P.TITULO LIKE ''%' + Ed_Nome.Text + '%'''
       else
-        vWhere := vWhere +#13+ 'P.TITULO LIKE ''%' + Ed_Nome.Text + '%''';
+        vWhere := vWhere +#13+ ' AND P.TITULO LIKE ''%' + Ed_Nome.Text + '%''';
 
    if not (trim(M_Descricao.Text) = '') then
       if vWhere = '' then
-        vWhere := 'WHERE P.DESCRICAO LIKE ''%' + M_Descricao.Text + '%'''
+        vWhere := ' WHERE P.DESCRICAO LIKE ''%' + M_Descricao.Text + '%'''
       else
-        vWhere := vWhere +#13+ 'P.DESCRICAO LIKE ''%' + M_Descricao.Text +
+        vWhere := vWhere + ' AND P.DESCRICAO LIKE ''%' + M_Descricao.Text +
                                                                           '%''';
    if (ED_PrecoDe.Text <> '') and (ED_PrecoAte.Text <> '') then
     if vWhere = '' then
@@ -100,13 +101,11 @@ begin
       vWhere := vWhere +#13+ ' AND P.PRECO between ''' +
       ED_PrecoDe.Text + ''' AND ''' +ED_PrecoAte.Text + '''';
 
-    if Cmb_Cat.ItemIndex <> 0 then
+    if Cmb_Cat.ListFieldIndex <> 0 then
       if vWhere = '' then
-        vWhere := 'WHERE P.FK_CATEGORIA = ''' +
-                copy(Cmb_Cat.Items[Cmb_Cat.ItemIndex],0,1) + ''''
+        vWhere := 'WHERE P.FK_CATEGORIA = ''' + Cmb_Cat.Text + ''''
       else
-        vWhere := vWhere +#13+ 'P.FK_CATEGORIA = ''' +
-                copy(Cmb_Cat.Items[Cmb_Cat.ItemIndex],0,1) + '''';
+        vWhere := vWhere +#13+ 'P.FK_CATEGORIA = ''' + Cmb_Cat.Text + '''';
 
 
 
@@ -115,6 +114,8 @@ begin
    1: vWhere := vWhere + ' ORDER BY P.DESCRICAO';
    2: vWhere := vWhere + ' ORDER BY P.DATA_CADASTRO';
    end;
+
+   ShowMessage(vwhere);
 
    FDQuery1.SQL.Add(vWhere);
    FDQuery1.Open();
