@@ -1,9 +1,9 @@
 inherited FrmRelCategoria: TFrmRelCategoria
   Caption = 'Relat'#243'rio de Categorias'
-  ClientHeight = 307
+  ClientHeight = 356
   ClientWidth = 671
   ExplicitWidth = 687
-  ExplicitHeight = 346
+  ExplicitHeight = 395
   PixelsPerInch = 96
   TextHeight = 13
   inherited Panel1: TPanel
@@ -17,9 +17,10 @@ inherited FrmRelCategoria: TFrmRelCategoria
   end
   inherited Pnl_Ficha: TPanel
     Width = 671
-    Height = 236
+    Height = 285
+    ExplicitTop = 77
     ExplicitWidth = 671
-    ExplicitHeight = 236
+    ExplicitHeight = 404
     object Label1: TLabel [0]
       Left = 19
       Top = 17
@@ -37,9 +38,9 @@ inherited FrmRelCategoria: TFrmRelCategoria
     object Label5: TLabel [2]
       Left = 19
       Top = 49
-      Width = 31
+      Width = 27
       Height = 13
-      Caption = 'Nome:'
+      Caption = 'Nome'
     end
     object Label3: TLabel [3]
       Left = 463
@@ -49,29 +50,43 @@ inherited FrmRelCategoria: TFrmRelCategoria
       Caption = '(Contendo)'
     end
     object Label8: TLabel [4]
-      Left = 19
-      Top = 81
+      Left = 18
+      Top = 127
       Width = 32
       Height = 13
       Caption = 'Ordem'
     end
+    object Label2: TLabel [5]
+      Left = 19
+      Top = 81
+      Width = 46
+      Height = 13
+      Caption = 'Descri'#231#227'o'
+    end
+    object Label4: TLabel [6]
+      Left = 479
+      Top = 81
+      Width = 55
+      Height = 13
+      Caption = '(Contendo)'
+    end
     inherited Button1: TButton
       Left = 163
-      Top = 176
+      Top = 208
       TabOrder = 3
       OnClick = Button1Click
       ExplicitLeft = 163
-      ExplicitTop = 176
+      ExplicitTop = 208
     end
     inherited Button2: TButton
       Left = 19
-      Top = 176
+      Top = 208
       TabOrder = 4
       ExplicitLeft = 19
-      ExplicitTop = 176
+      ExplicitTop = 208
     end
     object Ed_ID: TEdit
-      Left = 73
+      Left = 89
       Top = 14
       Width = 72
       Height = 21
@@ -89,16 +104,16 @@ inherited FrmRelCategoria: TFrmRelCategoria
         'N'#227'o'
         'Todos')
     end
-    object Ed_Fantasia: TEdit
-      Left = 73
+    object Ed_Nome: TEdit
+      Left = 89
       Top = 46
       Width = 384
       Height = 21
       TabOrder = 2
     end
     object Cmb_Ordem: TComboBox
-      Left = 73
-      Top = 78
+      Left = 89
+      Top = 124
       Width = 121
       Height = 21
       Style = csDropDownList
@@ -109,6 +124,15 @@ inherited FrmRelCategoria: TFrmRelCategoria
         'Data de cadastro'
         'Data de altera'#231#227'o')
     end
+  end
+  object M_Descricao: TMemo [3]
+    Left = 89
+    Top = 149
+    Width = 384
+    Height = 36
+    Lines.Strings = (
+      'M_Descricao')
+    TabOrder = 3
   end
   inherited FDQuery1: TFDQuery
     SQL.Strings = (
@@ -331,5 +355,13 @@ inherited FrmRelCategoria: TFrmRelCategoria
         end
       end
     end
+  end
+  inherited ImageList1: TImageList
+    Left = 448
+    Top = 87
+  end
+  inherited ImageList2: TImageList
+    Left = 560
+    Top = 127
   end
 end

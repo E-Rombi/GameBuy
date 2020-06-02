@@ -7,6 +7,10 @@ inherited FrmRelUsuario: TFrmRelUsuario
   inherited Panel1: TPanel
     Caption = 'Relat'#243'rio de  Usu'#225'rios'
   end
+  inherited Panel2: TPanel
+    ExplicitLeft = -8
+    ExplicitTop = 68
+  end
   inherited Pnl_Ficha: TPanel
     Height = 304
     ExplicitHeight = 304
@@ -48,16 +52,30 @@ inherited FrmRelUsuario: TFrmRelUsuario
     object Label4: TLabel [5]
       Left = 16
       Top = 121
-      Width = 36
+      Width = 44
       Height = 13
-      Caption = 'Per'#237'odo'
+      Caption = 'Cadastro'
     end
     object Label5: TLabel [6]
-      Left = 138
+      Left = 143
       Top = 121
       Width = 16
       Height = 13
       Caption = 'at'#233
+    end
+    object Label1: TLabel [7]
+      Left = 469
+      Top = 49
+      Width = 55
+      Height = 13
+      Caption = '(Contendo)'
+    end
+    object Label7: TLabel [8]
+      Left = 469
+      Top = 86
+      Width = 55
+      Height = 13
+      Caption = '(Contendo)'
     end
     inherited Button1: TButton
       Left = 166
@@ -73,16 +91,16 @@ inherited FrmRelUsuario: TFrmRelUsuario
       ExplicitTop = 244
     end
     object ED_ID: TEdit
-      Left = 64
+      Left = 73
       Top = 13
       Width = 121
       Height = 21
       TabOrder = 2
       Text = 'ED_ID'
     end
-    object Edit2: TEdit
-      Left = 64
-      Top = 48
+    object ED_Nome: TEdit
+      Left = 73
+      Top = 46
       Width = 393
       Height = 21
       TabOrder = 3
@@ -101,7 +119,7 @@ inherited FrmRelUsuario: TFrmRelUsuario
         'Todos')
     end
     object Cmb_Ordem: TComboBox
-      Left = 68
+      Left = 73
       Top = 153
       Width = 121
       Height = 21
@@ -115,8 +133,8 @@ inherited FrmRelUsuario: TFrmRelUsuario
         'Data de cadastro'
         'Perfis')
     end
-    object Edit3: TEdit
-      Left = 64
+    object ED_Login: TEdit
+      Left = 73
       Top = 83
       Width = 393
       Height = 21
@@ -124,7 +142,7 @@ inherited FrmRelUsuario: TFrmRelUsuario
       Text = 'Edit1'
     end
     object Ed_DataDe: TMaskEdit
-      Left = 68
+      Left = 73
       Top = 118
       Width = 64
       Height = 21
@@ -134,7 +152,7 @@ inherited FrmRelUsuario: TFrmRelUsuario
       Text = '  /  /    '
     end
     object Ed_DataAte: TMaskEdit
-      Left = 166
+      Left = 171
       Top = 118
       Width = 65
       Height = 21

@@ -17,17 +17,19 @@ type
     Label_ID: TLabel;
     ED_ID: TEdit;
     Label2: TLabel;
-    Edit2: TEdit;
+    ED_Nome: TEdit;
     Label6: TLabel;
     Cmb_Status: TComboBox;
     Label8: TLabel;
     Cmb_Ordem: TComboBox;
     Label3: TLabel;
-    Edit3: TEdit;
+    ED_Login: TEdit;
     Label4: TLabel;
     Ed_DataDe: TMaskEdit;
     Label5: TLabel;
     Ed_DataAte: TMaskEdit;
+    Label1: TLabel;
+    Label7: TLabel;
     procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
@@ -83,6 +85,18 @@ begin
         else
           vWhere := vWhere + ' AND D.STATUS = ''N'' ';
     end;
+
+    if not (trim(Ed_Nome.Text) = '') then
+      if vWhere = '' then
+        vWhere := 'WHERE D.NOME LIKE ''%' + Ed_Nome.Text + '%'''
+      else
+        vWhere := vWhere +#13+ 'D.NOME LIKE ''%' + Ed_Nome.Text + '%''';
+
+    if not (trim(Ed_Login.Text) = '') then
+      if vWhere = '' then
+        vWhere := 'WHERE D.NOME LIKE ''%' + Ed_Login.Text + '%'''
+      else
+        vWhere := vWhere +#13+ 'D.NOME LIKE ''%' + Ed_Login.Text + '%''';
 
    case Cmb_Ordem.itemIndex of
    0: vWhere := vWhere + ' ORDER BY U.ID';

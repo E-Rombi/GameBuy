@@ -20,7 +20,8 @@ uses
   UntRelDesenv_Edit in 'UntRelDesenv_Edit.pas' {FrmRelDesenv_Edit},
   UntRelCategoria in 'UntRelCategoria.pas' {FrmRelCategoria},
   UntRelUsuario in 'UntRelUsuario.pas' {FrmRelUsuario},
-  UntRelPerfil in 'UntRelPerfil.pas' {FrmRelPerfil};
+  UntRelPerfil in 'UntRelPerfil.pas' {FrmRelPerfil},
+  UntRelProdutos in 'UntRelProdutos.pas' {FrmRelProduto};
 
 {$R *.res}
 
@@ -31,5 +32,6 @@ begin
   Application.CreateForm(TFrmMain, FrmMain);
   Application.CreateForm(TFrmRelUsuario, FrmRelUsuario);
   Application.CreateForm(TFrmRelPerfil, FrmRelPerfil);
+  Application.CreateForm(TFrmRelProduto, FrmRelProduto);
   Application.Run;
 end.

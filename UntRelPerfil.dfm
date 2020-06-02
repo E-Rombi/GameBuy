@@ -33,24 +33,17 @@ inherited FrmRelPerfil: TFrmRelPerfil
     end
     object Label8: TLabel [3]
       Left = 16
-      Top = 119
+      Top = 84
       Width = 32
       Height = 13
       Caption = 'Ordem'
     end
-    object Label4: TLabel [4]
-      Left = 16
-      Top = 84
-      Width = 36
+    object Label3: TLabel [4]
+      Left = 463
+      Top = 51
+      Width = 55
       Height = 13
-      Caption = 'Per'#237'odo'
-    end
-    object Label5: TLabel [5]
-      Left = 150
-      Top = 84
-      Width = 16
-      Height = 13
-      Caption = 'at'#233
+      Caption = '(Contendo)'
     end
     inherited Button1: TButton
       Left = 176
@@ -85,7 +78,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         'N'#227'o'
         'Todos')
     end
-    object Edit2: TEdit
+    object ED_Nome: TEdit
       Left = 80
       Top = 48
       Width = 377
@@ -95,7 +88,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
     end
     object Cmb_Ordem: TComboBox
       Left = 80
-      Top = 116
+      Top = 81
       Width = 109
       Height = 21
       Style = csDropDownList
@@ -105,26 +98,6 @@ inherited FrmRelPerfil: TFrmRelPerfil
         'ID'
         'Descri'#231#227'o'
         'Data de cadastro')
-    end
-    object Ed_DataDe: TMaskEdit
-      Left = 80
-      Top = 81
-      Width = 63
-      Height = 21
-      EditMask = '!99/99/9999;1; '
-      MaxLength = 10
-      TabOrder = 6
-      Text = '  /  /    '
-    end
-    object Ed_DataAte: TMaskEdit
-      Left = 173
-      Top = 81
-      Width = 65
-      Height = 21
-      EditMask = '!99/99/9999;1; '
-      MaxLength = 10
-      TabOrder = 7
-      Text = '  /  /    '
     end
   end
   inherited FDQuery1: TFDQuery

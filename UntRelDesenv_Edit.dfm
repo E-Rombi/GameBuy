@@ -19,6 +19,7 @@ inherited FrmRelDesenv_Edit: TFrmRelDesenv_Edit
   inherited Pnl_Ficha: TPanel
     Width = 671
     Height = 260
+    ExplicitLeft = -8
     ExplicitWidth = 671
     ExplicitHeight = 260
     object Label1: TLabel [0]
@@ -44,31 +45,24 @@ inherited FrmRelDesenv_Edit: TFrmRelDesenv_Edit
     end
     object Label2: TLabel [3]
       Left = 19
-      Top = 79
+      Top = 81
       Width = 31
       Height = 13
       Caption = 'Nome:'
     end
     object Label8: TLabel [4]
       Left = 19
-      Top = 140
+      Top = 113
       Width = 32
       Height = 13
       Caption = 'Ordem'
     end
-    object Label4: TLabel [5]
-      Left = 16
-      Top = 113
-      Width = 36
+    object Label7: TLabel [5]
+      Left = 463
+      Top = 81
+      Width = 55
       Height = 13
-      Caption = 'Per'#237'odo'
-    end
-    object Label3: TLabel [6]
-      Left = 144
-      Top = 113
-      Width = 16
-      Height = 13
-      Caption = 'at'#233
+      Caption = '(Contendo)'
     end
     inherited Button1: TButton
       Left = 163
@@ -118,14 +112,14 @@ inherited FrmRelDesenv_Edit: TFrmRelDesenv_Edit
     end
     object Ed_Nome: TEdit
       Left = 73
-      Top = 76
+      Top = 78
       Width = 384
       Height = 21
       TabOrder = 3
     end
     object Cmb_Ordem: TComboBox
       Left = 73
-      Top = 137
+      Top = 110
       Width = 121
       Height = 21
       Style = csDropDownList
@@ -134,26 +128,6 @@ inherited FrmRelDesenv_Edit: TFrmRelDesenv_Edit
         'ID'
         'Nome'
         'Data de Cadastro')
-    end
-    object Ed_DataDe: TMaskEdit
-      Left = 73
-      Top = 110
-      Width = 62
-      Height = 21
-      EditMask = '!99/99/9999;1; '
-      MaxLength = 10
-      TabOrder = 7
-      Text = '  /  /    '
-    end
-    object Ed_DataAte: TMaskEdit
-      Left = 173
-      Top = 110
-      Width = 65
-      Height = 21
-      EditMask = '!99/99/9999;1; '
-      MaxLength = 10
-      TabOrder = 8
-      Text = '  /  /    '
     end
   end
   inherited FDQuery1: TFDQuery
@@ -411,5 +385,13 @@ inherited FrmRelDesenv_Edit: TFrmRelDesenv_Edit
         end
       end
     end
+  end
+  inherited ImageList1: TImageList
+    Left = 320
+    Top = 215
+  end
+  inherited ImageList2: TImageList
+    Left = 448
+    Top = 239
   end
 end

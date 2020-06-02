@@ -24,10 +24,7 @@ type
     Ed_Nome: TEdit;
     Label8: TLabel;
     Cmb_Ordem: TComboBox;
-    Label4: TLabel;
-    Ed_DataDe: TMaskEdit;
-    Label3: TLabel;
-    Ed_DataAte: TMaskEdit;
+    Label7: TLabel;
     procedure Btn_CancelarClick(Sender: TObject);
     procedure Btn_GerarClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -185,20 +182,6 @@ begin
             vWhere := vWhere + ' AND D.STATUS = ''N'' ';
       end;
 
-    if (Ed_DataDe.Text <> '  /  /    ') and (Ed_DataAte.Text <> '  /  /    ')
-    then
-    begin
-      if vWhere = '' then
-        vWhere := ' WHERE D.DATA_CADASTRO between ''' +
-        StringReplace(Ed_DataDe.Text, '/', '.', [rfReplaceAll]) +
-        ''' and ''' +
-                 StringReplace(Ed_DataAte.Text, '/', '.', [rfReplaceAll]) + ''''
-      else
-        vWhere := vWhere + ' AND D.DATA_CADASTRO between ''' +
-        StringReplace(Ed_DataDe.Text, '/', '.', [rfReplaceAll]) + ''' and ''' +
-                StringReplace(Ed_DataAte.Text, '/', '.', [rfReplaceAll]) + '''';
-    end;
-
 
 
     if not (trim(Ed_Nome.Text) = '') then
@@ -206,12 +189,6 @@ begin
         vWhere := ' WHERE D.NOME LIKE ''%' + Ed_Nome.Text + '%'''
       else
         vWhere := vWhere + ' AND D.NOME LIKE ''%' + Ed_Nome.Text + '%''';
-
-    if Cmb_Tipo.ItemIndex = 3 then
-    begin
-      Cmb_Ordem.items.add('Desenvolvedoras primeiro');
-      Cmb_Ordem.items.add('Editoras primeiro');
-    end;
 
     case Cmb_Ordem.ItemIndex of
       0: vWhere := vWhere + ' ORDER BY D.ID';

@@ -1,4 +1,4 @@
-unit UntRelPerfil;
+unit UntRelProdutos;
 
 interface
 
@@ -9,20 +9,31 @@ uses
   FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async, FireDAC.DApt,
   System.ImageList, Vcl.ImgList, frxClass, frxDBSet, Data.DB,
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, Vcl.StdCtrls, Vcl.ExtCtrls,
-  Vcl.Mask;
+  Vcl.Mask, Vcl.DBCtrls;
 
 type
-  TFrmRelPerfil = class(TFrmRelPadrao)
-    Label_ID: TLabel;
-    ED_ID: TEdit;
+  TFrmRelProduto = class(TFrmRelPadrao)
+    Label1: TLabel;
     Label6: TLabel;
     Cmb_Status: TComboBox;
-    ED_Nome: TEdit;
+    Ed_Nome: TEdit;
+    Label5: TLabel;
     Label2: TLabel;
     Label8: TLabel;
     Cmb_Ordem: TComboBox;
+    Ed_ID: TEdit;
+    M_Descricao: TMemo;
     Label3: TLabel;
+    Label4: TLabel;
+    Label7: TLabel;
+    Label9: TLabel;
+    Label10: TLabel;
+    Label11: TLabel;
+    Ed_PrecoDe: TMaskEdit;
+    ED_PrecoAte: TMaskEdit;
+    Cmb_Cat: TComboBox;
     procedure Button1Click(Sender: TObject);
+    procedure CheckBox1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,22 +41,24 @@ type
   end;
 
 var
-  FrmRelPerfil: TFrmRelPerfil;
+  FrmRelProduto: TFrmRelProduto;
 
 implementation
 
 {$R *.dfm}
 
-procedure TFrmRelPerfil.Button1Click(Sender: TObject);
+uses UntDM;
+
+procedure TFrmRelProduto.Button1Click(Sender: TObject);
 var
-  vWhere : String;
+  vWhere,vWhere2 : String;
 begin
   inherited;
   vWhere := '';
   FDQuery1.Close;
   FDQuery1.SQL.Clear;
   FDQuery1.SQL.Add('SELECT P.DESCRICAO, P.LOGIN, P.DATA_CADASTRO, ' +
-  'P.DATA_ALTERACAO, P.FK_PERFIL,P.STATUS,P.ID FROM PERFIL P' );
+  'P.DATA_ALTERACAO, P.FK_PERFIL,P.STATUS,P.ID FROM PRODUTO P' );
 
   if not (trim(Ed_ID.Text) = '') then
     if vWhere = '' then
@@ -67,11 +80,35 @@ begin
           vWhere := vWhere + ' AND P.STATUS = ''N'' ';
     end;
 
-   if not (trim(Ed_Nome.Text) = '') then
+    if not (trim(Ed_Nome.Text) = '') then
       if vWhere = '' then
-        vWhere := 'WHERE P.DESCRICAO LIKE ''%' + Ed_Nome.Text + '%'''
+        vWhere := 'WHERE P.TITULO LIKE ''%' + Ed_Nome.Text + '%'''
       else
-        vWhere := vWhere +#13+ 'P.DESCRICAO LIKE ''%' + Ed_Nome.Text + '%''';
+        vWhere := vWhere +#13+ 'P.TITULO LIKE ''%' + Ed_Nome.Text + '%''';
+
+   if not (trim(M_Descricao.Text) = '') then
+      if vWhere = '' then
+        vWhere := 'WHERE P.DESCRICAO LIKE ''%' + M_Descricao.Text + '%'''
+      else
+        vWhere := vWhere +#13+ 'P.DESCRICAO LIKE ''%' + M_Descricao.Text +
+                                                                          '%''';
+   if (ED_PrecoDe.Text <> '') and (ED_PrecoAte.Text <> '') then
+    if vWhere = '' then
+      vWhere := 'WHERE P.PRECO between '' ' + ED_PrecoDe.Text +
+      ' AND '' ' + ED_PrecoAte.Text + ''' '
+    else
+      vWhere := vWhere +#13+ ' AND P.PRECO between ''' +
+      ED_PrecoDe.Text + ''' AND ''' +ED_PrecoAte.Text + '''';
+
+    if Cmb_Cat.ItemIndex <> 0 then
+      if vWhere = '' then
+        vWhere := 'WHERE P.FK_CATEGORIA = ''' +
+                copy(Cmb_Cat.Items[Cmb_Cat.ItemIndex],0,1) + ''''
+      else
+        vWhere := vWhere +#13+ 'P.FK_CATEGORIA = ''' +
+                copy(Cmb_Cat.Items[Cmb_Cat.ItemIndex],0,1) + '''';
+
+
 
    case Cmb_Ordem.itemIndex of
    0: vWhere := vWhere + ' ORDER BY P.ID';

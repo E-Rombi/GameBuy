@@ -19,10 +19,13 @@ type
     Cmb_Status: TComboBox;
     Label6: TLabel;
     Label5: TLabel;
-    Ed_Fantasia: TEdit;
+    Ed_Nome: TEdit;
     Label3: TLabel;
     Label8: TLabel;
     Cmb_Ordem: TComboBox;
+    Label2: TLabel;
+    M_Descricao: TMemo;
+    Label4: TLabel;
     procedure Btn_CancelarClick(Sender: TObject);
     procedure Btn_GerarClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
@@ -113,6 +116,7 @@ begin
         vWhere := ' WHERE C.STATUS = ''S'' '
       else
         vWhere := vWhere + ' AND C.STATUS = ''S'' '
+
     else
     begin
       if Cmb_Status.ItemIndex = 1 then
@@ -121,6 +125,19 @@ begin
         else
           vWhere := vWhere + ' AND C.STATUS = ''N'' ';
     end;
+
+    if not (trim(Ed_Nome.Text) = '') then
+      if vWhere = '' then
+        vWhere := 'WHERE C.NOME LIKE ''%' + Ed_Nome.Text + '%'''
+      else
+        vWhere := vWhere +#13+ 'C.NOME LIKE ''%' + Ed_Nome.Text + '%''';
+
+    if not (trim(M_Descricao.Text) = '') then
+      if vWhere = '' then
+        vWhere := 'WHERE C.DESCRICAO LIKE ''%' + M_Descricao.Text + '%'''
+      else
+        vWhere := vWhere +#13+ 'C.DESCRICAO LIKE ''%' + M_Descricao.Text +
+                                                                          '%''';
 
 
 
