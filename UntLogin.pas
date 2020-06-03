@@ -118,11 +118,29 @@ begin
         if FQry_Login.FieldByName('CADASTRO').AsString = 'S' then
           Cad_Cliente.Visible := True;
 
+
+        if FQry_Login.FieldByName('RELATORIOS').AsString = 'S' then
+        begin
+          Relatorios.Visible := True;
+          if FQry_Login.FieldByName('RELAVANCADOS').AsString = 'S' then
+          begin
+            PerfilRel.Visible := True;
+            UsuarioRel.Visible := True;
+          end;
+        end;
+
+
+
+
+
         if (FQry_Login.FieldByName('PRODUTO').AsString = 'S')
           or (FQry_Login.FieldByName('CATEGORIA').AsString = 'S')
           or (FQry_Login.FieldByName('DESENV_EDIT').AsString = 'S') then
-          Estoque1.Visible := True;
-          Cad_Produto.Visible := True;
+          begin
+            Estoque1.Visible := True;
+            Cad_Produto.Visible := True;
+          end;
+
 
 
 

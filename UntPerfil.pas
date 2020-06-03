@@ -305,7 +305,6 @@ end;
 procedure TFrmPerfil.btn_InserirClick(Sender: TObject);
 begin
   inherited;
-  TabSheet1.SetFocus;
 
   DBcheckbox1.Checked := false;
   DBcheckbox2.Checked := false;

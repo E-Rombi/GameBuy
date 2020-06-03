@@ -160,6 +160,8 @@ inherited FrmVenda: TFrmVenda
         DataField = 'STATUS'
         DataSource = DataSource
         TabOrder = 1
+        ValueChecked = 'S'
+        ValueUnchecked = 'N'
       end
     end
     inherited GrpBox_InfoReg: TGroupBox

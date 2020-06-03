@@ -33,6 +33,7 @@ type
     procedure FDTabelaBeforePost(DataSet: TDataSet);
     procedure Nome1Click(Sender: TObject);
     procedure DatadeAlterao1Click(Sender: TObject);
+    procedure btn_InserirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,6 +48,12 @@ implementation
 {$R *.dfm}
 
 uses UntMain;
+
+procedure TFrmCategoria.btn_InserirClick(Sender: TObject);
+begin
+  DBCheckBox21.Checked := true;
+  inherited;
+end;
 
 procedure TFrmCategoria.DatadeAlterao1Click(Sender: TObject);
 begin

@@ -235,6 +235,7 @@ begin
   FDTabela.Edit;
   HabilitaForm(True);
   HabilitaItem(False);
+  DBCheckBox21.Checked := true;
 end;
 
 procedure TFrmVenda.Btn_NovoItemClick(Sender: TObject);

@@ -95,13 +95,15 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
     end
     object DBCheckBox21: TDBCheckBox
       Left = 559
-      Top = 10
+      Top = 12
       Width = 97
       Height = 17
       Caption = 'Registro Ativo'
       DataField = 'STATUS'
       DataSource = DataSource
       TabOrder = 1
+      ValueChecked = 'S'
+      ValueUnchecked = 'N'
     end
   end
   inherited FDTabela: TFDTable

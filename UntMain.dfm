@@ -220,9 +220,10 @@ object FrmMain: TFrmMain
         OnClick = ShowForm
       end
     end
-    object Relatrios1: TMenuItem
+    object Relatorios: TMenuItem
       Caption = 'Relat'#243'rios'
       SubMenuImages = ImageList1
+      Visible = False
       object Categoria1: TMenuItem
         Caption = 'Estoque'
         SubMenuImages = ImageList1
@@ -246,15 +247,27 @@ object FrmMain: TFrmMain
           OnClick = ShowForm
         end
       end
-      object Rel_Clientes: TMenuItem
-        Caption = 'Clientes'
-        SubMenuImages = ImageList1
-        ImageIndex = 6
+      object PerfilRel: TMenuItem
+        Caption = 'Perfil'
+        ImageIndex = 5
+        Visible = False
+        OnClick = ShowForm
+      end
+      object UsuarioRel: TMenuItem
+        Caption = 'Usu'#225'rio'
+        ImageIndex = 4
+        Visible = False
         OnClick = ShowForm
       end
       object Rel_Vendas: TMenuItem
         Caption = 'Vendas'
         ImageIndex = 7
+        OnClick = ShowForm
+      end
+      object Rel_Clientes: TMenuItem
+        Caption = 'Clientes'
+        SubMenuImages = ImageList1
+        ImageIndex = 6
         OnClick = ShowForm
       end
     end

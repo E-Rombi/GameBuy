@@ -229,6 +229,7 @@ end;
 procedure TFrmCadastro.btn_InserirClick(Sender: TObject);
 begin
   inherited;
+  DBChk_Ativo.Checked := true;
   FDTable_Detalhe_1.Insert;
   HabilitaForm(True);
 end;

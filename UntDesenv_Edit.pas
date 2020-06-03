@@ -56,6 +56,7 @@ begin
   inherited;
   dbcheckbox1.Checked := false;
   dbcheckbox2.Checked := false;
+  DBCheckBox21.Checked := true;
 end;
 
 procedure TFrmDesenv_Edit.DatadeAlterao1Click(Sender: TObject);

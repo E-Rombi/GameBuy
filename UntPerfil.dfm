@@ -965,8 +965,8 @@ inherited FrmPerfil: TFrmPerfil
     end
   end
   inherited DataSource: TDataSource
-    Left = 568
-    Top = 72
+    Left = 720
+    Top = 80
   end
   inherited DSUsuarioAlt: TDataSource
     Left = 448

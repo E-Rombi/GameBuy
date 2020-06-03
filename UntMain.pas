@@ -47,7 +47,7 @@ type
     DSVendas_Por_Item: TDataSource;
     Button2: TButton;
     BarSeries1: TBarSeries;
-    Relatrios1: TMenuItem;
+    Relatorios: TMenuItem;
     Rel_Clientes: TMenuItem;
     Rel_Vendas: TMenuItem;
     Atribuies1: TMenuItem;
@@ -57,6 +57,8 @@ type
     Rel_Categoria: TMenuItem;
     Rel_Desenv_Edit: TMenuItem;
     ImageList2: TImageList;
+    PerfilRel: TMenuItem;
+    UsuarioRel: TMenuItem;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure Timer1Timer(Sender: TObject);

@@ -46,6 +46,7 @@ type
     procedure btn_EditarClick(Sender: TObject);
     procedure btn_SalvarClick(Sender: TObject);
     procedure btn_CancelarClick(Sender: TObject);
+    procedure btn_InserirClick(Sender: TObject);
   private
     { Private declarations }
     var editando : bool;
@@ -72,6 +73,13 @@ end;
 procedure TFrmUsuario.btn_EditarClick(Sender: TObject);
 begin
   editando := true;
+  inherited;
+
+end;
+
+procedure TFrmUsuario.btn_InserirClick(Sender: TObject);
+begin
+  DBCheckBox21.Checked := true;
   inherited;
 
 end;
