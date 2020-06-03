@@ -72,7 +72,7 @@ inherited FrmRelCategoria: TFrmRelCategoria
     inherited Button1: TButton
       Left = 163
       Top = 208
-      TabOrder = 3
+      TabOrder = 5
       OnClick = Button1Click
       ExplicitLeft = 163
       ExplicitTop = 208
@@ -116,7 +116,7 @@ inherited FrmRelCategoria: TFrmRelCategoria
       Width = 121
       Height = 21
       Style = csDropDownList
-      TabOrder = 5
+      TabOrder = 3
       Items.Strings = (
         'ID'
         'Nome'

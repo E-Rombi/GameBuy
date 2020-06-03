@@ -84,7 +84,7 @@ inherited FrmRelCliente: TFrmRelCliente
     inherited Button1: TButton
       Left = 163
       Top = 192
-      TabOrder = 8
+      TabOrder = 9
       OnClick = Button1Click
       ExplicitLeft = 163
       ExplicitTop = 192
@@ -92,7 +92,7 @@ inherited FrmRelCliente: TFrmRelCliente
     inherited Button2: TButton
       Left = 19
       Top = 192
-      TabOrder = 9
+      TabOrder = 8
       ExplicitLeft = 19
       ExplicitTop = 192
     end
@@ -108,7 +108,7 @@ inherited FrmRelCliente: TFrmRelCliente
       Top = 76
       Width = 384
       Height = 21
-      TabOrder = 1
+      TabOrder = 4
     end
     object Cmb_TipoPessoa: TComboBox
       Left = 73
@@ -137,7 +137,7 @@ inherited FrmRelCliente: TFrmRelCliente
       Width = 121
       Height = 21
       Style = csDropDownList
-      TabOrder = 4
+      TabOrder = 1
       Items.Strings = (
         'Sim'
         'N'#227'o'
@@ -148,7 +148,7 @@ inherited FrmRelCliente: TFrmRelCliente
       Top = 105
       Width = 240
       Height = 21
-      TabOrder = 5
+      TabOrder = 6
     end
     object Cmb_Estado: TComboBox
       Left = 73
@@ -156,7 +156,7 @@ inherited FrmRelCliente: TFrmRelCliente
       Width = 75
       Height = 21
       Style = csDropDownList
-      TabOrder = 6
+      TabOrder = 5
       Items.Strings = (
         'Todos'
         'AC'

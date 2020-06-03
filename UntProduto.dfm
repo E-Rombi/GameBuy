@@ -81,7 +81,7 @@ inherited FrmProduto: TFrmProduto
       Height = 21
       DataField = 'TITULO'
       DataSource = DataSource
-      TabOrder = 0
+      TabOrder = 2
     end
     object DBEd_Preco: TDBEdit [8]
       Left = 75
@@ -90,7 +90,7 @@ inherited FrmProduto: TFrmProduto
       Height = 21
       DataField = 'PRECO'
       DataSource = DataSource
-      TabOrder = 1
+      TabOrder = 5
     end
     object DBLookupComboBox1: TDBLookupComboBox [9]
       Left = 75
@@ -102,7 +102,7 @@ inherited FrmProduto: TFrmProduto
       KeyField = 'ID'
       ListField = 'NOME'
       ListSource = DSCategoria
-      TabOrder = 2
+      TabOrder = 4
     end
     object DBImage1: TDBImage [10]
       Left = 620
@@ -112,7 +112,7 @@ inherited FrmProduto: TFrmProduto
       DataField = 'FOTO'
       DataSource = DataSource
       Stretch = True
-      TabOrder = 3
+      TabOrder = 8
     end
     object Button1: TButton [11]
       Left = 486
@@ -120,7 +120,7 @@ inherited FrmProduto: TFrmProduto
       Width = 100
       Height = 25
       Caption = 'Adicionar Imagem'
-      TabOrder = 4
+      TabOrder = 7
       OnClick = Button1Click
     end
     object DBMemo1: TDBMemo [12]
@@ -130,7 +130,7 @@ inherited FrmProduto: TFrmProduto
       Height = 139
       DataField = 'DESCRICAO'
       DataSource = DataSource
-      TabOrder = 5
+      TabOrder = 3
     end
     object DBEdit3: TDBEdit [13]
       Left = 263
@@ -144,7 +144,7 @@ inherited FrmProduto: TFrmProduto
     inherited GrpBox_InfoReg: TGroupBox
       Left = 620
       Top = 309
-      TabOrder = 7
+      TabOrder = 9
       ExplicitLeft = 620
       ExplicitTop = 309
     end
@@ -156,7 +156,7 @@ inherited FrmProduto: TFrmProduto
       DataField = 'ID'
       DataSource = DataSource
       ReadOnly = True
-      TabOrder = 8
+      TabOrder = 0
     end
     object DBChk_Ativo: TDBCheckBox
       Left = 543
@@ -166,7 +166,7 @@ inherited FrmProduto: TFrmProduto
       Caption = 'Ativo'
       DataField = 'STATUS'
       DataSource = DataSource
-      TabOrder = 9
+      TabOrder = 1
       ValueChecked = 'S'
       ValueUnchecked = 'N'
     end
@@ -269,6 +269,24 @@ inherited FrmProduto: TFrmProduto
   inherited ImageList3: TImageList
     Left = 248
     Top = 340
+  end
+  inherited PopupMenu1: TPopupMenu
+    object tulo1: TMenuItem
+      Caption = 'T'#237'tulo'
+      OnClick = tulo1Click
+    end
+    object Categoria1: TMenuItem
+      Caption = 'Categoria'
+      OnClick = Categoria1Click
+    end
+    object PrecoAsc1: TMenuItem
+      Caption = 'Pre'#231'o'
+      OnClick = PrecoAsc1Click
+    end
+    object DatadeAlterao1: TMenuItem
+      Caption = 'Data de Altera'#231#227'o'
+      OnClick = DatadeAlterao1Click
+    end
   end
   object OpenPictureDialog1: TOpenPictureDialog
     Filter = 

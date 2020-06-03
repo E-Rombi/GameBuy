@@ -89,6 +89,7 @@ inherited FrmRelProduto: TFrmRelProduto
     inherited Button1: TButton
       Left = 165
       Top = 272
+      TabOrder = 8
       OnClick = Button1Click
       ExplicitLeft = 165
       ExplicitTop = 272
@@ -96,6 +97,7 @@ inherited FrmRelProduto: TFrmRelProduto
     inherited Button2: TButton
       Left = 19
       Top = 272
+      TabOrder = 7
       ExplicitLeft = 19
       ExplicitTop = 272
     end
@@ -105,7 +107,7 @@ inherited FrmRelProduto: TFrmRelProduto
       Width = 121
       Height = 21
       Style = csDropDownList
-      TabOrder = 2
+      TabOrder = 1
       Items.Strings = (
         'Sim'
         'N'#227'o'
@@ -116,7 +118,7 @@ inherited FrmRelProduto: TFrmRelProduto
       Top = 46
       Width = 384
       Height = 21
-      TabOrder = 3
+      TabOrder = 2
     end
     object Cmb_Ordem: TComboBox
       Left = 89
@@ -124,7 +126,7 @@ inherited FrmRelProduto: TFrmRelProduto
       Width = 121
       Height = 21
       Style = csDropDownList
-      TabOrder = 4
+      TabOrder = 6
       Items.Strings = (
         'ID'
         'T'#237'tulo'
@@ -136,7 +138,7 @@ inherited FrmRelProduto: TFrmRelProduto
       Top = 14
       Width = 72
       Height = 21
-      TabOrder = 5
+      TabOrder = 0
     end
     object M_Descricao: TMemo
       Left = 89
@@ -146,7 +148,7 @@ inherited FrmRelProduto: TFrmRelProduto
       CharCase = ecUpperCase
       Ctl3D = True
       ParentCtl3D = False
-      TabOrder = 6
+      TabOrder = 3
     end
     object Ed_PrecoDe: TMaskEdit
       Left = 89
@@ -155,7 +157,7 @@ inherited FrmRelProduto: TFrmRelProduto
       Height = 21
       EditMask = 'R$ 999999;0; '
       MaxLength = 9
-      TabOrder = 7
+      TabOrder = 4
       Text = ''
     end
     object ED_PrecoAte: TMaskEdit
@@ -165,7 +167,7 @@ inherited FrmRelProduto: TFrmRelProduto
       Height = 21
       EditMask = 'R$ 999999;0; '
       MaxLength = 9
-      TabOrder = 8
+      TabOrder = 5
       Text = ''
     end
   end

@@ -713,7 +713,7 @@ inherited FrmCadastro: TFrmCadastro
       OnClick = Fantasia1Click
     end
     object DataCadastro1: TMenuItem
-      Caption = 'Data Alteracao'
+      Caption = 'Data de Altera'#231#227'o'
       OnClick = DataCadastro1Click
     end
     object ipoPessoa1: TMenuItem

@@ -49,7 +49,7 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
     inherited GrpBox_InfoReg: TGroupBox
       Left = 559
       Top = 35
-      TabOrder = 4
+      TabOrder = 5
       ExplicitLeft = 559
       ExplicitTop = 35
     end
@@ -60,7 +60,7 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
       Height = 21
       DataField = 'NOME'
       DataSource = DataSource
-      TabOrder = 1
+      TabOrder = 2
     end
     object DBCheckBox1: TDBCheckBox
       Left = 84
@@ -70,7 +70,7 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
       Caption = #201' desenvolvedora'
       DataField = 'CHK_DESENVOLVEDORA'
       DataSource = DataSource
-      TabOrder = 2
+      TabOrder = 3
       ValueChecked = 'S'
       ValueUnchecked = 'N'
     end
@@ -82,7 +82,7 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
       Caption = #201' editora'
       DataField = 'CHK_EDITORA'
       DataSource = DataSource
-      TabOrder = 3
+      TabOrder = 4
       ValueChecked = 'S'
       ValueUnchecked = 'N'
     end
@@ -101,7 +101,7 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
       Caption = 'Registro Ativo'
       DataField = 'STATUS'
       DataSource = DataSource
-      TabOrder = 5
+      TabOrder = 1
     end
   end
   inherited FDTabela: TFDTable
@@ -167,5 +167,15 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
   end
   inherited ImageList3: TImageList
     Left = 680
+  end
+  inherited PopupMenu1: TPopupMenu
+    object Nome1: TMenuItem
+      Caption = 'Nome'
+      OnClick = Nome1Click
+    end
+    object DatadeAlterao1: TMenuItem
+      Caption = 'Data de Altera'#231#227'o'
+      OnClick = DatadeAlterao1Click
+    end
   end
 end

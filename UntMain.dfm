@@ -58,8 +58,8 @@ object FrmMain: TFrmMain
     TabOrder = 1
     object TbSht_Main: TTabSheet
       object Grafico_Vendas: TDBChart
-        Left = 3
-        Top = -35
+        Left = -2
+        Top = -43
         Width = 686
         Height = 349
         Title.Text.Strings = (
@@ -265,6 +265,7 @@ object FrmMain: TFrmMain
         Caption = 'Atribui'#231#245'es'
         SubMenuImages = ImageList1
         ImageIndex = 8
+        OnClick = ShowForm
       end
     end
   end

@@ -39,6 +39,7 @@ type
     Label6: TLabel;
     DBEdit4: TDBEdit;
     FDQueryValidarLogin: TFDQuery;
+    DBCheckBox21: TDBCheckBox;
     procedure FormActivate(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
     procedure FDTabelaBeforePost(DataSet: TDataSet);

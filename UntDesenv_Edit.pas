@@ -29,9 +29,13 @@ type
     Label4: TLabel;
     DBEdit2: TDBEdit;
     DBCheckBox21: TDBCheckBox;
+    Nome1: TMenuItem;
+    DatadeAlterao1: TMenuItem;
     procedure FormActivate(Sender: TObject);
     procedure FDTabelaBeforePost(DataSet: TDataSet);
     procedure btn_InserirClick(Sender: TObject);
+    procedure Nome1Click(Sender: TObject);
+    procedure DatadeAlterao1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,6 +56,12 @@ begin
   inherited;
   dbcheckbox1.Checked := false;
   dbcheckbox2.Checked := false;
+end;
+
+procedure TFrmDesenv_Edit.DatadeAlterao1Click(Sender: TObject);
+begin
+  inherited;
+  FDTabela.IndexFieldNames := 'DATA_ALTERACAO';
 end;
 
 procedure TFrmDesenv_Edit.FDTabelaBeforePost(DataSet: TDataSet);
@@ -80,6 +90,12 @@ begin
   FDTabela.Open();
   Executar := habilitaBotoes;
 
+end;
+
+procedure TFrmDesenv_Edit.Nome1Click(Sender: TObject);
+begin
+  inherited;
+  FDTabela.IndexFieldNames := 'NOME';
 end;
 
 end.

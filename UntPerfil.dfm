@@ -81,7 +81,7 @@ inherited FrmPerfil: TFrmPerfil
       Top = 1
       Width = 936
       Height = 262
-      ActivePage = TabSheet1
+      ActivePage = TabSheet3
       Align = alClient
       TabOrder = 4
       object TabSheet1: TTabSheet
@@ -453,9 +453,11 @@ inherited FrmPerfil: TFrmPerfil
         object DBCheckBox25: TDBCheckBox
           Left = 184
           Top = 37
-          Width = 97
+          Width = 105
           Height = 17
-          Caption = 'Habilitar Menu'
+          Caption = 'Relat'#243'rios comuns'
+          DataField = 'RELATORIOS'
+          DataSource = DataSource
           TabOrder = 0
           ValueChecked = 'S'
           ValueUnchecked = 'N'
@@ -463,30 +465,12 @@ inherited FrmPerfil: TFrmPerfil
         object DBCheckBox28: TDBCheckBox
           Left = 352
           Top = 37
-          Width = 97
+          Width = 156
           Height = 17
-          Caption = 'Inser'#231#227'o'
+          Caption = 'Relat'#243'rios de usu'#225'rios/perfis'
+          DataField = 'RELAVANCADOS'
+          DataSource = DataSource
           TabOrder = 1
-          ValueChecked = 'S'
-          ValueUnchecked = 'N'
-        end
-        object DBCheckBox31: TDBCheckBox
-          Left = 514
-          Top = 37
-          Width = 97
-          Height = 17
-          Caption = 'Altera'#231#227'o'
-          TabOrder = 2
-          ValueChecked = 'S'
-          ValueUnchecked = 'N'
-        end
-        object DBCheckBox34: TDBCheckBox
-          Left = 656
-          Top = 39
-          Width = 97
-          Height = 17
-          Caption = 'Exclus'#227'o'
-          TabOrder = 3
           ValueChecked = 'S'
           ValueUnchecked = 'N'
         end
@@ -496,7 +480,7 @@ inherited FrmPerfil: TFrmPerfil
           Width = 75
           Height = 25
           Caption = 'Marcar tudo'
-          TabOrder = 4
+          TabOrder = 2
           OnClick = BitBtn3Click
         end
         object BitBtn8: TBitBtn
@@ -505,7 +489,7 @@ inherited FrmPerfil: TFrmPerfil
           Width = 93
           Height = 25
           Caption = 'Desmarcar tudo'
-          TabOrder = 5
+          TabOrder = 3
           OnClick = BitBtn8Click
         end
       end
@@ -670,7 +654,7 @@ inherited FrmPerfil: TFrmPerfil
       Width = 218
       Height = 105
       Caption = 'Infos Registro'
-      TabOrder = 1
+      TabOrder = 3
       object Label4: TLabel
         Left = 8
         Top = 27
@@ -730,7 +714,7 @@ inherited FrmPerfil: TFrmPerfil
       Height = 21
       DataField = 'DESCRICAO'
       DataSource = DataSource
-      TabOrder = 0
+      TabOrder = 2
     end
     object DBEdit8: TDBEdit
       Left = 72
@@ -740,7 +724,7 @@ inherited FrmPerfil: TFrmPerfil
       DataField = 'ID'
       DataSource = DataSource
       ReadOnly = True
-      TabOrder = 2
+      TabOrder = 0
     end
     object DBCheckBox21: TDBCheckBox
       Left = 542
@@ -750,7 +734,7 @@ inherited FrmPerfil: TFrmPerfil
       Caption = 'Registro Ativo'
       DataField = 'STATUS'
       DataSource = DataSource
-      TabOrder = 3
+      TabOrder = 1
     end
   end
   inherited FDTabela: TFDTable
@@ -964,6 +948,18 @@ inherited FrmPerfil: TFrmPerfil
     object FDTabelaGRAFICO_VENDAS_ITEM: TStringField
       FieldName = 'GRAFICO_VENDAS_ITEM'
       Origin = 'GRAFICO_VENDAS_ITEM'
+      FixedChar = True
+      Size = 1
+    end
+    object FDTabelaRELATORIOS: TStringField
+      FieldName = 'RELATORIOS'
+      Origin = 'RELATORIOS'
+      FixedChar = True
+      Size = 1
+    end
+    object FDTabelaRELAVANCADOS: TStringField
+      FieldName = 'RELAVANCADOS'
+      Origin = 'RELAVANCADOS'
       FixedChar = True
       Size = 1
     end
@@ -5235,9 +5231,19 @@ inherited FrmPerfil: TFrmPerfil
     Left = 376
     Top = 128
   end
+  inherited PopupMenu1: TPopupMenu
+    object Descrio1: TMenuItem
+      Caption = 'Descri'#231#227'o'
+      OnClick = Descrio1Click
+    end
+    object DatadeAlterao1: TMenuItem
+      Caption = 'Data de Altera'#231#227'o'
+      OnClick = DatadeAlterao1Click
+    end
+  end
   object FDQryValidarDescricao: TFDQuery
     Connection = DM.FDConnection1
-    Left = 64
-    Top = 170
+    Left = 72
+    Top = 178
   end
 end

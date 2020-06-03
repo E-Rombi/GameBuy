@@ -97,8 +97,6 @@ type
     Cliente: TLabel;
     DBCheckBox25: TDBCheckBox;
     DBCheckBox28: TDBCheckBox;
-    DBCheckBox31: TDBCheckBox;
-    DBCheckBox34: TDBCheckBox;
     TabSheet4: TTabSheet;
     Label18: TLabel;
     Label19: TLabel;
@@ -126,6 +124,10 @@ type
     BitBtn7: TBitBtn;
     BitBtn8: TBitBtn;
     DBCheckBox21: TDBCheckBox;
+    FDTabelaRELATORIOS: TStringField;
+    FDTabelaRELAVANCADOS: TStringField;
+    Descrio1: TMenuItem;
+    DatadeAlterao1: TMenuItem;
     procedure FormActivate(Sender: TObject);
     procedure FDTabelaBeforePost(DataSet: TDataSet);
     procedure btn_InserirClick(Sender: TObject);
@@ -140,6 +142,8 @@ type
     procedure btn_EditarClick(Sender: TObject);
     procedure btn_SalvarClick(Sender: TObject);
     procedure btn_CancelarClick(Sender: TObject);
+    procedure Descrio1Click(Sender: TObject);
+    procedure DatadeAlterao1Click(Sender: TObject);
   private
     { Private declarations }
       var editando : bool;
@@ -199,8 +203,7 @@ begin
   inherited;
   dbcheckbox25.Checked := true;
   dbcheckbox28.Checked := true;
-  dbcheckbox31.Checked := true;
-  dbcheckbox34.Checked := true;
+
 
   bitbtn8.Enabled := true;
   bitbtn3.Enabled := false;
@@ -281,8 +284,6 @@ begin
   inherited;
     dbcheckbox25.Checked := False;
     dbcheckbox28.Checked := False;
-    dbcheckbox31.Checked := False;
-    dbcheckbox34.Checked := False;
 
     bitbtn3.Enabled := true;
     bitbtn8.Enabled := false;
@@ -330,8 +331,6 @@ begin
   DBcheckbox23.Checked := false;
   DBcheckbox25.Checked := false;
   DBcheckbox28.Checked := false;
-  DBcheckbox31.Checked := false;
-  DBcheckbox34.Checked := false;
   DBcheckbox37.Checked := false;
   DBcheckbox38.Checked := false;
   DBcheckbox40.Checked := false;
@@ -353,6 +352,18 @@ procedure TFrmPerfil.btn_SalvarClick(Sender: TObject);
 begin
   inherited;
   editando := false;
+end;
+
+procedure TFrmPerfil.DatadeAlterao1Click(Sender: TObject);
+begin
+  inherited;
+  FDTabela.IndexFieldNames := 'DATA_ALTERACAO';
+end;
+
+procedure TFrmPerfil.Descrio1Click(Sender: TObject);
+begin
+  inherited;
+  FDTabela.IndexFieldNames := 'DESCRICAO';
 end;
 
 procedure TFrmPerfil.FDTabelaBeforePost(DataSet: TDataSet);

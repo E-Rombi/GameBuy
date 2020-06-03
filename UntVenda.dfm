@@ -126,7 +126,7 @@ inherited FrmVenda: TFrmVenda
         KeyField = 'ID'
         ListField = 'FANTASIA'
         ListSource = DSCliente
-        TabOrder = 0
+        TabOrder = 2
       end
       object DBEdit1: TDBEdit
         Left = 51
@@ -136,7 +136,7 @@ inherited FrmVenda: TFrmVenda
         DataField = 'ID'
         DataSource = DataSource
         ReadOnly = True
-        TabOrder = 1
+        TabOrder = 0
       end
       object DBChk_Entregar: TDBCheckBox
         Left = 7
@@ -146,10 +146,20 @@ inherited FrmVenda: TFrmVenda
         Caption = 'Entregar'
         DataField = 'CHK_ENTREGAR'
         DataSource = DataSource
-        TabOrder = 2
+        TabOrder = 3
         ValueChecked = 'S'
         ValueUnchecked = 'N'
         OnClick = DBChk_EntregarClick
+      end
+      object DBCheckBox21: TDBCheckBox
+        Left = 426
+        Top = 5
+        Width = 97
+        Height = 17
+        Caption = 'Registro Ativo'
+        DataField = 'STATUS'
+        DataSource = DataSource
+        TabOrder = 1
       end
     end
     inherited GrpBox_InfoReg: TGroupBox
@@ -556,7 +566,7 @@ inherited FrmVenda: TFrmVenda
       OnClick = Cliente1Click
     end
     object DataAlteracao1: TMenuItem
-      Caption = 'Data Alteracao'
+      Caption = 'Data de Altera'#231#227'o'
       OnClick = DataAlteracao1Click
     end
     object Entregar1: TMenuItem

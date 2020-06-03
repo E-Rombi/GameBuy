@@ -44,10 +44,18 @@ type
     Label11: TLabel;
     DBEdit2: TDBEdit;
     DBChk_Ativo: TDBCheckBox;
+    tulo1: TMenuItem;
+    Categoria1: TMenuItem;
+    PrecoAsc1: TMenuItem;
+    DatadeAlterao1: TMenuItem;
     procedure FormActivate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure FDTabelaNewRecord(DataSet: TDataSet);
     procedure FDTabelaBeforePost(DataSet: TDataSet);
+    procedure Categoria1Click(Sender: TObject);
+    procedure tulo1Click(Sender: TObject);
+    procedure PrecoAsc1Click(Sender: TObject);
+    procedure DatadeAlterao1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -80,6 +88,18 @@ begin
     end
     else
       raise Exception.Create('Arquivo Inexistente !');
+end;
+
+procedure TFrmProduto.Categoria1Click(Sender: TObject);
+begin
+  inherited;
+  FDTabela.IndexFieldNames := 'FK_CATEGORIA';
+end;
+
+procedure TFrmProduto.DatadeAlterao1Click(Sender: TObject);
+begin
+  inherited;
+  FDTabela.IndexFieldNames := 'DATA_ALTERACAO';
 end;
 
 procedure TFrmProduto.FDTabelaBeforePost(DataSet: TDataSet);
@@ -163,6 +183,19 @@ begin
   FQuery.Open();
 
   Executar := habilitaBotoes;
+end;
+
+procedure TFrmProduto.PrecoAsc1Click(Sender: TObject);
+begin
+  inherited;
+  FDTabela.IndexFieldNames := 'PRECO';
+end;
+
+procedure TFrmProduto.tulo1Click(Sender: TObject);
+begin
+  inherited;
+  FDTabela.IndexFieldNames := 'TITULO';
+
 end;
 
 end.

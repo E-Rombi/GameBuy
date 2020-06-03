@@ -76,6 +76,7 @@ inherited FrmRelUsuario: TFrmRelUsuario
     inherited Button1: TButton
       Left = 166
       Top = 244
+      TabOrder = 8
       OnClick = Button1Click
       ExplicitLeft = 166
       ExplicitTop = 244
@@ -83,6 +84,7 @@ inherited FrmRelUsuario: TFrmRelUsuario
     inherited Button2: TButton
       Left = 16
       Top = 244
+      TabOrder = 7
       ExplicitLeft = 16
       ExplicitTop = 244
     end
@@ -91,7 +93,7 @@ inherited FrmRelUsuario: TFrmRelUsuario
       Top = 13
       Width = 121
       Height = 21
-      TabOrder = 2
+      TabOrder = 0
       Text = 'ED_ID'
     end
     object ED_Nome: TEdit
@@ -99,7 +101,7 @@ inherited FrmRelUsuario: TFrmRelUsuario
       Top = 46
       Width = 393
       Height = 21
-      TabOrder = 3
+      TabOrder = 2
       Text = 'Edit1'
     end
     object Cmb_Status: TComboBox
@@ -108,7 +110,7 @@ inherited FrmRelUsuario: TFrmRelUsuario
       Width = 121
       Height = 21
       Style = csDropDownList
-      TabOrder = 4
+      TabOrder = 1
       Items.Strings = (
         'Sim'
         'N'#227'o'
@@ -120,7 +122,7 @@ inherited FrmRelUsuario: TFrmRelUsuario
       Width = 121
       Height = 21
       Style = csDropDownList
-      TabOrder = 5
+      TabOrder = 6
       Visible = False
       Items.Strings = (
         'ID'
@@ -134,7 +136,7 @@ inherited FrmRelUsuario: TFrmRelUsuario
       Top = 83
       Width = 393
       Height = 21
-      TabOrder = 6
+      TabOrder = 3
       Text = 'Edit1'
     end
     object Ed_DataDe: TMaskEdit
@@ -144,7 +146,7 @@ inherited FrmRelUsuario: TFrmRelUsuario
       Height = 21
       EditMask = '!99/99/9999;1; '
       MaxLength = 10
-      TabOrder = 7
+      TabOrder = 4
       Text = '  /  /    '
     end
     object Ed_DataAte: TMaskEdit
@@ -154,7 +156,7 @@ inherited FrmRelUsuario: TFrmRelUsuario
       Height = 21
       EditMask = '!99/99/9999;1; '
       MaxLength = 10
-      TabOrder = 8
+      TabOrder = 5
       Text = '  /  /    '
     end
   end

@@ -48,6 +48,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
     inherited Button1: TButton
       Left = 176
       Top = 208
+      TabOrder = 5
       OnClick = Button1Click
       ExplicitLeft = 176
       ExplicitTop = 208
@@ -55,6 +56,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
     inherited Button2: TButton
       Left = 25
       Top = 208
+      TabOrder = 4
       ExplicitLeft = 25
       ExplicitTop = 208
     end
@@ -63,7 +65,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
       Top = 13
       Width = 105
       Height = 21
-      TabOrder = 2
+      TabOrder = 0
       Text = 'ED_ID'
     end
     object Cmb_Status: TComboBox
@@ -72,7 +74,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
       Width = 121
       Height = 21
       Style = csDropDownList
-      TabOrder = 3
+      TabOrder = 1
       Items.Strings = (
         'Sim'
         'N'#227'o'
@@ -83,7 +85,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
       Top = 48
       Width = 377
       Height = 21
-      TabOrder = 4
+      TabOrder = 2
       Text = 'Edit1'
     end
     object Cmb_Ordem: TComboBox
@@ -92,7 +94,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
       Width = 109
       Height = 21
       Style = csDropDownList
-      TabOrder = 5
+      TabOrder = 3
       Visible = False
       Items.Strings = (
         'ID'
@@ -1207,39 +1209,10 @@ inherited FrmRelPerfil: TFrmRelPerfil
             'Permiss'#245'es (Ver-Incluir-Editar-Excluir)')
           ParentFont = False
         end
-        object frxDBDataset1GRAFICO_VENDAS: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Left = 196.535560000000000000
-          Top = 41.574830000000000000
-          Width = 22.677180000000000000
-          Height = 18.897650000000000000
-          DataField = 'GRAFICO_VENDAS'
-          DataSet = frxDBDataset1
-          DataSetName = 'frxDBDataset1'
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[frxDBDataset1."GRAFICO_VENDAS"]')
-        end
-        object frxDBDataset1GRAFICO_VENDAS_ITEM: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Left = 468.661720000000000000
-          Top = 41.574830000000000000
-          Width = 26.456710000000000000
-          Height = 18.897650000000000000
-          DataField = 'GRAFICO_VENDAS_ITEM'
-          DataSet = frxDBDataset1
-          DataSetName = 'frxDBDataset1'
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[frxDBDataset1."GRAFICO_VENDAS_ITEM"]')
-        end
         object Memo25: TfrxMemoView
           AllowVectorExport = True
-          Left = 11.338590000000000000
           Top = 41.574830000000000000
-          Width = 181.417440000000000000
+          Width = 192.756030000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -1248,14 +1221,14 @@ inherited FrmRelPerfil: TFrmRelPerfil
           Font.Style = [fsBold]
           Frame.Typ = []
           Memo.UTF8W = (
-            'Pode ver gr'#225'fico de vendas')
+            'Pode gerar relat'#243'rios comuns')
           ParentFont = False
         end
         object Memo26: TfrxMemoView
           AllowVectorExport = True
           Left = 222.992270000000000000
           Top = 41.574830000000000000
-          Width = 241.889920000000000000
+          Width = 245.669450000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
@@ -1264,8 +1237,36 @@ inherited FrmRelPerfil: TFrmRelPerfil
           Font.Style = [fsBold]
           Frame.Typ = []
           Memo.UTF8W = (
-            'Pode ver gr'#225'fico de vendas/produtos')
+            'Pode gerar relat'#243'rios de usu'#225'rio/perfil')
           ParentFont = False
+        end
+        object frxDBDataset1RELATORIOS: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 196.535560000000000000
+          Top = 41.574830000000000000
+          Width = 22.677180000000000000
+          Height = 18.897650000000000000
+          DataField = 'RELATORIOS'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."RELATORIOS"]')
+        end
+        object frxDBDataset1RELAVANCADOS: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 468.661720000000000000
+          Top = 41.574830000000000000
+          Width = 26.456710000000000000
+          Height = 18.897650000000000000
+          DataField = 'RELAVANCADOS'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."RELAVANCADOS"]')
         end
       end
     end

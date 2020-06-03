@@ -19,7 +19,6 @@ inherited FrmRelDesenv_Edit: TFrmRelDesenv_Edit
   inherited Pnl_Ficha: TPanel
     Width = 671
     Height = 260
-    ExplicitLeft = -8
     ExplicitWidth = 671
     ExplicitHeight = 260
     object Label1: TLabel [0]
@@ -67,7 +66,7 @@ inherited FrmRelDesenv_Edit: TFrmRelDesenv_Edit
     inherited Button1: TButton
       Left = 163
       Top = 192
-      TabOrder = 5
+      TabOrder = 6
       OnClick = Button1Click
       ExplicitLeft = 163
       ExplicitTop = 192
@@ -75,7 +74,7 @@ inherited FrmRelDesenv_Edit: TFrmRelDesenv_Edit
     inherited Button2: TButton
       Left = 19
       Top = 192
-      TabOrder = 6
+      TabOrder = 5
       ExplicitLeft = 19
       ExplicitTop = 192
     end

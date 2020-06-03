@@ -78,7 +78,7 @@ inherited FrmRelVenda: TFrmRelVenda
       Height = 21
       EditMask = '!99/99/9999;1; '
       MaxLength = 10
-      TabOrder = 0
+      TabOrder = 2
       Text = '  /  /    '
     end
     object Ed_DataAte: TMaskEdit [8]
@@ -88,7 +88,7 @@ inherited FrmRelVenda: TFrmRelVenda
       Height = 21
       EditMask = '!99/99/9999;1; '
       MaxLength = 10
-      TabOrder = 1
+      TabOrder = 3
       Text = '  /  /    '
     end
     object Cmb_Cliente: TComboBox [9]
@@ -97,7 +97,7 @@ inherited FrmRelVenda: TFrmRelVenda
       Width = 265
       Height = 21
       Style = csDropDownList
-      TabOrder = 2
+      TabOrder = 4
       OnChange = Cmb_ClienteChange
     end
     object Cmb_Ordem: TComboBox [10]
@@ -106,7 +106,7 @@ inherited FrmRelVenda: TFrmRelVenda
       Width = 87
       Height = 21
       Style = csDropDownList
-      TabOrder = 3
+      TabOrder = 6
       Items.Strings = (
         'ID'
         'Cliente'
@@ -119,7 +119,7 @@ inherited FrmRelVenda: TFrmRelVenda
       Width = 87
       Height = 21
       Style = csDropDownList
-      TabOrder = 4
+      TabOrder = 1
       Items.Strings = (
         'Todos'
         'Sim'
@@ -130,12 +130,12 @@ inherited FrmRelVenda: TFrmRelVenda
       Top = 13
       Width = 65
       Height = 21
-      TabOrder = 5
+      TabOrder = 0
     end
     inherited Button1: TButton
       Left = 163
       Top = 192
-      TabOrder = 6
+      TabOrder = 8
       OnClick = Button1Click
       ExplicitLeft = 163
       ExplicitTop = 192
@@ -153,7 +153,7 @@ inherited FrmRelVenda: TFrmRelVenda
       Width = 121
       Height = 21
       Style = csDropDownList
-      TabOrder = 8
+      TabOrder = 5
       Items.Strings = (
         'Ativo'
         'Inativo'

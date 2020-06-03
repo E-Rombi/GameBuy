@@ -63,7 +63,7 @@ inherited FrmUsuario: TFrmUsuario
     inherited GrpBox_InfoReg: TGroupBox
       Left = 559
       Top = 35
-      TabOrder = 4
+      TabOrder = 6
       ExplicitLeft = 559
       ExplicitTop = 35
       inherited DBEd_DataAlteracao: TDBEdit
@@ -80,7 +80,7 @@ inherited FrmUsuario: TFrmUsuario
       Height = 21
       DataField = 'NOME'
       DataSource = DataSource
-      TabOrder = 0
+      TabOrder = 2
     end
     object DBEdit2: TDBEdit
       Left = 84
@@ -90,7 +90,7 @@ inherited FrmUsuario: TFrmUsuario
       CharCase = ecUpperCase
       DataField = 'LOGIN'
       DataSource = DataSource
-      TabOrder = 1
+      TabOrder = 3
     end
     object DBEdit3: TDBEdit
       Left = 334
@@ -100,7 +100,7 @@ inherited FrmUsuario: TFrmUsuario
       DataField = 'SENHA'
       DataSource = DataSource
       PasswordChar = '*'
-      TabOrder = 2
+      TabOrder = 4
     end
     object DBLookupComboBox1: TDBLookupComboBox
       Left = 84
@@ -112,7 +112,7 @@ inherited FrmUsuario: TFrmUsuario
       KeyField = 'ID'
       ListField = 'DESCRICAO'
       ListSource = DsPerfil
-      TabOrder = 3
+      TabOrder = 5
     end
     object DBEdit4: TDBEdit
       Left = 82
@@ -122,14 +122,24 @@ inherited FrmUsuario: TFrmUsuario
       DataField = 'ID'
       DataSource = DataSource
       ReadOnly = True
-      TabOrder = 5
+      TabOrder = 0
+    end
+    object DBCheckBox21: TDBCheckBox
+      Left = 554
+      Top = 10
+      Width = 97
+      Height = 17
+      Caption = 'Registro Ativo'
+      DataField = 'STATUS'
+      DataSource = DataSource
+      TabOrder = 1
     end
   end
   inherited FDTabela: TFDTable
     IndexFieldNames = 'ID'
     UpdateOptions.UpdateTableName = 'USUARIO'
     TableName = 'USUARIO'
-    Left = 448
+    Left = 440
     Top = 80
     object FDTabelaID: TIntegerField
       FieldName = 'ID'
@@ -223,5 +233,9 @@ inherited FrmUsuario: TFrmUsuario
     Connection = DM.FDConnection1
     Left = 432
     Top = 210
+  end
+  inherited FQryAtivos: TFDQuery
+    Left = 712
+    Top = 242
   end
 end

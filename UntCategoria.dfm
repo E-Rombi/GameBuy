@@ -49,7 +49,7 @@ inherited FrmCategoria: TFrmCategoria
     inherited GrpBox_InfoReg: TGroupBox
       Left = 554
       Top = 35
-      TabOrder = 3
+      TabOrder = 4
       ExplicitLeft = 554
       ExplicitTop = 35
     end
@@ -61,7 +61,7 @@ inherited FrmCategoria: TFrmCategoria
       DataField = 'NOME'
       DataSource = DataSource
       MaxLength = 40
-      TabOrder = 1
+      TabOrder = 2
     end
     object DBEd_ID: TDBEdit
       Left = 84
@@ -83,7 +83,7 @@ inherited FrmCategoria: TFrmCategoria
       DataField = 'DESCRICAO'
       DataSource = DataSource
       MaxLength = 60
-      TabOrder = 2
+      TabOrder = 3
     end
     object DBCheckBox21: TDBCheckBox
       Left = 554
@@ -93,7 +93,7 @@ inherited FrmCategoria: TFrmCategoria
       Caption = 'Registro Ativo'
       DataField = 'STATUS'
       DataSource = DataSource
-      TabOrder = 4
+      TabOrder = 1
     end
   end
   inherited FDTabela: TFDTable
@@ -159,5 +159,15 @@ inherited FrmCategoria: TFrmCategoria
   inherited ImageList3: TImageList
     Left = 480
     Top = 192
+  end
+  inherited PopupMenu1: TPopupMenu
+    object Nome1: TMenuItem
+      Caption = 'Nome'
+      OnClick = Nome1Click
+    end
+    object DatadeAlterao1: TMenuItem
+      Caption = 'Data de Altera'#231#227'o'
+      OnClick = DatadeAlterao1Click
+    end
   end
 end

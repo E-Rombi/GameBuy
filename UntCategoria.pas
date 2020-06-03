@@ -27,8 +27,12 @@ type
     DBEd_ID: TDBEdit;
     DBMemo1: TDBMemo;
     DBCheckBox21: TDBCheckBox;
+    Nome1: TMenuItem;
+    DatadeAlterao1: TMenuItem;
     procedure FormActivate(Sender: TObject);
     procedure FDTabelaBeforePost(DataSet: TDataSet);
+    procedure Nome1Click(Sender: TObject);
+    procedure DatadeAlterao1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,6 +47,12 @@ implementation
 {$R *.dfm}
 
 uses UntMain;
+
+procedure TFrmCategoria.DatadeAlterao1Click(Sender: TObject);
+begin
+  inherited;
+  FDTabela.IndexFieldNames := 'DATA_ALTERACAO';
+end;
 
 procedure TFrmCategoria.FDTabelaBeforePost(DataSet: TDataSet);
 begin
@@ -82,6 +92,12 @@ begin
   FdTabela.Open();
   Executar := habilitaBotoes;
 
+end;
+
+procedure TFrmCategoria.Nome1Click(Sender: TObject);
+begin
+  inherited;
+  FDTabela.IndexFieldNames := 'NOME';
 end;
 
 end.
