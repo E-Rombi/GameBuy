@@ -83,7 +83,6 @@ type
     Cliente1: TMenuItem;
     DataAlteracao1: TMenuItem;
     Entregar1: TMenuItem;
-    DBCheckBox21: TDBCheckBox;
     procedure DBChk_EntregarClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FDTabelaFK_CADASTROChange(Sender: TField);
@@ -235,7 +234,6 @@ begin
   FDTabela.Edit;
   HabilitaForm(True);
   HabilitaItem(False);
-  DBCheckBox21.Checked := true;
 end;
 
 procedure TFrmVenda.Btn_NovoItemClick(Sender: TObject);

@@ -81,7 +81,8 @@ begin
 
       with frmMain do
       begin
-        StatusBar1.Panels[2].Text := 'Usuário: ' + TFrmMain(self.Owner).FQry_Login.FieldByName('NOME').AsString;
+        StatusBar1.Panels[2].Text := 'Usuário: ' +
+                  TFrmMain(self.Owner).FQry_Login.FieldByName('NOME').AsString;
 
 
 
@@ -102,6 +103,9 @@ begin
 
         if FQry_Login.FieldByName('PRODUTO').AsString = 'S' then
           Cad_Produto.Visible := True;
+
+        if (FQry_Login.FieldByName('PEDIDO').AsString = 'S') then
+          Movimentao1.Visible := True;
 
         if FQry_Login.FieldByName('CATEGORIA').AsString = 'S' then
           Cad_Categoria.Visible := True;
@@ -171,7 +175,8 @@ begin
         ValorNome.Clear;
         ValorSenha.Clear;
         ValorNome.SetFocus;
-        Statusbar1.panels[0].Text := 'Login não autorizado. ' + 'Tente novamente';
+        Statusbar1.panels[0].Text := 'Login não autorizado. ' +
+                                                              'Tente novamente';
 
       end;
     end;

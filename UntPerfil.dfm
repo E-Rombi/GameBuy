@@ -81,11 +81,13 @@ inherited FrmPerfil: TFrmPerfil
       Top = 1
       Width = 936
       Height = 262
-      ActivePage = TabSheet3
+      ActivePage = TabSheet2
       Align = alClient
       TabOrder = 4
       object TabSheet1: TTabSheet
         Caption = 'Cadastro'
+        ExplicitLeft = 7
+        ExplicitTop = 29
         object Label5: TLabel
           Left = 11
           Top = 40
@@ -251,24 +253,6 @@ inherited FrmPerfil: TFrmPerfil
           ValueChecked = 'S'
           ValueUnchecked = 'N'
         end
-        object BitBtn1: TBitBtn
-          Left = 808
-          Top = 243
-          Width = 75
-          Height = 25
-          Caption = 'Marcar tudo'
-          TabOrder = 12
-          OnClick = BitBtn1Click
-        end
-        object BitBtn6: TBitBtn
-          Left = 696
-          Top = 243
-          Width = 93
-          Height = 25
-          Caption = 'Desmarcar tudo'
-          TabOrder = 13
-          OnClick = BitBtn6Click
-        end
       end
       object TabSheet2: TTabSheet
         Caption = 'Vendas'
@@ -421,28 +405,12 @@ inherited FrmPerfil: TFrmPerfil
           ValueChecked = 'S'
           ValueUnchecked = 'N'
         end
-        object BitBtn2: TBitBtn
-          Left = 808
-          Top = 243
-          Width = 75
-          Height = 25
-          Caption = 'Marcar tudo'
-          TabOrder = 10
-          OnClick = BitBtn2Click
-        end
-        object BitBtn7: TBitBtn
-          Left = 696
-          Top = 243
-          Width = 93
-          Height = 25
-          Caption = 'Desmarcar tudo'
-          TabOrder = 11
-          OnClick = BitBtn7Click
-        end
       end
       object TabSheet3: TTabSheet
         Caption = 'Relat'#243'rios'
         ImageIndex = 2
+        ExplicitLeft = -36
+        ExplicitTop = 86
         object Cliente: TLabel
           Left = 11
           Top = 40
@@ -473,24 +441,6 @@ inherited FrmPerfil: TFrmPerfil
           TabOrder = 1
           ValueChecked = 'S'
           ValueUnchecked = 'N'
-        end
-        object BitBtn3: TBitBtn
-          Left = 808
-          Top = 243
-          Width = 75
-          Height = 25
-          Caption = 'Marcar tudo'
-          TabOrder = 2
-          OnClick = BitBtn3Click
-        end
-        object BitBtn8: TBitBtn
-          Left = 696
-          Top = 243
-          Width = 93
-          Height = 25
-          Caption = 'Desmarcar tudo'
-          TabOrder = 3
-          OnClick = BitBtn8Click
         end
       end
       object TabSheet4: TTabSheet
@@ -606,24 +556,6 @@ inherited FrmPerfil: TFrmPerfil
           ValueChecked = 'S'
           ValueUnchecked = 'N'
         end
-        object BitBtn4: TBitBtn
-          Left = 808
-          Top = 243
-          Width = 75
-          Height = 25
-          Caption = 'Marcar tudo'
-          TabOrder = 8
-          OnClick = BitBtn4Click
-        end
-        object BitBtn5: TBitBtn
-          Left = 696
-          Top = 243
-          Width = 93
-          Height = 25
-          Caption = 'Desmarcar tudo'
-          TabOrder = 9
-          OnClick = BitBtn5Click
-        end
       end
     end
   end
@@ -735,6 +667,8 @@ inherited FrmPerfil: TFrmPerfil
       DataField = 'STATUS'
       DataSource = DataSource
       TabOrder = 1
+      ValueChecked = 'S'
+      ValueUnchecked = 'N'
     end
   end
   inherited FDTabela: TFDTable

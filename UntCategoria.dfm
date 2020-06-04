@@ -49,19 +49,9 @@ inherited FrmCategoria: TFrmCategoria
     inherited GrpBox_InfoReg: TGroupBox
       Left = 554
       Top = 35
-      TabOrder = 4
+      TabOrder = 3
       ExplicitLeft = 554
       ExplicitTop = 35
-    end
-    object DBEdit1: TDBEdit
-      Left = 84
-      Top = 35
-      Width = 286
-      Height = 21
-      DataField = 'NOME'
-      DataSource = DataSource
-      MaxLength = 40
-      TabOrder = 2
     end
     object DBEd_ID: TDBEdit
       Left = 84
@@ -77,13 +67,14 @@ inherited FrmCategoria: TFrmCategoria
     end
     object DBMemo1: TDBMemo
       Left = 84
-      Top = 63
-      Width = 429
-      Height = 130
+      Top = 62
+      Width = 303
+      Height = 37
       DataField = 'DESCRICAO'
       DataSource = DataSource
       MaxLength = 60
-      TabOrder = 3
+      TabOrder = 2
+      OnKeyPress = DBMemo1KeyPress
     end
     object DBCheckBox21: TDBCheckBox
       Left = 554
@@ -96,6 +87,15 @@ inherited FrmCategoria: TFrmCategoria
       TabOrder = 1
       ValueChecked = 'S'
       ValueUnchecked = 'N'
+    end
+    object DBEdit1: TDBEdit
+      Left = 84
+      Top = 35
+      Width = 303
+      Height = 21
+      DataField = 'NOME'
+      DataSource = DataSource
+      TabOrder = 4
     end
   end
   inherited FDTabela: TFDTable
@@ -115,12 +115,6 @@ inherited FrmCategoria: TFrmCategoria
       Origin = 'DESCRICAO'
       Size = 60
     end
-    object FDTabelaSTATUS: TStringField
-      FieldName = 'STATUS'
-      Origin = 'STATUS'
-      FixedChar = True
-      Size = 1
-    end
     object FDTabelaDATA_CADASTRO: TSQLTimeStampField
       FieldName = 'DATA_CADASTRO'
       Origin = 'DATA_CADASTRO'
@@ -136,6 +130,13 @@ inherited FrmCategoria: TFrmCategoria
     object FDTabelaNOME: TStringField
       FieldName = 'NOME'
       Origin = 'NOME'
+      Size = 40
+    end
+    object FDTabelaSTATUS: TStringField
+      FieldName = 'STATUS'
+      Origin = 'STATUS'
+      FixedChar = True
+      Size = 1
     end
   end
   inherited DataSource: TDataSource
@@ -163,6 +164,8 @@ inherited FrmCategoria: TFrmCategoria
     Top = 192
   end
   inherited PopupMenu1: TPopupMenu
+    Left = 56
+    Top = 194
     object Nome1: TMenuItem
       Caption = 'Nome'
       OnClick = Nome1Click

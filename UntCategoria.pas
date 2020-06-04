@@ -14,14 +14,6 @@ uses
 type
   TFrmCategoria = class(TFrmPadrao)
     Label2: TLabel;
-    DBEdit1: TDBEdit;
-    FDTabelaID: TIntegerField;
-    FDTabelaDESCRICAO: TStringField;
-    FDTabelaSTATUS: TStringField;
-    FDTabelaDATA_CADASTRO: TSQLTimeStampField;
-    FDTabelaDATA_ALTERACAO: TSQLTimeStampField;
-    FDTabelaFK_USUARIO_ALT: TIntegerField;
-    FDTabelaNOME: TStringField;
     Label3: TLabel;
     ID: TLabel;
     DBEd_ID: TDBEdit;
@@ -29,11 +21,20 @@ type
     DBCheckBox21: TDBCheckBox;
     Nome1: TMenuItem;
     DatadeAlterao1: TMenuItem;
+    DBEdit1: TDBEdit;
+    FDTabelaID: TIntegerField;
+    FDTabelaDESCRICAO: TStringField;
+    FDTabelaDATA_CADASTRO: TSQLTimeStampField;
+    FDTabelaDATA_ALTERACAO: TSQLTimeStampField;
+    FDTabelaFK_USUARIO_ALT: TIntegerField;
+    FDTabelaNOME: TStringField;
+    FDTabelaSTATUS: TStringField;
     procedure FormActivate(Sender: TObject);
     procedure FDTabelaBeforePost(DataSet: TDataSet);
     procedure Nome1Click(Sender: TObject);
     procedure DatadeAlterao1Click(Sender: TObject);
     procedure btn_InserirClick(Sender: TObject);
+    procedure DBMemo1KeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -61,12 +62,19 @@ begin
   FDTabela.IndexFieldNames := 'DATA_ALTERACAO';
 end;
 
+procedure TFrmCategoria.DBMemo1KeyPress(Sender: TObject; var Key: Char);
+begin
+  inherited;
+  Key := AnsiUpperCase( Key )[1];
+end;
+
 procedure TFrmCategoria.FDTabelaBeforePost(DataSet: TDataSet);
 begin
   inherited;
   if FDTabelaNOME.AsString = '' then
   begin
     dbedit1.setfocus;
+    raise Exception.Create('Por favor, insira o nome da categoria.');
 
   end
   else

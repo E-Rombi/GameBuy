@@ -213,6 +213,7 @@ object FrmMain: TFrmMain
     object Movimentao1: TMenuItem
       Caption = 'Movimenta'#231#227'o'
       SubMenuImages = ImageList1
+      Visible = False
       object Mov_Venda: TMenuItem
         Caption = 'Venda'
         SubMenuImages = ImageList1

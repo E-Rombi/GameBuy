@@ -115,14 +115,6 @@ type
     FDQryValidarDescricao: TFDQuery;
     Label15: TLabel;
     DBEdit8: TDBEdit;
-    BitBtn1: TBitBtn;
-    BitBtn2: TBitBtn;
-    BitBtn3: TBitBtn;
-    BitBtn4: TBitBtn;
-    BitBtn5: TBitBtn;
-    BitBtn6: TBitBtn;
-    BitBtn7: TBitBtn;
-    BitBtn8: TBitBtn;
     DBCheckBox21: TDBCheckBox;
     FDTabelaRELATORIOS: TStringField;
     FDTabelaRELAVANCADOS: TStringField;
@@ -131,14 +123,6 @@ type
     procedure FormActivate(Sender: TObject);
     procedure FDTabelaBeforePost(DataSet: TDataSet);
     procedure btn_InserirClick(Sender: TObject);
-    procedure BitBtn1Click(Sender: TObject);
-    procedure BitBtn2Click(Sender: TObject);
-    procedure BitBtn3Click(Sender: TObject);
-    procedure BitBtn4Click(Sender: TObject);
-    procedure BitBtn5Click(Sender: TObject);
-    procedure BitBtn8Click(Sender: TObject);
-    procedure BitBtn7Click(Sender: TObject);
-    procedure BitBtn6Click(Sender: TObject);
     procedure btn_EditarClick(Sender: TObject);
     procedure btn_SalvarClick(Sender: TObject);
     procedure btn_CancelarClick(Sender: TObject);
@@ -160,134 +144,6 @@ implementation
 
 uses UntCadastro, UntMain, UntDM;
 
-procedure TFrmPerfil.BitBtn1Click(Sender: TObject);
-begin
-  inherited;
-  dbcheckbox1.Checked := true;
-  dbcheckbox2.Checked := true;
-  dbcheckbox3.Checked := true;
-  dbcheckbox4.Checked := true;
-  dbcheckbox5.Checked := true;
-  dbcheckbox6.Checked := true;
-  dbcheckbox7.Checked := true;
-  dbcheckbox8.Checked := true;
-  dbcheckbox9.Checked := true;
-  dbcheckbox10.Checked := true;
-  dbcheckbox11.Checked := true;
-  dbcheckbox12.Checked := true;
-
-  bitbtn6.Enabled := true;
-  bitbtn1.Enabled := false;
-end;
-
-procedure TFrmPerfil.BitBtn2Click(Sender: TObject);
-begin
-  inherited;
-  dbcheckbox13.Checked := true;
-  dbcheckbox14.Checked := true;
-  dbcheckbox15.Checked := true;
-  dbcheckbox16.Checked := true;
-  dbcheckbox17.Checked := true;
-  dbcheckbox18.Checked := true;
-  dbcheckbox19.Checked := true;
-  dbcheckbox20.Checked := true;
-  dbcheckbox22.Checked := true;
-  dbcheckbox23.Checked := true;
-
-  bitbtn7.Enabled := true;
-  bitbtn2.Enabled := false;
-end;
-
-procedure TFrmPerfil.BitBtn3Click(Sender: TObject);
-begin
-  inherited;
-  dbcheckbox25.Checked := true;
-  dbcheckbox28.Checked := true;
-
-
-  bitbtn8.Enabled := true;
-  bitbtn3.Enabled := false;
-end;
-
-procedure TFrmPerfil.BitBtn4Click(Sender: TObject);
-begin
-  inherited;
-  dbcheckbox37.Checked := true;
-  dbcheckbox38.Checked := true;
-  dbcheckbox40.Checked := true;
-  dbcheckbox41.Checked := true;
-  dbcheckbox43.Checked := true;
-  dbcheckbox44.Checked := true;
-  dbcheckbox46.Checked := true;
-  dbcheckbox47.Checked := true;
-
-
-  bitbtn5.Enabled := true;
-  bitbtn4.Enabled := false;
-end;
-
-procedure TFrmPerfil.BitBtn5Click(Sender: TObject);
-begin
-  inherited;
-  dbcheckbox37.Checked := false;
-  dbcheckbox38.Checked := false;
-  dbcheckbox40.Checked := false;
-  dbcheckbox41.Checked := false;
-  dbcheckbox43.Checked := false;
-  dbcheckbox44.Checked := false;
-  dbcheckbox46.Checked := false;
-  dbcheckbox47.Checked := false;
-
-  bitbtn4.Enabled := true;
-  bitbtn5.Enabled := false;
-end;
-
-procedure TFrmPerfil.BitBtn6Click(Sender: TObject);
-begin
-  inherited;
-    dbcheckbox1.Checked := False;
-    dbcheckbox2.Checked := False;
-    dbcheckbox3.Checked := False;
-    dbcheckbox4.Checked := False;
-    dbcheckbox5.Checked := False;
-    dbcheckbox6.Checked := False;
-    dbcheckbox7.Checked := False;
-    dbcheckbox8.Checked := False;
-    dbcheckbox9.Checked := False;
-    dbcheckbox10.Checked := False;
-    dbcheckbox11.Checked := False;
-    dbcheckbox12.Checked := False;
-
-    bitbtn1.Enabled := true;
-    bitbtn6.Enabled := false;
-end;
-
-procedure TFrmPerfil.BitBtn7Click(Sender: TObject);
-begin
-  inherited;
-    dbcheckbox13.Checked := false;
-    dbcheckbox14.Checked := false;
-    dbcheckbox15.Checked := false;
-    dbcheckbox16.Checked := false;
-    dbcheckbox17.Checked := false;
-    dbcheckbox18.Checked := false;
-    dbcheckbox19.Checked := false;
-    dbcheckbox20.Checked := false;
-    dbcheckbox22.Checked := false;
-    dbcheckbox23.Checked := false;
-    bitbtn2.Enabled := true;
-    bitbtn7.Enabled := false;
-end;
-
-procedure TFrmPerfil.BitBtn8Click(Sender: TObject);
-begin
-  inherited;
-    dbcheckbox25.Checked := False;
-    dbcheckbox28.Checked := False;
-
-    bitbtn3.Enabled := true;
-    bitbtn8.Enabled := false;
-end;
 
 procedure TFrmPerfil.btn_CancelarClick(Sender: TObject);
 begin
@@ -341,10 +197,6 @@ begin
 
   DBCheckBox21.Checked := true;
 
-  bitbtn5.Enabled := false;
-  bitbtn6.Enabled := false;
-  bitbtn7.Enabled := false;
-  bitbtn8.Enabled := false;
 end;
 
 procedure TFrmPerfil.btn_SalvarClick(Sender: TObject);
