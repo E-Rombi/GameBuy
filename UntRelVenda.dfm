@@ -67,9 +67,9 @@ inherited FrmRelVenda: TFrmRelVenda
     object Label7: TLabel [6]
       Left = 15
       Top = 117
-      Width = 31
+      Width = 25
       Height = 13
-      Caption = 'Status'
+      Caption = 'Ativo'
     end
     object Ed_DataDe: TMaskEdit [7]
       Left = 64
@@ -106,7 +106,9 @@ inherited FrmRelVenda: TFrmRelVenda
       Width = 87
       Height = 21
       Style = csDropDownList
+      ItemIndex = 0
       TabOrder = 6
+      Text = 'ID'
       Items.Strings = (
         'ID'
         'Cliente'
@@ -153,10 +155,12 @@ inherited FrmRelVenda: TFrmRelVenda
       Width = 121
       Height = 21
       Style = csDropDownList
+      ItemIndex = 0
       TabOrder = 5
+      Text = 'Sim'
       Items.Strings = (
-        'Ativo'
-        'Inativo'
+        'Sim'
+        'Nao'
         'Todos')
     end
   end

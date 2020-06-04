@@ -160,11 +160,11 @@ begin
 
   if Cmb_Status.ItemIndex <> 2 then
       if vWhere = '' then
-        vWhere := 'WHERE C.STATUS = ''' + Cmb_Status.Items[Cmb_Status.ItemIndex]
+        vWhere := 'WHERE CAD.STATUS = ''' + copy(Cmb_Status.Items[Cmb_Status.ItemIndex],0,1)
                                                                           + ''''
       else
-        vWhere := vWhere + ' AND C.STATUS = ''' +
-                                  Cmb_Status.Items[Cmb_Status.ItemIndex] + '''';
+        vWhere := vWhere + ' AND CAD.STATUS = ''' +
+                                  copy(Cmb_Status.Items[Cmb_Status.ItemIndex],0,1) + '''';
 
   if Cmb_Cliente.ItemIndex <> 0 then
     if vWhere = '' then

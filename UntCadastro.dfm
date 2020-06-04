@@ -32,6 +32,8 @@ inherited FrmCadastro: TFrmCadastro
     Width = 908
     Height = 154
     Align = alTop
+    ExplicitLeft = -1
+    ExplicitTop = 93
     ExplicitWidth = 908
     ExplicitHeight = 154
     object Label2: TLabel [0]
@@ -46,6 +48,7 @@ inherited FrmCadastro: TFrmCadastro
       Top = 65
       Width = 60
       Height = 13
+      Hint = 'Nome completo da pessoa f'#237'sica/jur'#237'dica'
       Caption = 'Raz'#227'o Social'
     end
     object Label4: TLabel [2]
@@ -53,6 +56,7 @@ inherited FrmCadastro: TFrmCadastro
       Top = 92
       Width = 41
       Height = 13
+      Hint = 'Nome fantasia ou apelido'
       Caption = 'Fantasia'
     end
     object Lbl_CnpjCpf: TLabel [3]
@@ -93,6 +97,7 @@ inherited FrmCadastro: TFrmCadastro
       Top = 62
       Width = 453
       Height = 21
+      Hint = 'Nome completo da pessoa f'#237'sica/jur'#237'dica'
       CharCase = ecUpperCase
       DataField = 'RAZAO_SOCIAL'
       DataSource = DataSource
@@ -103,6 +108,7 @@ inherited FrmCadastro: TFrmCadastro
       Top = 89
       Width = 453
       Height = 21
+      Hint = 'Nome fantasia ou apelido'
       CharCase = ecUpperCase
       DataField = 'FANTASIA'
       DataSource = DataSource
@@ -166,12 +172,13 @@ inherited FrmCadastro: TFrmCadastro
       DataField = 'TIPO_PESSOA'
       DataSource = DataSource
       Items.Strings = (
-        'Fisica'
-        'Juridica')
+        'F'#237'sica'
+        'Jur'#237'dica')
       TabOrder = 8
       Values.Strings = (
         'F'#237'sica'
         'Jur'#237'dica')
+      OnClick = DBRadioGroup1Click
     end
   end
   object Panel1: TPanel [4]
@@ -198,6 +205,8 @@ inherited FrmCadastro: TFrmCadastro
           Height = 161
           Align = alTop
           TabOrder = 0
+          ExplicitLeft = -3
+          ExplicitTop = -6
           object Label16: TLabel
             Left = 11
             Top = 127
@@ -254,6 +263,19 @@ inherited FrmCadastro: TFrmCadastro
             Height = 13
             Caption = 'Logradouro'
           end
+          object Label6: TLabel
+            Left = 506
+            Top = 146
+            Width = 168
+            Height = 13
+            Caption = 'Aperte espa'#231'o para pular um d'#237'gito'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Tahoma'
+            Font.Style = [fsItalic]
+            ParentFont = False
+          end
           object DBEd_Numero: TDBEdit
             Left = 588
             Top = 70
@@ -261,7 +283,7 @@ inherited FrmCadastro: TFrmCadastro
             Height = 21
             DataField = 'NUMERO'
             DataSource = DSDetalhe_1
-            TabOrder = 5
+            TabOrder = 4
             OnKeyPress = DBEd_NumeroKeyPress
           end
           object DBCmb_Estado: TDBComboBox
@@ -300,7 +322,7 @@ inherited FrmCadastro: TFrmCadastro
               'SP'
               'SE'
               'TO')
-            TabOrder = 8
+            TabOrder = 7
           end
           object DBEd_Cidade: TDBEdit
             Left = 400
@@ -310,7 +332,7 @@ inherited FrmCadastro: TFrmCadastro
             CharCase = ecUpperCase
             DataField = 'CIDADE'
             DataSource = DSDetalhe_1
-            TabOrder = 7
+            TabOrder = 6
           end
           object GroupBox2: TGroupBox
             Left = 680
@@ -318,7 +340,7 @@ inherited FrmCadastro: TFrmCadastro
             Width = 218
             Height = 105
             Caption = 'Infos Registro'
-            TabOrder = 13
+            TabOrder = 12
             object Label19: TLabel
               Left = 8
               Top = 27
@@ -371,16 +393,6 @@ inherited FrmCadastro: TFrmCadastro
               TabOrder = 2
             end
           end
-          object DBEd_Cep: TDBEdit
-            Left = 79
-            Top = 43
-            Width = 83
-            Height = 21
-            CharCase = ecUpperCase
-            DataField = 'CEP'
-            DataSource = DSDetalhe_1
-            TabOrder = 3
-          end
           object DBEd_Fone: TDBEdit
             Left = 527
             Top = 124
@@ -389,7 +401,7 @@ inherited FrmCadastro: TFrmCadastro
             CharCase = ecUpperCase
             DataField = 'FONE'
             DataSource = DSDetalhe_1
-            TabOrder = 10
+            TabOrder = 9
           end
           object DBEd_Pais: TDBEdit
             Left = 207
@@ -399,17 +411,17 @@ inherited FrmCadastro: TFrmCadastro
             CharCase = ecUpperCase
             DataField = 'PAIS'
             DataSource = DSDetalhe_1
-            TabOrder = 9
+            TabOrder = 8
           end
           object DBEd_Logradouro: TDBEdit
-            Left = 79
+            Left = 72
             Top = 70
             Width = 453
             Height = 21
             CharCase = ecUpperCase
             DataField = 'LOGRADOURO'
             DataSource = DSDetalhe_1
-            TabOrder = 4
+            TabOrder = 3
           end
           object DBEd_Bairro: TDBEdit
             Left = 79
@@ -419,7 +431,7 @@ inherited FrmCadastro: TFrmCadastro
             CharCase = ecUpperCase
             DataField = 'BAIRRO'
             DataSource = DSDetalhe_1
-            TabOrder = 6
+            TabOrder = 5
           end
           object Btn_NovoEndereco: TButton
             Left = 11
@@ -454,7 +466,7 @@ inherited FrmCadastro: TFrmCadastro
             Width = 78
             Height = 25
             Caption = 'Gravar'
-            TabOrder = 11
+            TabOrder = 10
             OnClick = Btn_GravarEnderecoClick
           end
           object Btn_CancelarEndereco: TButton
@@ -463,7 +475,7 @@ inherited FrmCadastro: TFrmCadastro
             Width = 78
             Height = 25
             Caption = 'Cancelar'
-            TabOrder = 12
+            TabOrder = 11
             OnClick = Btn_CancelarEnderecoClick
           end
         end
@@ -518,6 +530,15 @@ inherited FrmCadastro: TFrmCadastro
             end>
         end
       end
+    end
+    object DBEd_Cep: TDBEdit
+      Left = 84
+      Top = 68
+      Width = 121
+      Height = 21
+      DataField = 'CEP'
+      DataSource = DSDetalhe_1
+      TabOrder = 1
     end
   end
   inherited FDTabela: TFDTable
@@ -674,8 +695,8 @@ inherited FrmCadastro: TFrmCadastro
   object DSDetalhe_1: TDataSource [11]
     DataSet = FDTable_Detalhe_1
     OnDataChange = DSDetalhe_1DataChange
-    Left = 440
-    Top = 423
+    Left = 392
+    Top = 415
   end
   object FDQuery1: TFDQuery [12]
     Connection = DM.FDConnection1

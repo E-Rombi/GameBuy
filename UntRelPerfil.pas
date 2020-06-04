@@ -44,8 +44,7 @@ begin
   vWhere := '';
   FDQuery1.Close;
   FDQuery1.SQL.Clear;
-  FDQuery1.SQL.Add('SELECT P.DESCRICAO, P.LOGIN, P.DATA_CADASTRO, ' +
-  'P.DATA_ALTERACAO, P.FK_PERFIL,P.STATUS,P.ID FROM PERFIL P' );
+  FDQuery1.SQL.Add('SELECT * FROM PERFIL P' );
 
   if not (trim(Ed_ID.Text) = '') then
     if vWhere = '' then

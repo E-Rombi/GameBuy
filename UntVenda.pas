@@ -484,8 +484,11 @@ begin
 
   FQry_Endereco.Close;
   FQry_Endereco.Open();
-  FQry_Endereco.Filter := 'FK_CADASTRO = ' + FDTabelaFK_CADASTRO.AsString;
-  FQry_Endereco.Filtered := True;
+  if FDTabela.RecordCount <> 0 then
+  begin
+    FQry_Endereco.Filter := 'FK_CADASTRO = ' + FDTabelaFK_CADASTRO.AsString;
+    FQry_Endereco.Filtered := True;
+  end;
 
   FQuery.Close;
   FQuery.Open();

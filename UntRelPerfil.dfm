@@ -66,7 +66,6 @@ inherited FrmRelPerfil: TFrmRelPerfil
       Width = 105
       Height = 21
       TabOrder = 0
-      Text = 'ED_ID'
     end
     object Cmb_Status: TComboBox
       Left = 336
@@ -74,7 +73,9 @@ inherited FrmRelPerfil: TFrmRelPerfil
       Width = 121
       Height = 21
       Style = csDropDownList
+      ItemIndex = 0
       TabOrder = 1
+      Text = 'Sim'
       Items.Strings = (
         'Sim'
         'N'#227'o'
@@ -86,7 +87,6 @@ inherited FrmRelPerfil: TFrmRelPerfil
       Width = 377
       Height = 21
       TabOrder = 2
-      Text = 'Edit1'
     end
     object Cmb_Ordem: TComboBox
       Left = 80
@@ -94,7 +94,9 @@ inherited FrmRelPerfil: TFrmRelPerfil
       Width = 109
       Height = 21
       Style = csDropDownList
+      ItemIndex = 0
       TabOrder = 3
+      Text = 'ID'
       Visible = False
       Items.Strings = (
         'ID'
@@ -107,7 +109,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
       'SELECT * FROM PERFIL P')
   end
   inherited frxReport1: TfrxReport
-    ReportOptions.LastChange = 43976.605083287000000000
+    ReportOptions.LastChange = 43986.705367037040000000
     Datasets = <
       item
         DataSet = frxDBDataset1
@@ -117,12 +119,13 @@ inherited FrmRelPerfil: TFrmRelPerfil
     Style = <>
     inherited Page1: TfrxReportPage
       inherited MasterData1: TfrxMasterData
-        Height = 177.637910000000000000
-        Top = 328.819110000000000000
+        Height = 309.921460000000000000
+        DataSet = frxDBDataset1
+        DataSetName = 'frxDBDataset1'
         object Memo13: TfrxMemoView
           AllowVectorExport = True
           Left = 11.338590000000000000
-          Top = 22.677180000000000000
+          Top = 160.740260000000000000
           Width = 79.370130000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -138,7 +141,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo14: TfrxMemoView
           AllowVectorExport = True
           Left = 11.338590000000000000
-          Top = 49.133890000000000000
+          Top = 187.196970000000000000
           Width = 79.370130000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -154,7 +157,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo15: TfrxMemoView
           AllowVectorExport = True
           Left = 11.338590000000000000
-          Top = 75.590600000000000000
+          Top = 213.653680000000000000
           Width = 79.370130000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -170,7 +173,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo16: TfrxMemoView
           AllowVectorExport = True
           Left = 11.338590000000000000
-          Top = 122.944960000000000000
+          Top = 261.008040000000000000
           Width = 79.370130000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -186,7 +189,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo18: TfrxMemoView
           AllowVectorExport = True
           Left = 11.338590000000000000
-          Top = 96.488250000000000000
+          Top = 234.551330000000000000
           Width = 79.370130000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -202,7 +205,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo19: TfrxMemoView
           AllowVectorExport = True
           Left = 11.338590000000000000
-          Top = 149.401670000000000000
+          Top = 287.464750000000000000
           Width = 79.370130000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -218,6 +221,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo20: TfrxMemoView
           AllowVectorExport = True
           Left = 11.338590000000000000
+          Top = 138.063080000000000000
           Width = 79.370130000000000000
           Height = 18.897650000000000000
           Font.Charset = DEFAULT_CHARSET
@@ -234,6 +238,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 313.700990000000000000
+          Top = 138.063080000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           DataField = 'CADASTRO_I'
@@ -247,6 +252,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 275.905690000000000000
+          Top = 138.063080000000000000
           Width = 22.677180000000000000
           Height = 18.897650000000000000
           DataField = 'CADASTRO'
@@ -260,6 +266,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 355.275820000000000000
+          Top = 138.063080000000000000
           Width = 30.236240000000000000
           Height = 18.897650000000000000
           DataField = 'CADASTRO_E'
@@ -273,6 +280,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 400.630180000000000000
+          Top = 138.063080000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           DataField = 'CADASTRO_E'
@@ -285,6 +293,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo21: TfrxMemoView
           AllowVectorExport = True
           Left = 302.362400000000000000
+          Top = 138.063080000000000000
           Width = 7.559060000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -294,6 +303,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo24: TfrxMemoView
           AllowVectorExport = True
           Left = 389.291590000000000000
+          Top = 138.063080000000000000
           Width = 7.559060000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -303,6 +313,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo22: TfrxMemoView
           AllowVectorExport = True
           Left = 343.937230000000000000
+          Top = 138.063080000000000000
           Width = 7.559060000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -313,7 +324,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 313.700990000000000000
-          Top = 22.677180000000000000
+          Top = 160.740260000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           DataField = 'CADASTRO_I'
@@ -327,7 +338,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 400.630180000000000000
-          Top = 22.677180000000000000
+          Top = 160.740260000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           DataField = 'CADASTRO_E'
@@ -341,7 +352,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 355.275820000000000000
-          Top = 22.677180000000000000
+          Top = 160.740260000000000000
           Width = 30.236240000000000000
           Height = 18.897650000000000000
           DataField = 'CADASTRO_A'
@@ -355,7 +366,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 275.905690000000000000
-          Top = 18.897650000000000000
+          Top = 156.960730000000000000
           Width = 22.677180000000000000
           Height = 18.897650000000000000
           DataField = 'CADASTRO'
@@ -369,7 +380,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 275.905690000000000000
-          Top = 49.133890000000000000
+          Top = 187.196970000000000000
           Width = 22.677180000000000000
           Height = 18.897650000000000000
           DataField = 'DESENV_EDIT'
@@ -383,7 +394,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 400.630180000000000000
-          Top = 96.488250000000000000
+          Top = 234.551330000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           DataField = 'PERFIL_E'
@@ -397,7 +408,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 275.905690000000000000
-          Top = 96.488250000000000000
+          Top = 234.551330000000000000
           Width = 22.677180000000000000
           Height = 18.897650000000000000
           DataField = 'PERFIL'
@@ -411,7 +422,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 275.905690000000000000
-          Top = 149.401670000000000000
+          Top = 287.464750000000000000
           Width = 22.677180000000000000
           Height = 18.897650000000000000
           DataField = 'USUARIO'
@@ -425,7 +436,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 275.905690000000000000
-          Top = 122.944960000000000000
+          Top = 261.008040000000000000
           Width = 22.677180000000000000
           Height = 18.897650000000000000
           DataField = 'PRODUTO'
@@ -439,7 +450,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 355.275820000000000000
-          Top = 96.488250000000000000
+          Top = 234.551330000000000000
           Width = 30.236240000000000000
           Height = 18.897650000000000000
           DataField = 'PERFIL_A'
@@ -453,7 +464,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 313.700990000000000000
-          Top = 96.488250000000000000
+          Top = 234.551330000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           DataField = 'PERFIL_I'
@@ -467,7 +478,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 355.275820000000000000
-          Top = 49.133890000000000000
+          Top = 187.196970000000000000
           Width = 30.236240000000000000
           Height = 18.897650000000000000
           DataField = 'DESENV_EDIT_A'
@@ -481,7 +492,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 400.630180000000000000
-          Top = 49.133890000000000000
+          Top = 187.196970000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           DataField = 'DESENV_EDIT_E'
@@ -495,7 +506,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 313.700990000000000000
-          Top = 49.133890000000000000
+          Top = 187.196970000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           DataField = 'DESENV_EDIT_I'
@@ -509,7 +520,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 275.905690000000000000
-          Top = 75.590600000000000000
+          Top = 213.653680000000000000
           Width = 22.677180000000000000
           Height = 18.897650000000000000
           DataField = 'PEDIDO_I'
@@ -523,7 +534,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 400.630180000000000000
-          Top = 75.590600000000000000
+          Top = 213.653680000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           DataField = 'PEDIDO_E'
@@ -537,7 +548,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 355.275820000000000000
-          Top = 75.590600000000000000
+          Top = 213.653680000000000000
           Width = 30.236240000000000000
           Height = 18.897650000000000000
           DataField = 'PEDIDO_A'
@@ -551,7 +562,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 313.700990000000000000
-          Top = 75.590600000000000000
+          Top = 213.653680000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           DataField = 'PEDIDO_I'
@@ -565,7 +576,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 313.700990000000000000
-          Top = 149.401670000000000000
+          Top = 287.464750000000000000
           Width = 22.677180000000000000
           Height = 18.897650000000000000
           DataField = 'USUARIO_I'
@@ -579,7 +590,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 400.630180000000000000
-          Top = 148.401670000000000000
+          Top = 286.464750000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           DataField = 'USUARIO_E'
@@ -593,7 +604,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 355.275820000000000000
-          Top = 149.401670000000000000
+          Top = 287.464750000000000000
           Width = 30.236240000000000000
           Height = 18.897650000000000000
           DataField = 'USUARIO_A'
@@ -606,7 +617,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo27: TfrxMemoView
           AllowVectorExport = True
           Left = 302.362400000000000000
-          Top = 22.677180000000000000
+          Top = 160.740260000000000000
           Width = 7.559060000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -616,7 +627,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo28: TfrxMemoView
           AllowVectorExport = True
           Left = 302.362400000000000000
-          Top = 49.133890000000000000
+          Top = 187.196970000000000000
           Width = 7.559060000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -626,7 +637,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo29: TfrxMemoView
           AllowVectorExport = True
           Left = 302.362400000000000000
-          Top = 75.590600000000000000
+          Top = 213.653680000000000000
           Width = 7.559060000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -636,7 +647,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo30: TfrxMemoView
           AllowVectorExport = True
           Left = 302.362400000000000000
-          Top = 94.488250000000000000
+          Top = 232.551330000000000000
           Width = 7.559060000000000000
           Height = 22.677180000000000000
           Frame.Typ = []
@@ -646,7 +657,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo31: TfrxMemoView
           AllowVectorExport = True
           Left = 343.937230000000000000
-          Top = 94.488250000000000000
+          Top = 232.551330000000000000
           Width = 7.559060000000000000
           Height = 22.677180000000000000
           Frame.Typ = []
@@ -656,7 +667,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo32: TfrxMemoView
           AllowVectorExport = True
           Left = 343.937230000000000000
-          Top = 49.133890000000000000
+          Top = 187.196970000000000000
           Width = 7.559060000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -666,7 +677,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo33: TfrxMemoView
           AllowVectorExport = True
           Left = 343.937230000000000000
-          Top = 22.677180000000000000
+          Top = 160.740260000000000000
           Width = 7.559060000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -676,7 +687,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo34: TfrxMemoView
           AllowVectorExport = True
           Left = 389.291590000000000000
-          Top = 22.677180000000000000
+          Top = 160.740260000000000000
           Width = 7.559060000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -686,7 +697,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo35: TfrxMemoView
           AllowVectorExport = True
           Left = 389.291590000000000000
-          Top = 49.133890000000000000
+          Top = 187.196970000000000000
           Width = 7.559060000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -696,7 +707,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo36: TfrxMemoView
           AllowVectorExport = True
           Left = 389.291590000000000000
-          Top = 75.590600000000000000
+          Top = 213.653680000000000000
           Width = 7.559060000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -706,7 +717,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo37: TfrxMemoView
           AllowVectorExport = True
           Left = 389.291590000000000000
-          Top = 94.488250000000000000
+          Top = 232.551330000000000000
           Width = 7.559060000000000000
           Height = 22.677180000000000000
           Frame.Typ = []
@@ -717,7 +728,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 313.700990000000000000
-          Top = 124.724490000000000000
+          Top = 262.787570000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           DataField = 'PRODUTO_I'
@@ -731,7 +742,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 400.630180000000000000
-          Top = 124.724490000000000000
+          Top = 262.787570000000000000
           Width = 26.456710000000000000
           Height = 18.897650000000000000
           DataField = 'PRODUTO_E'
@@ -745,7 +756,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
           IndexTag = 1
           AllowVectorExport = True
           Left = 355.275820000000000000
-          Top = 124.724490000000000000
+          Top = 262.787570000000000000
           Width = 30.236240000000000000
           Height = 18.897650000000000000
           DataField = 'PRODUTO_A'
@@ -758,7 +769,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo38: TfrxMemoView
           AllowVectorExport = True
           Left = 302.362400000000000000
-          Top = 124.724490000000000000
+          Top = 262.787570000000000000
           Width = 7.559060000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -768,7 +779,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo39: TfrxMemoView
           AllowVectorExport = True
           Left = 302.362400000000000000
-          Top = 147.401670000000000000
+          Top = 285.464750000000000000
           Width = 7.559060000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -778,7 +789,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo40: TfrxMemoView
           AllowVectorExport = True
           Left = 343.937230000000000000
-          Top = 124.724490000000000000
+          Top = 262.787570000000000000
           Width = 7.559060000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -788,7 +799,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo41: TfrxMemoView
           AllowVectorExport = True
           Left = 343.937230000000000000
-          Top = 147.401670000000000000
+          Top = 285.464750000000000000
           Width = 7.559060000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -798,7 +809,7 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo42: TfrxMemoView
           AllowVectorExport = True
           Left = 389.291590000000000000
-          Top = 124.724490000000000000
+          Top = 262.787570000000000000
           Width = 7.559060000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
@@ -808,16 +819,251 @@ inherited FrmRelPerfil: TFrmRelPerfil
         object Memo43: TfrxMemoView
           AllowVectorExport = True
           Left = 389.291590000000000000
-          Top = 147.401670000000000000
+          Top = 285.464750000000000000
           Width = 7.559060000000000000
           Height = 18.897650000000000000
           Frame.Typ = []
           Memo.UTF8W = (
             '-')
         end
+        object Memo12: TfrxMemoView
+          AllowVectorExport = True
+          Left = 204.094620000000000000
+          Top = 90.708720000000000000
+          Width = 294.803340000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Permiss'#245'es (Ver-Incluir-Editar-Excluir)')
+          ParentFont = False
+        end
+        object frxDBDataset1DATA_ALTERACAO: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 631.181510000000000000
+          Top = 45.354360000000000000
+          Width = 71.811070000000000000
+          Height = 18.897650000000000000
+          DataField = 'DATA_ALTERACAO'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."DATA_ALTERACAO"]')
+        end
+        object Memo11: TfrxMemoView
+          AllowVectorExport = True
+          Left = 506.457020000000000000
+          Top = 45.354360000000000000
+          Width = 120.944960000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Data de Altera'#231#227'o')
+          ParentFont = False
+        end
+        object frxDBDataset1RELAVANCADOS: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 476.220780000000000000
+          Top = 45.354360000000000000
+          Width = 26.456710000000000000
+          Height = 18.897650000000000000
+          DataField = 'RELAVANCADOS'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."RELAVANCADOS"]')
+        end
+        object Memo26: TfrxMemoView
+          AllowVectorExport = True
+          Left = 230.551330000000000000
+          Top = 45.354360000000000000
+          Width = 245.669450000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Pode gerar relat'#243'rios de usu'#225'rio/perfil')
+          ParentFont = False
+        end
+        object frxDBDataset1RELATORIOS: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 204.094620000000000000
+          Top = 45.354360000000000000
+          Width = 22.677180000000000000
+          Height = 18.897650000000000000
+          DataField = 'RELATORIOS'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."RELATORIOS"]')
+        end
+        object Memo25: TfrxMemoView
+          AllowVectorExport = True
+          Left = 7.559060000000000000
+          Top = 45.354360000000000000
+          Width = 192.756030000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Pode gerar relat'#243'rios comuns')
+          ParentFont = False
+        end
+        object Memo7: TfrxMemoView
+          AllowVectorExport = True
+          Left = 11.338590000000000000
+          Top = 7.559060000000000000
+          Width = 18.897650000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'ID')
+          ParentFont = False
+        end
+        object frxDBDataset1ID: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 37.795300000000000000
+          Top = 7.559060000000000000
+          Width = 49.133890000000000000
+          Height = 18.897650000000000000
+          DataField = 'ID'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."ID"]')
+        end
+        object Memo8: TfrxMemoView
+          AllowVectorExport = True
+          Left = 90.708720000000000000
+          Top = 7.559060000000000000
+          Width = 71.811070000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Descri'#231#227'o')
+          ParentFont = False
+        end
+        object frxDBDataset1DESCRICAO: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 166.299320000000000000
+          Top = 7.559060000000000000
+          Width = 204.094620000000000000
+          Height = 18.897650000000000000
+          DataField = 'DESCRICAO'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."DESCRICAO"]')
+        end
+        object Memo9: TfrxMemoView
+          AllowVectorExport = True
+          Left = 377.953000000000000000
+          Top = 7.559060000000000000
+          Width = 41.574830000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Ativo')
+          ParentFont = False
+        end
+        object frxDBDataset1STATUS: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 423.307360000000000000
+          Top = 7.559060000000000000
+          Width = 79.370130000000000000
+          Height = 18.897650000000000000
+          DataField = 'STATUS'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."STATUS"]')
+        end
+        object Memo10: TfrxMemoView
+          AllowVectorExport = True
+          Left = 506.457020000000000000
+          Top = 7.559060000000000000
+          Width = 120.944960000000000000
+          Height = 18.897650000000000000
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Arial'
+          Font.Style = [fsBold]
+          Frame.Typ = []
+          Memo.UTF8W = (
+            'Data de Cadastro')
+          ParentFont = False
+        end
+        object frxDBDataset1DATA_CADASTRO: TfrxMemoView
+          IndexTag = 1
+          AllowVectorExport = True
+          Left = 631.181510000000000000
+          Top = 7.559060000000000000
+          Width = 71.811070000000000000
+          Height = 18.897650000000000000
+          DataField = 'DATA_CADASTRO'
+          DataSet = frxDBDataset1
+          DataSetName = 'frxDBDataset1'
+          Frame.Typ = []
+          Memo.UTF8W = (
+            '[frxDBDataset1."DATA_CADASTRO"]')
+        end
+        object Shape2: TfrxShapeView
+          AllowVectorExport = True
+          Left = 3.779530000000000000
+          Top = 1.779530000000000000
+          Width = 710.551640000000000000
+          Height = 117.165430000000000000
+          Frame.Typ = []
+          Shape = skRoundRectangle
+        end
       end
       inherited PageFooter1: TfrxPageFooter
-        Top = 566.929500000000000000
+        Top = 559.370440000000000000
       end
       inherited PageHeader1: TfrxPageHeader
         inherited Picture1: TfrxPictureView
@@ -1027,246 +1273,6 @@ inherited FrmRelPerfil: TFrmRelPerfil
           Frame.Typ = []
           Memo.UTF8W = (
             '-')
-        end
-      end
-      object GroupHeader1: TfrxGroupHeader
-        FillType = ftBrush
-        Frame.Typ = []
-        Height = 117.165430000000000000
-        Top = 188.976500000000000000
-        Width = 718.110700000000000000
-        Condition = 'frxDBDataset1."ID"'
-        object Shape2: TfrxShapeView
-          AllowVectorExport = True
-          Width = 710.551640000000000000
-          Height = 117.165430000000000000
-          Frame.Typ = []
-          Shape = skRoundRectangle
-        end
-        object Memo7: TfrxMemoView
-          AllowVectorExport = True
-          Left = 3.779530000000000000
-          Top = 3.779530000000000000
-          Width = 18.897650000000000000
-          Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'ID')
-          ParentFont = False
-        end
-        object frxDBDataset1ID: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Left = 30.236240000000000000
-          Top = 3.779530000000000000
-          Width = 49.133890000000000000
-          Height = 18.897650000000000000
-          DataField = 'ID'
-          DataSet = frxDBDataset1
-          DataSetName = 'frxDBDataset1'
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[frxDBDataset1."ID"]')
-        end
-        object frxDBDataset1DESCRICAO: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Left = 158.740260000000000000
-          Top = 3.779530000000000000
-          Width = 204.094620000000000000
-          Height = 18.897650000000000000
-          DataField = 'DESCRICAO'
-          DataSet = frxDBDataset1
-          DataSetName = 'frxDBDataset1'
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[frxDBDataset1."DESCRICAO"]')
-        end
-        object Memo8: TfrxMemoView
-          AllowVectorExport = True
-          Left = 83.149660000000000000
-          Top = 3.779530000000000000
-          Width = 71.811070000000000000
-          Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Descri'#231#227'o')
-          ParentFont = False
-        end
-        object frxDBDataset1STATUS: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Left = 415.748300000000000000
-          Top = 3.779530000000000000
-          Width = 79.370130000000000000
-          Height = 18.897650000000000000
-          DataField = 'STATUS'
-          DataSet = frxDBDataset1
-          DataSetName = 'frxDBDataset1'
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[frxDBDataset1."STATUS"]')
-        end
-        object Memo9: TfrxMemoView
-          AllowVectorExport = True
-          Left = 370.393940000000000000
-          Top = 3.779530000000000000
-          Width = 41.574830000000000000
-          Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Ativo')
-          ParentFont = False
-        end
-        object frxDBDataset1DATA_CADASTRO: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Left = 623.622450000000000000
-          Top = 3.779530000000000000
-          Width = 71.811070000000000000
-          Height = 18.897650000000000000
-          DataField = 'DATA_CADASTRO'
-          DataSet = frxDBDataset1
-          DataSetName = 'frxDBDataset1'
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[frxDBDataset1."DATA_CADASTRO"]')
-        end
-        object Memo10: TfrxMemoView
-          AllowVectorExport = True
-          Left = 498.897960000000000000
-          Top = 3.779530000000000000
-          Width = 120.944960000000000000
-          Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Data de Cadastro')
-          ParentFont = False
-        end
-        object Memo11: TfrxMemoView
-          AllowVectorExport = True
-          Left = 498.897960000000000000
-          Top = 41.574830000000000000
-          Width = 120.944960000000000000
-          Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Data de Altera'#231#227'o')
-          ParentFont = False
-        end
-        object frxDBDataset1DATA_ALTERACAO: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Left = 623.622450000000000000
-          Top = 41.574830000000000000
-          Width = 71.811070000000000000
-          Height = 18.897650000000000000
-          DataField = 'DATA_ALTERACAO'
-          DataSet = frxDBDataset1
-          DataSetName = 'frxDBDataset1'
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[frxDBDataset1."DATA_ALTERACAO"]')
-        end
-        object Memo12: TfrxMemoView
-          AllowVectorExport = True
-          Left = 196.535560000000000000
-          Top = 86.929190000000000000
-          Width = 294.803340000000000000
-          Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Permiss'#245'es (Ver-Incluir-Editar-Excluir)')
-          ParentFont = False
-        end
-        object Memo25: TfrxMemoView
-          AllowVectorExport = True
-          Top = 41.574830000000000000
-          Width = 192.756030000000000000
-          Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Pode gerar relat'#243'rios comuns')
-          ParentFont = False
-        end
-        object Memo26: TfrxMemoView
-          AllowVectorExport = True
-          Left = 222.992270000000000000
-          Top = 41.574830000000000000
-          Width = 245.669450000000000000
-          Height = 18.897650000000000000
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clBlack
-          Font.Height = -13
-          Font.Name = 'Arial'
-          Font.Style = [fsBold]
-          Frame.Typ = []
-          Memo.UTF8W = (
-            'Pode gerar relat'#243'rios de usu'#225'rio/perfil')
-          ParentFont = False
-        end
-        object frxDBDataset1RELATORIOS: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Left = 196.535560000000000000
-          Top = 41.574830000000000000
-          Width = 22.677180000000000000
-          Height = 18.897650000000000000
-          DataField = 'RELATORIOS'
-          DataSet = frxDBDataset1
-          DataSetName = 'frxDBDataset1'
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[frxDBDataset1."RELATORIOS"]')
-        end
-        object frxDBDataset1RELAVANCADOS: TfrxMemoView
-          IndexTag = 1
-          AllowVectorExport = True
-          Left = 468.661720000000000000
-          Top = 41.574830000000000000
-          Width = 26.456710000000000000
-          Height = 18.897650000000000000
-          DataField = 'RELAVANCADOS'
-          DataSet = frxDBDataset1
-          DataSetName = 'frxDBDataset1'
-          Frame.Typ = []
-          Memo.UTF8W = (
-            '[frxDBDataset1."RELAVANCADOS"]')
         end
       end
     end

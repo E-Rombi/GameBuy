@@ -48,6 +48,17 @@ type
     Categoria1: TMenuItem;
     PrecoAsc1: TMenuItem;
     DatadeAlterao1: TMenuItem;
+    Label12: TLabel;
+    Label13: TLabel;
+    Label14: TLabel;
+    DBLookupComboBox2: TDBLookupComboBox;
+    DBLookupComboBox3: TDBLookupComboBox;
+    FDQueryDev: TFDQuery;
+    FDQueryEdt: TFDQuery;
+    DSDev: TDataSource;
+    DSEdt: TDataSource;
+    FDTabelaFK_EDITORA: TIntegerField;
+    FDTabelaFK_DESENVOLVEDORA: TIntegerField;
     procedure FormActivate(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure FDTabelaNewRecord(DataSet: TDataSet);
@@ -103,7 +114,7 @@ begin
 end;
 
 procedure TFrmProduto.FDTabelaBeforePost(DataSet: TDataSet);
-begin
+begin //
   inherited;
   if (FDTabelaTITULO.AsString = '') or (VarIsNull(FDTabelaTITULO.AsVariant))
   then
@@ -112,50 +123,67 @@ begin
     raise Exception.Create('Por favor, insira o Título.');
   end
   else
-  begin
+  begin  //
     if (FDTabelaDESCRICAO.AsString = '') or
     (VarIsNull(FDTabelaDESCRICAO.AsVariant)) then
     begin
       DBMemo1.SetFocus;
       raise Exception.Create('Por favor, insira a Descrição.');
-    end;
-
-
-    if (FDTabelaPRECO.Value = 0) or (VarIsNull(FDTabelaPRECO.AsVariant)) then
-    begin
-      DBEd_Preco.SetFocus;
-      raise Exception.Create('Por favor, insira o Preço.');
     end
     else
-    begin
-      if (FDTabelaDATA_LANCAMENTO.AsString = '  /  /    ') or
-      (VarIsNull(FDTabelaDATA_LANCAMENTO.AsVariant)) then
+    begin           //
+      if (FDTabelaPRECO.Value = 0) or (VarIsNull(FDTabelaPRECO.AsVariant)) then
       begin
-        dbedit3.SetFocus;
-        raise Exception.Create('Por favor, insira a Data de Lançamento.');
+        DBEd_Preco.SetFocus;
+        raise Exception.Create('Por favor, insira o Preço.');
       end
       else
       begin
-        if (FDTabelaSTATUS.AsString = '') or
-        (VarIsNull(FDTabelaSTATUS.AsVariant)) then
+        if (FDTabelaDATA_LANCAMENTO.AsString = '  /  /    ') or
+        (VarIsNull(FDTabelaDATA_LANCAMENTO.AsVariant)) then
         begin
-          DBChk_Ativo.SetFocus;
-          raise Exception.Create('Por favor, insira o Status.');
+          dbedit3.SetFocus;
+          raise Exception.Create('Por favor, insira a Data de Lançamento.');
+        end
+        else
+        begin
+          if (FDTabelaSTATUS.AsString = '') or
+          (VarIsNull(FDTabelaSTATUS.AsVariant)) then
+          begin
+            DBChk_Ativo.SetFocus;
+            raise Exception.Create('Por favor, insira o Status.');
+          end
+          else
+          begin
+            if (DBLookupComboBox2.text = '') then
+            begin
+              DBLookupComboBox2.SetFocus;
+              raise Exception.Create('Por favor, escolha uma editora.');
+            end
+            else
+            begin
+              if DBLookupComboBox3.Text = '' then
+              begin
+                DBLookupComboBox3.SetFocus;
+                raise Exception.Create('Por favor, escolha uma editora.');
+              end
+            end
+          end;
+
         end;
 
       end;
-
     end;
+  end;
+
+
+
 
 
 
 
 
   end;
-
-
-
-end;
 
 procedure TFrmProduto.FDTabelaNewRecord(DataSet: TDataSet);
 begin
@@ -175,6 +203,14 @@ begin
   inherited;
 
   FdTabela.Open();
+
+  FDQueryDev.Close;
+  FDQueryDev.Open();
+
+
+  FDQueryEdt.Close;
+  FDQueryEdt.Open();
+
 
   FDQryCategoria.Close;
   FDQryCategoria.Open();

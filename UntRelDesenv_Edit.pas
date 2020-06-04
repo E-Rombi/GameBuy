@@ -147,18 +147,18 @@ begin
       if Cmb_Tipo.ItemIndex = 2 then
       begin
         if vWhere = '' then
-          vWhere := ' WHERE D.CHK_DESENVOLVEDORA = "S"'
+          vWhere := ' WHERE D.CHK_DESENVOLVEDORA = ''S'' '
         else
-          vWhere := vWhere +' AND D.CHK_DESENVOLVEDORA = "S"';
+          vWhere := vWhere +' AND D.CHK_DESENVOLVEDORA = ''S'' ';
       end
       else
       begin
         if Cmb_Tipo.ItemIndex = 1 then
         begin
             if vWhere = '' then
-              vWhere := 'WHERE D.CHK_EDITORA = "S"'
+              vWhere := 'WHERE D.CHK_EDITORA = ''S'' '
             else
-              vWhere := vWhere +' AND D.CHK_EDITORA = "S"';
+              vWhere := vWhere +' AND D.CHK_EDITORA = ''S'' ';
         end;
       end;
     end;
@@ -170,7 +170,7 @@ begin
      if vWhere = '' then
           vWhere := ' WHERE D.STATUS = ''S'' '
         else
-          vWhere := vWhere + ' AND D.STATUS = ''S'' '
+          vWhere := vWhere + ' AND D.STATUS = ''S'' ';
    end
 
       else

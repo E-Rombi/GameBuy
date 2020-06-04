@@ -128,8 +128,8 @@ begin
           Relatorios.Visible := True;
           if FQry_Login.FieldByName('RELAVANCADOS').AsString = 'S' then
           begin
-            PerfilRel.Visible := True;
-            UsuarioRel.Visible := True;
+            Rel_Perfil.Visible := True;
+            Rel_Usuario.Visible := True;
           end;
         end;
 

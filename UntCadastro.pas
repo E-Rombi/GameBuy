@@ -40,7 +40,6 @@ type
     Panel1: TPanel;
     PgCtrl_Endereco: TPageControl;
     TbSht_EndFaturamento: TTabSheet;
-    DBEd_Cep: TDBEdit;
     Label11: TLabel;
     Label12: TLabel;
     DBEd_Logradouro: TDBEdit;
@@ -95,6 +94,8 @@ type
     DataCadastro1: TMenuItem;
     ipoPessoa1: TMenuItem;
     DBRadioGroup1: TDBRadioGroup;
+    Label6: TLabel;
+    DBEd_Cep: TDBEdit;
     procedure FormActivate(Sender: TObject);
     procedure btn_SalvarClick(Sender: TObject);
     procedure btn_SairClick(Sender: TObject);
@@ -117,13 +118,13 @@ type
     procedure FDTable_Detalhe_1BeforePost(DataSet: TDataSet);
     procedure FDTable_Detalhe_1AfterEdit(DataSet: TDataSet);
     procedure FDTabelaBeforePost(DataSet: TDataSet);
-    procedure DBCmb_TipoPessoaChange(Sender: TObject);
     procedure btn_ImprimirClick(Sender: TObject);
     procedure Fantasia1Click(Sender: TObject);
     procedure DataCadastro1Click(Sender: TObject);
     procedure ipoPessoa1Click(Sender: TObject);
     procedure RadioGroup1Click(Sender: TObject);
     procedure FDTabelaTIPO_PESSOAChange(Sender: TField);
+    procedure DBRadioGroup1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -261,30 +262,30 @@ begin
   FDTabela.IndexFieldNames := 'DATA_ALTERACAO';
 end;
 
-procedure TFrmCadastro.DBCmb_TipoPessoaChange(Sender: TObject);
-begin
-  inherited;
-  if FDTabelaTIPO_PESSOA.AsString = 'Física' then
-  begin
-    Lbl_CnpjCpf.Caption := 'CPF';
-    Lbl_IeRg.Caption    := 'RG';
-    FDTabelaCNPJ_CPF.EditMask := '!000.000.000-00;1; ';
-  end
-  else
-    if FDTabelaTIPO_PESSOA.AsString = 'Jurídica' then
-    begin
-      Lbl_CnpjCpf.Caption := 'CNPJ';
-      Lbl_IeRg.Caption    := 'IE';
-      FDTabelaCNPJ_CPF.EditMask := '!00.000.000/0000-00;1; ';
-    end;
-end;
-
 procedure TFrmCadastro.DBEd_NumeroKeyPress(Sender: TObject; var Key: Char);
 begin
   inherited;
   if not(Key in ['0'..'9']) and (Key <> #8) then //#8 = Backspace
     Key := #0;
 end;
+
+procedure TFrmCadastro.DBRadioGroup1Click(Sender: TObject);
+begin
+  inherited;
+  if dbRadioGroup1.ItemIndex = 0 then
+  begin
+    Lbl_CnpjCpf.Caption := 'CPF';
+    Lbl_IeRg.Caption    := 'RG';
+    FDTabelaCNPJ_CPF.EditMask := '!000.000.000-00;1; ';
+  end
+  else
+  if dbRadioGroup1.ItemIndex = 1 then
+   begin
+      Lbl_CnpjCpf.Caption := 'CNPJ';
+      Lbl_IeRg.Caption    := 'IE';
+      FDTabelaCNPJ_CPF.EditMask := '!00.000.000/0000-00;1; ';
+   end;
+  end;
 
 procedure TFrmCadastro.DSDetalhe_1DataChange(Sender: TObject; Field: TField);
 begin
@@ -408,6 +409,7 @@ begin
   inherited;
   FDTabela.Open();
   Executar := habilitaBotoes;
+  FDTable_Detalhe_1CEP.EditMask := '!0000-000;0;';
 
   FDTable_Detalhe_1.Close;
   FDTable_Detalhe_1.Open();

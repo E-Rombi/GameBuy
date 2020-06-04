@@ -52,9 +52,7 @@ begin
   vWhere := '';
   FDQuery1.Close;
   FDQuery1.SQL.Clear;
-  FDQuery1.SQL.Add('SELECT U.NOME, U.LOGIN, U.DATA_CADASTRO, U.DATA_ALTERACAO' +
-  ', U.FK_PERFIL,U.FK_USUARIO,U.STATUS,U.ID ' +
-  'FROM USUARIO U' );
+  FDQuery1.SQL.Add('SELECT * FROM USUARIO U' );
 
   if not (trim(Ed_ID.Text) = '') then
     if vWhere = '' then

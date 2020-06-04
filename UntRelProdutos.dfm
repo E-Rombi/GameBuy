@@ -107,7 +107,9 @@ inherited FrmRelProduto: TFrmRelProduto
       Width = 121
       Height = 21
       Style = csDropDownList
+      ItemIndex = 0
       TabOrder = 1
+      Text = 'Sim'
       Items.Strings = (
         'Sim'
         'N'#227'o'
@@ -126,7 +128,9 @@ inherited FrmRelProduto: TFrmRelProduto
       Width = 121
       Height = 21
       Style = csDropDownList
+      ItemIndex = 0
       TabOrder = 6
+      Text = 'ID'
       Items.Strings = (
         'ID'
         'T'#237'tulo'
@@ -191,6 +195,7 @@ inherited FrmRelProduto: TFrmRelProduto
     Top = 287
   end
   inherited frxReport1: TfrxReport
+    ReportOptions.LastChange = 43986.711222627320000000
     Left = 472
     Top = 279
     Datasets = <
@@ -202,7 +207,9 @@ inherited FrmRelProduto: TFrmRelProduto
     Style = <>
     inherited Page1: TfrxReportPage
       inherited MasterData1: TfrxMasterData
-        Height = 117.165430000000000000
+        Height = 102.047310000000000000
+        DataSet = frxDBDataset1
+        DataSetName = 'frxDBDataset1'
         object Shape2: TfrxShapeView
           AllowVectorExport = True
           Left = 3.779530000000000000
@@ -300,7 +307,7 @@ inherited FrmRelProduto: TFrmRelProduto
           Font.Style = [fsBold]
           Frame.Typ = []
           Memo.UTF8W = (
-            'Descri'#231#227'o:')
+            'Descri'#231#227'o')
           ParentFont = False
         end
         object Memo10: TfrxMemoView
@@ -467,7 +474,7 @@ inherited FrmRelProduto: TFrmRelProduto
         end
       end
       inherited PageFooter1: TfrxPageFooter
-        Top = 366.614410000000000000
+        Top = 351.496290000000000000
       end
     end
   end

@@ -114,8 +114,6 @@ begin
    2: vWhere := vWhere + ' ORDER BY P.DATA_CADASTRO';
    end;
 
-   ShowMessage(vwhere);
-
    FDQuery1.SQL.Add(vWhere);
    FDQuery1.Open();
    frxReport1.ShowReport();

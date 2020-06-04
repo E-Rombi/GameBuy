@@ -74,12 +74,17 @@ begin
     raise Exception.Create('Por favor, insira um nome.');
   end;
 
+  if (DBCheckBox1.Checked = false) AND (DBCheckBox2.Checked = false) then
+    raise Exception.Create(
+    'Por favor, identifique o registro como desenvolvedora e/ou editora');
+
+
 end;
 
 procedure TFrmDesenv_Edit.FormActivate(Sender: TObject);
 begin
   FDtabela.TableName := 'DESENV_EDIT';
-   FDTabela.UpdateOptions.GeneratorName := 'DESENV_EDIT';
+   FDTabela.UpdateOptions.GeneratorName := 'GEN_DESENV_EDIT';
    FDTabela.UpdateOptions.AutoIncFields := 'ID';
 
   modoEdicao := frmMain.FQry_Login.FieldByName('USUARIO_I').AsString +

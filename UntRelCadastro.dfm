@@ -137,7 +137,9 @@ inherited FrmRelCliente: TFrmRelCliente
       Width = 121
       Height = 21
       Style = csDropDownList
+      ItemIndex = 0
       TabOrder = 1
+      Text = 'Sim'
       Items.Strings = (
         'Sim'
         'N'#227'o'
@@ -193,7 +195,9 @@ inherited FrmRelCliente: TFrmRelCliente
       Width = 121
       Height = 21
       Style = csDropDownList
+      ItemIndex = 0
       TabOrder = 7
+      Text = 'ID'
       Items.Strings = (
         'ID'
         'Fantasia'
@@ -206,6 +210,8 @@ inherited FrmRelCliente: TFrmRelCliente
   end
   inherited frxReport1: TfrxReport
     ReportOptions.LastChange = 43976.823676354160000000
+    Left = 456
+    Top = 239
     Datasets = <
       item
         DataSet = frxDBDataset1

@@ -93,6 +93,7 @@ inherited FrmCategoria: TFrmCategoria
       Top = 35
       Width = 303
       Height = 21
+      CharCase = ecUpperCase
       DataField = 'NOME'
       DataSource = DataSource
       TabOrder = 4

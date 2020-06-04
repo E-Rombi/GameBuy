@@ -13,7 +13,7 @@ uses
   Vcl.PlatformDefaultStyleActnCtrls, System.Actions, Vcl.ActnList, Vcl.ComCtrls,
   Vcl.Menus, Generics.Collections, System.ImageList, Vcl.ImgList,
   VclTee.TeeGDIPlus, VCLTee.TeEngine, VCLTee.TeeProcs, VCLTee.Chart,
-  VCLTee.DBChart, VCLTee.Series, Vcl.StdCtrls, Vcl.Buttons;
+  VCLTee.DBChart, VCLTee.Series, Vcl.StdCtrls, Vcl.Buttons, UntRelPerfil;
 
 type
   TFrmMain = class(TForm)
@@ -57,8 +57,8 @@ type
     Rel_Categoria: TMenuItem;
     Rel_Desenv_Edit: TMenuItem;
     ImageList2: TImageList;
-    PerfilRel: TMenuItem;
-    UsuarioRel: TMenuItem;
+    Rel_Perfil: TMenuItem;
+    Rel_Usuario: TMenuItem;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: Boolean);
     procedure Timer1Timer(Sender: TObject);
@@ -86,7 +86,8 @@ implementation
 
 uses UntPerfil, UntCadastro, UntDM, UntLogin, UntProduto, UntDesenv_Edit,
   UntCategoria, UntUsuario, UntVenda, UntRelCadastro, UntRelVenda,
-  UntRelDesenv_Edit, UntRelCategoria, UntCreditos, UntRelProdutos;
+  UntRelDesenv_Edit, UntRelCategoria, UntCreditos, UntRelProdutos,
+  UntRelUsuario;
 
 procedure TFrmMain.ApplicationEvents1Hint(Sender: TObject);
 begin
@@ -195,11 +196,10 @@ var
     if Form = 'FrmRelVenda'       then  vForm := TFrmRelVenda.Create(vTab);
     if Form = 'FrmRelCategoria'   then  vForm := TFrmRelCategoria.Create(vTab);
     if Form = 'FrmCreditos'       then  vForm := TFrmCreditos.Create(vTab);
-    if Form = 'FrmRelDesenv_Edit' then  vForm :=
-                                                TFrmRelDesenv_Edit.Create(vTab);
-    if Form = 'FrmRelProduto' then  vForm := TFrmRelProduto.Create(vTab);
-
-
+    if Form = 'FrmRelDesenv_Edit' then  vForm := TFrmRelDesenv_Edit.Create(vTab);
+    if Form = 'FrmRelProduto'     then  vForm := TFrmRelProduto.Create(vTab);
+    if Form = 'FrmRelUsuario'     then  vForm := TFrmRelUsuario.Create(vTab);
+    if Form = 'FrmRelPerfil'      then  vForm := TFrmRelPerfil.Create(vTab);
 
     vForms.Add(Menu, Form);
     vForm.Align := alClient;
@@ -261,6 +261,14 @@ begin
   if Sender = Rel_Produto then
     if not(vForms.ContainsKey(TWinControl(Sender).Name)) then
       CriarTab(TWinControl(Sender).Name, 'FrmRelProduto');
+
+  if Sender = Rel_Perfil then
+    if not(vForms.ContainsKey(TWinControl(Sender).Name)) then
+      CriarTab(TWinControl(Sender).Name, 'FrmRelPerfil');
+
+  if Sender = Rel_Usuario then
+    if not(vForms.ContainsKey(TWinControl(Sender).Name)) then
+      CriarTab(TWinControl(Sender).Name, 'FrmRelUsuario');
 
     if Sender = atribuicoes then
     if not(vForms.ContainsKey(TWinControl(Sender).Name)) then

@@ -1,9 +1,9 @@
 inherited FrmProduto: TFrmProduto
   Caption = 'Cadastro de Produto'
-  ClientHeight = 508
+  ClientHeight = 536
   ClientWidth = 945
   ExplicitWidth = 961
-  ExplicitHeight = 547
+  ExplicitHeight = 575
   PixelsPerInch = 96
   TextHeight = 13
   inherited ToolBarPadrao: TToolBar
@@ -11,9 +11,9 @@ inherited FrmProduto: TFrmProduto
     ExplicitWidth = 945
   end
   inherited StatusBar1: TStatusBar
-    Top = 489
+    Top = 517
     Width = 945
-    ExplicitTop = 489
+    ExplicitTop = 517
     ExplicitWidth = 945
   end
   inherited PanelEntrada: TPanel
@@ -22,9 +22,9 @@ inherited FrmProduto: TFrmProduto
   end
   inherited PnlFicha: TPanel
     Width = 945
-    Height = 399
+    Height = 427
     ExplicitWidth = 945
-    ExplicitHeight = 399
+    ExplicitHeight = 427
     object Label2: TLabel [0]
       Left = 21
       Top = 40
@@ -74,7 +74,28 @@ inherited FrmProduto: TFrmProduto
       Height = 13
       Caption = 'ID'
     end
-    object DBEdit1: TDBEdit [7]
+    object Label12: TLabel [7]
+      Left = 60
+      Top = 238
+      Width = 13
+      Height = 13
+      Caption = 'R$'
+    end
+    object Label13: TLabel [8]
+      Left = 21
+      Top = 345
+      Width = 78
+      Height = 13
+      Caption = 'Desenvolvedora'
+    end
+    object Label14: TLabel [9]
+      Left = 21
+      Top = 309
+      Width = 34
+      Height = 13
+      Caption = 'Editora'
+    end
+    object DBEdit1: TDBEdit [10]
       Left = 75
       Top = 37
       Width = 511
@@ -83,7 +104,7 @@ inherited FrmProduto: TFrmProduto
       DataSource = DataSource
       TabOrder = 2
     end
-    object DBEd_Preco: TDBEdit [8]
+    object DBEd_Preco: TDBEdit [11]
       Left = 75
       Top = 235
       Width = 90
@@ -92,7 +113,7 @@ inherited FrmProduto: TFrmProduto
       DataSource = DataSource
       TabOrder = 5
     end
-    object DBLookupComboBox1: TDBLookupComboBox [9]
+    object DBLookupComboBox1: TDBLookupComboBox [12]
       Left = 75
       Top = 209
       Width = 511
@@ -100,11 +121,11 @@ inherited FrmProduto: TFrmProduto
       DataField = 'FK_CATEGORIA'
       DataSource = DataSource
       KeyField = 'ID'
-      ListField = 'NOME'
+      ListField = 'DESCRICAO'
       ListSource = DSCategoria
       TabOrder = 4
     end
-    object DBImage1: TDBImage [10]
+    object DBImage1: TDBImage [13]
       Left = 620
       Top = 13
       Width = 349
@@ -114,7 +135,7 @@ inherited FrmProduto: TFrmProduto
       Stretch = True
       TabOrder = 8
     end
-    object Button1: TButton [11]
+    object Button1: TButton [14]
       Left = 486
       Top = 233
       Width = 100
@@ -123,7 +144,7 @@ inherited FrmProduto: TFrmProduto
       TabOrder = 7
       OnClick = Button1Click
     end
-    object DBMemo1: TDBMemo [12]
+    object DBMemo1: TDBMemo [15]
       Left = 75
       Top = 64
       Width = 511
@@ -132,7 +153,7 @@ inherited FrmProduto: TFrmProduto
       DataSource = DataSource
       TabOrder = 3
     end
-    object DBEdit3: TDBEdit [13]
+    object DBEdit3: TDBEdit [16]
       Left = 263
       Top = 235
       Width = 71
@@ -170,6 +191,30 @@ inherited FrmProduto: TFrmProduto
       ValueChecked = 'S'
       ValueUnchecked = 'N'
     end
+    object DBLookupComboBox2: TDBLookupComboBox
+      Left = 105
+      Top = 306
+      Width = 481
+      Height = 21
+      DataField = 'FK_EDITORA'
+      DataSource = DataSource
+      KeyField = 'ID'
+      ListField = 'NOME'
+      ListSource = DSEdt
+      TabOrder = 10
+    end
+    object DBLookupComboBox3: TDBLookupComboBox
+      Left = 105
+      Top = 342
+      Width = 481
+      Height = 21
+      DataField = 'FK_DESENVOLVEDORA'
+      DataSource = DataSource
+      KeyField = 'ID'
+      ListField = 'NOME'
+      ListSource = DSDev
+      TabOrder = 11
+    end
   end
   inherited FDTabela: TFDTable
     OnNewRecord = FDTabelaNewRecord
@@ -179,8 +224,8 @@ inherited FrmProduto: TFrmProduto
     UpdateOptions.UpdateTableName = 'PRODUTO'
     UpdateOptions.AutoIncFields = 'ID'
     TableName = 'PRODUTO'
-    Left = 360
-    Top = 424
+    Left = 352
+    Top = 472
     object FDTabelaID: TIntegerField
       FieldName = 'ID'
       Origin = 'ID'
@@ -238,37 +283,49 @@ inherited FrmProduto: TFrmProduto
       Origin = 'FOTO'
       BlobType = ftMemo
     end
+    object FDTabelaFK_EDITORA: TIntegerField
+      FieldName = 'FK_EDITORA'
+      Origin = 'FK_EDITORA'
+    end
+    object FDTabelaFK_DESENVOLVEDORA: TIntegerField
+      FieldName = 'FK_DESENVOLVEDORA'
+      Origin = 'FK_DESENVOLVEDORA'
+    end
   end
   inherited DataSource: TDataSource
-    Left = 288
-    Top = 408
+    Left = 296
+    Top = 464
+  end
+  inherited FQuery: TFDQuery
+    Left = 320
+    Top = 216
   end
   inherited ImageList1: TImageList
-    Left = 176
-    Top = 352
+    Left = 304
+    Top = 88
   end
   object FDQryCategoria: TFDQuery [9]
     Connection = DM.FDConnection1
     SQL.Strings = (
-      'select ID, DESCRICAO, NOME'
+      'select ID, DESCRICAO'
       'from CATEGORIA'
       'where status = '#39'S'#39
       'order by DESCRICAO')
-    Left = 48
-    Top = 431
+    Left = 24
+    Top = 263
   end
   object DSCategoria: TDataSource [10]
     DataSet = FDQryCategoria
-    Left = 120
-    Top = 423
+    Left = 56
+    Top = 263
   end
   inherited ImageList2: TImageList
-    Left = 208
-    Top = 416
+    Left = 352
+    Top = 80
   end
   inherited ImageList3: TImageList
-    Left = 248
-    Top = 340
+    Left = 400
+    Top = 84
   end
   inherited PopupMenu1: TPopupMenu
     object tulo1: TMenuItem
@@ -300,5 +357,35 @@ inherited FrmProduto: TFrmProduto
     OptionsEx = [ofExNoPlacesBar]
     Left = 472
     Top = 351
+  end
+  object FDQueryDev: TFDQuery
+    Connection = DM.FDConnection1
+    SQL.Strings = (
+      'SELECT ID,NOME'
+      'FROM DESENV_EDIT'
+      'WHERE CHK_DESENVOLVEDORA = '#39'S'#39
+      'ORDER BY NOME')
+    Left = 528
+    Top = 418
+  end
+  object FDQueryEdt: TFDQuery
+    Connection = DM.FDConnection1
+    SQL.Strings = (
+      'SELECT ID,NOME'
+      'FROM DESENV_EDIT'
+      'WHERE CHK_EDITORA = '#39'S'#39
+      'ORDER BY NOME')
+    Left = 536
+    Top = 386
+  end
+  object DSDev: TDataSource
+    DataSet = FDQueryDev
+    Left = 568
+    Top = 426
+  end
+  object DSEdt: TDataSource
+    DataSet = FDQueryEdt
+    Left = 576
+    Top = 378
   end
 end

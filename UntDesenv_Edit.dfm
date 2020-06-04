@@ -58,6 +58,7 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
       Top = 38
       Width = 381
       Height = 21
+      CharCase = ecUpperCase
       DataField = 'NOME'
       DataSource = DataSource
       TabOrder = 2
@@ -91,6 +92,8 @@ inherited FrmDesenv_Edit: TFrmDesenv_Edit
       Top = 8
       Width = 83
       Height = 21
+      DataField = 'ID'
+      DataSource = DataSource
       TabOrder = 0
     end
     object DBCheckBox21: TDBCheckBox

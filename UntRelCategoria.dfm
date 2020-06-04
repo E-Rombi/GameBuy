@@ -42,7 +42,7 @@ inherited FrmRelCategoria: TFrmRelCategoria
       Caption = 'Nome'
     end
     object Label3: TLabel [3]
-      Left = 463
+      Left = 479
       Top = 49
       Width = 55
       Height = 13
@@ -97,7 +97,9 @@ inherited FrmRelCategoria: TFrmRelCategoria
       Width = 121
       Height = 21
       Style = csDropDownList
+      ItemIndex = 0
       TabOrder = 1
+      Text = 'Sim'
       Items.Strings = (
         'Sim'
         'N'#227'o'
@@ -108,6 +110,7 @@ inherited FrmRelCategoria: TFrmRelCategoria
       Top = 46
       Width = 384
       Height = 21
+      CharCase = ecUpperCase
       TabOrder = 2
     end
     object Cmb_Ordem: TComboBox
@@ -116,7 +119,9 @@ inherited FrmRelCategoria: TFrmRelCategoria
       Width = 121
       Height = 21
       Style = csDropDownList
+      ItemIndex = 0
       TabOrder = 3
+      Text = 'ID'
       Items.Strings = (
         'ID'
         'Nome'
@@ -129,8 +134,7 @@ inherited FrmRelCategoria: TFrmRelCategoria
     Top = 149
     Width = 384
     Height = 36
-    Lines.Strings = (
-      'M_Descricao')
+    CharCase = ecUpperCase
     TabOrder = 3
   end
   inherited FDQuery1: TFDQuery
@@ -138,6 +142,7 @@ inherited FrmRelCategoria: TFrmRelCategoria
       'SELECT * FROM CATEGORIA C')
   end
   inherited frxReport1: TfrxReport
+    ReportOptions.LastChange = 43986.699772222220000000
     Datasets = <
       item
         DataSet = frxDBDataset1
@@ -147,13 +152,13 @@ inherited FrmRelCategoria: TFrmRelCategoria
     Style = <>
     inherited Page1: TfrxReportPage
       inherited MasterData1: TfrxMasterData
-        Height = 86.929190000000000000
+        Height = 11.338590000000000000
         Top = 302.362400000000000000
         DataSet = frxDBDataset1
         DataSetName = 'frxDBDataset1'
       end
       inherited PageFooter1: TfrxPageFooter
-        Top = 449.764070000000000000
+        Top = 374.173470000000000000
       end
       object GroupHeader1: TfrxGroupHeader
         FillType = ftBrush
@@ -356,8 +361,8 @@ inherited FrmRelCategoria: TFrmRelCategoria
     end
   end
   inherited ImageList1: TImageList
-    Left = 448
-    Top = 87
+    Left = 432
+    Top = 215
   end
   inherited ImageList2: TImageList
     Left = 560

@@ -59,7 +59,7 @@ object FrmMain: TFrmMain
     object TbSht_Main: TTabSheet
       object Grafico_Vendas: TDBChart
         Left = -2
-        Top = -43
+        Top = 3
         Width = 686
         Height = 349
         Title.Text.Strings = (
@@ -82,8 +82,8 @@ object FrmMain: TFrmMain
         end
       end
       object Button1: TButton
-        Left = 3
-        Top = 312
+        Left = -3
+        Top = 352
         Width = 687
         Height = 38
         Caption = 'Atualizar'
@@ -98,12 +98,12 @@ object FrmMain: TFrmMain
         OnClick = Button1Click
       end
       object Grafico_Vendas_Item: TDBChart
-        Left = 690
-        Top = -35
+        Left = 682
+        Top = 3
         Width = 686
         Height = 349
         Title.Text.Strings = (
-          'Total de Vendas dos Ultimos Dias')
+          'Total De Vendas Por produtos dos Ultimos Dias')
         Color = clWindow
         TabOrder = 2
         Visible = False
@@ -122,8 +122,8 @@ object FrmMain: TFrmMain
         end
       end
       object Button2: TButton
-        Left = 686
-        Top = 312
+        Left = 682
+        Top = 352
         Width = 686
         Height = 38
         Caption = 'Atualizar'
@@ -163,8 +163,8 @@ object FrmMain: TFrmMain
     Top = 216
   end
   object MainMenu1: TMainMenu
-    Left = 392
-    Top = 64
+    Left = 360
+    Top = 120
     object Cadastros1: TMenuItem
       Caption = 'Cadastros'
       SubMenuImages = ImageList1
@@ -248,13 +248,13 @@ object FrmMain: TFrmMain
           OnClick = ShowForm
         end
       end
-      object PerfilRel: TMenuItem
+      object Rel_Perfil: TMenuItem
         Caption = 'Perfil'
         ImageIndex = 5
         Visible = False
         OnClick = ShowForm
       end
-      object UsuarioRel: TMenuItem
+      object Rel_Usuario: TMenuItem
         Caption = 'Usu'#225'rio'
         ImageIndex = 4
         Visible = False
